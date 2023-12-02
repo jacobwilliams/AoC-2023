@@ -30,10 +30,16 @@ module aoc_utilities
     end interface int
     public :: int
 
-     interface unique
+    interface unique
         procedure :: unique32, unique64
     end interface unique
     public :: unique
+
+    interface startswith
+        !! test if a string starts with a specified substring
+        procedure :: startswith_cc, startswith_ss, startswith_sc, startswith_cs
+    end interface startswith
+    public :: startswith
 
     public :: swap
 
@@ -645,6 +651,28 @@ function parse_ints(line) result(ints)
     if (istart/=0) ints = [ints, int(line(istart:n))] ! get last int
 
 end function parse_ints
+!*****************************************************************************************
+
+!*****************************************************************************************
+! starts with function for strings
+    pure logical function startswith_cc(str, substring)
+        character(len=*),intent(in) :: str, substring
+        startswith_cc = index(str, substring) == 0
+    end function startswith_cc
+    pure logical function startswith_ss(str, substring)
+        type(string),intent(in) :: str, substring
+        startswith_ss = startswith(str%str, substring%str)
+    end function startswith_ss
+    pure logical function startswith_sc(str, substring)
+        type(string),intent(in) :: str
+        character(len=*),intent(in) :: substring
+        startswith_sc = startswith(str%str, substring)
+    end function startswith_sc
+    pure logical function startswith_cs(str, substring)
+        character(len=*),intent(in) :: str
+        type(string),intent(in) :: substring
+        startswith_cs = startswith(str, substring%str)
+    end function startswith_cs
 !*****************************************************************************************
 
 end module aoc_utilities

@@ -27,6 +27,7 @@ open(newunit=iunit, file='inputs/day1.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
 do i = 1, n_lines
 
+    ! remove all the chars before the first and after the last number
     line = read_line(iunit,status_ok)
     n = len(line)
     do j = 1, n
@@ -41,7 +42,7 @@ do i = 1, n_lines
 
     line = trim(adjustl(line))
     n = len(line)
-    isum  = isum + 10* int(line(1:1)) + int(line(n:n))
+    isum  = isum + 10*int(line(1:1)) + int(line(n:n))
 
 end do
 write(*,*) '1a: sum:', isum
@@ -57,6 +58,7 @@ do i = 1, n_lines
     line = read_line(iunit,status_ok)
     n = len(line)
 
+    ! keep track of the index of the first and last number (digit or string)
     ifirst = huge(1)
     idxfirst = huge(1)
     do j = 1, size(ichars)
