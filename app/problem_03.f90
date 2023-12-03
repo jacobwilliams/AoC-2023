@@ -6,16 +6,15 @@ use aoc_utilities
 implicit none
 
 character(len=:),allocatable :: line
-integer :: iunit, n_lines, i, j, k, n, n_cols, jstart, jend, icount
-type(string),dimension(:),allocatable :: vals
+integer :: iunit, n_lines, i, j, k, n_cols, jstart, jend, icount
 logical :: adjacent
 integer(int64) :: isum, gear_ratio
-
 character(len=1),dimension(:,:),allocatable :: array
-integer,dimension(2) :: ivals
+integer(int64),dimension(2) :: ivals
 
 character(len=*),parameter :: digits = '0123456789'
 
+! read file:
 open(newunit=iunit, file='inputs/day3.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
 line = read_line(iunit); n_cols = len(line)
@@ -40,16 +39,15 @@ do i = 1, n_lines
         if (is_not_number(array(i,j))) cycle
         if (j<=jend) cycle   ! skip the cols that we already have
         jend = 0
-        adjacent = .false.
-        if (is_symbol(array(i-1,j)  )) adjacent = .true.
-        if (is_symbol(array(i-1,j-1))) adjacent = .true.
-        if (is_symbol(array(i-1,j+1))) adjacent = .true.
-        if (is_symbol(array(i,j-1)  )) adjacent = .true.
-        if (is_symbol(array(i,j+1)  )) adjacent = .true.
-        if (is_symbol(array(i+1,j)  )) adjacent = .true.
-        if (is_symbol(array(i+1,j-1))) adjacent = .true.
-        if (is_symbol(array(i+1,j+1))) adjacent = .true.
-        if (adjacent) isum = isum + get_number(i,j)
+        adjacent =  is_symbol(array(i-1,j)  ) .or. &
+                    is_symbol(array(i-1,j-1)) .or. &
+                    is_symbol(array(i-1,j+1)) .or. &
+                    is_symbol(array(i,j-1)  ) .or. &
+                    is_symbol(array(i,j+1)  ) .or. &
+                    is_symbol(array(i+1,j)  ) .or. &
+                    is_symbol(array(i+1,j-1)) .or. &
+                    is_symbol(array(i+1,j+1))
+        if (adjacent) isum = isum + get_number(i,j) ! note: this sets jend
     end do
 end do
 write(*,*) '3a: sum :', isum
@@ -115,20 +113,20 @@ write(*,*) '3b: result :', isum
 
 contains
 
-    logical function is_symbol(c)
-    character(len=1),intent(in) :: c
-    is_symbol = scan(c,digits)==0 .and. c /= '.'
-    end function is_symbol
-
-    logical function is_not_number(c)
-    character(len=1),intent(in) :: c
-    is_not_number = scan(c,digits)==0
-    end function is_not_number
-
     logical function is_number(c)
     character(len=1),intent(in) :: c
     is_number = scan(c,digits)==1
     end function is_number
+
+    logical function is_not_number(c)
+    character(len=1),intent(in) :: c
+    is_not_number = .not. is_number(c)
+    end function is_not_number
+
+    logical function is_symbol(c)
+    character(len=1),intent(in) :: c
+    is_symbol = is_not_number(c) .and. c /= '.'
+    end function is_symbol
 
     integer(int64) function get_number(i,j)
         integer,intent(in) :: i,j
