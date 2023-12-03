@@ -130,7 +130,6 @@ contains
 
     integer(int64) function get_number(i,j)
         integer,intent(in) :: i,j
-        character(len=:),allocatable :: str
         jstart = j
         jend = j
         do
@@ -141,11 +140,7 @@ contains
             if (array(i,jend+1)=='.' .or. is_symbol(array(i,jend+1))) exit
             jend = jend + 1
         end do
-        str = ''
-        do k = jstart, jend
-            str = str//array(i,k)
-        end do
-        get_number = int(str)
+        get_number = int(array(i, jstart:jend))
     end function get_number
 
 end program problem_3

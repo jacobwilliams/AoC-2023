@@ -26,7 +26,7 @@ module aoc_utilities
     public :: split
 
     interface int
-        procedure :: string_to_int, char_to_int
+        procedure :: string_to_int, char_to_int, char_array_to_int
     end interface int
     public :: int
 
@@ -46,20 +46,33 @@ module aoc_utilities
 contains
 
 !****************************************************************
-    pure elemental function string_to_int(me) result(i)
+    pure function string_to_int(me) result(i)
     !! basic string to integer routine
     implicit none
     class(string),intent(in) :: me
     integer :: i
     read(me%str,*) i
     end function string_to_int
-    pure elemental function char_to_int(str) result(i)
+    pure function char_to_int(str) result(i)
     !! basic string to integer routine
     implicit none
     character(len=*),intent(in) :: str
     integer :: i
     read(str,*) i
     end function char_to_int
+    pure function char_array_to_int(str_array) result(i)
+    !! character array to integer routine
+    implicit none
+    character(len=1),dimension(:),intent(in) :: str_array !! example ['1','3'] --> 13
+    integer :: i
+    character(len=:),allocatable :: str
+    integer :: k
+    str = ''
+    do k = 1, size(str_array)
+        str = str//str_array(k)
+    end do
+    i = char_to_int(str)
+    end function char_array_to_int
 
 !****************************************************************
     function read_file_to_integer_array(filename) result(iarray)
