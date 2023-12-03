@@ -49,8 +49,8 @@ main: do id = 1, n_lines
     if (game_possible) ipossible = ipossible + id
 
 end do main
-write(*,*) '1a: result   :', ipossible
-write(*,*) '1b: power sum:', power
+write(*,*) '2a: result   :', ipossible
+write(*,*) '2b: power sum:', power
 close(iunit)
 
 end program problem_2
