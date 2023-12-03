@@ -5,27 +5,17 @@ use aoc_utilities
 
 implicit none
 
-character(len=:),allocatable :: line
-integer :: iunit, n_lines, i, j, n_cols, jstart, jend
+integer :: n_lines, i, j, n_cols, jstart, jend
 logical :: adjacent, tmp
 integer(int64) :: isum
 character(len=1),dimension(:,:),allocatable :: array
 integer(int64),dimension(:),allocatable :: ivals
 
 ! read file:
-open(newunit=iunit, file='inputs/day3.txt', status='OLD')
-n_lines = number_of_lines_in_file(iunit)
-line = read_line(iunit); n_cols = len(line)
-rewind(iunit)
-allocate(array(0:n_lines+1, 0:n_cols+1))
-array = '.'  ! pad around with blanks to simplify logic below
-do i = 1, n_lines
-    line = read_line(iunit)
-    do j = 1, n_cols
-        array(i,j) = line(j:j)
-    end do
-end do
-close(iunit)
+! pad around with blanks to simplify logic below
+array = read_file_to_char_array('inputs/day3.txt', border = '.')
+n_lines = size(array,1)
+n_cols  = size(array,2)
 
 !----------------- part 1 -----------------
 

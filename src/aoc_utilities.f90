@@ -15,7 +15,9 @@ module aoc_utilities
         procedure,public :: to_int => string_to_int
     end type string
 
-    public :: read_file_to_integer_array, read_file_to_integer64_array
+    public :: read_file_to_integer_array, &
+              read_file_to_integer64_array, &
+              read_file_to_char_array
     public :: number_of_lines_in_file
     public :: sort_ascending,sort_ascending_64
     public :: read_line
@@ -76,6 +78,37 @@ contains
     end do
     i = char_to_int(str)
     end function char_array_to_int
+
+    function read_file_to_char_array(filename, border) result(array)
+        !! read a file into a 2d character array.
+        character(len=*),intent(in) :: filename
+        character(len=1),intent(in),optional :: border !! if true, extra border is added with this char
+        character(len=1),dimension(:,:),allocatable :: array
+
+        integer :: i, j, iunit, n_lines, n_cols
+        character(len=:),allocatable :: line
+
+        open(newunit=iunit, file=filename, status='OLD')
+        n_lines = number_of_lines_in_file(iunit)
+        line = read_line(iunit); n_cols = len(line)
+        rewind(iunit)
+
+        if (present(border)) then
+            allocate(array(0:n_lines+1, 0:n_cols+1)) ! padding with border
+            array = border
+        else
+            allocate(array(n_lines, n_cols))
+        end if
+
+        do i = 1, n_lines
+            line = read_line(iunit)
+            do j = 1, n_cols
+                array(i,j) = line(j:j)
+            end do
+        end do
+        close(iunit)
+
+    end function read_file_to_char_array
 
 !****************************************************************
     function read_file_to_integer_array(filename) result(iarray)
@@ -700,5 +733,7 @@ end function parse_ints
     character(len=1),intent(in) :: c
     is_not_number = .not. is_number(c)
     end function is_not_number
+
+
 
 end module aoc_utilities
