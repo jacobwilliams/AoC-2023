@@ -6,13 +6,11 @@ use aoc_utilities
 implicit none
 
 character(len=:),allocatable :: line
-integer :: iunit, n_lines, i, j, k, n_cols, jstart, jend, icount
-logical :: adjacent
+integer :: iunit, n_lines, i, j, k, n_cols, jstart, jend
+logical :: adjacent, tmp
 integer(int64) :: isum, gear_ratio
 character(len=1),dimension(:,:),allocatable :: array
-integer(int64),dimension(2) :: ivals
-
-character(len=*),parameter :: digits = '0123456789'
+integer(int64),dimension(:),allocatable :: ivals
 
 ! read file:
 open(newunit=iunit, file='inputs/day3.txt', status='OLD')
@@ -60,51 +58,22 @@ do i = 1, n_lines
     do j = 1, n_cols
         if (array(i,j) == '*') then
             ! look for 2 adjacent numbers.
-            icount = 0
+            if (allocated(ivals)) deallocate(ivals); allocate(ivals(0))
             ! above
-            if (is_number(array(i-1,j))) then
-                ! only one on top:
-                icount = icount + 1; if (icount>2) cycle
-                ivals(icount) = get_number(i-1,j)
-            else
-                if (is_number(array(i-1,j-1))) then
-                    icount = icount + 1; if (icount>2) cycle
-                    ivals(icount) = get_number(i-1,j-1)
-                end if
-                if (is_number(array(i-1,j+1))) then
-                    icount = icount + 1; if (icount>2) cycle
-                    ivals(icount) = get_number(i-1,j+1)
-                end if
+            tmp = check(i-1,j) ! if only one on top
+            if (.not. tmp) then
+                tmp = check(i-1,j-1)
+                tmp = check(i-1,j+1)
             end if
-            ! left and right
-            if (is_number(array(i,j-1))) then
-                icount = icount + 1; if (icount>2) cycle
-                ivals(icount) = get_number(i,j-1)
-            end if
-            if (is_number(array(i,j+1))) then
-                icount = icount + 1; if (icount>2) cycle
-                ivals(icount) = get_number(i,j+1)
-            end if
+            tmp = check(i,j-1)    ! left and right
+            tmp = check(i,j+1)
             ! below
-            if (is_number(array(i+1,j))) then
-                ! only one below
-                icount = icount + 1; if (icount>2) cycle
-                ivals(icount) = get_number(i+1,j)
-            else
-                if (is_number(array(i+1,j-1))) then
-                    icount = icount + 1; if (icount>2) cycle
-                    ivals(icount) = get_number(i+1,j-1)
-                end if
-                if (is_number(array(i+1,j+1))) then
-                    icount = icount + 1; if (icount>2) cycle
-                    ivals(icount) = get_number(i+1,j+1)
-                end if
+            tmp = check(i+1,j) ! if only one below
+            if (.not. tmp) then
+                tmp = check(i+1,j-1)
+                tmp = check(i+1,j+1)
             end if
-            if (icount == 2) then
-                gear_ratio = product(ivals)
-                isum = isum + gear_ratio
-            end if
-
+            if (size(ivals) == 2) isum = isum + product(ivals) ! sum gear ratio
         end if
     end do
 
@@ -113,22 +82,20 @@ write(*,*) '3b: result :', isum
 
 contains
 
-    logical function is_number(c)
-    character(len=1),intent(in) :: c
-    is_number = scan(c,digits)==1
-    end function is_number
-
-    logical function is_not_number(c)
-    character(len=1),intent(in) :: c
-    is_not_number = .not. is_number(c)
-    end function is_not_number
+    logical function check(i,j)
+        !! if the char is part of a number, then get it and append to ivals
+        integer,intent(in) :: i,j
+        check = is_number(array(i,j))
+        if (check) ivals = [ivals, get_number(i,j)]
+    end function check
 
     logical function is_symbol(c)
-    character(len=1),intent(in) :: c
-    is_symbol = is_not_number(c) .and. c /= '.'
+        character(len=1),intent(in) :: c
+        is_symbol = is_not_number(c) .and. c /= '.'
     end function is_symbol
 
     integer(int64) function get_number(i,j)
+        !! get the full number contining the character at i,j
         integer,intent(in) :: i,j
         jstart = j
         jend = j

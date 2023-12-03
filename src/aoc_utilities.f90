@@ -7,6 +7,7 @@ module aoc_utilities
     private
 
     integer,parameter :: chunk_size = 100 !! for dynamic allocations
+    character(len=*),parameter :: digits = '0123456789'
 
     type,public :: string
         character(len=:),allocatable :: str
@@ -42,6 +43,8 @@ module aoc_utilities
     public :: startswith
 
     public :: swap
+
+    public :: is_number, is_not_number
 
 contains
 
@@ -687,5 +690,15 @@ end function parse_ints
         startswith_cs = startswith(str, substring%str)
     end function startswith_cs
 !*****************************************************************************************
+
+    logical function is_number(c)
+    character(len=1),intent(in) :: c
+    is_number = c >= '0' .and. c <= '9'
+    end function is_number
+
+    logical function is_not_number(c)
+    character(len=1),intent(in) :: c
+    is_not_number = .not. is_number(c)
+    end function is_not_number
 
 end module aoc_utilities
