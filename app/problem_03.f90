@@ -6,9 +6,9 @@ use aoc_utilities
 implicit none
 
 character(len=:),allocatable :: line
-integer :: iunit, n_lines, i, j, k, n_cols, jstart, jend
+integer :: iunit, n_lines, i, j, n_cols, jstart, jend
 logical :: adjacent, tmp
-integer(int64) :: isum, gear_ratio
+integer(int64) :: isum
 character(len=1),dimension(:,:),allocatable :: array
 integer(int64),dimension(:),allocatable :: ivals
 
