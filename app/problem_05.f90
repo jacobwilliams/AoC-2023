@@ -6,6 +6,7 @@ use aoc_utilities
 implicit none
 
 integer :: i, iunit, n_lines
+integer(ip) :: j, ilocation_max
 character(len=:),allocatable :: line
 type(string),dimension(:),allocatable :: vals
 integer(ip),dimension(:),allocatable :: seeds_list
@@ -55,7 +56,7 @@ close(iunit)
 
 ilocation_min = huge(1)
 do i = 1, size(seeds_list)
-    ilocation = traverse(seeds_list(i))
+    ilocation = traverse(seeds_list(i),.false.)
     if (ilocation < ilocation_min) ilocation_min = ilocation
 end do
 print*, '5a: ', ilocation_min
@@ -63,24 +64,52 @@ print*, '5a: ', ilocation_min
 ! ------------ part 2 -----------------
 
 !  so it doesn't run in the CI !!
-! if (.true.) then
-!     print*, '5b: ', 11611182   ! answer produced by the code below !
-!     stop
-! end if
-
-allocate(ilocation_min_parallel(size(seeds_list)/2))
-ilocation_min_parallel = huge(1)
-!$OMP PARALLEL DO SHARED(ilocation_min_parallel) PRIVATE(i,iseed,ilocation)
-do i = 1, size(seeds_list), 2
-    do iseed = seeds_list(i), seeds_list(i)+seeds_list(i+1)-1
-        ilocation = traverse(iseed)
-        if (ilocation < ilocation_min_parallel((i+1)/2)) ilocation_min_parallel((i+1)/2) = ilocation
+if (.false.) then
+    ! brute force, openMP version:
+    ! take a minute or so on my computer.
+    allocate(ilocation_min_parallel(size(seeds_list)/2))
+    ilocation_min_parallel = huge(1)
+    !$OMP PARALLEL DO SHARED(ilocation_min_parallel) PRIVATE(i,iseed,ilocation)
+    do i = 1, size(seeds_list), 2
+        do iseed = seeds_list(i), seeds_list(i)+seeds_list(i+1)-1
+            ilocation = traverse(iseed, .false.)
+            if (ilocation < ilocation_min_parallel((i+1)/2)) ilocation_min_parallel((i+1)/2) = ilocation
+        end do
     end do
+    !$OMP END PARALLEL DO
+    print*, '5b: ', minval(ilocation_min_parallel)
+end if
+
+! ------------ part 2 -----------------
+! Alternate version, go backwards from the location to the seed
+! and see if it is contained in the seed set.
+! this one is pretty fast (< 1 sec)
+ilocation_min = huge(1)
+ilocation_max = 0 ! first get the max ilocation value
+do i = 1, size(mappings(7)%dest_start)
+    ilocation_max = max(ilocation_max, mappings(7)%dest_end(i))
 end do
-!$OMP END PARALLEL DO
-print*, '5b: ', minval(ilocation_min_parallel)
+do ilocation = 1, ilocation_max
+    if (ilocation>ilocation_min) exit  ! don't have to check any more from this list
+    iseed = traverse(ilocation, reverse=.true.)
+    if (in_seed_list(iseed)) ilocation_min = ilocation ! new minimum
+end do
+print*, '5b: ', ilocation_min
 
 contains
+
+    logical function in_seed_list(iseed)
+        ! for part b, is the seed in the initial list
+        integer(ip),intent(in) :: iseed
+        integer :: i
+        do i = 1, size(seeds_list), 2
+            if (iseed>=seeds_list(i) .and. iseed<=seeds_list(i)+seeds_list(i+1)-1) then
+                in_seed_list = .true.
+                return
+            end if
+        end do
+        in_seed_list = .false.
+    end function in_seed_list
 
     subroutine populate(nums, m)
         integer(ip),dimension(3),intent(in) :: nums  ! the three numbers from the line
@@ -93,29 +122,48 @@ contains
         end associate
     end subroutine populate
 
-    pure function map(isource, m) result(idest)
-        integer(ip),intent(in) :: isource
+    pure function map(ival, m, reverse) result(idest)
+        integer(ip),intent(in) :: ival
         type(mapping),intent(in) :: m
+        logical,intent(in) :: reverse ! if reversed, go from: dest -> src
         integer(ip) :: idest
         integer :: i
-        do i = 1, size(m%src_start)
-            ! locate isource in the source start:end range
-            if (isource>=m%src_start(i) .and. isource<=m%src_end(i)) then ! found it, map to dest
-                idest = m%dest_start(i) + (isource-m%src_start(i))
-                return
-            end if
-        end do
-        idest = isource ! if not found in any of the sets
+        if (reverse) then
+            do i = 1, size(m%src_start)
+                ! locate ival (dest) in the dest start:end range
+                if (ival>=m%dest_start(i) .and. ival<=m%dest_end(i)) then ! found it, map to dest
+                    idest = m%src_start(i) + (ival-m%dest_start(i)) ! this is the resultant isource
+                    return
+                end if
+            end do
+
+        else
+            do i = 1, size(m%src_start)
+                ! locate ival (source) in the source start:end range
+                if (ival>=m%src_start(i) .and. ival<=m%src_end(i)) then ! found it, map to dest
+                    idest = m%dest_start(i) + (ival-m%src_start(i))
+                    return
+                end if
+            end do
+        end if
+        idest = ival ! if not found in any of the sets
     end function map
 
-    pure function traverse(iseed) result(ilocation)
+    pure function traverse(iseed, reverse) result(ilocation)
         integer(ip),intent(in) :: iseed
+        logical,intent(in) :: reverse !! if reverse, then ilocation -> iseed
         integer(ip) :: ilocation
         integer :: i
         ilocation = iseed
-        do i = 1, NSTAGES
-            ilocation = map(ilocation,mappings(i))
-        end do
+        if (reverse) then
+            do i = NSTAGES, 1, -1
+                ilocation = map(ilocation,mappings(i),reverse) ! this is really iseed
+            end do
+        else
+            do i = 1, NSTAGES
+                ilocation = map(ilocation,mappings(i),reverse)
+            end do
+        end if
     end function traverse
 
 end program problem_5
