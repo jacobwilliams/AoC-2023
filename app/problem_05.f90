@@ -9,7 +9,6 @@ integer :: i, iunit, n_lines
 character(len=:),allocatable :: line
 type(string),dimension(:),allocatable :: vals
 integer(ip),dimension(:),allocatable :: seeds_list
-integer(ip),dimension(:),allocatable :: nums
 integer(ip) :: ilocation_min, ilocation, iseed
 integer(ip),dimension(:),allocatable :: ilocation_min_parallel
 
@@ -23,10 +22,8 @@ type(mapping),dimension(NSTAGES) :: mappings ! seed_to_soil, soil_to_fertilizer,
 integer :: parsing_state ! index in mappings (1 to NSTAGES)
 
 do i = 1, NSTAGES
-    allocate(mappings(i)%dest_start(0),&
-             mappings(i)%dest_end(0),&
-             mappings(i)%src_start(0),&
-             mappings(i)%src_end(0))
+    allocate(mappings(i)%dest_start(0), mappings(i)%dest_end(0),&
+             mappings(i)%src_start(0),  mappings(i)%src_end(0))
 end do
 
 ! open(newunit=iunit, file='inputs/day5_test.txt', status='OLD')
@@ -40,8 +37,7 @@ do i = 1, n_lines
     else if (index(line, 'map:')>0) then; parsing_state = parsing_state + 1 ! one of the 7 stages
     else
         ! parse the numbers for the given state:
-        nums = parse_ints64(line)  ! destination range start, source range start, range length
-        call populate(nums, mappings(parsing_state))
+        call populate(parse_ints64(line), mappings(parsing_state))
     end if
 end do
 close(iunit)
@@ -79,7 +75,7 @@ end if
 ! Alternate version, go backwards from the location to the seed
 ! and see if it is contained in the seed set.
 ! this one is pretty fast (< 1 sec)
-do ilocation = 1, maxval(mappings(7)%dest_end) ! up to the max ilocation value
+do ilocation = 0, maxval(mappings(7)%dest_end) ! up to the max ilocation value
     iseed = traverse(ilocation, reverse=.true.) ! from ilocation to iseed
     if (in_seed_list(iseed)) exit ! found the min
 end do
@@ -101,8 +97,9 @@ contains
     end function in_seed_list
 
     subroutine populate(nums, m)
-        integer(ip),dimension(3),intent(in) :: nums  ! the three numbers from the line
-        type(mapping),intent(inout) :: m
+        integer(ip),dimension(3),intent(in) :: nums  ! the three numbers from the line:
+                                                     ! [dest range start, src range start, range length
+        type(mapping),intent(inout) :: m ! structure to add this data to
         associate( dest => nums(1), source => nums(2), range => nums(3) )
             m%dest_start = [m%dest_start, dest]
             m%dest_end   = [m%dest_end,   dest+range]
