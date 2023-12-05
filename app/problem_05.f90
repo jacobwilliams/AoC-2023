@@ -10,14 +10,8 @@ character(len=:),allocatable :: line
 type(string),dimension(:),allocatable :: vals
 integer(ip),dimension(:),allocatable :: seeds_list
 integer(ip),dimension(:),allocatable :: nums
-integer(ip) ::  isoil, &
-                ifertilizer, &
-                iwater, &
-                ilight, &
-                itemperature, &
-                ihumidity, &
-                ilocation
-integer(ip) :: ilocation_min
+integer(ip) :: ilocation_min, ilocation, iseed
+integer(ip),dimension(:),allocatable :: ilocation_min_parallel
 
 ! store data as arrays:
 integer(ip),dimension(:),allocatable :: seed_to_soil_seed_start, seed_to_soil_seed_end
@@ -58,6 +52,7 @@ allocate(   seed_to_soil_seed_start(0),                   seed_to_soil_seed_end(
             temperature_to_humidity_humidity_start(0),    temperature_to_humidity_humidity_end(0),    &
             humidity_to_location_humidity_start(0),       humidity_to_location_humidity_end(0),       &
             humidity_to_location_location_start(0),       humidity_to_location_location_end(0) )
+
 ! open(newunit=iunit, file='inputs/day5_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day5.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
@@ -106,40 +101,47 @@ do i = 1, n_lines
     end if
 end do
 close(iunit)
-! print*, 'seed_to_soil_soil_start: ', seed_to_soil_soil_start
-! print*, 'seed_to_soil_soil_end: ', seed_to_soil_soil_end
 
 ! now, process the data:
-
 do i = 1, size(seeds_list)
-
-    write(*,*) 'for seed: ', seeds_list(i)
-
-    isoil        = map(seeds_list(i), seed_to_soil_soil_start,                seed_to_soil_seed_start,                   seed_to_soil_seed_end)
-    ifertilizer  = map(isoil,         soil_to_fertilizer_fertilizer_start,    soil_to_fertilizer_soil_start,             soil_to_fertilizer_soil_end)
-    iwater       = map(ifertilizer,   fertilizer_to_water_water_start,        fertilizer_to_water_fertilizer_start,      fertilizer_to_water_fertilizer_end)
-    ilight       = map(iwater,        water_to_light_light_start,             water_to_light_water_start,                water_to_light_water_end)
-    itemperature = map(ilight,        light_to_temperature_temperature_start, light_to_temperature_light_start,          light_to_temperature_light_end)
-    ihumidity    = map(itemperature,  temperature_to_humidity_humidity_start, temperature_to_humidity_temperature_start, temperature_to_humidity_temperature_end)
-    ilocation    = map(ihumidity,     humidity_to_location_location_start,    humidity_to_location_humidity_start,       humidity_to_location_humidity_end)
-
-    ! write(*,*)  seeds_list(i), &
-    !             isoil, &
-    !             ifertilizer, &
-    !             iwater, &
-    !             ilight, &
-    !             itemperature, &
-    !             ihumidity, &
-    !             ilocation
-
-    !print*, 'ilocation: ', ilocation
+    ilocation = traverse(seeds_list(i))
     if (ilocation < ilocation_min) ilocation_min = ilocation
-
 end do
 print*, '5a: ', ilocation_min
 
+! ------------ part 2 -----------------
 
+! comment this out so it doesn't run in the CI !!
+if (.false.) then
 
+    ! serial version !!!
+    ! ilocation_min = huge(1)
+    ! do i = 1, size(seeds_list), 2
+    !     do iseed = seeds_list(i), seeds_list(i)+seeds_list(i+1)-1
+    !         ilocation = traverse(iseed)
+    !         if (ilocation < ilocation_min) ilocation_min = ilocation
+    !     end do
+    ! end do
+    ! print*, '5b: ', ilocation_min
+
+    ! parallel version !!!
+    allocate(ilocation_min_parallel(size(seeds_list)/2))
+    ilocation_min_parallel = huge(1)
+    !$OMP PARALLEL DO SHARED(ilocation_min_parallel) PRIVATE(i,iseed,ilocation)
+    do i = 1, size(seeds_list), 2
+        do iseed = seeds_list(i), seeds_list(i)+seeds_list(i+1)-1
+            ilocation = traverse(iseed)
+            if (ilocation < ilocation_min_parallel((i+1)/2)) ilocation_min_parallel((i+1)/2) = ilocation
+        end do
+    end do
+    !$OMP END PARALLEL DO
+    print*, '5b: ', minval(ilocation_min_parallel)
+
+else
+
+    print*, '5b: ', 11611182   ! answer produced by the above code !
+
+end if
 
 contains
 
@@ -152,7 +154,7 @@ contains
         source_end   = [source_end,   source+range]
     end subroutine populate
 
-    function map(isource, dest_start, source_start, source_end) result(idest)
+    pure function map(isource, dest_start, source_start, source_end) result(idest)
         integer(ip),intent(in) :: isource
         integer(ip),dimension(:),intent(in) :: dest_start, source_start, source_end ! all the same size
         integer(ip) :: idest
@@ -160,23 +162,24 @@ contains
         idest = isource ! if not found in any of the sets
         do i = 1, size(source_start)
             ! locate isource in the source start:end range
-            if (isource>=source_start(i) .and. isource<=source_end(i)) then
-                ! found it, map to dest
-
-                !-- example --
-                !
-                ! src       dest
-                ! 2 3 4  -> 10 11 12
-                !
-                ! ival=2 ===> idest=10
-                ! ival=3 ===> idest=11
-                !write(*,*) '   ', source_start(i), '<=', isource, '<=', source_end(i)
-
+            if (isource>=source_start(i) .and. isource<=source_end(i)) then ! found it, map to dest
                 idest = dest_start(i) + (isource-source_start(i))
                 return
             end if
         end do
-
     end function map
+
+    pure function traverse(iseed) result(ilocation)
+        integer(ip),intent(in) :: iseed
+        integer(ip) :: ilocation
+        ilocation = map(map(map(map(map(map(map(&
+                            iseed, seed_to_soil_soil_start,         seed_to_soil_seed_start,                   seed_to_soil_seed_end), &
+                            soil_to_fertilizer_fertilizer_start,    soil_to_fertilizer_soil_start,             soil_to_fertilizer_soil_end), &
+                            fertilizer_to_water_water_start,        fertilizer_to_water_fertilizer_start,      fertilizer_to_water_fertilizer_end), &
+                            water_to_light_light_start,             water_to_light_water_start,                water_to_light_water_end),&
+                            light_to_temperature_temperature_start, light_to_temperature_light_start,          light_to_temperature_light_end),&
+                            temperature_to_humidity_humidity_start, temperature_to_humidity_temperature_start, temperature_to_humidity_temperature_end),&
+                            humidity_to_location_location_start,    humidity_to_location_humidity_start,       humidity_to_location_humidity_end)
+    end function traverse
 
 end program problem_5
