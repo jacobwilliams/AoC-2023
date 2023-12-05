@@ -21,7 +21,7 @@ module aoc_utilities
     public :: number_of_lines_in_file
     public :: sort_ascending,sort_ascending_64
     public :: read_line
-    public :: parse_ints
+    public :: parse_ints, parse_ints64
 
     interface split
         procedure :: split1, split2
@@ -29,7 +29,7 @@ module aoc_utilities
     public :: split
 
     interface int
-        procedure :: string_to_int, char_to_int, char_array_to_int
+        procedure :: string_to_int, char_to_int, char_array_to_int, char_to_int64
     end interface int
     public :: int
 
@@ -65,6 +65,15 @@ contains
     integer :: i
     read(str,*) i
     end function char_to_int
+    pure function char_to_int64(str, kind) result(i)
+    !! basic string to integer routine
+    implicit none
+    character(len=*),intent(in) :: str
+    integer,intent(in) :: kind
+    integer(int64) :: i
+    if (kind/=int64) error stop 'error'
+    read(str,*) i
+    end function char_to_int64
     pure function char_array_to_int(str_array) result(i)
     !! character array to integer routine
     implicit none
@@ -702,11 +711,36 @@ function parse_ints(line) result(ints)
 end function parse_ints
 !*****************************************************************************************
 
+function parse_ints64(line) result(ints)
+    ! parse positive ints from a string that also includes text
+    character(len=*),intent(in) :: line
+    integer(int64),dimension(:),allocatable :: ints ! array of integers
+    integer(int64) :: i, j, n
+    integer(int64) :: istart
+    character(len=*),parameter :: tokens = '0123456789'
+
+    n = len(line)
+    istart = 0
+    allocate(ints(0))
+
+    do i = 1, n
+        if (index(tokens,line(i:i))>0) then
+            if (istart==0) istart = i
+        else
+            if (istart/=0) ints = [ints, int(line(istart:i-1), kind=int64)] ! get previous int
+            istart = 0
+        end if
+    end do
+    if (istart/=0) ints = [ints, int(line(istart:n), kind=int64)] ! get last int
+
+end function parse_ints64
+!*****************************************************************************************
+
 !*****************************************************************************************
 ! starts with function for strings
     pure logical function startswith_cc(str, substring)
         character(len=*),intent(in) :: str, substring
-        startswith_cc = index(str, substring) == 0
+        startswith_cc = index(str, substring) == 1
     end function startswith_cc
     pure logical function startswith_ss(str, substring)
         type(string),intent(in) :: str, substring
