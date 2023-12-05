@@ -85,13 +85,10 @@ end if
 ! and see if it is contained in the seed set.
 ! this one is pretty fast (< 1 sec)
 ilocation_min = huge(1)
-ilocation_max = 0 ! first get the max ilocation value
-do i = 1, size(mappings(7)%dest_start)
-    ilocation_max = max(ilocation_max, mappings(7)%dest_end(i))
-end do
+ilocation_max = maxval(mappings(7)%dest_end) ! the max ilocation value
 do ilocation = 1, ilocation_max
     if (ilocation>ilocation_min) exit  ! don't have to check any more from this list
-    iseed = traverse(ilocation, reverse=.true.)
+    iseed = traverse(ilocation, reverse=.true.) ! from ilocation to iseed
     if (in_seed_list(iseed)) ilocation_min = ilocation ! new minimum
 end do
 print*, '5b: ', ilocation_min
