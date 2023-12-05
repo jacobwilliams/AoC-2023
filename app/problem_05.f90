@@ -6,7 +6,6 @@ use aoc_utilities
 implicit none
 
 integer :: i, iunit, n_lines
-integer(ip) :: j, ilocation_max
 character(len=:),allocatable :: line
 type(string),dimension(:),allocatable :: vals
 integer(ip),dimension(:),allocatable :: seeds_list
@@ -79,14 +78,11 @@ end if
 ! Alternate version, go backwards from the location to the seed
 ! and see if it is contained in the seed set.
 ! this one is pretty fast (< 1 sec)
-ilocation_min = huge(1)
-ilocation_max = maxval(mappings(7)%dest_end) ! the max ilocation value
-do ilocation = 1, ilocation_max
-    if (ilocation>ilocation_min) exit  ! don't have to check any more from this list
+do ilocation = 1, maxval(mappings(7)%dest_end) ! up to the max ilocation value
     iseed = traverse(ilocation, reverse=.true.) ! from ilocation to iseed
-    if (in_seed_list(iseed)) ilocation_min = ilocation ! new minimum
+    if (in_seed_list(iseed)) exit ! found the min
 end do
-print*, '5b: ', ilocation_min
+print*, '5b: ', ilocation
 
 contains
 
