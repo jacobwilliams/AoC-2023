@@ -75,6 +75,7 @@ if (.false.) then
 end if
 
 ! ------------ part 2 -----------------
+
 ! Alternate version, go backwards from the location to the seed
 ! and see if it is contained in the seed set.
 ! this one is pretty fast (< 1 sec)
@@ -103,10 +104,10 @@ contains
         integer(ip),dimension(3),intent(in) :: nums  ! the three numbers from the line
         type(mapping),intent(inout) :: m
         associate( dest => nums(1), source => nums(2), range => nums(3) )
-            m%dest_start = [m%dest_start,   dest]
-            m%dest_end   = [m%dest_end,     dest+range]
-            m%src_start  = [m%src_start,    source]
-            m%src_end    = [m%src_end,      source+range]
+            m%dest_start = [m%dest_start, dest]
+            m%dest_end   = [m%dest_end,   dest+range]
+            m%src_start  = [m%src_start,  source]
+            m%src_end    = [m%src_end,    source+range]
         end associate
     end subroutine populate
 
@@ -124,7 +125,6 @@ contains
                     return
                 end if
             end do
-
         else
             do i = 1, size(m%src_start)
                 ! locate ival (source) in the source start:end range
