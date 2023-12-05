@@ -33,19 +33,14 @@ end do
 ! open(newunit=iunit, file='inputs/day5_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day5.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
+parsing_state = 0
 do i = 1, n_lines
     line = read_line(iunit)
     if (line=='') cycle ! blank line
     if (startswith(line, 'seeds:')) then; seeds_list = parse_ints64(line(7:))
-    elseif (startswith(line, 'seed-to-soil map:'))            then; parsing_state = 1
-    elseif (startswith(line, 'soil-to-fertilizer map:'))      then; parsing_state = 2
-    elseif (startswith(line, 'fertilizer-to-water map:'))     then; parsing_state = 3
-    elseif (startswith(line, 'water-to-light map:'))          then; parsing_state = 4
-    elseif (startswith(line, 'light-to-temperature map:'))    then; parsing_state = 5
-    elseif (startswith(line, 'temperature-to-humidity map:')) then; parsing_state = 6
-    elseif (startswith(line, 'humidity-to-location map:'))    then; parsing_state = 7
+    else if (index(line, 'map:')>0) then; parsing_state = parsing_state + 1 ! one of the 7 stages
     else
-        ! parse the numbers:
+        ! parse the numbers for the given state:
         nums = parse_ints64(line)  ! destination range start, source range start, range length
         call populate(nums, mappings(parsing_state))
     end if
@@ -65,8 +60,8 @@ print*, '5a: ', ilocation_min
 
 !  so it doesn't run in the CI !!
 if (.false.) then
-    ! brute force, openMP version:
-    ! take a minute or so on my computer.
+    ! brute force, openMP version. just run the part a algorithm for all the seeds.
+    ! takes a minute or so on my computer.
     allocate(ilocation_min_parallel(size(seeds_list)/2))
     ilocation_min_parallel = huge(1)
     !$OMP PARALLEL DO SHARED(ilocation_min_parallel) PRIVATE(i,iseed,ilocation)
@@ -151,7 +146,7 @@ contains
         logical,intent(in) :: reverse !! if reverse, then ilocation -> iseed
         integer(ip) :: ilocation
         integer :: i
-        ilocation = iseed
+        ilocation = iseed ! initialize
         if (reverse) then
             do i = NSTAGES, 1, -1
                 ilocation = map(ilocation,mappings(i),reverse) ! this is really iseed
