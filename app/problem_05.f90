@@ -75,7 +75,7 @@ end if
 ! Alternate version, go backwards from the location to the seed
 ! and see if it is contained in the seed set.
 ! this one is pretty fast (< 1 sec)
-do ilocation = 0, maxval(mappings(7)%dest_end) ! up to the max ilocation value
+do ilocation = minval(mappings(7)%dest_start), maxval(mappings(7)%dest_end) ! up to the max ilocation value
     iseed = traverse(ilocation, reverse=.true.) ! from ilocation to iseed
     if (in_seed_list(iseed)) exit ! found the min
 end do
