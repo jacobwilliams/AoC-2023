@@ -51,13 +51,6 @@ module aoc_utilities
 contains
 
 !****************************************************************
-    pure function string_to_int(me) result(i)
-    !! basic string to integer routine
-    implicit none
-    class(string),intent(in) :: me
-    integer :: i
-    read(me%str,*) i
-    end function string_to_int
     pure function char_to_int(str) result(i)
     !! basic string to integer routine
     implicit none
@@ -65,8 +58,15 @@ contains
     integer :: i
     read(str,*) i
     end function char_to_int
-    pure function char_to_int64(str, kind) result(i)
+    pure function string_to_int(me) result(i)
     !! basic string to integer routine
+    implicit none
+    class(string),intent(in) :: me
+    integer :: i
+    i = char_to_int(me%str)
+    end function string_to_int
+    pure function char_to_int64(str, kind) result(i)
+    !! basic string to integer(ip) routine. hacky hack just so we can overload as int()
     implicit none
     character(len=*),intent(in) :: str
     integer,intent(in) :: kind
