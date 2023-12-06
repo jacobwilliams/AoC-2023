@@ -102,9 +102,9 @@ contains
         type(mapping),intent(inout) :: m ! structure to add this data to
         associate( dest => nums(1), source => nums(2), range => nums(3) )
             m%dest_start = [m%dest_start, dest]
-            m%dest_end   = [m%dest_end,   dest+range]
+            m%dest_end   = [m%dest_end,   dest+range-1]
             m%src_start  = [m%src_start,  source]
-            m%src_end    = [m%src_end,    source+range]
+            m%src_end    = [m%src_end,    source+range-1]
         end associate
     end subroutine populate
 
