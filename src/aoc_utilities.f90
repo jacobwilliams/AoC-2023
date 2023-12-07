@@ -44,9 +44,13 @@ module aoc_utilities
     end interface startswith
     public :: startswith
 
+    interface swap
+        procedure :: swap32, swap64, swap_str
+    end interface swap
     public :: swap
 
     public :: is_number, is_not_number
+    public :: str_to_array
 
 contains
 
@@ -355,7 +359,7 @@ contains
 !>
 !  Swap two integer values.
 
-    pure elemental subroutine swap(i1,i2)
+    pure elemental subroutine swap32(i1,i2)
 
     implicit none
 
@@ -368,7 +372,7 @@ contains
     i1  = i2
     i2  = tmp
 
-    end subroutine swap
+    end subroutine swap32
 !*******************************************************************************
 !*******************************************************************************
 !>
@@ -389,6 +393,20 @@ contains
 
     end subroutine swap64
 !*******************************************************************************
+    pure elemental subroutine swap_str(i1,i2)
+
+    implicit none
+
+    character(len=*),intent(inout) :: i1
+    character(len=*),intent(inout) :: i2
+
+    character(len=len(i1)) :: tmp
+
+    tmp = i1
+    i1  = i2
+    i2  = tmp
+
+    end subroutine swap_str
 
 !*******************************************************************************
 
@@ -768,6 +786,13 @@ end function parse_ints64
     is_not_number = .not. is_number(c)
     end function is_not_number
 
-
+    function str_to_array(s) result(a)
+        character(len=*),intent(in) :: s
+        character(len=1),dimension(len(s)) :: a
+        integer :: i
+        do i = 1, len(s) ! transfer
+            a(i) = s(i:i)
+        end do
+    end function str_to_array
 
 end module aoc_utilities
