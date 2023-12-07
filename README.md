@@ -15,6 +15,6 @@ etc.
 
 ### to run them all:
 
-``
+```
 fpm run --profile release --all
 ```
