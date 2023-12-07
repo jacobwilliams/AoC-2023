@@ -45,12 +45,4 @@ jobs:
            --slave /usr/bin/gcov gcov /usr/bin/gcov-${{ matrix.gcc_v }}
 
     - name: Run programs
-      run: |
-        fpm build --profile release
-        rm -rf ./build/gfortran_*/app/*.log
-        for filename in ./build/gfortran_*/app/*; do
-          echo ""
-          echo "---------- $filename ----------"
-          time ./$filename
-          echo ""
-        done
+      run: fpm run --profile release --all --runner "time"

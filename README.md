@@ -8,20 +8,13 @@
 ### to run individual cases:
 
 ```
-fpm run problem_01
+fpm run --profile release problem_01
 ```
 
 etc.
 
 ### to run them all:
 
-```bash
-    fpm build --profile release
-    rm -rf ./build/gfortran_*/app/*.log
-    for filename in ./build/gfortran_*/app/*; do
-        echo ""
-        echo "---------- $filename ----------"
-        time ./$filename
-        echo ""
-    done
+``
+fpm run --profile release --all
 ```
