@@ -51,6 +51,7 @@ module aoc_utilities
 
     public :: is_number, is_not_number
     public :: str_to_array
+    public :: lcm
 
 contains
 
@@ -794,5 +795,21 @@ end function parse_ints64
             a(i) = s(i:i)
         end do
     end function str_to_array
+
+    pure integer(int64) function lcm(i,j)
+        integer(int64),intent(in) :: i,j
+        integer(int64) :: rem,m,n
+        m=abs(i)
+        n=abs(j)
+        lcm=0
+        if (m<=0 .or. n<=0) return
+        do
+            rem=mod(m,n)
+            if (rem<=0) exit
+            m=n
+            n=rem
+        end do
+        lcm=abs(i*j/n)
+    end function lcm
 
 end module aoc_utilities

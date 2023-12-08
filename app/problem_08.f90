@@ -10,8 +10,8 @@ character(len=:),allocatable :: line, instructions
 type(string),dimension(:),allocatable :: vals
 integer(ip) :: i, j, idx, idx_zzz, imoves, ias, izs
 integer(ip),dimension(:),allocatable :: instructions_ints
-
 integer(ip),dimension(:),allocatable :: idx_vec, idx_zzz_vec
+integer(ip),dimension(:),allocatable :: imoves_vec
 
 type :: node
     character(len=3) :: name = ''
@@ -46,28 +46,12 @@ do i = 1, size(nodes)
 end do
 
 !********************************************
-i = 0
-imoves = 0
-idx = find_node('AAA')
-idx_zzz = find_node('ZZZ')
-do
-    !write(*,*) nodes(idx)%name
-    if (idx == idx_zzz) exit
-    imoves = imoves + 1 ! another move
-    i = i + 1
-    if (i>len(instructions)) i = 1
-    idx = nodes(idx)%lr_idx(instructions_ints(i))
-end do
+
+imoves = moves(find_node('AAA'), find_node('ZZZ'))
 write(*,*) '8a : number of moves:', imoves
 
 !********************************************
 
-stop ! not finished
-
-
-!
-! brute force... not going to work !!!
-!
 ! get indices of the ones that end in A and Z:
 allocate(idx_vec(0), idx_zzz_vec(0))
 do i = 1, size(nodes)
@@ -75,21 +59,83 @@ do i = 1, size(nodes)
     if (nodes(i)%name(3:3)=='Z') idx_zzz_vec = [idx_zzz_vec, i]
 end do
 if (size(idx_vec)/=size(idx_zzz_vec)) error stop 'error: they need to be the same size?'
-i = 0
-imoves = 0
-do
-    if (all_in_set(idx_vec, idx_zzz_vec)) exit
-    imoves = imoves + 1 ! another move
-    i = i + 1
-    if (i>len(instructions)) i = 1
-    do concurrent (j = 1 : size(idx_vec))
-        idx_vec(j) = nodes(idx_vec(j))%lr_idx(instructions_ints(i))
-    end do
+allocate(imoves_vec(size(idx_vec)))
+do i = 1, size(idx_vec)
+    imoves_vec(i) = moves_any_z(idx_vec(i), idx_zzz_vec)
 end do
-write(*,*) '8b : number of moves:', imoves
+! don't know why this works ¯\_(ツ)_/¯
+write(*,*) '8b : number of moves: ', lcm(lcm(lcm(lcm(lcm(imoves_vec(1),&
+                                             imoves_vec(2)),&
+                                             imoves_vec(3)),&
+                                             imoves_vec(4)),&
+                                             imoves_vec(5)),&
+                                             imoves_vec(6))
 
+! !
+! ! brute force. run all the moves in parallel until they are all done.
+! !
+! i = 0
+! imoves = 0
+! do
+!     if (all_in_set(idx_vec, idx_zzz_vec)) exit
+!     imoves = imoves + 1 ! another move
+!     i = i + 1
+!     if (i>len(instructions)) i = 1
+!     do concurrent (j = 1 : size(idx_vec))
+!         idx_vec(j) = nodes(idx_vec(j))%lr_idx(instructions_ints(i))
+!     end do
+! end do
+! write(*,*) '8b : number of moves:', imoves
 
 contains
+
+    pure function moves(istart, iend) result(imoves)
+
+        integer(ip),intent(in) :: istart, iend !! indices for start and end nodes
+        integer(ip) :: imoves
+
+        integer :: i
+        integer(ip) :: idx
+
+        i = 0
+        imoves = 0
+        idx = istart
+        do
+            !write(*,*) nodes(idx)%name
+            if (idx == iend) exit
+            ! if (idx == istart) write(*,*) 'back to start'
+            imoves = imoves + 1 ! another move
+            i = i + 1
+            if (i>len(instructions)) i = 1
+            idx = nodes(idx)%lr_idx(instructions_ints(i))
+        end do
+
+    end function moves
+
+    pure function moves_any_z(istart, iend) result(imoves)
+
+        integer(ip),intent(in) :: istart !! indices for start and end nodes
+        integer(ip),dimension(:),intent(in) :: iend
+        integer(ip) :: imoves
+
+        integer :: i
+        integer(ip) :: idx
+
+        i = 0
+        imoves = 0
+        idx = istart
+        do
+            !write(*,*) nodes(idx)%name
+            if (any(idx == iend)) exit
+            ! if (idx == istart) write(*,*) 'back to start'
+            imoves = imoves + 1 ! another move
+            i = i + 1
+            if (i>len(instructions)) i = 1
+            idx = nodes(idx)%lr_idx(instructions_ints(i))
+        end do
+
+    end function moves_any_z
+
 
     pure logical function all_in_set(ivals, iset)
     !! returns true if all the elements of ivals are in the set iset
