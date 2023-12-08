@@ -47,9 +47,9 @@ close(iunit)
 
 do icase = 1, 2  ! first time normally, second time processing the jokers
     ! sort the list from worst to best to determinte the rank of each hand
+    hands%type = 0 ! reinitialize since they need to be recomputed
     do ! bubble sort !
         done = .true.
-        hands%type = 0 ! reinitialize since they need to be recomputed
         do i = 1, n_lines-1
             if (beats(hands(i), hands(i+1), icase==2)) then
                 call swap_hands(hands(i), hands(i+1)); done = .false.
