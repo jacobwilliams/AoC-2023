@@ -36,7 +36,7 @@ end do
 do i = 0, n_lines-1
     line = read_line(iunit)
     if (line == '') cycle
-    read(line,'(A3,1X,"=",1X,"(",A3,",",1X,A3,")")') nodes(i)%name, nodes(i)%lr(1), nodes(i)%lr(2)
+    read(line,"(A3,1X,1X,1X,1X,A3,1X,1X,A3,1X)") nodes(i)%name, nodes(i)%lr(1), nodes(i)%lr(2)
 end do
 close(iunit)
 ! compute all the lr indices:
