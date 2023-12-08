@@ -7,9 +7,15 @@ implicit none
 
 integer :: i, iunit, n_lines, icase
 character(len=:),allocatable :: line
-type(string),dimension(:),allocatable :: vals, hands
-integer(ip),dimension(:),allocatable :: bids
+type(string),dimension(:),allocatable :: vals
 logical :: done
+
+type :: hand
+    character(len=1),dimension(5) :: cards !! the cards in a hand
+    integer(ip) :: bid = 0 ! the bit for the hand
+    integer :: type = 0 ! the hand type
+end type hand
+type(hand),dimension(:),allocatable :: hands !! array of hands
 
 character(len=1),dimension(2),parameter :: cases = ['a','b']
 character(len=1),dimension(*),parameter :: cards = ['A', 'K', 'Q', 'J', 'T', &
@@ -19,16 +25,23 @@ character(len=1),dimension(*),parameter :: cards_with_joker = ['A', 'K', 'Q', 'T
                                                                '9', '8', '7', '6', '5', &
                                                                '4', '3', '2', 'J']
 
+integer,parameter :: FIVE_OF_A_KIND  = 1 ! the hand types
+integer,parameter :: FOUR_OF_A_KIND  = 2
+integer,parameter :: FULL_HOUSE      = 3
+integer,parameter :: THREE_OF_A_KIND = 4
+integer,parameter :: TWO_PAIR        = 5
+integer,parameter :: ONE_PAIR        = 6
+integer,parameter :: HIGH_CARD       = 7
+
 ! read the data file:
 ! open(newunit=iunit, file='inputs/day7_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day7.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
-allocate(hands(n_lines), bids(n_lines))
+allocate(hands(n_lines))
 do i = 1, n_lines
-    line = read_line(iunit)
-    vals  = split(line,' ')  ! hands, bid
-    hands(i)%str = vals(1)%str
-    bids(i) = int(vals(2))
+    line = read_line(iunit); vals = split(line,' ')
+    hands(i)%cards = str_to_array(vals(1)%str)
+    hands(i)%bid   = int(vals(2))
 end do
 close(iunit)
 
@@ -36,36 +49,29 @@ do icase = 1, 2  ! first time normally, second time processing the jokers
     ! sort the list from worst to best to determinte the rank of each hand
     do ! bubble sort !
         done = .true.
+        hands%type = 0 ! reinitialize since they need to be recomputed
         do i = 1, n_lines-1
-            if (beats(hands(i)%str, hands(i+1)%str, icase==2)) then ! swap them
-                call swap(hands(i)%str, hands(i+1)%str)
-                call swap(bids(i),      bids(i+1))
-                done = .false.
+            if (beats(hands(i), hands(i+1), icase==2)) then
+                call swap_hands(hands(i), hands(i+1)); done = .false.
             end if
         end do
         if (done) exit
     end do
-    write(*,*) '7'//cases(icase)//':', sum( bids * [(i, i = 1, size(bids))])
+    write(*,*) '7'//cases(icase)//':', sum( hands%bid * [(i, i = 1, n_lines)])
 end do
 
 contains
 
-    integer function hand_type(h, with_jokers)
-        !! resturns the type of hand
-        character(len=1),dimension(:) :: h
+    integer function hand_type(me, with_jokers)
+        !! returns the type of hand
+        class(hand),intent(in) :: me
         logical,intent(in) :: with_jokers !! if considering jokers
-        integer,dimension(size(h)) :: i
+        integer,dimension(5) :: i
         integer,dimension(:),allocatable :: u
         integer :: n_jokers, n_unique
+        character(len=1),dimension(5) :: h
 
-        integer,parameter :: FIVE_OF_A_KIND  = 1 ! the hand types
-        integer,parameter :: FOUR_OF_A_KIND  = 2
-        integer,parameter :: FULL_HOUSE      = 3
-        integer,parameter :: THREE_OF_A_KIND = 4
-        integer,parameter :: TWO_PAIR        = 5
-        integer,parameter :: ONE_PAIR        = 6
-        integer,parameter :: HIGH_CARD       = 7
-
+        h = me%cards
         i = ichar(h)  ! convert to code
         u = unique(i) ! unique elements
         n_unique = size(u)
@@ -148,28 +154,28 @@ contains
 
     logical function beats(hand1, hand2, with_jokers)
         !! return true if hand1 beats hand2 (has a higher score)
-        character(len=*),intent(in) :: hand1, hand2
+        class(hand),intent(inout) :: hand1, hand2
         logical,intent(in) :: with_jokers !! if considering jokers
-        integer :: i, hand_type_1, hand_type_2
-        character(len=1),dimension(len(hand1)) :: h1, h2
+        integer :: i
 
-        ! transfer to array:
-        h1 = str_to_array(hand1); hand_type_1 = hand_type(h1, with_jokers)
-        h2 = str_to_array(hand2); hand_type_2 = hand_type(h2, with_jokers)
-        if (hand_type_1==hand_type_2) then
-            ! lower index is stronger
-            do i = 1, size(h1)
-                if (h1(i)/=h2(i)) then
-                    beats = index_in_cards(h1(i),with_jokers) < &
-                            index_in_cards(h2(i),with_jokers) ! lower is stronger
-                    return
-                end if
-            end do
-        else
-            ! one hand beat the other
-            beats = hand_type_1 < hand_type_2  ! lower score is better (1-7)
-        end if
-
+        associate(h1 => hand1%cards, h2 => hand2%cards)
+            ! recompute type if it hasn't already been computed
+            if (hand1%type==0) hand1%type = hand_type(hand1, with_jokers)
+            if (hand2%type==0) hand2%type = hand_type(hand2, with_jokers)
+            if (hand1%type==hand2%type) then
+                ! lower index is stronger
+                do i = 1, 5
+                    if (h1(i)/=h2(i)) then
+                        beats = index_in_cards(h1(i),with_jokers) < &
+                                index_in_cards(h2(i),with_jokers) ! lower is stronger
+                        return
+                    end if
+                end do
+            else
+                ! one hand beat the other
+                beats = hand1%type < hand2%type  ! lower score is better (1-7)
+            end if
+        end associate
     end function beats
 
     integer function index_in_cards(c,with_jokers)
@@ -191,5 +197,15 @@ contains
         end do
         error stop 'card not found'
     end function index_in_cards
+
+    pure elemental subroutine swap_hands(i1,i2)
+    !! swap function for hand type
+    type(hand),intent(inout) :: i1
+    type(hand),intent(inout) :: i2
+    type(hand) :: tmp
+    tmp = i1
+    i1  = i2
+    i2  = tmp
+    end subroutine swap_hands
 
 end program problem_7b
