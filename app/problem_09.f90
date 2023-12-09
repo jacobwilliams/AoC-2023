@@ -61,12 +61,4 @@ contains
 
     end function extrapolate
 
-    pure function diff(ivals) result(idiff)
-        !! difference vector
-        integer(ip),dimension(:),intent(in) :: ivals
-        integer(ip),dimension(:),allocatable :: idiff
-        integer :: i !! counter
-        idiff = [(ivals(i+1) - ivals(i), i = 1, size(ivals)-1)]
-    end function diff
-
 end program problem_9

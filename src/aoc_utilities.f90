@@ -67,6 +67,7 @@ module aoc_utilities
     public :: str_to_array
     public :: lcm
     public :: reverse
+    public :: diff
 
 contains
 
@@ -860,5 +861,13 @@ end function parse_nums64
         integer :: i
         ireverse = [(ivals(i), i = size(ivals), 1, -1)]
     end function reverse
+
+    pure function diff(ivals) result(idiff)
+        !! difference int64 vector
+        integer(int64),dimension(:),intent(in) :: ivals
+        integer(int64),dimension(:),allocatable :: idiff
+        integer :: i !! counter
+        idiff = [(ivals(i+1) - ivals(i), i = 1, size(ivals)-1)]
+    end function diff
 
 end module aoc_utilities
