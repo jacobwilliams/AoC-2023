@@ -23,6 +23,11 @@ module aoc_utilities
     public :: read_line
     public :: parse_ints, parse_ints64
 
+    interface parse
+        procedure :: parse_nums64
+    end interface parse
+    public :: parse
+
     interface split
         procedure :: split1, split2
     end interface split
@@ -52,6 +57,7 @@ module aoc_utilities
     public :: is_number, is_not_number
     public :: str_to_array
     public :: lcm
+    public :: reverse
 
 contains
 
@@ -63,7 +69,7 @@ contains
     integer :: i
     read(str,*) i
     end function char_to_int
-    pure function string_to_int(me) result(i)
+    pure elemental function string_to_int(me) result(i)
     !! basic string to integer routine
     implicit none
     class(string),intent(in) :: me
@@ -755,6 +761,13 @@ function parse_ints64(line) result(ints)
 end function parse_ints64
 !*****************************************************************************************
 
+function parse_nums64(line) result(ints)
+    ! parse space-deliminated int64 sequence (positive or negative)
+    character(len=*),intent(in) :: line
+    integer(int64),dimension(:),allocatable :: ints ! array of integers
+    ints = int(split(line, ' '))
+end function parse_nums64
+
 !*****************************************************************************************
 ! starts with function for strings
     pure logical function startswith_cc(str, substring)
@@ -812,5 +825,13 @@ end function parse_ints64
         end do
         lcm=abs(i*j/n)
     end function lcm
+
+    pure function reverse(ivals) result(ireverse)
+        !! reverse an int64 array
+        integer(int64),dimension(:),intent(in) :: ivals
+        integer(int64),dimension(size(ivals)) :: ireverse
+        integer :: i
+        ireverse = [(ivals(i), i = size(ivals), 1, -1)]
+    end function reverse
 
 end module aoc_utilities
