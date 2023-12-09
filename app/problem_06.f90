@@ -15,8 +15,12 @@ integer(ip),dimension(*),parameter :: distance_a  = [475  , 2138 ,  1015 ,  1650
 integer(ip),dimension(*),parameter :: time_b      = [ 60947882_ip]
 integer(ip),dimension(*),parameter :: distance_b  = [475213810151650_ip]
 
+call clk%tic()
+
 print*, '6a: ways to win:', go(time_a, distance_a)
 print*, '6b: ways to win:', go(time_b, distance_b)
+
+call clk%toc()
 
 contains
 

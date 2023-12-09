@@ -15,6 +15,8 @@ integer,parameter :: n_red   = 12
 integer,parameter :: n_green = 13
 integer,parameter :: n_blue  = 14
 
+call clk%tic()
+
 !example: Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 open(newunit=iunit, file='inputs/day2.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit) ! will parse the line with successive splits
@@ -52,5 +54,7 @@ end do main
 write(*,*) '2a: result   :', ipossible
 write(*,*) '2b: power sum:', power
 close(iunit)
+
+call clk%toc()
 
 end program problem_2

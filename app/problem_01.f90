@@ -22,6 +22,8 @@ character(len=*),dimension(9),parameter :: ichars = [ &
     'eight', &
     'nine ']
 
+call clk%tic()
+
 isum = 0
 open(newunit=iunit, file='inputs/day1.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
@@ -99,5 +101,7 @@ do i = 1, n_lines
 
 end do
 write(*,*) '1b: sum:', isum
+
+call clk%toc()
 
 end program problem_1

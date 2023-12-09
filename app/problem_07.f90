@@ -33,6 +33,8 @@ integer,parameter :: TWO_PAIR        = 5
 integer,parameter :: ONE_PAIR        = 6
 integer,parameter :: HIGH_CARD       = 7
 
+call clk%tic()
+
 ! read the data file:
 ! open(newunit=iunit, file='inputs/day7_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day7.txt', status='OLD')
@@ -59,6 +61,8 @@ do icase = 1, 2  ! first time normally, second time processing the jokers
     end do
     write(*,*) '7'//cases(icase)//':', sum( hands%bid * [(i, i = 1, n_lines)])
 end do
+
+call clk%toc()
 
 contains
 

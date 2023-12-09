@@ -11,6 +11,8 @@ integer(int64) :: isum
 character(len=1),dimension(:,:),allocatable :: array
 integer(int64),dimension(:),allocatable :: ivals
 
+call clk%tic()
+
 ! read file:
 ! pad around with blanks to simplify logic below
 array = read_file_to_char_array('inputs/day3.txt', border = '.')
@@ -69,6 +71,8 @@ do i = 1, n_lines
 
 end do
 write(*,*) '3b: result :', isum
+
+call clk%toc()
 
 contains
 

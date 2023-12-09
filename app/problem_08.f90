@@ -20,6 +20,8 @@ type :: node
 end type node
 type(node),dimension(:),allocatable :: nodes
 
+call clk%tic()
+
 ! read the data file:
 ! open(newunit=iunit, file='inputs/day8_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day8.txt', status='OLD')
@@ -89,6 +91,8 @@ write(*,*) '8b : number of moves: ', lcm(lcm(lcm(lcm(lcm(imoves_vec(1),&
 !     end do
 ! end do
 ! write(*,*) '8b : number of moves:', imoves
+
+call clk%toc()
 
 contains
 

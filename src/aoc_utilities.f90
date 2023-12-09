@@ -9,6 +9,15 @@ module aoc_utilities
     integer,parameter :: chunk_size = 100 !! for dynamic allocations
     character(len=*),parameter :: digits = '0123456789'
 
+    type,public :: clock
+        private
+        integer(int64) :: begin, end, rate
+    contains
+        procedure,public :: tic => clock_start
+        procedure,public :: toc => clock_end
+    end type clock
+    type(clock),public :: clk !! a public clock to use for timing in the problems
+
     type,public :: string
         character(len=:),allocatable :: str
         contains
@@ -60,6 +69,21 @@ module aoc_utilities
     public :: reverse
 
 contains
+
+! timing routines:
+    subroutine clock_start(me)
+        !! start the timer
+        class(clock),intent(inout) :: me
+        call system_clock(me%begin, me%rate)
+    end subroutine clock_start
+    subroutine clock_end(me)
+        !! print runtime in miliseconds
+        class(clock),intent(inout) :: me
+        call system_clock(me%end)
+        write(*,'(a,I3,a)') "Runtime: ", int(1000*(me%end - me%begin) / real(me%rate, real64)), ' ms'
+        write(*,'(a)') '---------------------------'
+        write(*,*) ''
+    end subroutine clock_end
 
 !****************************************************************
     pure function char_to_int(str) result(i)

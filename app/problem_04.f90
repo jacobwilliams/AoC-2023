@@ -11,6 +11,8 @@ integer,dimension(:),allocatable :: iwinning, ihave, n_matches
 character(len=:),allocatable :: line
 integer,dimension(:,:),allocatable :: card_matrix
 
+call clk%tic()
+
 ! open(newunit=iunit, file='inputs/day4_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day4.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
@@ -45,5 +47,7 @@ do i = 1, n_lines
     end associate
 end do
 write(*,*) '4b : scratchcards :', sum(card_matrix)
+
+call clk%toc()
 
 end program problem_4

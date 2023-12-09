@@ -21,6 +21,8 @@ type(mapping),dimension(NSTAGES) :: mappings ! seed_to_soil, soil_to_fertilizer,
                                              ! light_to_temperature, temperature_to_humidity, humidity_to_location
 integer :: parsing_state ! index in mappings (1 to NSTAGES)
 
+call clk%tic()
+
 do i = 1, NSTAGES
     allocate(mappings(i)%dest_start(0), mappings(i)%dest_end(0),&
              mappings(i)%src_start(0),  mappings(i)%src_end(0))
@@ -80,6 +82,8 @@ do ilocation = minval(mappings(7)%dest_start), maxval(mappings(7)%dest_end) ! up
     if (in_seed_list(iseed)) exit ! found the min
 end do
 print*, '5b: ', ilocation
+
+call clk%toc()
 
 contains
 

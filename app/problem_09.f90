@@ -1,12 +1,14 @@
 program problem_9
 
-use iso_fortran_env, only: ip => int64 ! use long ints
+use iso_fortran_env, ip => int64 ! use long ints
 use aoc_utilities
 
 implicit none
 
 integer :: i, iunit, n_lines
 integer(ip) :: isum
+
+call clk%tic()
 
 ! read the data file:
 ! open(newunit=iunit, file='inputs/day9_test.txt', status='OLD')
@@ -21,6 +23,8 @@ n_lines = number_of_lines_in_file(iunit)
 isum = sum([(extrapolate(reverse(parse(read_line(iunit)))), i = 1, n_lines)])
 close(iunit)
 write(*,*) '9b: sum: ', isum
+
+call clk%toc()
 
 contains
 
