@@ -30,7 +30,8 @@ contains
 
     pure function extrapolate(ivals) result(iextrap)
     !! extrapolate the next value in the sequence using
-    !! a difference table.
+    !! a difference table. Straightfoward implemention:
+    !! create the full table, and then evaluate it.
     integer(ip),dimension(:),intent(in) :: ivals
     integer(ip) :: iextrap
     integer :: i, n
