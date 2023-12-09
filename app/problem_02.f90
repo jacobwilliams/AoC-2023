@@ -55,6 +55,6 @@ write(*,*) '2a: result   :', ipossible
 write(*,*) '2b: power sum:', power
 close(iunit)
 
-call clk%toc()
+call clk%toc('2')
 
 end program problem_2

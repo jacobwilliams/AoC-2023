@@ -92,7 +92,7 @@ write(*,*) '8b : number of moves: ', lcm(lcm(lcm(lcm(lcm(imoves_vec(1),&
 ! end do
 ! write(*,*) '8b : number of moves:', imoves
 
-call clk%toc()
+call clk%toc('8')
 
 contains
 

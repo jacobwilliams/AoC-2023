@@ -20,7 +20,7 @@ call clk%tic()
 print*, '6a: ways to win:', go(time_a, distance_a)
 print*, '6b: ways to win:', go(time_b, distance_b)
 
-call clk%toc()
+call clk%toc('6')
 
 contains
 

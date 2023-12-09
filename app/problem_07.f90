@@ -62,7 +62,7 @@ do icase = 1, 2  ! first time normally, second time processing the jokers
     write(*,*) '7'//cases(icase)//':', sum( hands%bid * [(i, i = 1, n_lines)])
 end do
 
-call clk%toc()
+call clk%toc('7')
 
 contains
 

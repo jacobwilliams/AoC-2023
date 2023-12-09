@@ -102,6 +102,6 @@ do i = 1, n_lines
 end do
 write(*,*) '1b: sum:', isum
 
-call clk%toc()
+call clk%toc('1')
 
 end program problem_1

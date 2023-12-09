@@ -72,7 +72,7 @@ do i = 1, n_lines
 end do
 write(*,*) '3b: result :', isum
 
-call clk%toc()
+call clk%toc('3')
 
 contains
 

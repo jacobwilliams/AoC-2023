@@ -48,6 +48,6 @@ do i = 1, n_lines
 end do
 write(*,*) '4b : scratchcards :', sum(card_matrix)
 
-call clk%toc()
+call clk%toc('4')
 
 end program problem_4

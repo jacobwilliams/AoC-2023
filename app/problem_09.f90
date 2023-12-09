@@ -24,7 +24,7 @@ isum = sum([(extrapolate(reverse(parse(read_line(iunit)))), i = 1, n_lines)])
 close(iunit)
 write(*,*) '9b: sum: ', isum
 
-call clk%toc()
+call clk%toc('9')
 
 contains
 

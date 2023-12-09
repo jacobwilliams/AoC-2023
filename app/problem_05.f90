@@ -83,7 +83,7 @@ do ilocation = minval(mappings(7)%dest_start), maxval(mappings(7)%dest_end) ! up
 end do
 print*, '5b: ', ilocation
 
-call clk%toc()
+call clk%toc('5')
 
 contains
 

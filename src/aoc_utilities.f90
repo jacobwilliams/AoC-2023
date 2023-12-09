@@ -76,11 +76,14 @@ contains
         class(clock),intent(inout) :: me
         call system_clock(me%begin, me%rate)
     end subroutine clock_start
-    subroutine clock_end(me)
-        !! print runtime in miliseconds
+    subroutine clock_end(me, case_str)
+        !! print runtime in milliseconds
         class(clock),intent(inout) :: me
+        character(len=*),intent(in) :: case_str !! description of the case
+        integer :: itime !! time in integer milliseconds
         call system_clock(me%end)
-        write(*,'(a,I3,a)') "Runtime: ", int(1000*(me%end - me%begin) / real(me%rate, real64)), ' ms'
+        itime = int(1000*(me%end - me%begin) / real(me%rate, real64))
+        write(*,'(a,I3,a)') trim(case_str)//' runtime: ', itime, ' ms'
         write(*,'(a)') '---------------------------'
         write(*,*) ''
     end subroutine clock_end
