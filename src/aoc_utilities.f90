@@ -797,6 +797,7 @@ end function parse_ints64
     end function str_to_array
 
     pure integer(int64) function lcm(i,j)
+        !! LCM. based on code from NCAR Command Language
         integer(int64),intent(in) :: i,j
         integer(int64) :: rem,m,n
         m=abs(i)

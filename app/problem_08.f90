@@ -60,10 +60,13 @@ do i = 1, size(nodes)
 end do
 if (size(idx_vec)/=size(idx_zzz_vec)) error stop 'error: they need to be the same size?'
 allocate(imoves_vec(size(idx_vec)))
+! for EACH start, find the number of moves that it takes to get to ONE of the ends.
 do i = 1, size(idx_vec)
     imoves_vec(i) = moves_any_z(idx_vec(i), idx_zzz_vec)
 end do
 ! don't know why this works ¯\_(ツ)_/¯
+! I think it's a feature of the specific data given
+! (it's a repeating cycle once it gets to the end)
 write(*,*) '8b : number of moves: ', lcm(lcm(lcm(lcm(lcm(imoves_vec(1),&
                                              imoves_vec(2)),&
                                              imoves_vec(3)),&
