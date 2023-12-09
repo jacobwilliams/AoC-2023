@@ -24,6 +24,12 @@ module aoc_utilities
         procedure,public :: to_int => string_to_int
     end type string
 
+    type,public :: int64_vec
+        !! an type that contains an allocatable int64 array.
+        !! so we can have an array of these.
+        integer(int64),dimension(:),allocatable :: vals
+    end type int64_vec
+
     public :: read_file_to_integer_array, &
               read_file_to_integer64_array, &
               read_file_to_char_array

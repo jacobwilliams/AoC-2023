@@ -35,19 +35,13 @@ contains
     integer(ip),dimension(:),intent(in) :: ivals
     integer(ip) :: iextrap
     integer :: i, n
-
-    ! types for a difference table:
-    type :: iline
-        !! a line in a difference table
-        integer(ip),dimension(:),allocatable :: vals
-    end type iline
-    type(iline),dimension(:),allocatable :: diff_table
+    type(int64_vec),dimension(:),allocatable :: diff_table !! difference table (vector of vectors)
 
     ! create the difference table:
-    diff_table = [iline(ivals)]; n = 1
+    diff_table = [int64_vec(ivals)]; n = 1
     do
         n = n + 1
-        diff_table = [diff_table, iline(diff(diff_table(n-1)%vals))] ! next line is diff of previous line
+        diff_table = [diff_table, int64_vec(diff(diff_table(n-1)%vals))] ! next line is diff of previous line
         if (all(diff_table(n)%vals==0)) exit
     end do
 
