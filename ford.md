@@ -1,6 +1,7 @@
 project: AoC-2023
 src_dir: .
 output_dir: ./doc
+media_dir: ./media
 project_github: https://github.com/jacobwilliams/AoC-2023
 summary: Advent of Code 2023 with Modern Fortran
 author: Jacob Williams

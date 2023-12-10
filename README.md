@@ -1,3 +1,6 @@
+![aoc2023](media/aoc2023.jpg)
+============
+
 [Advent of Code 2023](https://adventofcode.com/2023) with Modern Fortran.
 
 [![Language](https://img.shields.io/badge/-Fortran-734f96?logo=fortran&logoColor=white)](https://github.com/topics/fortran)
