@@ -74,7 +74,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 9.0% of total for procedures.">88 statements</a>
+                 title=" 9.3% of total for procedures.">91 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -139,7 +139,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>recursive subroutine move(i, j, direction, distance)  
+    <h2>recursive subroutine move(i, j, direction, distance, save_path)  
 </h2>
     
 
@@ -158,7 +158,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~13"></span>
+              <span class="anchor" id="variable-i~5"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -173,7 +173,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~7"></span>
+              <span class="anchor" id="variable-j~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -203,7 +203,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-distance~2"></span>
+              <span class="anchor" id="variable-distance"></span>
               integer,
             </td>
 <td>intent(inout),</td>
@@ -214,6 +214,21 @@
             <td><strong>distance</strong></td>
             <td>
                 
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-save_path"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>save_path</strong></td>
+            <td>
+                <p>to save the path coordinates</p>
             </td>
         </tr>
     </tbody>
@@ -482,9 +497,10 @@ implementation in a submodule of an interface in a parent module.
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">recursive subroutine </span><span class="n">move</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">recursive subroutine </span><span class="n">move</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span><span class="p">,</span><span class="n">distance</span><span class="p">,</span><span class="n">save_path</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">save_path</span><span class="w"> </span><span class="c">!! to save the path coordinates</span>
 
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inew</span><span class="p">,</span><span class="w"> </span><span class="n">jnew</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span>
 <span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">valid_move</span>
@@ -547,11 +563,13 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">                </span><span class="n">distance</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_distance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">                </span><span class="n">visited</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">                </span><span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
-<span class="w">                    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">,</span><span class="n">imove</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">,</span><span class="n">imove</span><span class="p">,</span><span class="n">distance</span><span class="p">,</span><span class="n">save_path</span><span class="p">)</span>
 <span class="w">                </span><span class="k">end do</span>
-<span class="k">                </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save cordinates of point on the path</span>
-<span class="w">                </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">jnew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
-<span class="w">            </span><span class="k">end if</span>
+<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save cordinates of point on the path</span>
+<span class="w">                    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">jnew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end if</span>
 
 <span class="k">        end associate</span>
 

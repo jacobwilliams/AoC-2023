@@ -74,7 +74,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="100.0% of total for modules and submodules.">556 statements</a>
+                 title="100.0% of total for modules and submodules.">621 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -211,6 +211,7 @@
             <a class="list-group-item" href="../module/aoc_utilities.html#proc-swap64">swap64</a>
             <a class="list-group-item" href="../module/aoc_utilities.html#proc-swap_str">swap_str</a>
             <a class="list-group-item" href="../module/aoc_utilities.html#proc-expand_vector">expand_vector</a>
+            <a class="list-group-item" href="../module/aoc_utilities.html#proc-locpt">locpt</a>
         </div>
       </div>
     </div>
@@ -2984,7 +2985,7 @@ Hacky hack just so we can overload as int()</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~2"></span>
+              <span class="anchor" id="variable-c~3"></span>
               character(len=1),
             </td>
 <td>intent(in)</td>
@@ -3029,7 +3030,7 @@ Hacky hack just so we can overload as int()</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~3"></span>
+              <span class="anchor" id="variable-c~4"></span>
               character(len=1),
             </td>
 <td>intent(in)</td>
@@ -3119,7 +3120,7 @@ Hacky hack just so we can overload as int()</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~10"></span>
+              <span class="anchor" id="variable-i~13"></span>
               integer(kind=int64),
             </td>
 <td>intent(in)</td>
@@ -3134,7 +3135,7 @@ Hacky hack just so we can overload as int()</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~4"></span>
+              <span class="anchor" id="variable-j~7"></span>
               integer(kind=int64),
             </td>
 <td>intent(in)</td>
@@ -3179,7 +3180,7 @@ Hacky hack just so we can overload as int()</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-ivals"></span>
+              <span class="anchor" id="variable-ivals~3"></span>
               integer(kind=int64),
             </td>
 <td>intent(in),</td>
@@ -3224,7 +3225,7 @@ Hacky hack just so we can overload as int()</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-ivals~2"></span>
+              <span class="anchor" id="variable-ivals~4"></span>
               integer(kind=int64),
             </td>
 <td>intent(in),</td>
@@ -3675,6 +3676,139 @@ must be initialized to <code>size(vec)</code>
             <td>
 <p>set to true to return <code>vec</code>
 as its correct size (<code>n</code>)</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-locpt"></span><h3>public pure subroutine <a href='../proc/locpt.html'>locpt</a>(x0, y0, x, y, n, l, m)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>given a polygonal line connecting the vertices (x(i),y(i))
+  (i = 1,...,n) taken in this order. it is assumed that the
+  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))
+  or there is an arc from (x(n),y(n)) to (x(1),y(1)).</p><a href="../proc/locpt.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x0"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y0"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>y</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~3"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+
             </td>
         </tr>
     </tbody>

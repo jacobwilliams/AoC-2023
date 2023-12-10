@@ -73,7 +73,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="23.8% of total for programs.">222 statements</a>
+                 title="18.0% of total for programs.">156 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -112,24 +112,21 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/problem_10.html#variable-i~19">i</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-j~11">j</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-i~15">i</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-j~9">j</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-nrows">nrows</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-ncols">ncols</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-istart~3">istart</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-jstart~2">jstart</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-imove">imove</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-l~2">l</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-m~4">m</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-icount">icount</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-array~3">array</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-array~2">array</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-distance~3">distance</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-distance_reverse">distance_reverse</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-visited">visited</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-x~2">x</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-y~2">y</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-x0~2">x0</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-y0~2">y0</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-x">x</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-y">y</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-sij">Sij</a>
         </div>
       </div>
     </div>
@@ -163,7 +160,6 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../program/problem_10.html#proc-move">move</a>
-            <a class="list-group-item" href="../program/problem_10.html#proc-locpt">locpt</a>
         </div>
       </div>
     </div>
@@ -194,8 +190,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
                   <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -383,9 +379,9 @@ modules which it uses.
 <!-- proc~locpt -->
 <g id="program~~problem_10~~CallsGraph_node4" class="node">
 <title>proc~locpt</title>
-<g id="a_program~~problem_10~~CallsGraph_node4"><a xlink:href=".././proc/locpt.html" xlink:title="problem_10::locpt">
+<g id="a_program~~problem_10~~CallsGraph_node4"><a xlink:href=".././proc/locpt.html" xlink:title="aoc_utilities::locpt">
 <polygon fill="#d9534f" stroke="#d9534f" points="270.5,-168 161.5,-168 161.5,-144 270.5,-144 270.5,-168"/>
-<text text-anchor="middle" x="216" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10::locpt</text>
+<text text-anchor="middle" x="216" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::locpt</text>
 </a>
 </g>
 </g>
@@ -573,7 +569,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~19"></span>
+              <span class="anchor" id="variable-i~15"></span>
               integer
             </td>
             <td>
@@ -589,7 +585,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~11"></span>
+              <span class="anchor" id="variable-j~9"></span>
               integer
             </td>
             <td>
@@ -629,38 +625,6 @@ implementation in a submodule of an interface in a parent module.
             </td>
             <td>::</td>
             <td><strong>ncols</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-istart~3"></span>
-              integer
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>istart</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-jstart~2"></span>
-              integer
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>jstart</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -733,7 +697,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~3"></span>
+              <span class="anchor" id="variable-array~2"></span>
               character(len=1),
             </td>
             <td>
@@ -797,7 +761,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~2"></span>
+              <span class="anchor" id="variable-x"></span>
               real(kind=wp),
             </td>
             <td>
@@ -808,12 +772,12 @@ implementation in a submodule of an interface in a parent module.
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>path cooidinates</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~2"></span>
+              <span class="anchor" id="variable-y"></span>
               real(kind=wp),
             </td>
             <td>
@@ -824,39 +788,23 @@ implementation in a submodule of an interface in a parent module.
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>path cooidinates</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x0~2"></span>
-              real(kind=wp),
+              <span class="anchor" id="variable-sij"></span>
+              integer,
             </td>
             <td>
-              dimension(:), allocatable
-            </td>
-            <td>::</td>
-            <td><strong>x0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-y0~2"></span>
-              real(kind=wp),
-            </td>
-            <td>
-              dimension(:), allocatable
+              dimension(2)
             </td>
             <td>::</td>
-            <td><strong>y0</strong></td>
+            <td><strong>Sij</strong></td>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>i,j of the S char in array</p>
             </td>
         </tr>
     </tbody>
@@ -924,7 +872,7 @@ implementation in a submodule of an interface in a parent module.
     <section>
     <h2>Subroutines</h2>
       <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-move"></span><h3>recursive subroutine <a href='../proc/move.html'>move</a>(i, j, direction, distance)  
+    <div class="card-header codesum"><span class="anchor" id="proc-move"></span><h3>recursive subroutine <a href='../proc/move.html'>move</a>(i, j, direction, distance, save_path)  
 </h3></div>
     <div class="card-body">
           
@@ -943,7 +891,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~13"></span>
+              <span class="anchor" id="variable-i~5"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -958,7 +906,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~7"></span>
+              <span class="anchor" id="variable-j~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -988,7 +936,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-distance~2"></span>
+              <span class="anchor" id="variable-distance"></span>
               integer,
             </td>
 <td>intent(inout),</td>
@@ -1001,137 +949,19 @@ implementation in a submodule of an interface in a parent module.
 
             </td>
         </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-      <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-locpt"></span><h3>pure subroutine <a href='../proc/locpt.html'>locpt</a>(x0, y0, x, y, n, l, m)  
-</h3></div>
-    <div class="card-body">
-          
-  <p>given a polygonal line connecting the vertices (x(i),y(i))
-  (i = 1,...,n) taken in this order. it is assumed that the
-  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))
-  or there is an arc from (x(n),y(n)) to (x(1),y(1)).</p><a href="../proc/locpt.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-x0"></span>
-              real(kind=wp),
+              <span class="anchor" id="variable-save_path"></span>
+              logical,
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>x0</strong></td>
+            <td><strong>save_path</strong></td>
             <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-y0"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>y0</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-x"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(n)
-            </td>
-            <td>::</td>
-            <td><strong>x</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-y"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(n)
-            </td>
-            <td>::</td>
-            <td><strong>y</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-n~2"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>n</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-l"></span>
-              integer,
-            </td>
-<td>intent(out)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>l</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m~3"></span>
-              integer,
-            </td>
-<td>intent(out)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>m</strong></td>
-            <td>
-
+<p>to save the path coordinates</p>
             </td>
         </tr>
     </tbody>
@@ -1153,12 +983,13 @@ implementation in a submodule of an interface in a parent module.
 
 <span class="k">implicit none</span>
 
-<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icount</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span>
 <span class="kt">logical</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">visited</span>
-<span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="c">!! path cooidinates</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Sij</span><span class="w"> </span><span class="c">!! i,j of the S char in array</span>
 
 <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
 
@@ -1171,41 +1002,31 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">allocate</span><span class="p">(</span><span class="n">visited</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">))</span>
 
 <span class="c">! start at the S coordinate:</span>
-<span class="n">main</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span>
-<span class="w">    </span><span class="k">do </span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="n">jstart</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">main</span>
-<span class="w">    </span><span class="k">end do</span>
-<span class="k">end do </span><span class="n">main</span>
-<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="n">visited</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="n">distance</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">istart</span><span class="p">]</span><span class="w"> </span><span class="c">! to store the path</span>
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">jstart</span><span class="p">]</span>
+<span class="n">Sij</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">findloc</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! to store the path for part b</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
 
 <span class="c">! traverse the maze:</span>
+<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.;</span><span class="w"> </span><span class="n">visited</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
-<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
 <span class="k">end do</span>
-<span class="n">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="kt">real</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save the path for part b</span>
-<span class="n">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="kt">real</span><span class="p">(</span><span class="n">jstart</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
 
-<span class="c">! do it in reverse!</span>
-<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="n">visited</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="n">distance_reverse</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="c">! traverse the maze:</span>
+<span class="c">! traverse the maze again in reverse:</span>
+<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.;</span><span class="w"> </span><span class="n">visited</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.;</span><span class="w"> </span><span class="n">distance_reverse</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
-<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">Sij</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">Sij</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
 <span class="k">end do</span>
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="n">distance</span><span class="o">+</span><span class="n">distance_reverse</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="c">! this is the distance furthest away from the start</span>
+<span class="c">! where they match is the distance furthest away from the start</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="o">==</span><span class="n">distance_reverse</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">distance</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span>
 
 <span class="c">! for part b, use locpt to test all the points !</span>
 <span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="c">! we can skip the padding</span>
 <span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="o">-</span><span class="mi">1</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">j</span><span class="o">==</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="k">cycle</span><span class="w"> </span><span class="c">! skip if on path</span>
-<span class="w">        </span><span class="k">call </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! if (x0,y0) is inside the polygonal path</span>
+<span class="w">        </span><span class="k">call </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! if (i,j) is inside the polygonal path</span>
 <span class="w">    </span><span class="k">end do</span>
 <span class="k">end do</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">icount</span>
@@ -1214,9 +1035,10 @@ implementation in a submodule of an interface in a parent module.
 
 <span class="k">contains</span>
 
-<span class="k">    recursive subroutine </span><span class="n">move</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+<span class="k">    recursive subroutine </span><span class="n">move</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span><span class="p">,</span><span class="n">distance</span><span class="p">,</span><span class="n">save_path</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">save_path</span><span class="w"> </span><span class="c">!! to save the path coordinates</span>
 
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inew</span><span class="p">,</span><span class="w"> </span><span class="n">jnew</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span>
 <span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">valid_move</span>
@@ -1279,11 +1101,13 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">                </span><span class="n">distance</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_distance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">                </span><span class="n">visited</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">                </span><span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
-<span class="w">                    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">,</span><span class="n">imove</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">,</span><span class="n">imove</span><span class="p">,</span><span class="n">distance</span><span class="p">,</span><span class="n">save_path</span><span class="p">)</span>
 <span class="w">                </span><span class="k">end do</span>
-<span class="k">                </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save cordinates of point on the path</span>
-<span class="w">                </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">jnew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
-<span class="w">            </span><span class="k">end if</span>
+<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save cordinates of point on the path</span>
+<span class="w">                    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">jnew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end if</span>
 
 <span class="k">        end associate</span>
 
@@ -1300,126 +1124,6 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SE&#39;</span><span class="w">   </span><span class="c">! F is a 90-degree bend connecting south and east.</span>
 <span class="w">        </span><span class="k">end select</span>
 <span class="k">    end function </span><span class="n">pipe_info</span>
-
-
-<span class="c">! the following routine is from the Fortran Astrodynamics Toolkit</span>
-
-<span class="c">!*****************************************************************************************</span>
-<span class="c">!&gt;</span>
-<span class="c">!  given a polygonal line connecting the vertices (x(i),y(i))</span>
-<span class="c">!  (i = 1,...,n) taken in this order. it is assumed that the</span>
-<span class="c">!  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))</span>
-<span class="c">!  or there is an arc from (x(n),y(n)) to (x(1),y(1)).</span>
-<span class="c">!</span>
-<span class="c">!  (x0,y0) is an arbitrary point and l and m are variables.</span>
-<span class="c">!  l and m are assigned the following values:</span>
-<span class="c">!</span>
-<span class="c">!     l = -1   if (x0,y0) is outside the polygonal path</span>
-<span class="c">!     l =  0   if (x0,y0) lies on the polygonal path</span>
-<span class="c">!     l =  1   if (x0,y0) is inside the polygonal path</span>
-<span class="c">!</span>
-<span class="c">!  m = 0 if (x0,y0) is on or outside the path. if (x0,y0)</span>
-<span class="c">!  is inside the path then m is the winding number of the</span>
-<span class="c">!  path around the point (x0,y0).</span>
-<span class="c">!</span>
-<span class="c">!# History</span>
-<span class="c">!  * Original version from the NSWC Library</span>
-<span class="c">!  * Modified by J. Williams : 08/04/2012 : refactored to modern Fortran</span>
-
-<span class="w">    </span><span class="k">pure subroutine </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
-
-<span class="w">    </span><span class="k">implicit none</span>
-
-<span class="w">    </span><span class="c">!arguments:</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">x0</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">y0</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">y</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">l</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span>
-
-<span class="w">    </span><span class="c">!constants:</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0_wp</span><span class="p">)</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="n">pi</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_wp</span><span class="o">*</span><span class="n">eps</span><span class="o">*</span><span class="n">pi</span>
-
-<span class="w">    </span><span class="c">!local variables:</span>
-<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">n0</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">theta1</span><span class="p">,</span><span class="nb">sum</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">angle</span><span class="p">,</span><span class="n">thetai</span>
-
-<span class="w">    </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
-<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x0</span>
-<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y0</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-
-<span class="k">        </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
-
-<span class="w">    </span><span class="k">else</span>
-
-<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-
-<span class="k">            </span><span class="n">theta1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
-<span class="w">            </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
-<span class="w">            </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theta1</span>
-
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">n0</span>
-
-<span class="w">                </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x0</span>
-<span class="w">                </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y0</span>
-
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
-<span class="w">                    </span><span class="k">exit</span>
-<span class="k">                end if</span>
-
-<span class="k">                </span><span class="n">thetai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
-<span class="w">                </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">thetai</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">theta</span><span class="p">)</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
-<span class="w">                    </span><span class="k">exit</span>
-<span class="k">                end if</span>
-
-<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi2</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">thetai</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">angle</span>
-<span class="w">                </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">angle</span>
-<span class="w">                </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thetai</span>
-
-<span class="w">            </span><span class="k">end do</span>
-
-<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-
-<span class="k">                </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">theta1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">theta</span><span class="p">)</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-
-<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
-
-<span class="w">                </span><span class="k">else</span>
-
-<span class="k">                    if</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi2</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">theta1</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">angle</span>
-<span class="w">                    </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">angle</span><span class="w">    </span><span class="c">!sum = 2*pi*m where m is the winding number</span>
-<span class="w">                    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span><span class="o">/</span><span class="n">pi2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2_wp</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">sum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">m</span>
-<span class="w">                    </span><span class="k">end if</span>
-
-<span class="k">                end if</span>
-
-<span class="k">            end if</span>
-
-<span class="k">        end if</span>
-
-<span class="k">    end if</span>
-
-<span class="k">    end subroutine </span><span class="n">locpt</span>
-<span class="c">!*****************************************************************************************</span>
 
 <span class="k">end program </span><span class="n">problem_10</span>
 </pre></div>

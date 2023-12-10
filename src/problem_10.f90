@@ -5,12 +5,13 @@ use aoc_utilities
 
 implicit none
 
-integer :: i, j, nrows, ncols, istart, jstart, imove, l , m
+integer :: i, j, nrows, ncols, imove, l , m
 integer(ip) :: icount
 character(len=1),dimension(:,:),allocatable :: array
 integer,dimension(:,:),allocatable :: distance, distance_reverse
 logical,dimension(:,:),allocatable :: visited
-real(wp),dimension(:),allocatable :: x, y, x0, y0
+real(wp),dimension(:),allocatable :: x, y !! path cooidinates
+integer,dimension(2) :: Sij !! i,j of the S char in array
 
 call clk%tic()
 
@@ -23,41 +24,31 @@ allocate(distance_reverse(nrows,ncols)); distance_reverse = -1
 allocate(visited(nrows,ncols))
 
 ! start at the S coordinate:
-main: do istart = 1, nrows
-    do jstart = 1, ncols
-        if (array(istart,jstart)=='S') exit main
-    end do
-end do main
-visited = .false.
-visited(istart, jstart) = .true.
-distance(istart, jstart) = 0
-x = [istart] ! to store the path
-y = [jstart]
+Sij = findloc(array, 'S')
+x = [Sij(1)] ! to store the path for part b
+y = [Sij(2)]
 
 ! traverse the maze:
+visited = .false.; visited(Sij(1), Sij(2)) = .true.; distance(Sij(1), Sij(2)) = 0
 do imove = 1, 4
-    call move(istart, jstart, imove, distance)
+    call move(Sij(1), Sij(2), imove, distance, .true.)
 end do
-x0 = [x,real(istart,wp)] ! save the path for part b
-y0 = [y,real(jstart,wp)]
 
-! do it in reverse!
-visited = .false.
-visited(istart, jstart) = .true.
-distance_reverse(istart, jstart) = 0
-! traverse the maze:
+! traverse the maze again in reverse:
+visited = .false.; visited(Sij(1), Sij(2)) = .true.; distance_reverse(Sij(1), Sij(2)) = 0
 do imove = 4, 1, -1
-    call move(istart, jstart, imove, distance_reverse)
+    call move(Sij(1), Sij(2), imove, distance_reverse, .false.)
 end do
-write(*,*) '10a: ', maxval(distance+distance_reverse)/2 ! this is the distance furthest away from the start
+! where they match is the distance furthest away from the start
+write(*,*) '10a: ', pack(distance, mask = (distance==distance_reverse .and. distance>0))
 
 ! for part b, use locpt to test all the points !
 icount = 0
 do i = 2, nrows-1 ! we can skip the padding
     do j = 2, ncols-1
         if (any(i==x .and. j==y)) cycle ! skip if on path
-        call locpt (real(i,wp), real(j,wp), x0, y0, size(x0), l, m)
-        if (l==1) icount = icount + 1 ! if (x0,y0) is inside the polygonal path
+        call locpt (real(i,wp), real(j,wp), x, y, size(x), l, m)
+        if (l==1) icount = icount + 1 ! if (i,j) is inside the polygonal path
     end do
 end do
 write(*,*) '10b: ', icount
@@ -66,9 +57,10 @@ call clk%toc('10')
 
 contains
 
-    recursive subroutine move(i,j,direction,distance)
+    recursive subroutine move(i,j,direction,distance,save_path)
         integer,intent(in) :: i,j,direction
         integer,dimension(:,:),intent(inout) :: distance
+        logical,intent(in) :: save_path !! to save the path coordinates
 
         integer :: inew, jnew, imove
         logical :: valid_move
@@ -131,10 +123,12 @@ contains
                 distance(inew,jnew) = current_distance + 1
                 visited(inew,jnew) = .true.
                 do imove = 1, 4
-                    call move(inew,jnew,imove,distance)
+                    call move(inew,jnew,imove,distance,save_path)
                 end do
-                x = [x, real(inew,wp)] ! save cordinates of point on the path
-                y = [y, real(jnew,wp)]
+                if (save_path) then
+                    x = [x, real(inew,wp)] ! save cordinates of point on the path
+                    y = [y, real(jnew,wp)]
+                end if
             end if
 
         end associate
@@ -152,125 +146,5 @@ contains
         case('F'); pipe_info = 'SE'   ! F is a 90-degree bend connecting south and east.
         end select
     end function pipe_info
-
-
-! the following routine is from the Fortran Astrodynamics Toolkit
-
-!*****************************************************************************************
-!>
-!  given a polygonal line connecting the vertices (x(i),y(i))
-!  (i = 1,...,n) taken in this order. it is assumed that the
-!  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))
-!  or there is an arc from (x(n),y(n)) to (x(1),y(1)).
-!
-!  (x0,y0) is an arbitrary point and l and m are variables.
-!  l and m are assigned the following values:
-!
-!     l = -1   if (x0,y0) is outside the polygonal path
-!     l =  0   if (x0,y0) lies on the polygonal path
-!     l =  1   if (x0,y0) is inside the polygonal path
-!
-!  m = 0 if (x0,y0) is on or outside the path. if (x0,y0)
-!  is inside the path then m is the winding number of the
-!  path around the point (x0,y0).
-!
-!# History
-!  * Original version from the NSWC Library
-!  * Modified by J. Williams : 08/04/2012 : refactored to modern Fortran
-
-    pure subroutine locpt (x0, y0, x, y, n, l, m)
-
-    implicit none
-
-    !arguments:
-    integer,intent(in)               :: n
-    real(wp),intent(in)              :: x0
-    real(wp),intent(in)              :: y0
-    real(wp),dimension(n),intent(in) :: x
-    real(wp),dimension(n),intent(in) :: y
-    integer,intent(out)              :: l
-    integer,intent(out)              :: m
-
-    !constants:
-    real(wp),parameter :: eps = epsilon(1.0_wp)
-    real(wp),parameter :: pi  = atan2(0.0_wp, -1.0_wp)
-    real(wp),parameter :: pi2 = 2.0_wp*pi
-    real(wp),parameter :: tol = 4.0_wp*eps*pi
-
-    !local variables:
-    integer  :: i,n0
-    real(wp) :: u,v,theta1,sum,theta,angle,thetai
-
-    n0 = n
-    if (x(1) == x(n) .and. y(1) == y(n)) n0 = n - 1
-    l = -1
-    m = 0
-    u = x(1) - x0
-    v = y(1) - y0
-
-    if (u == 0.0_wp .and. v == 0.0_wp) then
-
-        l = 0  !(x0, y0) is on the boundary of the path
-
-    else
-
-        if (n0 >= 2) then
-
-            theta1 = atan2(v, u)
-            sum = 0.0_wp
-            theta = theta1
-
-            do i = 2,n0
-
-                u = x(i) - x0
-                v = y(i) - y0
-
-                if (u == 0.0_wp .and. v == 0.0_wp) then
-                    l = 0  !(x0, y0) is on the boundary of the path
-                    exit
-                end if
-
-                thetai = atan2(v, u)
-                angle = abs(thetai - theta)
-                if (abs(angle - pi) < tol) then
-                    l = 0  !(x0, y0) is on the boundary of the path
-                    exit
-                end if
-
-                if (angle > pi) angle = angle - pi2
-                if (theta > thetai) angle = -angle
-                sum = sum + angle
-                theta = thetai
-
-            end do
-
-            if (l/=0) then
-
-                angle = abs(theta1 - theta)
-                if (abs(angle - pi) < tol) then
-
-                    l = 0  !(x0, y0) is on the boundary of the path
-
-                else
-
-                    if (angle > pi) angle = angle - pi2
-                    if (theta > theta1) angle = -angle
-                    sum = sum + angle    !sum = 2*pi*m where m is the winding number
-                    m = abs(sum)/pi2 + 0.2_wp
-                    if (m /= 0) then
-                        l = 1
-                        if (sum < 0.0_wp) m = -m
-                    end if
-
-                end if
-
-            end if
-
-        end if
-
-    end if
-
-    end subroutine locpt
-!*****************************************************************************************
 
 end program problem_10

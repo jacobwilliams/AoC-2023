@@ -7,7 +7,7 @@
 
     module aoc_utilities
 
-    use iso_fortran_env
+    use iso_fortran_env, wp => real64
 
     implicit none
 
@@ -50,6 +50,7 @@
     public :: lcm
     public :: reverse
     public :: diff
+    public :: locpt
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -111,7 +112,7 @@ contains
         character(len=*),intent(in) :: case_str !! description of the case
         integer :: itime !! time in integer milliseconds
         call system_clock(me%end)
-        itime = int(1000*(me%end - me%begin) / real(me%rate, real64))
+        itime = int(1000*(me%end - me%begin) / real(me%rate, wp))
         write(*,'(a,I4,a)') trim(case_str)//' runtime: ', itime, ' ms'
         write(*,'(a)') '---------------------------'
         write(*,*) ''
@@ -959,6 +960,125 @@ contains
         idiff = [(ivals(i+1) - ivals(i), i = 1, size(ivals)-1)]
     end function diff
 !****************************************************************
+
+! the following routine is from the Fortran Astrodynamics Toolkit
+
+!*****************************************************************************************
+!>
+!  given a polygonal line connecting the vertices (x(i),y(i))
+!  (i = 1,...,n) taken in this order. it is assumed that the
+!  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))
+!  or there is an arc from (x(n),y(n)) to (x(1),y(1)).
+!
+!  (x0,y0) is an arbitrary point and l and m are variables.
+!  l and m are assigned the following values:
+!
+!     l = -1   if (x0,y0) is outside the polygonal path
+!     l =  0   if (x0,y0) lies on the polygonal path
+!     l =  1   if (x0,y0) is inside the polygonal path
+!
+!  m = 0 if (x0,y0) is on or outside the path. if (x0,y0)
+!  is inside the path then m is the winding number of the
+!  path around the point (x0,y0).
+!
+!# History
+!  * Original version from the NSWC Library
+!  * Modified by J. Williams : 08/04/2012 : refactored to modern Fortran
+
+    pure subroutine locpt (x0, y0, x, y, n, l, m)
+
+    implicit none
+
+    !arguments:
+    integer,intent(in)               :: n
+    real(wp),intent(in)              :: x0
+    real(wp),intent(in)              :: y0
+    real(wp),dimension(n),intent(in) :: x
+    real(wp),dimension(n),intent(in) :: y
+    integer,intent(out)              :: l
+    integer,intent(out)              :: m
+
+    !constants:
+    real(wp),parameter :: eps = epsilon(1.0_wp)
+    real(wp),parameter :: pi  = atan2(0.0_wp, -1.0_wp)
+    real(wp),parameter :: pi2 = 2.0_wp*pi
+    real(wp),parameter :: tol = 4.0_wp*eps*pi
+
+    !local variables:
+    integer  :: i,n0
+    real(wp) :: u,v,theta1,sum,theta,angle,thetai
+
+    n0 = n
+    if (x(1) == x(n) .and. y(1) == y(n)) n0 = n - 1
+    l = -1
+    m = 0
+    u = x(1) - x0
+    v = y(1) - y0
+
+    if (u == 0.0_wp .and. v == 0.0_wp) then
+
+        l = 0  !(x0, y0) is on the boundary of the path
+
+    else
+
+        if (n0 >= 2) then
+
+            theta1 = atan2(v, u)
+            sum = 0.0_wp
+            theta = theta1
+
+            do i = 2,n0
+
+                u = x(i) - x0
+                v = y(i) - y0
+
+                if (u == 0.0_wp .and. v == 0.0_wp) then
+                    l = 0  !(x0, y0) is on the boundary of the path
+                    exit
+                end if
+
+                thetai = atan2(v, u)
+                angle = abs(thetai - theta)
+                if (abs(angle - pi) < tol) then
+                    l = 0  !(x0, y0) is on the boundary of the path
+                    exit
+                end if
+
+                if (angle > pi) angle = angle - pi2
+                if (theta > thetai) angle = -angle
+                sum = sum + angle
+                theta = thetai
+
+            end do
+
+            if (l/=0) then
+
+                angle = abs(theta1 - theta)
+                if (abs(angle - pi) < tol) then
+
+                    l = 0  !(x0, y0) is on the boundary of the path
+
+                else
+
+                    if (angle > pi) angle = angle - pi2
+                    if (theta > theta1) angle = -angle
+                    sum = sum + angle    !sum = 2*pi*m where m is the winding number
+                    m = abs(sum)/pi2 + 0.2_wp
+                    if (m /= 0) then
+                        l = 1
+                        if (sum < 0.0_wp) m = -m
+                    end if
+
+                end if
+
+            end if
+
+        end if
+
+    end if
+
+    end subroutine locpt
+!*****************************************************************************************
 
 !************************************************************************************************
     end module aoc_utilities
