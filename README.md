@@ -32,7 +32,7 @@ Day  | Stars  | Runtime
 [7](https://adventofcode.com/2023/day/7)  | ⭐⭐ |  17 ms
 [8](https://adventofcode.com/2023/day/8)  | ⭐⭐ |  11 ms
 [9](https://adventofcode.com/2023/day/9)  | ⭐⭐ |  23 ms
-[10](https://adventofcode.com/2023/day/10)| ☆☆  |
+<!-- [10](https://adventofcode.com/2023/day/10)| ☆☆  |
 [11](https://adventofcode.com/2023/day/11)| ☆☆  |
 [12](https://adventofcode.com/2023/day/12)| ☆☆  |
 [13](https://adventofcode.com/2023/day/13)| ☆☆  |
@@ -47,7 +47,7 @@ Day  | Stars  | Runtime
 [22](https://adventofcode.com/2023/day/22)| ☆☆  |
 [23](https://adventofcode.com/2023/day/23)| ☆☆  |
 [24](https://adventofcode.com/2023/day/24)| ☆☆  |
-[25](https://adventofcode.com/2023/day/25)| ☆☆  |
+[25](https://adventofcode.com/2023/day/25)| ☆☆  | -->
 
 
 ## Previous Years
