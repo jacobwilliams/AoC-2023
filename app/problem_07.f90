@@ -1,4 +1,4 @@
-program problem_7b
+program problem_7
 
 use iso_fortran_env, only: ip => int64 ! use long ints
 use aoc_utilities
@@ -212,4 +212,4 @@ contains
     i2  = tmp
     end subroutine swap_hands
 
-end program problem_7b
+end program problem_7
