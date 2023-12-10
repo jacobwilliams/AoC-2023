@@ -112,7 +112,7 @@ contains
         integer :: itime !! time in integer milliseconds
         call system_clock(me%end)
         itime = int(1000*(me%end - me%begin) / real(me%rate, real64))
-        write(*,'(a,I3,a)') trim(case_str)//' runtime: ', itime, ' ms'
+        write(*,'(a,I4,a)') trim(case_str)//' runtime: ', itime, ' ms'
         write(*,'(a)') '---------------------------'
         write(*,*) ''
     end subroutine clock_end
