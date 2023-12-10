@@ -6,7 +6,7 @@ use aoc_utilities
 implicit none
 
 integer :: i, j, nrows, ncols, imove, l , m
-integer(ip) :: icount
+logical,dimension(:,:),allocatable :: icounts
 character(len=1),dimension(:,:),allocatable :: array
 integer,dimension(:,:),allocatable :: distance, distance_reverse
 logical,dimension(:,:),allocatable :: visited
@@ -42,16 +42,19 @@ end do
 ! where they match is the distance furthest away from the start
 write(*,*) '10a: ', pack(distance, mask = (distance==distance_reverse .and. distance>0))
 
-! for part b, use locpt to test all the points !
-icount = 0
+! for part b, use locpt to test all the points
+! allow openmp to be used here to do each row in parallel
+allocate(icounts(nrows,ncols)); icounts = .false.
+!$OMP PARALLEL DO SHARED(icounts,x,y) PRIVATE(i,j,l,m)
 do i = 2, nrows-1 ! we can skip the padding
     do j = 2, ncols-1
         if (any(i==x .and. j==y)) cycle ! skip if on path
         call locpt (real(i,wp), real(j,wp), x, y, size(x), l, m)
-        if (l==1) icount = icount + 1 ! if (i,j) is inside the polygonal path
+        if (l==1) icounts(i,j) = .true. ! if (i,j) is inside the polygonal path
     end do
 end do
-write(*,*) '10b: ', icount
+!$OMP END PARALLEL DO
+write(*,*) '10b: ', count(icounts)
 
 call clk%toc('10')
 
