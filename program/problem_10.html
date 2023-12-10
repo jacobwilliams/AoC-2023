@@ -73,7 +73,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="18.0% of total for programs.">156 statements</a>
+                 title="18.1% of total for programs.">157 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -112,15 +112,15 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/problem_10.html#variable-i~15">i</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-j~9">j</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-i~21">i</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-j~13">j</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-nrows">nrows</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-ncols">ncols</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-imove">imove</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-l~2">l</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-m~4">m</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-icount">icount</a>
-            <a class="list-group-item" href="../program/problem_10.html#variable-array~2">array</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-icounts">icounts</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-array~3">array</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-distance~3">distance</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-distance_reverse">distance_reverse</a>
             <a class="list-group-item" href="../program/problem_10.html#variable-visited">visited</a>
@@ -569,7 +569,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~15"></span>
+              <span class="anchor" id="variable-i~21"></span>
               integer
             </td>
             <td>
@@ -585,7 +585,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~9"></span>
+              <span class="anchor" id="variable-j~13"></span>
               integer
             </td>
             <td>
@@ -681,14 +681,14 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-icount"></span>
-              integer(kind=ip)
+              <span class="anchor" id="variable-icounts"></span>
+              logical,
             </td>
             <td>
-              
+              dimension(:,:), allocatable
             </td>
             <td>::</td>
-            <td><strong>icount</strong></td>
+            <td><strong>icounts</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -697,7 +697,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~2"></span>
+              <span class="anchor" id="variable-array~3"></span>
               character(len=1),
             </td>
             <td>
@@ -891,7 +891,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~5"></span>
+              <span class="anchor" id="variable-i~13"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -906,7 +906,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~4"></span>
+              <span class="anchor" id="variable-j~7"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -984,7 +984,7 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">implicit none</span>
 
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
-<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icount</span>
+<span class="kt">logical</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icounts</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span>
 <span class="kt">logical</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">visited</span>
@@ -1020,16 +1020,19 @@ implementation in a submodule of an interface in a parent module.
 <span class="c">! where they match is the distance furthest away from the start</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="o">==</span><span class="n">distance_reverse</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">distance</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span>
 
-<span class="c">! for part b, use locpt to test all the points !</span>
-<span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="c">! for part b, use locpt to test all the points</span>
+<span class="c">! allow openmp to be used here to do each row in parallel</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">icounts</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">));</span><span class="w"> </span><span class="n">icounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="c">!$OMP PARALLEL DO SHARED(icounts,x,y) PRIVATE(i,j,l,m)</span>
 <span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="c">! we can skip the padding</span>
 <span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="o">-</span><span class="mi">1</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">j</span><span class="o">==</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="k">cycle</span><span class="w"> </span><span class="c">! skip if on path</span>
 <span class="w">        </span><span class="k">call </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! if (i,j) is inside the polygonal path</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">icounts</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"> </span><span class="c">! if (i,j) is inside the polygonal path</span>
 <span class="w">    </span><span class="k">end do</span>
 <span class="k">end do</span>
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">icount</span>
+<span class="c">!$OMP END PARALLEL DO</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="n">icounts</span><span class="p">)</span>
 
 <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
 
