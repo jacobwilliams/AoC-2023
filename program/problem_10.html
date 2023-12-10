@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_10 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_10      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="23.8% of total for programs.">222 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_10.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_10.f90.html'>problem_10.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_10</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_10.html#variable-i~19">i</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-j~11">j</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-nrows">nrows</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-ncols">ncols</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-istart~3">istart</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-jstart~2">jstart</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-imove">imove</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-l~2">l</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-m~4">m</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-icount">icount</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-array~3">array</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-distance~3">distance</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-distance_reverse">distance_reverse</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-visited">visited</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-x~2">x</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-y~2">y</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-x0~2">x0</a>
+            <a class="list-group-item" href="../program/problem_10.html#variable-y0~2">y0</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_10.html#proc-pipe_info">pipe_info</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_10.html#proc-move">move</a>
+            <a class="list-group-item" href="../program/problem_10.html#proc-locpt">locpt</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_10.html#src">problem_10</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_10~~UsesGraph Pages: 1 -->
+<svg id="programproblem_10UsesGraph" width="326pt" height="52pt"
+ viewBox="0.00 0.00 326.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_10~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~problem_10~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 322,-48 322,4 -4,4"/>
+<!-- program~problem_10 -->
+<g id="program~~problem_10~~UsesGraph_node1" class="node">
+<title>program~problem_10</title>
+<polygon fill="none" stroke="black" points="318,-44 242,-44 242,-20 318,-20 318,-44"/>
+<text text-anchor="middle" x="280" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_10</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_10~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~problem_10&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_10~~UsesGraph_edge1" class="edge">
+<title>program~problem_10&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.86,-32.61C230.37,-32.77 217.66,-32.92 206,-33 172.22,-33.23 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_10~~UsesGraph_node3" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_10~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
+<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_10~~UsesGraph_edge2" class="edge">
+<title>program~problem_10&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.76,-25.23C233.52,-23.73 224.68,-22.12 216.1,-20.56"/>
+<polygon fill="#000000" stroke="#000000" points="216.67,-17.11 206.2,-18.76 215.42,-24 216.67,-17.11"/>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_10~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_10~~CallsGraph Pages: 1 -->
+<svg id="programproblem_10CallsGraph" width="572pt" height="260pt"
+ viewBox="0.00 0.00 572.00 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_10~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>program~~problem_10~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 568,-256 568,4 -4,4"/>
+<!-- program~problem_10 -->
+<g id="program~~problem_10~~CallsGraph_node1" class="node">
+<title>program~problem_10</title>
+<polygon fill="none" stroke="black" points="76,-168 0,-168 0,-144 76,-144 76,-168"/>
+<text text-anchor="middle" x="38" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_10</text>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_10~~CallsGraph_node2" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_10~~CallsGraph_node2"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="303,-252 129,-252 129,-228 303,-228 303,-252"/>
+<text text-anchor="middle" x="216" y="-237.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;proc~clock_end -->
+<g id="program~~problem_10~~CallsGraph_edge1" class="edge">
+<title>program~problem_10&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M49.3,-168.05C62.37,-182.51 86.31,-206.38 112,-219 116.28,-221.1 120.76,-222.99 125.35,-224.7"/>
+<polygon fill="#000000" stroke="#000000" points="124.32,-228.04 134.91,-227.93 126.56,-221.41 124.32,-228.04"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_10~~CallsGraph_node3" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_10~~CallsGraph_node3"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-210 127,-210 127,-186 305,-186 305,-210"/>
+<text text-anchor="middle" x="216" y="-195.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;proc~clock_start -->
+<g id="program~~problem_10~~CallsGraph_edge2" class="edge">
+<title>program~problem_10&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M76.36,-167.36C87.75,-170.66 100.35,-174.14 112,-177 121.64,-179.36 131.83,-181.67 141.9,-183.84"/>
+<polygon fill="#000000" stroke="#000000" points="141.4,-187.31 151.91,-185.96 142.85,-180.46 141.4,-187.31"/>
+</g>
+<!-- proc~locpt -->
+<g id="program~~problem_10~~CallsGraph_node4" class="node">
+<title>proc~locpt</title>
+<g id="a_program~~problem_10~~CallsGraph_node4"><a xlink:href=".././proc/locpt.html" xlink:title="problem_10::locpt">
+<polygon fill="#d9534f" stroke="#d9534f" points="270.5,-168 161.5,-168 161.5,-144 270.5,-144 270.5,-168"/>
+<text text-anchor="middle" x="216" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10::locpt</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;proc~locpt -->
+<g id="program~~problem_10~~CallsGraph_edge3" class="edge">
+<title>program~problem_10&#45;&gt;proc~locpt</title>
+<path fill="none" stroke="#000000" d="M76.33,-156C98.05,-156 126.03,-156 151.16,-156"/>
+<polygon fill="#000000" stroke="#000000" points="151.37,-159.5 161.37,-156 151.37,-152.5 151.37,-159.5"/>
+</g>
+<!-- proc~move -->
+<g id="program~~problem_10~~CallsGraph_node5" class="node">
+<title>proc~move</title>
+<g id="a_program~~problem_10~~CallsGraph_node5"><a xlink:href=".././proc/move.html" xlink:title="problem_10::move">
+<polygon fill="#d9534f" stroke="#d9534f" points="272.5,-108 159.5,-108 159.5,-84 272.5,-84 272.5,-108"/>
+<text text-anchor="middle" x="216" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10::move</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;proc~move -->
+<g id="program~~problem_10~~CallsGraph_edge4" class="edge">
+<title>program~problem_10&#45;&gt;proc~move</title>
+<path fill="none" stroke="#000000" d="M74.62,-143.86C102.14,-134.47 140.41,-121.43 170.05,-111.32"/>
+<polygon fill="#000000" stroke="#000000" points="171.4,-114.56 179.74,-108.02 169.14,-107.94 171.4,-114.56"/>
+</g>
+<!-- proc~read_file_to_char_array -->
+<g id="program~~problem_10~~CallsGraph_node6" class="node">
+<title>proc~read_file_to_char_array</title>
+<g id="a_program~~problem_10~~CallsGraph_node6"><a xlink:href=".././proc/read_file_to_char_array.html" xlink:title="aoc_utilities::read_file_to_char_array">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="320,-66 112,-66 112,-42 320,-42 320,-66"/>
+<text text-anchor="middle" x="216" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_file_to_char_array</text>
+</a>
+</g>
+</g>
+<!-- program~problem_10&#45;&gt;proc~read_file_to_char_array -->
+<g id="program~~problem_10~~CallsGraph_edge5" class="edge">
+<title>program~problem_10&#45;&gt;proc~read_file_to_char_array</title>
+<path fill="none" stroke="#000000" d="M46.27,-143.89C57.81,-125.82 82.09,-92.1 112,-75 115.28,-73.12 118.71,-71.41 122.23,-69.86"/>
+<polygon fill="#000000" stroke="#000000" points="123.76,-73.02 131.76,-66.07 121.18,-66.51 123.76,-73.02"/>
+</g>
+<!-- proc~move&#45;&gt;proc~move -->
+<g id="program~~problem_10~~CallsGraph_edge6" class="edge">
+<title>proc~move&#45;&gt;proc~move</title>
+<path fill="none" stroke="#000000" d="M186.57,-108.01C176.29,-116.97 186.1,-126 216,-126 234.69,-126 245.53,-122.47 248.52,-117.64"/>
+<polygon fill="#000000" stroke="#000000" points="251.82,-116.47 245.43,-108.01 245.15,-118.61 251.82,-116.47"/>
+</g>
+<!-- proc~pipe_info -->
+<g id="program~~problem_10~~CallsGraph_node8" class="node">
+<title>proc~pipe_info</title>
+<g id="a_program~~problem_10~~CallsGraph_node8"><a xlink:href=".././proc/pipe_info.html" xlink:title="problem_10::pipe_info">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="526,-108 394,-108 394,-84 526,-84 526,-108"/>
+<text text-anchor="middle" x="460" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10::pipe_info</text>
+</a>
+</g>
+</g>
+<!-- proc~move&#45;&gt;proc~pipe_info -->
+<g id="program~~problem_10~~CallsGraph_edge7" class="edge">
+<title>proc~move&#45;&gt;proc~pipe_info</title>
+<path fill="none" stroke="#000000" d="M272.52,-96C305.41,-96 347.55,-96 383.44,-96"/>
+<polygon fill="#000000" stroke="#000000" points="383.87,-99.5 393.87,-96 383.87,-92.5 383.87,-99.5"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_10~~CallsGraph_node7" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_10~~CallsGraph_node7"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="564,-66 356,-66 356,-42 564,-42 564,-66"/>
+<text text-anchor="middle" x="460" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_char_array&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_10~~CallsGraph_edge8" class="edge">
+<title>proc~read_file_to_char_array&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M320.33,-54C328.64,-54 337.07,-54 345.44,-54"/>
+<polygon fill="#000000" stroke="#000000" points="345.63,-57.5 355.63,-54 345.63,-50.5 345.63,-57.5"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_10~~CallsGraph_node9" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_10~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="526,-24 394,-24 394,0 526,0 526,-24"/>
+<text text-anchor="middle" x="460" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_char_array&#45;&gt;proc~read_line -->
+<g id="program~~problem_10~~CallsGraph_edge9" class="edge">
+<title>proc~read_file_to_char_array&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M286.35,-41.96C316.85,-36.67 352.74,-30.44 383.87,-25.04"/>
+<polygon fill="#000000" stroke="#000000" points="384.54,-28.47 393.8,-23.32 383.35,-21.58 384.54,-28.47"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~19"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~11"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrows"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nrows</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncols"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncols</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istart~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>istart</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jstart~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jstart</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imove"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imove</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icount"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>icount</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-array~3"></span>
+              character(len=1),
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>array</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-distance~3"></span>
+              integer,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>distance</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-distance_reverse"></span>
+              integer,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>distance_reverse</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-visited"></span>
+              logical,
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>visited</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~2"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~2"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>y</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x0~2"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>x0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y0~2"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>y0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-pipe_info"></span><h3>pure function <a href='../proc/pipe_info.html'>pipe_info</a>(p)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p"></span>
+              character(len=1),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=2)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-move"></span><h3>recursive subroutine <a href='../proc/move.html'>move</a>(i, j, direction, distance)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~13"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~7"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-direction"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>direction</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-distance~2"></span>
+              integer,
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>distance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-locpt"></span><h3>pure subroutine <a href='../proc/locpt.html'>locpt</a>(x0, y0, x, y, n, l, m)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>given a polygonal line connecting the vertices (x(i),y(i))
+  (i = 1,...,n) taken in this order. it is assumed that the
+  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))
+  or there is an arc from (x(n),y(n)) to (x(1),y(1)).</p><a href="../proc/locpt.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x0"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y0"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>y</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~3"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_10</span>
+
+<span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span><span class="p">,</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span>
+<span class="k">use </span><span class="n">aoc_utilities</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icount</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span>
+<span class="kt">logical</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">visited</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="k">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_file_to_char_array</span><span class="p">(</span><span class="s1">&#39;inputs/day10.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! pad with . to simplify edge logic</span>
+<span class="n">nrows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ncols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">allocate</span><span class="p">(</span><span class="n">distance</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">));</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">distance_reverse</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">));</span><span class="w"> </span><span class="n">distance_reverse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">visited</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span><span class="n">ncols</span><span class="p">))</span>
+
+<span class="c">! start at the S coordinate:</span>
+<span class="n">main</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span>
+<span class="w">    </span><span class="k">do </span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="n">jstart</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">main</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">end do </span><span class="n">main</span>
+<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="n">visited</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="n">distance</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">istart</span><span class="p">]</span><span class="w"> </span><span class="c">! to store the path</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">jstart</span><span class="p">]</span>
+
+<span class="c">! traverse the maze:</span>
+<span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="k">end do</span>
+<span class="n">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="kt">real</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save the path for part b</span>
+<span class="n">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="kt">real</span><span class="p">(</span><span class="n">jstart</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
+
+<span class="c">! do it in reverse!</span>
+<span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="n">visited</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="n">distance_reverse</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="c">! traverse the maze:</span>
+<span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">jstart</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span><span class="p">,</span><span class="w"> </span><span class="n">distance_reverse</span><span class="p">)</span>
+<span class="k">end do</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="n">distance</span><span class="o">+</span><span class="n">distance_reverse</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="c">! this is the distance furthest away from the start</span>
+
+<span class="c">! for part b, use locpt to test all the points !</span>
+<span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="c">! we can skip the padding</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ncols</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">x</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">j</span><span class="o">==</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="k">cycle</span><span class="w"> </span><span class="c">! skip if on path</span>
+<span class="w">        </span><span class="k">call </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! if (x0,y0) is inside the polygonal path</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">end do</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;10b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">icount</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    recursive subroutine </span><span class="n">move</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">direction</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">distance</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inew</span><span class="p">,</span><span class="w"> </span><span class="n">jnew</span><span class="p">,</span><span class="w"> </span><span class="n">imove</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">valid_move</span>
+
+<span class="w">        </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">inew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">jnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w">   </span><span class="c">! north</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">inew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">jnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w">   </span><span class="c">! south</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="n">inew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="n">jnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="c">! east</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="n">inew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="n">jnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="c">! west</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">visited</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+
+<span class="w">        </span><span class="c">! can we move in this direction?</span>
+<span class="w">        </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">        </span><span class="k">associate</span><span class="w"> </span><span class="p">(</span><span class="n">current_pipe</span><span class="w">     </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">current_distance</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">move_to</span><span class="w">          </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">current_pipe</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="c">! don&#39;t know what the first pip is, so have to try them all</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w">  </span><span class="c">! north</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w">  </span><span class="c">! south</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! east</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! west</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w">  </span><span class="c">! north</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w">  </span><span class="c">! south</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! east</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! west</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! north</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! east</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! north</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="c">! west</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;7&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! south</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! west</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! south</span>
+<span class="w">                </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="n">valid_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">pipe_info</span><span class="p">(</span><span class="n">move_to</span><span class="p">),</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="c">! east</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            end select</span>
+
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">valid_move</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">distance</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_distance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">visited</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">                </span><span class="k">do </span><span class="n">imove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">                    </span><span class="k">call </span><span class="n">move</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">jnew</span><span class="p">,</span><span class="n">imove</span><span class="p">,</span><span class="n">distance</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end do</span>
+<span class="k">                </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">inew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span><span class="w"> </span><span class="c">! save cordinates of point on the path</span>
+<span class="w">                </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">jnew</span><span class="p">,</span><span class="n">wp</span><span class="p">)]</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">        end associate</span>
+
+<span class="k">    end subroutine </span><span class="n">move</span>
+
+<span class="w">    </span><span class="k">pure </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">pipe_info</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p</span>
+<span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;NS&#39;</span><span class="w">   </span><span class="c">! | is a vertical pipe connecting north and south.</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;EW&#39;</span><span class="w">   </span><span class="c">! - is a horizontal pipe connecting east and west.</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;NE&#39;</span><span class="w">   </span><span class="c">! L is a 90-degree bend connecting north and east.</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;NW&#39;</span><span class="w">   </span><span class="c">! J is a 90-degree bend connecting north and west.</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;7&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SW&#39;</span><span class="w">   </span><span class="c">! 7 is a 90-degree bend connecting south and west.</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">pipe_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SE&#39;</span><span class="w">   </span><span class="c">! F is a 90-degree bend connecting south and east.</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">    end function </span><span class="n">pipe_info</span>
+
+
+<span class="c">! the following routine is from the Fortran Astrodynamics Toolkit</span>
+
+<span class="c">!*****************************************************************************************</span>
+<span class="c">!&gt;</span>
+<span class="c">!  given a polygonal line connecting the vertices (x(i),y(i))</span>
+<span class="c">!  (i = 1,...,n) taken in this order. it is assumed that the</span>
+<span class="c">!  polygonal path is a loop, where (x(n),y(n)) = (x(1),y(1))</span>
+<span class="c">!  or there is an arc from (x(n),y(n)) to (x(1),y(1)).</span>
+<span class="c">!</span>
+<span class="c">!  (x0,y0) is an arbitrary point and l and m are variables.</span>
+<span class="c">!  l and m are assigned the following values:</span>
+<span class="c">!</span>
+<span class="c">!     l = -1   if (x0,y0) is outside the polygonal path</span>
+<span class="c">!     l =  0   if (x0,y0) lies on the polygonal path</span>
+<span class="c">!     l =  1   if (x0,y0) is inside the polygonal path</span>
+<span class="c">!</span>
+<span class="c">!  m = 0 if (x0,y0) is on or outside the path. if (x0,y0)</span>
+<span class="c">!  is inside the path then m is the winding number of the</span>
+<span class="c">!  path around the point (x0,y0).</span>
+<span class="c">!</span>
+<span class="c">!# History</span>
+<span class="c">!  * Original version from the NSWC Library</span>
+<span class="c">!  * Modified by J. Williams : 08/04/2012 : refactored to modern Fortran</span>
+
+<span class="w">    </span><span class="k">pure subroutine </span><span class="n">locpt</span><span class="w"> </span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="w">    </span><span class="c">!arguments:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">x0</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">y0</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">y</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">l</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span>
+
+<span class="w">    </span><span class="c">!constants:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0_wp</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="n">pi</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_wp</span><span class="o">*</span><span class="n">eps</span><span class="o">*</span><span class="n">pi</span>
+
+<span class="w">    </span><span class="c">!local variables:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">n0</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">theta1</span><span class="p">,</span><span class="nb">sum</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">angle</span><span class="p">,</span><span class="n">thetai</span>
+
+<span class="w">    </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x0</span>
+<span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y0</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+
+<span class="k">        </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
+
+<span class="w">    </span><span class="k">else</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+
+<span class="k">            </span><span class="n">theta1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+<span class="w">            </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">            </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theta1</span>
+
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">n0</span>
+
+<span class="w">                </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x0</span>
+<span class="w">                </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y0</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
+<span class="w">                    </span><span class="k">exit</span>
+<span class="k">                end if</span>
+
+<span class="k">                </span><span class="n">thetai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span>
+<span class="w">                </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">thetai</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">theta</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
+<span class="w">                    </span><span class="k">exit</span>
+<span class="k">                end if</span>
+
+<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi2</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">thetai</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">angle</span>
+<span class="w">                </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">angle</span>
+<span class="w">                </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thetai</span>
+
+<span class="w">            </span><span class="k">end do</span>
+
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+
+<span class="k">                </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">theta1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">theta</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+
+<span class="k">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">!(x0, y0) is on the boundary of the path</span>
+
+<span class="w">                </span><span class="k">else</span>
+
+<span class="k">                    if</span><span class="w"> </span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi2</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">theta1</span><span class="p">)</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">angle</span>
+<span class="w">                    </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">angle</span><span class="w">    </span><span class="c">!sum = 2*pi*m where m is the winding number</span>
+<span class="w">                    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span><span class="o">/</span><span class="n">pi2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2_wp</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">sum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">m</span>
+<span class="w">                    </span><span class="k">end if</span>
+
+<span class="k">                end if</span>
+
+<span class="k">            end if</span>
+
+<span class="k">        end if</span>
+
+<span class="k">    end if</span>
+
+<span class="k">    end subroutine </span><span class="n">locpt</span>
+<span class="c">!*****************************************************************************************</span>
+
+<span class="k">end program </span><span class="n">problem_10</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
