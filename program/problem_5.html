@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_5 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_5      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="16.9% of total for programs.">120 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_05.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_05.f90.html'>problem_05.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_5</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_5.html#variable-i~16">i</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-iunit~6">iunit</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-n_lines~5">n_lines</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-line~7">line</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-vals~5">vals</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-seeds_list">seeds_list</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-ilocation_min">ilocation_min</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-ilocation~2">ilocation</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-iseed~3">iseed</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-ilocation_min_parallel">ilocation_min_parallel</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-nstages">NSTAGES</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-mappings">mappings</a>
+            <a class="list-group-item" href="../program/problem_5.html#variable-parsing_state">parsing_state</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_5.html#type-mapping">mapping</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_5.html#proc-in_seed_list">in_seed_list</a>
+            <a class="list-group-item" href="../program/problem_5.html#proc-map">map</a>
+            <a class="list-group-item" href="../program/problem_5.html#proc-traverse">traverse</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_5.html#proc-populate">populate</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_5.html#src">problem_5</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_5~~UsesGraph Pages: 1 -->
+<svg id="programproblem_5UsesGraph" width="319pt" height="52pt"
+ viewBox="0.00 0.00 319.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_5~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~problem_5~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 315,-48 315,4 -4,4"/>
+<!-- program~problem_5 -->
+<g id="program~~problem_5~~UsesGraph_node1" class="node">
+<title>program~problem_5</title>
+<polygon fill="none" stroke="black" points="311,-44 242,-44 242,-20 311,-20 311,-44"/>
+<text text-anchor="middle" x="276.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_5</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_5~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~problem_5&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_5~~UsesGraph_edge1" class="edge">
+<title>program~problem_5&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.92,-32.58C230.52,-32.75 217.7,-32.92 206,-33 172.22,-33.24 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_5~~UsesGraph_node3" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_5~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
+<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_5~~UsesGraph_edge2" class="edge">
+<title>program~problem_5&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.8,-25.67C233.66,-24.14 224.8,-22.48 216.16,-20.86"/>
+<polygon fill="#000000" stroke="#000000" points="216.65,-17.39 206.17,-18.98 215.36,-24.27 216.65,-17.39"/>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_5~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_5~~CallsGraph Pages: 1 -->
+<svg id="programproblem_5CallsGraph" width="508pt" height="452pt"
+ viewBox="0.00 0.00 508.00 452.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_5~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 448)">
+<title>program~~problem_5~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-448 504,-448 504,4 -4,4"/>
+<!-- program~problem_5 -->
+<g id="program~~problem_5~~CallsGraph_node1" class="node">
+<title>program~problem_5</title>
+<polygon fill="none" stroke="black" points="69,-192 0,-192 0,-168 69,-168 69,-192"/>
+<text text-anchor="middle" x="34.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_5</text>
+</g>
+<!-- interface~startswith -->
+<g id="program~~problem_5~~CallsGraph_node2" class="node">
+<title>interface~startswith</title>
+<g id="a_program~~problem_5~~CallsGraph_node2"><a xlink:href=".././interface/startswith.html" xlink:title="aoc_utilities::startswith">
+<polygon fill="#a7506f" stroke="#a7506f" points="276,-360 142,-360 142,-336 276,-336 276,-360"/>
+<text text-anchor="middle" x="209" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;interface~startswith -->
+<g id="program~~problem_5~~CallsGraph_edge1" class="edge">
+<title>program~problem_5&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M37.48,-192.17C42.8,-220.63 60.13,-291.81 105,-327 112.97,-333.25 122.32,-337.78 132.09,-341.04"/>
+<polygon fill="#000000" stroke="#000000" points="131.38,-344.47 141.96,-343.89 133.32,-337.75 131.38,-344.47"/>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_5~~CallsGraph_node3" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_5~~CallsGraph_node3"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="296,-318 122,-318 122,-294 296,-294 296,-318"/>
+<text text-anchor="middle" x="209" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~clock_end -->
+<g id="program~~problem_5~~CallsGraph_edge2" class="edge">
+<title>program~problem_5&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M39.84,-192C48.51,-214.2 70.21,-261.52 105,-285 107.45,-286.65 109.99,-288.18 112.62,-289.59"/>
+<polygon fill="#000000" stroke="#000000" points="111.29,-292.83 121.83,-293.95 114.29,-286.51 111.29,-292.83"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_5~~CallsGraph_node4" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_5~~CallsGraph_node4"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="298,-276 120,-276 120,-252 298,-252 298,-276"/>
+<text text-anchor="middle" x="209" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~clock_start -->
+<g id="program~~problem_5~~CallsGraph_edge3" class="edge">
+<title>program~problem_5&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M45.18,-192.06C57.49,-206.54 80.16,-230.42 105,-243 109.05,-245.05 113.28,-246.9 117.62,-248.57"/>
+<polygon fill="#000000" stroke="#000000" points="116.69,-251.95 127.28,-251.94 118.99,-245.34 116.69,-251.95"/>
+</g>
+<!-- proc~in_seed_list -->
+<g id="program~~problem_5~~CallsGraph_node5" class="node">
+<title>proc~in_seed_list</title>
+<g id="a_program~~problem_5~~CallsGraph_node5"><a xlink:href=".././proc/in_seed_list.html" xlink:title="problem_5::in_seed_list">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="277.5,-234 140.5,-234 140.5,-210 277.5,-210 277.5,-234"/>
+<text text-anchor="middle" x="209" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::in_seed_list</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~in_seed_list -->
+<g id="program~~problem_5~~CallsGraph_edge4" class="edge">
+<title>program~problem_5&#45;&gt;proc~in_seed_list</title>
+<path fill="none" stroke="#000000" d="M69.26,-190.88C80.56,-194.34 93.27,-198.04 105,-201 114.49,-203.4 124.52,-205.71 134.45,-207.87"/>
+<polygon fill="#000000" stroke="#000000" points="133.82,-211.31 144.33,-209.98 135.28,-204.47 133.82,-211.31"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_5~~CallsGraph_node6" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_5~~CallsGraph_node6"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="313,-192 105,-192 105,-168 313,-168 313,-192"/>
+<text text-anchor="middle" x="209" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_5~~CallsGraph_edge5" class="edge">
+<title>program~problem_5&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M69.17,-180C76.95,-180 85.64,-180 94.79,-180"/>
+<polygon fill="#000000" stroke="#000000" points="94.87,-183.5 104.87,-180 94.87,-176.5 94.87,-183.5"/>
+</g>
+<!-- proc~parse_ints64 -->
+<g id="program~~problem_5~~CallsGraph_node7" class="node">
+<title>proc~parse_ints64</title>
+<g id="a_program~~problem_5~~CallsGraph_node7"><a xlink:href=".././proc/parse_ints64.html" xlink:title="aoc_utilities::parse_ints64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="284.5,-150 133.5,-150 133.5,-126 284.5,-126 284.5,-150"/>
+<text text-anchor="middle" x="209" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_ints64</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~parse_ints64 -->
+<g id="program~~problem_5~~CallsGraph_edge6" class="edge">
+<title>program~problem_5&#45;&gt;proc~parse_ints64</title>
+<path fill="none" stroke="#000000" d="M69.26,-169.12C80.56,-165.66 93.27,-161.96 105,-159 114.49,-156.6 124.52,-154.29 134.45,-152.13"/>
+<polygon fill="#000000" stroke="#000000" points="135.28,-155.53 144.33,-150.02 133.82,-148.69 135.28,-155.53"/>
+</g>
+<!-- proc~populate -->
+<g id="program~~problem_5~~CallsGraph_node8" class="node">
+<title>proc~populate</title>
+<g id="a_program~~problem_5~~CallsGraph_node8"><a xlink:href=".././proc/populate.html" xlink:title="problem_5::populate">
+<polygon fill="#d9534f" stroke="#d9534f" points="271,-108 147,-108 147,-84 271,-84 271,-108"/>
+<text text-anchor="middle" x="209" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::populate</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~populate -->
+<g id="program~~problem_5~~CallsGraph_edge7" class="edge">
+<title>program~problem_5&#45;&gt;proc~populate</title>
+<path fill="none" stroke="#000000" d="M45.18,-167.94C57.49,-153.46 80.16,-129.58 105,-117 114.85,-112.01 125.79,-108.21 136.76,-105.31"/>
+<polygon fill="#000000" stroke="#000000" points="137.91,-108.63 146.82,-102.89 136.28,-101.83 137.91,-108.63"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_5~~CallsGraph_node9" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_5~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="275,-66 143,-66 143,-42 275,-42 275,-66"/>
+<text text-anchor="middle" x="209" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~read_line -->
+<g id="program~~problem_5~~CallsGraph_edge8" class="edge">
+<title>program~problem_5&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M39.84,-168C48.51,-145.8 70.21,-98.48 105,-75 113.4,-69.33 122.99,-65.14 132.87,-62.04"/>
+<polygon fill="#000000" stroke="#000000" points="134.11,-65.33 142.82,-59.3 132.25,-58.58 134.11,-65.33"/>
+</g>
+<!-- proc~traverse -->
+<g id="program~~problem_5~~CallsGraph_node10" class="node">
+<title>proc~traverse</title>
+<g id="a_program~~problem_5~~CallsGraph_node10"><a xlink:href=".././proc/traverse.html" xlink:title="problem_5::traverse">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="269.5,-24 148.5,-24 148.5,0 269.5,0 269.5,-24"/>
+<text text-anchor="middle" x="209" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::traverse</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;proc~traverse -->
+<g id="program~~problem_5~~CallsGraph_edge9" class="edge">
+<title>program~problem_5&#45;&gt;proc~traverse</title>
+<path fill="none" stroke="#000000" d="M37.48,-167.83C42.8,-139.37 60.13,-68.19 105,-33 114.74,-25.36 126.56,-20.29 138.66,-16.97"/>
+<polygon fill="#000000" stroke="#000000" points="139.47,-20.38 148.4,-14.67 137.86,-13.56 139.47,-20.38"/>
+</g>
+<!-- proc~startswith_cc -->
+<g id="program~~problem_5~~CallsGraph_node12" class="node">
+<title>proc~startswith_cc</title>
+<g id="a_program~~problem_5~~CallsGraph_node12"><a xlink:href=".././proc/startswith_cc.html" xlink:title="aoc_utilities::startswith_cc">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="500,-444 349,-444 349,-420 500,-420 500,-444"/>
+<text text-anchor="middle" x="424.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_cc</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cc -->
+<g id="program~~problem_5~~CallsGraph_edge10" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M233.65,-360.05C260.95,-373.64 307.44,-395.82 349,-411 354.8,-413.12 360.91,-415.15 367.05,-417.06"/>
+<polygon fill="#000000" stroke="#000000" points="366.07,-420.42 376.66,-419.96 368.09,-413.72 366.07,-420.42"/>
+</g>
+<!-- proc~startswith_cs -->
+<g id="program~~problem_5~~CallsGraph_node13" class="node">
+<title>proc~startswith_cs</title>
+<g id="a_program~~problem_5~~CallsGraph_node13"><a xlink:href=".././proc/startswith_cs.html" xlink:title="aoc_utilities::startswith_cs">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="500,-402 349,-402 349,-378 500,-378 500,-402"/>
+<text text-anchor="middle" x="424.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_cs</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cs -->
+<g id="program~~problem_5~~CallsGraph_edge11" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M276.09,-354.71C309.28,-360.46 348.64,-368.42 378.34,-375.48"/>
+<polygon fill="#000000" stroke="#000000" points="377.87,-378.97 388.41,-377.94 379.53,-372.17 377.87,-378.97"/>
+</g>
+<!-- proc~startswith_sc -->
+<g id="program~~problem_5~~CallsGraph_node14" class="node">
+<title>proc~startswith_sc</title>
+<g id="a_program~~problem_5~~CallsGraph_node14"><a xlink:href=".././proc/startswith_sc.html" xlink:title="aoc_utilities::startswith_sc">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="500,-360 349,-360 349,-336 500,-336 500,-360"/>
+<text text-anchor="middle" x="424.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_sc</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_sc -->
+<g id="program~~problem_5~~CallsGraph_edge12" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_sc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M276.09,-341.71C295.88,-341.24 317.85,-341.13 338.67,-341.38"/>
+<polygon fill="#000000" stroke="#000000" points="338.73,-344.88 348.78,-341.53 338.83,-337.88 338.73,-344.88"/>
+</g>
+<!-- proc~startswith_ss -->
+<g id="program~~problem_5~~CallsGraph_node15" class="node">
+<title>proc~startswith_ss</title>
+<g id="a_program~~problem_5~~CallsGraph_node15"><a xlink:href=".././proc/startswith_ss.html" xlink:title="aoc_utilities::startswith_ss">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="499.5,-318 349.5,-318 349.5,-294 499.5,-294 499.5,-318"/>
+<text text-anchor="middle" x="424.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_ss</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_ss -->
+<g id="program~~problem_5~~CallsGraph_edge13" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_ss</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M245.26,-335.9C270.8,-329.51 306.46,-322.01 339.17,-315.97"/>
+<polygon fill="#000000" stroke="#000000" points="340,-319.38 349.21,-314.15 338.75,-312.49 340,-319.38"/>
+</g>
+<!-- proc~map -->
+<g id="program~~problem_5~~CallsGraph_node11" class="node">
+<title>proc~map</title>
+<g id="a_program~~problem_5~~CallsGraph_node11"><a xlink:href=".././proc/map.html" xlink:title="problem_5::map">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="474.5,-24 374.5,-24 374.5,0 474.5,0 474.5,-24"/>
+<text text-anchor="middle" x="424.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::map</text>
+</a>
+</g>
+</g>
+<!-- proc~traverse&#45;&gt;proc~map -->
+<g id="program~~problem_5~~CallsGraph_edge14" class="edge">
+<title>proc~traverse&#45;&gt;proc~map</title>
+<path fill="none" stroke="#000000" d="M269.76,-12C299.22,-12 334.65,-12 364.07,-12"/>
+<polygon fill="#000000" stroke="#000000" points="364.21,-15.5 374.21,-12 364.21,-8.5 364.21,-15.5"/>
+</g>
+<!-- proc~startswith_cs&#45;&gt;interface~startswith -->
+<g id="program~~problem_5~~CallsGraph_edge15" class="edge">
+<title>proc~startswith_cs&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M348.77,-381.77C317.58,-376.19 282.38,-368.99 255.24,-362.53"/>
+<polygon fill="#000000" stroke="#000000" points="255.8,-359.07 245.26,-360.1 254.14,-365.87 255.8,-359.07"/>
+</g>
+<!-- proc~startswith_sc&#45;&gt;interface~startswith -->
+<g id="program~~problem_5~~CallsGraph_edge16" class="edge">
+<title>proc~startswith_sc&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M348.78,-354.47C328.53,-354.83 306.58,-354.84 286.24,-354.5"/>
+<polygon fill="#000000" stroke="#000000" points="286.16,-351 276.09,-354.29 286.02,-358 286.16,-351"/>
+</g>
+<!-- proc~startswith_ss&#45;&gt;interface~startswith -->
+<g id="program~~problem_5~~CallsGraph_edge17" class="edge">
+<title>proc~startswith_ss&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M388.41,-318.06C360.74,-324.99 321.13,-333.23 286.26,-339.5"/>
+<polygon fill="#000000" stroke="#000000" points="285.33,-336.11 276.09,-341.29 286.55,-343 285.33,-336.11"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~16"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iunit~6"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_lines~5"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_lines</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~7"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vals~5"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-seeds_list"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>seeds_list</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilocation_min"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilocation_min</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilocation~2"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilocation</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iseed~3"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iseed</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilocation_min_parallel"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>ilocation_min_parallel</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nstages"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>NSTAGES</strong></td>
+<td> =</td>
+                <td>7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mappings"></span>
+              type(<a href='../type/mapping.html'>mapping</a>),
+            </td>
+            <td>
+              dimension(NSTAGES)
+            </td>
+            <td>::</td>
+            <td><strong>mappings</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-parsing_state"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>parsing_state</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    <section>
+   <h2>Derived Types</h2>
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mapping"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/mapping.html'>mapping</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dest_start"></span>
+              integer(kind=ip),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>dest_start</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dest_end"></span>
+              integer(kind=ip),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>dest_end</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-src_start"></span>
+              integer(kind=ip),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>src_start</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-src_end"></span>
+              integer(kind=ip),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>src_end</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+    </section>
+   <br>
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-in_seed_list"></span><h3> function <a href='../proc/in_seed_list.html'>in_seed_list</a>(iseed)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iseed"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iseed</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-map"></span><h3>pure function <a href='../proc/map.html'>map</a>(ival, m, reverse) result(idest)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ival"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ival</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m"></span>
+              type(<a href='../type/mapping.html'>mapping</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-reverse~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>reverse</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-traverse"></span><h3>pure function <a href='../proc/traverse.html'>traverse</a>(iseed, reverse) result(ilocation)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iseed~2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iseed</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-reverse"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>reverse</strong></td>
+            <td>
+<p>if reverse, then ilocation -&gt; iseed</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-populate"></span><h3> subroutine <a href='../proc/populate.html'>populate</a>(nums, m)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nums"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(3)
+            </td>
+            <td>::</td>
+            <td><strong>nums</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~2"></span>
+              type(<a href='../type/mapping.html'>mapping</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_5</span>
+
+<span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span><span class="w"> </span><span class="c">! use long ints</span>
+<span class="k">use </span><span class="n">aoc_utilities</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span>
+<span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vals</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">seeds_list</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ilocation_min</span><span class="p">,</span><span class="w"> </span><span class="n">ilocation</span><span class="p">,</span><span class="w"> </span><span class="n">iseed</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ilocation_min_parallel</span>
+
+<span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mapping</span>
+<span class="w">    </span><span class="c">! save the source and destination start and end values</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dest_start</span><span class="p">,</span><span class="w"> </span><span class="n">dest_end</span><span class="p">,</span><span class="w"> </span><span class="n">src_start</span><span class="p">,</span><span class="w"> </span><span class="n">src_end</span>
+<span class="k">end type </span><span class="n">mapping</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">NSTAGES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
+<span class="k">type</span><span class="p">(</span><span class="n">mapping</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">NSTAGES</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mappings</span><span class="w"> </span><span class="c">! seed_to_soil, soil_to_fertilizer, fertilizer_to_water, water_to_light,</span>
+<span class="w">                                             </span><span class="c">! light_to_temperature, temperature_to_humidity, humidity_to_location</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">parsing_state</span><span class="w"> </span><span class="c">! index in mappings (1 to NSTAGES)</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">NSTAGES</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">dest_start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">dest_end</span><span class="p">(</span><span class="mi">0</span><span class="p">),&amp;</span>
+<span class="w">             </span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">src_start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w">  </span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">src_end</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">end do</span>
+
+<span class="c">! open(newunit=iunit, file=&#39;inputs/day5_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day5.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="n">parsing_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span><span class="w"> </span><span class="c">! blank line</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">startswith</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;seeds:&#39;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">seeds_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_ints64</span><span class="p">(</span><span class="n">line</span><span class="p">(</span><span class="mi">7</span><span class="p">:))</span>
+<span class="w">    </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;map:&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">parsing_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parsing_state</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! one of the 7 stages</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="c">! parse the numbers for the given state:</span>
+<span class="w">        </span><span class="k">call </span><span class="n">populate</span><span class="p">(</span><span class="n">parse_ints64</span><span class="p">(</span><span class="n">line</span><span class="p">),</span><span class="w"> </span><span class="n">mappings</span><span class="p">(</span><span class="n">parsing_state</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">end do</span>
+<span class="k">close</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+
+<span class="c">! ------------ part 1 -----------------</span>
+
+<span class="n">ilocation_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">huge</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">seeds_list</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="p">),.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ilocation</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ilocation_min</span><span class="p">)</span><span class="w"> </span><span class="n">ilocation_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ilocation</span>
+<span class="k">end do</span>
+<span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;5a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ilocation_min</span>
+
+<span class="c">! ------------ part 2 -----------------</span>
+
+<span class="c">!  so it doesn&#39;t run in the CI !!</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="n">false</span><span class="p">.)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c">! brute force, openMP version. just run the part a algorithm for all the seeds.</span>
+<span class="w">    </span><span class="c">! takes a minute or so on my computer.</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">ilocation_min_parallel</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">seeds_list</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="w">    </span><span class="n">ilocation_min_parallel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">huge</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="c">!$OMP PARALLEL DO SHARED(ilocation_min_parallel) PRIVATE(i,iseed,ilocation)</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">seeds_list</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="k">do </span><span class="n">iseed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="n">iseed</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ilocation</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ilocation_min_parallel</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="n">ilocation_min_parallel</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ilocation</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">    end do</span>
+<span class="w">    </span><span class="c">!$OMP END PARALLEL DO</span>
+<span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;5b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">minval</span><span class="p">(</span><span class="n">ilocation_min_parallel</span><span class="p">)</span>
+<span class="k">end if</span>
+
+<span class="c">! ------------ part 2 -----------------</span>
+
+<span class="c">! Alternate version, go backwards from the location to the seed</span>
+<span class="c">! and see if it is contained in the seed set.</span>
+<span class="c">! this one is pretty fast (&lt; 1 sec)</span>
+<span class="k">do </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">minval</span><span class="p">(</span><span class="n">mappings</span><span class="p">(</span><span class="mi">7</span><span class="p">)%</span><span class="n">dest_start</span><span class="p">),</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="n">mappings</span><span class="p">(</span><span class="mi">7</span><span class="p">)%</span><span class="n">dest_end</span><span class="p">)</span><span class="w"> </span><span class="c">! up to the max ilocation value</span>
+<span class="w">    </span><span class="n">iseed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="n">ilocation</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"> </span><span class="c">! from ilocation to iseed</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">in_seed_list</span><span class="p">(</span><span class="n">iseed</span><span class="p">))</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="c">! found the min</span>
+<span class="k">end do</span>
+<span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;5b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ilocation</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;5&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    </span><span class="kt">logical </span><span class="k">function </span><span class="n">in_seed_list</span><span class="p">(</span><span class="n">iseed</span><span class="p">)</span>
+<span class="w">        </span><span class="c">! for part b, is the seed in the initial list</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iseed</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">seeds_list</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iseed</span><span class="o">&gt;=</span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">iseed</span><span class="o">&lt;=</span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">seeds_list</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">in_seed_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">                </span><span class="k">return</span>
+<span class="k">            end if</span>
+<span class="k">        end do</span>
+<span class="k">        </span><span class="n">in_seed_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">in_seed_list</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">populate</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nums</span><span class="w">  </span><span class="c">! the three numbers from the line:</span>
+<span class="w">                                                     </span><span class="c">! [dest range start, src range start, range length</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mapping</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="c">! structure to add this data to</span>
+<span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="nb">range</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">m</span><span class="p">%</span><span class="n">dest_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">m</span><span class="p">%</span><span class="n">dest_start</span><span class="p">,</span><span class="w"> </span><span class="n">dest</span><span class="p">]</span>
+<span class="w">            </span><span class="n">m</span><span class="p">%</span><span class="n">dest_end</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">m</span><span class="p">%</span><span class="n">dest_end</span><span class="p">,</span><span class="w">   </span><span class="n">dest</span><span class="o">+</span><span class="nb">range</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">            </span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">,</span><span class="w">  </span><span class="n">source</span><span class="p">]</span>
+<span class="w">            </span><span class="n">m</span><span class="p">%</span><span class="n">src_end</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">m</span><span class="p">%</span><span class="n">src_end</span><span class="p">,</span><span class="w">    </span><span class="n">source</span><span class="o">+</span><span class="nb">range</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">        </span><span class="k">end associate</span>
+<span class="k">    end subroutine </span><span class="n">populate</span>
+
+<span class="w">    </span><span class="k">pure function </span><span class="n">map</span><span class="p">(</span><span class="n">ival</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">idest</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ival</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mapping</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="c">! if reversed, go from: dest -&gt; src</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idest</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reverse</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">)</span>
+<span class="w">                </span><span class="c">! locate ival (dest) in the dest start:end range</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ival</span><span class="o">&gt;=</span><span class="n">m</span><span class="p">%</span><span class="n">dest_start</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ival</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">%</span><span class="n">dest_end</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! found it, map to dest</span>
+<span class="w">                    </span><span class="n">idest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">ival</span><span class="o">-</span><span class="n">m</span><span class="p">%</span><span class="n">dest_start</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="c">! this is the resultant isource</span>
+<span class="w">                    </span><span class="k">return</span>
+<span class="k">                end if</span>
+<span class="k">            end do</span>
+<span class="k">        else</span>
+<span class="k">            do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">)</span>
+<span class="w">                </span><span class="c">! locate ival (source) in the source start:end range</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ival</span><span class="o">&gt;=</span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ival</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">%</span><span class="n">src_end</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! found it, map to dest</span>
+<span class="w">                    </span><span class="n">idest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">%</span><span class="n">dest_start</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">ival</span><span class="o">-</span><span class="n">m</span><span class="p">%</span><span class="n">src_start</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">                    </span><span class="k">return</span>
+<span class="k">                end if</span>
+<span class="k">            end do</span>
+<span class="k">        end if</span>
+<span class="k">        </span><span class="n">idest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ival</span><span class="w"> </span><span class="c">! if not found in any of the sets</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">map</span>
+
+<span class="w">    </span><span class="k">pure function </span><span class="n">traverse</span><span class="p">(</span><span class="n">iseed</span><span class="p">,</span><span class="w"> </span><span class="n">reverse</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ilocation</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iseed</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="c">!! if reverse, then ilocation -&gt; iseed</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ilocation</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iseed</span><span class="w"> </span><span class="c">! initialize</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reverse</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NSTAGES</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">                </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">ilocation</span><span class="p">,</span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">reverse</span><span class="p">)</span><span class="w"> </span><span class="c">! this is really iseed</span>
+<span class="w">            </span><span class="k">end do</span>
+<span class="k">        else</span>
+<span class="k">            do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">NSTAGES</span>
+<span class="w">                </span><span class="n">ilocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">ilocation</span><span class="p">,</span><span class="n">mappings</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">reverse</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end do</span>
+<span class="k">        end if</span>
+<span class="k">    end function </span><span class="n">traverse</span>
+
+<span class="k">end program </span><span class="n">problem_5</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

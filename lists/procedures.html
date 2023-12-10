@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Procedures &ndash; AoC-2023
+</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Procedures</h1>
+			 <table class="table table-striped">
+			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr><td><a href='../proc/all_in_set.html'>all_in_set</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td><p>returns true if all the elements of ivals are in the set iset</p></td></tr>
+			   <tr><td><a href='../proc/beats.html'>beats</a></td><td><a href='../program/problem_7b.html'>problem_7b</a></td><td>Function</td><td><p>return true if hand1 beats hand2 (has a higher score)</p></td></tr>
+			   <tr><td><a href='../proc/char_array_to_int.html'>char_array_to_int</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Character array to integer routine</p></td></tr>
+			   <tr><td><a href='../proc/char_to_int.html'>char_to_int</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Basic string to integer routine</p></td></tr>
+			   <tr><td><a href='../proc/char_to_int64.html'>char_to_int64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Basic string to integer(ip) routine.
+Hacky hack just so we can overload as int()</p></td></tr>
+			   <tr><td><a href='../proc/check.html'>check</a></td><td><a href='../program/problem_3.html'>problem_3</a></td><td>Function</td><td><p>if the char is part of a number, then get it and append to ivals</p></td></tr>
+			   <tr><td><a href='../proc/clock_end.html'>clock_end</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Print runtime in milliseconds form the start of the clock.</p></td></tr>
+			   <tr><td><a href='../proc/clock_start.html'>clock_start</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Start the clock</p></td></tr>
+			   <tr><td><a href='../proc/diff.html'>diff</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Difference int64 vector</p></td></tr>
+			   <tr><td><a href='../proc/expand_vector.html'>expand_vector</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Add elements to the integer vector in chunks.</p></td></tr>
+			   <tr><td><a href='../proc/extrapolate.html'>extrapolate</a></td><td><a href='../program/problem_9.html'>problem_9</a></td><td>Function</td><td><p>extrapolate the next value in the sequence using
+a difference table. Straightfoward implemention:
+create the full table, and then evaluate it.</p></td></tr>
+			   <tr><td><a href='../proc/find_node.html'>find_node</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/get_number.html'>get_number</a></td><td><a href='../program/problem_3.html'>problem_3</a></td><td>Function</td><td><p>get the full number contining the character at i,j</p></td></tr>
+			   <tr><td><a href='../proc/go.html'>go</a></td><td><a href='../program/problem_6.html'>problem_6</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/hand_type.html'>hand_type</a></td><td><a href='../program/problem_7b.html'>problem_7b</a></td><td>Function</td><td><p>returns the type of hand</p></td></tr>
+			   <tr><td><a href='../proc/in_seed_list.html'>in_seed_list</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/index_in_cards.html'>index_in_cards</a></td><td><a href='../program/problem_7b.html'>problem_7b</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../interface/int.html'>int</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/is_not_number.html'>is_not_number</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>returns true if the character is not a number.</p></td></tr>
+			   <tr><td><a href='../proc/is_number.html'>is_number</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>returns true if the character is a number from 0 to 9.</p></td></tr>
+			   <tr><td><a href='../proc/is_symbol.html'>is_symbol</a></td><td><a href='../program/problem_3.html'>problem_3</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/lcm.html'>lcm</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>LCM. based on code from NCAR Command Language</p></td></tr>
+			   <tr><td><a href='../proc/map.html'>map</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/moves.html'>moves</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/moves_any_z.html'>moves_any_z</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/number_of_lines_in_file.html'>number_of_lines_in_file</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Returns the number of lines in a file (assumed to be open)</p></td></tr>
+			   <tr><td><a href='../interface/parse.html'>parse</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/parse_ints.html'>parse_ints</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>parse positive ints from a string that also includes text</p></td></tr>
+			   <tr><td><a href='../proc/parse_ints64.html'>parse_ints64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Parse positive ints from a string that also includes text</p></td></tr>
+			   <tr><td><a href='../proc/parse_nums64.html'>parse_nums64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>parse space-deliminated int64 sequence (positive or negative)</p></td></tr>
+			   <tr><td><a href='../proc/populate.html'>populate</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../proc/read_file_to_char_array.html'>read_file_to_char_array</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Read a file into a 2d character array.</p></td></tr>
+			   <tr><td><a href='../proc/read_file_to_integer64_array.html'>read_file_to_integer64_array</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Read a file into an int64 integer array (one element per line)</p></td></tr>
+			   <tr><td><a href='../proc/read_file_to_integer_array.html'>read_file_to_integer_array</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Read a file into an integer array (one element per line)</p></td></tr>
+			   <tr><td><a href='../proc/read_line.html'>read_line</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Reads the next line from a file.</p></td></tr>
+			   <tr><td><a href='../proc/reverse.html'>reverse</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Reverse an int64 vector</p></td></tr>
+			   <tr><td><a href='../interface/sort.html'>sort</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/sort_ascending.html'>sort_ascending</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Sorts an integer array <code>ivec</code> in increasing order.
+Uses a basic recursive quicksort
+(with insertion sort for partitions with <script type="math/tex">\le</script> 20 elements).</p></td></tr>
+			   <tr><td><a href='../proc/sort_ascending_64.html'>sort_ascending_64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../interface/split.html'>split</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/split1.html'>split1</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Split a character string using a token.
+  This routine is inspired by the Python split function.</p><a href="../proc/split1.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+			   <tr><td><a href='../proc/split2.html'>split2</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Split a <code>string</code>, given a token.</p></td></tr>
+			   <tr><td><a href='../interface/startswith.html'>startswith</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td><p>test if a string starts with a specified substring</p></td></tr>
+			   <tr><td><a href='../proc/startswith_cc.html'>startswith_cc</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>starts with function for strings</p></td></tr>
+			   <tr><td><a href='../proc/startswith_cs.html'>startswith_cs</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/startswith_sc.html'>startswith_sc</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/startswith_ss.html'>startswith_ss</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/str_to_array.html'>str_to_array</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>convert the character string to an array of characters</p></td></tr>
+			   <tr><td><a href='../proc/string_to_int.html'>string_to_int</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Basic string to integer routine</p></td></tr>
+			   <tr><td><a href='../proc/string_to_int_64.html'>string_to_int_64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Basic string to integer routine</p></td></tr>
+			   <tr><td><a href='../interface/swap.html'>swap</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/swap32.html'>swap32</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Swap two integer values.</p></td></tr>
+			   <tr><td><a href='../proc/swap64.html'>swap64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Swap two integer values.</p></td></tr>
+			   <tr><td><a href='../proc/swap_hands.html'>swap_hands</a></td><td><a href='../program/problem_7b.html'>problem_7b</a></td><td>Subroutine</td><td><p>swap function for hand type</p></td></tr>
+			   <tr><td><a href='../proc/swap_str.html'>swap_str</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Subroutine</td><td><p>Swap two character string values</p></td></tr>
+			   <tr><td><a href='../proc/traverse.html'>traverse</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../interface/unique.html'>unique</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/unique32.html'>unique32</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Return only the unique values from vec.</p></td></tr>
+			   <tr><td><a href='../proc/unique64.html'>unique64</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>Function</td><td><p>Return only the unique values from vec.</p></td></tr>
+			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: call~~graph~~CallGraph Pages: 1 -->
+<svg id="callgraphCallGraph" width="855pt" height="551pt"
+ viewBox="0.00 0.00 855.00 550.61" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="call~~graph~~CallGraph" class="graph" transform="scale(2.37 2.37) rotate(0) translate(4 1302)">
+<title>call~~graph~~CallGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1302 2024,-1302 2024,4 -4,4"/>
+<!-- interface~int -->
+<g id="call~~graph~~CallGraph_node1" class="node">
+<title>interface~int</title>
+<g id="a_call~~graph~~CallGraph_node1"><a xlink:href=".././interface/int.html" xlink:title="aoc_utilities::int">
+<polygon fill="#a7506f" stroke="#a7506f" points="151.5,-86 54.5,-86 54.5,-62 151.5,-62 151.5,-86"/>
+<text text-anchor="middle" x="103" y="-71.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::int</text>
+</a>
+</g>
+</g>
+<!-- proc~char_array_to_int -->
+<g id="call~~graph~~CallGraph_node10" class="node">
+<title>proc~char_array_to_int</title>
+<g id="a_call~~graph~~CallGraph_node10"><a xlink:href=".././proc/char_array_to_int.html" xlink:title="aoc_utilities::char_array_to_int">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="447,-146 272,-146 272,-122 447,-122 447,-146"/>
+<text text-anchor="middle" x="359.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::char_array_to_int</text>
+</a>
+</g>
+</g>
+<!-- interface~int&#45;&gt;proc~char_array_to_int -->
+<g id="call~~graph~~CallGraph_edge1" class="edge">
+<title>interface~int&#45;&gt;proc~char_array_to_int</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.52,-85.98C178.1,-92.61 211.85,-100.92 242,-108 258.54,-111.88 276.43,-115.95 293.12,-119.67"/>
+<polygon fill="#000000" stroke="#000000" points="292.81,-123.19 303.33,-121.95 294.33,-116.36 292.81,-123.19"/>
+</g>
+<!-- proc~char_to_int -->
+<g id="call~~graph~~CallGraph_node11" class="node">
+<title>proc~char_to_int</title>
+<g id="a_call~~graph~~CallGraph_node11"><a xlink:href=".././proc/char_to_int.html" xlink:title="aoc_utilities::char_to_int">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="688,-126 546,-126 546,-102 688,-102 688,-126"/>
+<text text-anchor="middle" x="617" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::char_to_int</text>
+</a>
+</g>
+</g>
+<!-- interface~int&#45;&gt;proc~char_to_int -->
+<g id="call~~graph~~CallGraph_edge2" class="edge">
+<title>interface~int&#45;&gt;proc~char_to_int</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.71,-77.73C239.49,-84.58 427.47,-99.27 535.38,-107.7"/>
+<polygon fill="#000000" stroke="#000000" points="535.32,-111.21 545.57,-108.5 535.87,-104.23 535.32,-111.21"/>
+</g>
+<!-- proc~char_to_int64 -->
+<g id="call~~graph~~CallGraph_node12" class="node">
+<title>proc~char_to_int64</title>
+<g id="a_call~~graph~~CallGraph_node12"><a xlink:href=".././proc/char_to_int64.html" xlink:title="aoc_utilities::char_to_int64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="437,-66 282,-66 282,-42 437,-42 437,-66"/>
+<text text-anchor="middle" x="359.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::char_to_int64</text>
+</a>
+</g>
+</g>
+<!-- interface~int&#45;&gt;proc~char_to_int64 -->
+<g id="call~~graph~~CallGraph_edge3" class="edge">
+<title>interface~int&#45;&gt;proc~char_to_int64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.57,-70.26C185.26,-67.61 231.41,-63.99 271.59,-60.83"/>
+<polygon fill="#000000" stroke="#000000" points="271.97,-64.31 281.66,-60.04 271.42,-57.33 271.97,-64.31"/>
+</g>
+<!-- proc~string_to_int -->
+<g id="call~~graph~~CallGraph_node51" class="node">
+<title>proc~string_to_int</title>
+<g id="a_call~~graph~~CallGraph_node51"><a xlink:href=".././proc/string_to_int.html" xlink:title="aoc_utilities::string%string_to_int">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="453,-24 266,-24 266,0 453,0 453,-24"/>
+<text text-anchor="middle" x="359.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::string%string_to_int</text>
+</a>
+</g>
+</g>
+<!-- interface~int&#45;&gt;proc~string_to_int -->
+<g id="call~~graph~~CallGraph_edge4" class="edge">
+<title>interface~int&#45;&gt;proc~string_to_int</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M140.6,-61.92C168.24,-53.1 207.23,-41.27 242,-33 252.49,-30.51 263.56,-28.15 274.55,-25.99"/>
+<polygon fill="#000000" stroke="#000000" points="275.44,-29.38 284.6,-24.05 274.12,-22.5 275.44,-29.38"/>
+</g>
+<!-- interface~parse -->
+<g id="call~~graph~~CallGraph_node2" class="node">
+<title>interface~parse</title>
+<g id="a_call~~graph~~CallGraph_node2"><a xlink:href=".././interface/parse.html" xlink:title="aoc_utilities::parse">
+<polygon fill="#a7506f" stroke="#a7506f" points="673.5,-1298 560.5,-1298 560.5,-1274 673.5,-1274 673.5,-1298"/>
+<text text-anchor="middle" x="617" y="-1283.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_nums64 -->
+<g id="call~~graph~~CallGraph_node35" class="node">
+<title>proc~parse_nums64</title>
+<g id="a_call~~graph~~CallGraph_node35"><a xlink:href=".././proc/parse_nums64.html" xlink:title="aoc_utilities::parse_nums64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="918,-1298 757,-1298 757,-1274 918,-1274 918,-1298"/>
+<text text-anchor="middle" x="837.5" y="-1283.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_nums64</text>
+</a>
+</g>
+</g>
+<!-- interface~parse&#45;&gt;proc~parse_nums64 -->
+<g id="call~~graph~~CallGraph_edge5" class="edge">
+<title>interface~parse&#45;&gt;proc~parse_nums64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M673.7,-1286C695.93,-1286 722.08,-1286 746.85,-1286"/>
+<polygon fill="#000000" stroke="#000000" points="746.99,-1289.5 756.99,-1286 746.99,-1282.5 746.99,-1289.5"/>
+</g>
+<!-- interface~sort -->
+<g id="call~~graph~~CallGraph_node3" class="node">
+<title>interface~sort</title>
+<g id="a_call~~graph~~CallGraph_node3"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
+<polygon fill="#a7506f" stroke="#a7506f" points="1433.5,-837 1330.5,-837 1330.5,-813 1433.5,-813 1433.5,-837"/>
+<text text-anchor="middle" x="1382" y="-822.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending -->
+<g id="call~~graph~~CallGraph_node42" class="node">
+<title>proc~sort_ascending</title>
+<g id="a_call~~graph~~CallGraph_node42"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
+<polygon fill="#d9534f" stroke="#d9534f" points="1637,-837 1474,-837 1474,-813 1637,-813 1637,-837"/>
+<text text-anchor="middle" x="1555.5" y="-822.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending -->
+<g id="call~~graph~~CallGraph_edge6" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1433.53,-825C1443.01,-825 1453.19,-825 1463.48,-825"/>
+<polygon fill="#000000" stroke="#000000" points="1463.77,-828.5 1473.77,-825 1463.77,-821.5 1463.77,-828.5"/>
+</g>
+<!-- proc~sort_ascending_64 -->
+<g id="call~~graph~~CallGraph_node43" class="node">
+<title>proc~sort_ascending_64</title>
+<g id="a_call~~graph~~CallGraph_node43"><a xlink:href=".././proc/sort_ascending_64.html" xlink:title="aoc_utilities::sort_ascending_64">
+<polygon fill="#d9534f" stroke="#d9534f" points="1855,-878 1673,-878 1673,-854 1855,-854 1855,-878"/>
+<text text-anchor="middle" x="1764" y="-863.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending_64</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending_64 -->
+<g id="call~~graph~~CallGraph_edge7" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending_64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1429.02,-837.11C1443.34,-840.47 1459.25,-843.8 1474,-846 1536.28,-855.28 1606.77,-860.27 1662.54,-862.94"/>
+<polygon fill="#000000" stroke="#000000" points="1662.63,-866.45 1672.78,-863.41 1662.95,-859.46 1662.63,-866.45"/>
+</g>
+<!-- interface~split -->
+<g id="call~~graph~~CallGraph_node4" class="node">
+<title>interface~split</title>
+<g id="a_call~~graph~~CallGraph_node4"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
+<polygon fill="#a7506f" stroke="#a7506f" points="1087,-968 982,-968 982,-944 1087,-944 1087,-968"/>
+<text text-anchor="middle" x="1034.5" y="-953.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
+</a>
+</g>
+</g>
+<!-- proc~split1 -->
+<g id="call~~graph~~CallGraph_node44" class="node">
+<title>proc~split1</title>
+<g id="a_call~~graph~~CallGraph_node44"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1438,-938 1326,-938 1326,-914 1438,-914 1438,-938"/>
+<text text-anchor="middle" x="1382" y="-923.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split1 -->
+<g id="call~~graph~~CallGraph_edge8" class="edge">
+<title>interface~split&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1087.23,-952.83C1138.69,-949.52 1219.89,-943.85 1290,-937 1298.31,-936.19 1307.04,-935.25 1315.66,-934.26"/>
+<polygon fill="#000000" stroke="#000000" points="1316.17,-937.73 1325.7,-933.09 1315.37,-930.77 1316.17,-937.73"/>
+</g>
+<!-- proc~split2 -->
+<g id="call~~graph~~CallGraph_node45" class="node">
+<title>proc~split2</title>
+<g id="a_call~~graph~~CallGraph_node45"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1276.5,-928 1164.5,-928 1164.5,-904 1276.5,-904 1276.5,-928"/>
+<text text-anchor="middle" x="1220.5" y="-913.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split2 -->
+<g id="call~~graph~~CallGraph_edge9" class="edge">
+<title>interface~split&#45;&gt;proc~split2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1087.24,-944.75C1108.08,-940.22 1132.34,-934.95 1154.35,-930.16"/>
+<polygon fill="#000000" stroke="#000000" points="1155.26,-933.55 1164.29,-928 1153.77,-926.71 1155.26,-933.55"/>
+</g>
+<!-- interface~startswith -->
+<g id="call~~graph~~CallGraph_node5" class="node">
+<title>interface~startswith</title>
+<g id="a_call~~graph~~CallGraph_node5"><a xlink:href=".././interface/startswith.html" xlink:title="aoc_utilities::startswith">
+<polygon fill="#a7506f" stroke="#a7506f" points="684,-478 550,-478 550,-454 684,-454 684,-478"/>
+<text text-anchor="middle" x="617" y="-463.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith</text>
+</a>
+</g>
+</g>
+<!-- proc~startswith_cc -->
+<g id="call~~graph~~CallGraph_node46" class="node">
+<title>proc~startswith_cc</title>
+<g id="a_call~~graph~~CallGraph_node46"><a xlink:href=".././proc/startswith_cc.html" xlink:title="aoc_utilities::startswith_cc">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="913,-394 762,-394 762,-370 913,-370 913,-394"/>
+<text text-anchor="middle" x="837.5" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_cc</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cc -->
+<g id="call~~graph~~CallGraph_edge10" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M684.13,-459.24C696.93,-456.11 709.83,-451.57 721,-445 742.19,-432.54 736.17,-416.06 757,-403 759.93,-401.16 763.02,-399.48 766.21,-397.95"/>
+<polygon fill="#000000" stroke="#000000" points="767.6,-401.16 775.42,-394.01 764.85,-394.73 767.6,-401.16"/>
+</g>
+<!-- proc~startswith_cs -->
+<g id="call~~graph~~CallGraph_node47" class="node">
+<title>proc~startswith_cs</title>
+<g id="a_call~~graph~~CallGraph_node47"><a xlink:href=".././proc/startswith_cs.html" xlink:title="aoc_utilities::startswith_cs">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="913,-520 762,-520 762,-496 913,-496 913,-520"/>
+<text text-anchor="middle" x="837.5" y="-505.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_cs</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cs -->
+<g id="call~~graph~~CallGraph_edge11" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M684.15,-472.46C718.57,-478.25 759.79,-486.38 790.66,-493.57"/>
+<polygon fill="#000000" stroke="#000000" points="790.18,-497.06 800.71,-495.97 791.8,-490.25 790.18,-497.06"/>
+</g>
+<!-- proc~startswith_sc -->
+<g id="call~~graph~~CallGraph_node48" class="node">
+<title>proc~startswith_sc</title>
+<g id="a_call~~graph~~CallGraph_node48"><a xlink:href=".././proc/startswith_sc.html" xlink:title="aoc_utilities::startswith_sc">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="913,-478 762,-478 762,-454 913,-454 913,-478"/>
+<text text-anchor="middle" x="837.5" y="-463.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_sc</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_sc -->
+<g id="call~~graph~~CallGraph_edge12" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_sc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M684.15,-459.74C705.39,-459.23 729.22,-459.12 751.61,-459.4"/>
+<polygon fill="#000000" stroke="#000000" points="751.73,-462.9 761.78,-459.56 751.84,-455.9 751.73,-462.9"/>
+</g>
+<!-- proc~startswith_ss -->
+<g id="call~~graph~~CallGraph_node49" class="node">
+<title>proc~startswith_ss</title>
+<g id="a_call~~graph~~CallGraph_node49"><a xlink:href=".././proc/startswith_ss.html" xlink:title="aoc_utilities::startswith_ss">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="912.5,-436 762.5,-436 762.5,-412 912.5,-412 912.5,-436"/>
+<text text-anchor="middle" x="837.5" y="-421.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_ss</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_ss -->
+<g id="call~~graph~~CallGraph_edge13" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_ss</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M654.08,-453.9C680.78,-447.37 718.27,-439.69 752.32,-433.59"/>
+<polygon fill="#000000" stroke="#000000" points="753.05,-437.02 762.29,-431.83 751.83,-430.12 753.05,-437.02"/>
+</g>
+<!-- interface~swap -->
+<g id="call~~graph~~CallGraph_node6" class="node">
+<title>interface~swap</title>
+<g id="a_call~~graph~~CallGraph_node6"><a xlink:href=".././interface/swap.html" xlink:title="aoc_utilities::swap">
+<polygon fill="#a7506f" stroke="#a7506f" points="1819,-836 1709,-836 1709,-812 1819,-812 1819,-836"/>
+<text text-anchor="middle" x="1764" y="-821.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
+</a>
+</g>
+</g>
+<!-- proc~swap32 -->
+<g id="call~~graph~~CallGraph_node53" class="node">
+<title>proc~swap32</title>
+<g id="a_call~~graph~~CallGraph_node53"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
+<polygon fill="#d9534f" stroke="#d9534f" points="2017.5,-836 1893.5,-836 1893.5,-812 2017.5,-812 2017.5,-836"/>
+<text text-anchor="middle" x="1955.5" y="-821.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
+</a>
+</g>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap32 -->
+<g id="call~~graph~~CallGraph_edge14" class="edge">
+<title>interface~swap&#45;&gt;proc~swap32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1819.05,-824C1838.98,-824 1861.88,-824 1883.11,-824"/>
+<polygon fill="#000000" stroke="#000000" points="1883.37,-827.5 1893.37,-824 1883.37,-820.5 1883.37,-827.5"/>
+</g>
+<!-- proc~swap64 -->
+<g id="call~~graph~~CallGraph_node54" class="node">
+<title>proc~swap64</title>
+<g id="a_call~~graph~~CallGraph_node54"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
+<polygon fill="#d9534f" stroke="#d9534f" points="2017.5,-878 1893.5,-878 1893.5,-854 2017.5,-854 2017.5,-878"/>
+<text text-anchor="middle" x="1955.5" y="-863.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
+</a>
+</g>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap64 -->
+<g id="call~~graph~~CallGraph_edge15" class="edge">
+<title>interface~swap&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1819.05,-835.98C1841.16,-840.88 1866.92,-846.59 1890,-851.7"/>
+<polygon fill="#000000" stroke="#000000" points="1889.53,-855.19 1900.05,-853.93 1891.04,-848.35 1889.53,-855.19"/>
+</g>
+<!-- proc~swap_str -->
+<g id="call~~graph~~CallGraph_node56" class="node">
+<title>proc~swap_str</title>
+<g id="a_call~~graph~~CallGraph_node56"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
+<polygon fill="#d9534f" stroke="#d9534f" points="2020,-794 1891,-794 1891,-770 2020,-770 2020,-794"/>
+<text text-anchor="middle" x="1955.5" y="-779.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
+</a>
+</g>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap_str -->
+<g id="call~~graph~~CallGraph_edge16" class="edge">
+<title>interface~swap&#45;&gt;proc~swap_str</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1819.05,-812.02C1841.16,-807.12 1866.92,-801.41 1890,-796.3"/>
+<polygon fill="#000000" stroke="#000000" points="1891.04,-799.65 1900.05,-794.07 1889.53,-792.81 1891.04,-799.65"/>
+</g>
+<!-- interface~unique -->
+<g id="call~~graph~~CallGraph_node7" class="node">
+<title>interface~unique</title>
+<g id="a_call~~graph~~CallGraph_node7"><a xlink:href=".././interface/unique.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="1094.5,-806 974.5,-806 974.5,-782 1094.5,-782 1094.5,-806"/>
+<text text-anchor="middle" x="1034.5" y="-791.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+</a>
+</g>
+</g>
+<!-- proc~unique32 -->
+<g id="call~~graph~~CallGraph_node58" class="node">
+<title>proc~unique32</title>
+<g id="a_call~~graph~~CallGraph_node58"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1287,-806 1154,-806 1154,-782 1287,-782 1287,-806"/>
+<text text-anchor="middle" x="1220.5" y="-791.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+</a>
+</g>
+</g>
+<!-- interface~unique&#45;&gt;proc~unique32 -->
+<g id="call~~graph~~CallGraph_edge17" class="edge">
+<title>interface~unique&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1094.73,-794C1110.3,-794 1127.32,-794 1143.63,-794"/>
+<polygon fill="#000000" stroke="#000000" points="1143.68,-797.5 1153.68,-794 1143.68,-790.5 1143.68,-797.5"/>
+</g>
+<!-- proc~unique64 -->
+<g id="call~~graph~~CallGraph_node59" class="node">
+<title>proc~unique64</title>
+<g id="a_call~~graph~~CallGraph_node59"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1287,-848 1154,-848 1154,-824 1287,-824 1287,-848"/>
+<text text-anchor="middle" x="1220.5" y="-833.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+</a>
+</g>
+</g>
+<!-- interface~unique&#45;&gt;proc~unique64 -->
+<g id="call~~graph~~CallGraph_edge18" class="edge">
+<title>interface~unique&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1088.23,-806.04C1109.59,-810.91 1134.44,-816.58 1156.73,-821.67"/>
+<polygon fill="#000000" stroke="#000000" points="1156.24,-825.15 1166.77,-823.96 1157.79,-818.33 1156.24,-825.15"/>
+</g>
+<!-- proc~all_in_set -->
+<g id="call~~graph~~CallGraph_node8" class="node">
+<title>proc~all_in_set</title>
+<g id="a_call~~graph~~CallGraph_node8"><a xlink:href=".././proc/all_in_set.html" xlink:title="problem_8::all_in_set">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="165.5,-724 40.5,-724 40.5,-700 165.5,-700 165.5,-724"/>
+<text text-anchor="middle" x="103" y="-709.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::all_in_set</text>
+</a>
+</g>
+</g>
+<!-- proc~beats -->
+<g id="call~~graph~~CallGraph_node9" class="node">
+<title>proc~beats</title>
+<g id="a_call~~graph~~CallGraph_node9"><a xlink:href=".././proc/beats.html" xlink:title="problem_7b::beats">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="673,-806 561,-806 561,-782 673,-782 673,-806"/>
+<text text-anchor="middle" x="617" y="-791.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7b::beats</text>
+</a>
+</g>
+</g>
+<!-- proc~hand_type -->
+<g id="call~~graph~~CallGraph_node22" class="node">
+<title>proc~hand_type</title>
+<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/hand_type.html" xlink:title="problem_7b::hand_type">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="907,-806 768,-806 768,-782 907,-782 907,-806"/>
+<text text-anchor="middle" x="837.5" y="-791.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7b::hand_type</text>
+</a>
+</g>
+</g>
+<!-- proc~beats&#45;&gt;proc~hand_type -->
+<g id="call~~graph~~CallGraph_edge19" class="edge">
+<title>proc~beats&#45;&gt;proc~hand_type</title>
+<path fill="none" stroke="#000000" d="M673.14,-794C698.7,-794 729.54,-794 757.51,-794"/>
+<polygon fill="#000000" stroke="#000000" points="757.67,-797.5 767.67,-794 757.67,-790.5 757.67,-797.5"/>
+</g>
+<!-- proc~index_in_cards -->
+<g id="call~~graph~~CallGraph_node24" class="node">
+<title>proc~index_in_cards</title>
+<g id="a_call~~graph~~CallGraph_node24"><a xlink:href=".././proc/index_in_cards.html" xlink:title="problem_7b::index_in_cards">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="918,-764 757,-764 757,-740 918,-740 918,-764"/>
+<text text-anchor="middle" x="837.5" y="-749.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7b::index_in_cards</text>
+</a>
+</g>
+</g>
+<!-- proc~beats&#45;&gt;proc~index_in_cards -->
+<g id="call~~graph~~CallGraph_edge20" class="edge">
+<title>proc~beats&#45;&gt;proc~index_in_cards</title>
+<path fill="none" stroke="#000000" d="M673.14,-783.4C700.74,-778.1 734.5,-771.61 764.16,-765.91"/>
+<polygon fill="#000000" stroke="#000000" points="764.88,-769.33 774.04,-764.01 763.56,-762.46 764.88,-769.33"/>
+</g>
+<!-- proc~char_array_to_int&#45;&gt;proc~char_to_int -->
+<g id="call~~graph~~CallGraph_edge21" class="edge">
+<title>proc~char_array_to_int&#45;&gt;proc~char_to_int</title>
+<path fill="none" stroke="#000000" d="M447,-127.23C475.62,-124.99 507.34,-122.51 535.5,-120.3"/>
+<polygon fill="#000000" stroke="#000000" points="536,-123.77 545.7,-119.5 535.45,-116.79 536,-123.77"/>
+</g>
+<!-- proc~check -->
+<g id="call~~graph~~CallGraph_node13" class="node">
+<title>proc~check</title>
+<g id="a_call~~graph~~CallGraph_node13"><a xlink:href=".././proc/check.html" xlink:title="problem_3::check">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="413.5,-682 305.5,-682 305.5,-658 413.5,-658 413.5,-682"/>
+<text text-anchor="middle" x="359.5" y="-667.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3::check</text>
+</a>
+</g>
+</g>
+<!-- proc~get_number -->
+<g id="call~~graph~~CallGraph_node20" class="node">
+<title>proc~get_number</title>
+<g id="a_call~~graph~~CallGraph_node20"><a xlink:href=".././proc/get_number.html" xlink:title="problem_3::get_number">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="687.5,-642 546.5,-642 546.5,-618 687.5,-618 687.5,-642"/>
+<text text-anchor="middle" x="617" y="-627.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3::get_number</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~get_number -->
+<g id="call~~graph~~CallGraph_edge22" class="edge">
+<title>proc~check&#45;&gt;proc~get_number</title>
+<path fill="none" stroke="#000000" d="M413.75,-661.66C449.21,-656.11 496.44,-648.72 536.34,-642.47"/>
+<polygon fill="#000000" stroke="#000000" points="536.98,-645.91 546.31,-640.91 535.89,-639 536.98,-645.91"/>
+</g>
+<!-- proc~is_number -->
+<g id="call~~graph~~CallGraph_node26" class="node">
+<title>proc~is_number</title>
+<g id="a_call~~graph~~CallGraph_node26"><a xlink:href=".././proc/is_number.html" xlink:title="aoc_utilities::is_number">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1290,-662 1151,-662 1151,-638 1290,-638 1290,-662"/>
+<text text-anchor="middle" x="1220.5" y="-647.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::is_number</text>
+</a>
+</g>
+</g>
+<!-- proc~check&#45;&gt;proc~is_number -->
+<g id="call~~graph~~CallGraph_edge23" class="edge">
+<title>proc~check&#45;&gt;proc~is_number</title>
+<path fill="none" stroke="#000000" d="M413.59,-668.76C559.64,-665.36 968.05,-655.85 1140.77,-651.83"/>
+<polygon fill="#000000" stroke="#000000" points="1140.89,-655.33 1150.81,-651.6 1140.73,-648.33 1140.89,-655.33"/>
+</g>
+<!-- proc~clock_end -->
+<g id="call~~graph~~CallGraph_node14" class="node">
+<title>proc~clock_end</title>
+<g id="a_call~~graph~~CallGraph_node14"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="704,-1008 530,-1008 530,-984 704,-984 704,-1008"/>
+<text text-anchor="middle" x="617" y="-993.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- proc~clock_start -->
+<g id="call~~graph~~CallGraph_node15" class="node">
+<title>proc~clock_start</title>
+<g id="a_call~~graph~~CallGraph_node15"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="706,-1050 528,-1050 528,-1026 706,-1026 706,-1050"/>
+<text text-anchor="middle" x="617" y="-1035.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- proc~diff -->
+<g id="call~~graph~~CallGraph_node16" class="node">
+<title>proc~diff</title>
+<g id="a_call~~graph~~CallGraph_node16"><a xlink:href=".././proc/diff.html" xlink:title="aoc_utilities::diff">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="887.5,-1256 787.5,-1256 787.5,-1232 887.5,-1232 887.5,-1256"/>
+<text text-anchor="middle" x="837.5" y="-1241.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::diff</text>
+</a>
+</g>
+</g>
+<!-- proc~expand_vector -->
+<g id="call~~graph~~CallGraph_node17" class="node">
+<title>proc~expand_vector</title>
+<g id="a_call~~graph~~CallGraph_node17"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1636,-938 1475,-938 1475,-914 1636,-914 1636,-938"/>
+<text text-anchor="middle" x="1555.5" y="-923.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~extrapolate -->
+<g id="call~~graph~~CallGraph_node18" class="node">
+<title>proc~extrapolate</title>
+<g id="a_call~~graph~~CallGraph_node18"><a xlink:href=".././proc/extrapolate.html" xlink:title="problem_9::extrapolate">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="685.5,-1256 548.5,-1256 548.5,-1232 685.5,-1232 685.5,-1256"/>
+<text text-anchor="middle" x="617" y="-1241.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_9::extrapolate</text>
+</a>
+</g>
+</g>
+<!-- proc~extrapolate&#45;&gt;proc~diff -->
+<g id="call~~graph~~CallGraph_edge24" class="edge">
+<title>proc~extrapolate&#45;&gt;proc~diff</title>
+<path fill="none" stroke="#000000" d="M685.64,-1244C714.88,-1244 748.81,-1244 777.07,-1244"/>
+<polygon fill="#000000" stroke="#000000" points="777.21,-1247.5 787.21,-1244 777.21,-1240.5 777.21,-1247.5"/>
+</g>
+<!-- proc~find_node -->
+<g id="call~~graph~~CallGraph_node19" class="node">
+<title>proc~find_node</title>
+<g id="a_call~~graph~~CallGraph_node19"><a xlink:href=".././proc/find_node.html" xlink:title="problem_8::find_node">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="681.5,-352 552.5,-352 552.5,-328 681.5,-328 681.5,-352"/>
+<text text-anchor="middle" x="617" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::find_node</text>
+</a>
+</g>
+</g>
+<!-- proc~is_symbol -->
+<g id="call~~graph~~CallGraph_node27" class="node">
+<title>proc~is_symbol</title>
+<g id="a_call~~graph~~CallGraph_node27"><a xlink:href=".././proc/is_symbol.html" xlink:title="problem_3::is_symbol">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="901.5,-623 773.5,-623 773.5,-599 901.5,-599 901.5,-623"/>
+<text text-anchor="middle" x="837.5" y="-608.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3::is_symbol</text>
+</a>
+</g>
+</g>
+<!-- proc~get_number&#45;&gt;proc~is_symbol -->
+<g id="call~~graph~~CallGraph_edge25" class="edge">
+<title>proc~get_number&#45;&gt;proc~is_symbol</title>
+<path fill="none" stroke="#000000" d="M687.74,-623.94C711.78,-621.85 738.77,-619.5 763.1,-617.38"/>
+<polygon fill="#000000" stroke="#000000" points="763.68,-620.85 773.34,-616.49 763.08,-613.87 763.68,-620.85"/>
+</g>
+<!-- proc~go -->
+<g id="call~~graph~~CallGraph_node21" class="node">
+<title>proc~go</title>
+<g id="a_call~~graph~~CallGraph_node21"><a xlink:href=".././proc/go.html" xlink:title="problem_6::go">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="662,-1172 572,-1172 572,-1148 662,-1148 662,-1172"/>
+<text text-anchor="middle" x="617" y="-1157.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6::go</text>
+</a>
+</g>
+</g>
+<!-- proc~hand_type&#45;&gt;interface~unique -->
+<g id="call~~graph~~CallGraph_edge26" class="edge">
+<title>proc~hand_type&#45;&gt;interface~unique</title>
+<path fill="none" stroke="#000000" d="M907.25,-794C925.75,-794 945.77,-794 964.3,-794"/>
+<polygon fill="#000000" stroke="#000000" points="964.42,-797.5 974.42,-794 964.42,-790.5 964.42,-797.5"/>
+</g>
+<!-- proc~in_seed_list -->
+<g id="call~~graph~~CallGraph_node23" class="node">
+<title>proc~in_seed_list</title>
+<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/in_seed_list.html" xlink:title="problem_5::in_seed_list">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="685.5,-436 548.5,-436 548.5,-412 685.5,-412 685.5,-436"/>
+<text text-anchor="middle" x="617" y="-421.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::in_seed_list</text>
+</a>
+</g>
+</g>
+<!-- proc~is_not_number -->
+<g id="call~~graph~~CallGraph_node25" class="node">
+<title>proc~is_not_number</title>
+<g id="a_call~~graph~~CallGraph_node25"><a xlink:href=".././proc/is_not_number.html" xlink:title="aoc_utilities::is_not_number">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1115,-623 954,-623 954,-599 1115,-599 1115,-623"/>
+<text text-anchor="middle" x="1034.5" y="-608.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::is_not_number</text>
+</a>
+</g>
+</g>
+<!-- proc~is_not_number&#45;&gt;proc~is_number -->
+<g id="call~~graph~~CallGraph_edge27" class="edge">
+<title>proc~is_not_number&#45;&gt;proc~is_number</title>
+<path fill="none" stroke="#000000" d="M1092.21,-623.02C1111.36,-627.08 1132.91,-631.65 1152.77,-635.86"/>
+<polygon fill="#000000" stroke="#000000" points="1152.15,-639.3 1162.66,-637.95 1153.61,-632.46 1152.15,-639.3"/>
+</g>
+<!-- proc~is_symbol&#45;&gt;proc~is_not_number -->
+<g id="call~~graph~~CallGraph_edge28" class="edge">
+<title>proc~is_symbol&#45;&gt;proc~is_not_number</title>
+<path fill="none" stroke="#000000" d="M901.54,-611C914.97,-611 929.4,-611 943.62,-611"/>
+<polygon fill="#000000" stroke="#000000" points="943.91,-614.5 953.91,-611 943.91,-607.5 943.91,-614.5"/>
+</g>
+<!-- proc~lcm -->
+<g id="call~~graph~~CallGraph_node28" class="node">
+<title>proc~lcm</title>
+<g id="a_call~~graph~~CallGraph_node28"><a xlink:href=".././proc/lcm.html" xlink:title="aoc_utilities::lcm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="668.5,-310 565.5,-310 565.5,-286 668.5,-286 668.5,-310"/>
+<text text-anchor="middle" x="617" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::lcm</text>
+</a>
+</g>
+</g>
+<!-- proc~map -->
+<g id="call~~graph~~CallGraph_node29" class="node">
+<title>proc~map</title>
+<g id="a_call~~graph~~CallGraph_node29"><a xlink:href=".././proc/map.html" xlink:title="problem_5::map">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="887.5,-562 787.5,-562 787.5,-538 887.5,-538 887.5,-562"/>
+<text text-anchor="middle" x="837.5" y="-547.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::map</text>
+</a>
+</g>
+</g>
+<!-- proc~moves -->
+<g id="call~~graph~~CallGraph_node30" class="node">
+<title>proc~moves</title>
+<g id="a_call~~graph~~CallGraph_node30"><a xlink:href=".././proc/moves.html" xlink:title="problem_8::moves">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="673,-268 561,-268 561,-244 673,-244 673,-268"/>
+<text text-anchor="middle" x="617" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::moves</text>
+</a>
+</g>
+</g>
+<!-- proc~moves_any_z -->
+<g id="call~~graph~~CallGraph_node31" class="node">
+<title>proc~moves_any_z</title>
+<g id="a_call~~graph~~CallGraph_node31"><a xlink:href=".././proc/moves_any_z.html" xlink:title="problem_8::moves_any_z">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="690.5,-226 543.5,-226 543.5,-202 690.5,-202 690.5,-226"/>
+<text text-anchor="middle" x="617" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::moves_any_z</text>
+</a>
+</g>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_node32" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_call~~graph~~CallGraph_node32"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="721,-886 513,-886 513,-862 721,-862 721,-886"/>
+<text text-anchor="middle" x="617" y="-871.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_ints -->
+<g id="call~~graph~~CallGraph_node33" class="node">
+<title>proc~parse_ints</title>
+<g id="a_call~~graph~~CallGraph_node33"><a xlink:href=".././proc/parse_ints.html" xlink:title="aoc_utilities::parse_ints">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="685.5,-1130 548.5,-1130 548.5,-1106 685.5,-1106 685.5,-1130"/>
+<text text-anchor="middle" x="617" y="-1115.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_ints</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_ints64 -->
+<g id="call~~graph~~CallGraph_node34" class="node">
+<title>proc~parse_ints64</title>
+<g id="a_call~~graph~~CallGraph_node34"><a xlink:href=".././proc/parse_ints64.html" xlink:title="aoc_utilities::parse_ints64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="692.5,-394 541.5,-394 541.5,-370 692.5,-370 692.5,-394"/>
+<text text-anchor="middle" x="617" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_ints64</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_nums64&#45;&gt;interface~split -->
+<g id="call~~graph~~CallGraph_edge29" class="edge">
+<title>proc~parse_nums64&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M904.9,-1273.97C909.64,-1271.5 914.08,-1268.54 918,-1265 1005.17,-1186.09 1026.81,-1035 1031.96,-978.26"/>
+<polygon fill="#000000" stroke="#000000" points="1035.46,-978.48 1032.79,-968.22 1028.48,-977.9 1035.46,-978.48"/>
+</g>
+<!-- proc~populate -->
+<g id="call~~graph~~CallGraph_node36" class="node">
+<title>proc~populate</title>
+<g id="a_call~~graph~~CallGraph_node36"><a xlink:href=".././proc/populate.html" xlink:title="problem_5::populate">
+<polygon fill="#d9534f" stroke="#d9534f" points="679,-562 555,-562 555,-538 679,-538 679,-562"/>
+<text text-anchor="middle" x="617" y="-547.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::populate</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_char_array -->
+<g id="call~~graph~~CallGraph_node37" class="node">
+<title>proc~read_file_to_char_array</title>
+<g id="a_call~~graph~~CallGraph_node37"><a xlink:href=".././proc/read_file_to_char_array.html" xlink:title="aoc_utilities::read_file_to_char_array">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="463.5,-888 255.5,-888 255.5,-864 463.5,-864 463.5,-888"/>
+<text text-anchor="middle" x="359.5" y="-873.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_file_to_char_array</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_char_array&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge30" class="edge">
+<title>proc~read_file_to_char_array&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M463.69,-875.19C476.47,-875.09 489.6,-874.99 502.53,-874.89"/>
+<polygon fill="#000000" stroke="#000000" points="502.87,-878.39 512.85,-874.81 502.82,-871.39 502.87,-878.39"/>
+</g>
+<!-- proc~read_line -->
+<g id="call~~graph~~CallGraph_node40" class="node">
+<title>proc~read_line</title>
+<g id="a_call~~graph~~CallGraph_node40"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="683,-928 551,-928 551,-904 683,-904 683,-928"/>
+<text text-anchor="middle" x="617" y="-913.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_char_array&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge31" class="edge">
+<title>proc~read_file_to_char_array&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M437.16,-888C469.93,-893.13 508.07,-899.1 540.69,-904.21"/>
+<polygon fill="#000000" stroke="#000000" points="540.2,-907.68 550.62,-905.76 541.28,-900.76 540.2,-907.68"/>
+</g>
+<!-- proc~read_file_to_integer64_array -->
+<g id="call~~graph~~CallGraph_node38" class="node">
+<title>proc~read_file_to_integer64_array</title>
+<g id="a_call~~graph~~CallGraph_node38"><a xlink:href=".././proc/read_file_to_integer64_array.html" xlink:title="aoc_utilities::read_file_to_integer64_array">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="477,-846 242,-846 242,-822 477,-822 477,-846"/>
+<text text-anchor="middle" x="359.5" y="-831.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_file_to_integer64_array</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_integer64_array&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge32" class="edge">
+<title>proc~read_file_to_integer64_array&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M437.16,-846C466.08,-850.53 499.18,-855.71 528.99,-860.38"/>
+<polygon fill="#000000" stroke="#000000" points="528.53,-863.85 538.95,-861.94 529.62,-856.93 528.53,-863.85"/>
+</g>
+<!-- proc~read_file_to_integer_array -->
+<g id="call~~graph~~CallGraph_node39" class="node">
+<title>proc~read_file_to_integer_array</title>
+<g id="a_call~~graph~~CallGraph_node39"><a xlink:href=".././proc/read_file_to_integer_array.html" xlink:title="aoc_utilities::read_file_to_integer_array">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="470.5,-804 248.5,-804 248.5,-780 470.5,-780 470.5,-804"/>
+<text text-anchor="middle" x="359.5" y="-789.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_file_to_integer_array</text>
+</a>
+</g>
+</g>
+<!-- proc~read_file_to_integer_array&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge33" class="edge">
+<title>proc~read_file_to_integer_array&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M455.25,-804.08C462.8,-806.53 470.15,-809.48 477,-813 496.85,-823.2 493.52,-837.12 513,-848 520.6,-852.25 528.91,-855.81 537.4,-858.8"/>
+<polygon fill="#000000" stroke="#000000" points="536.44,-862.17 547.03,-861.94 538.6,-855.51 536.44,-862.17"/>
+</g>
+<!-- proc~reverse -->
+<g id="call~~graph~~CallGraph_node41" class="node">
+<title>proc~reverse</title>
+<g id="a_call~~graph~~CallGraph_node41"><a xlink:href=".././proc/reverse.html" xlink:title="aoc_utilities::reverse">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="678.5,-1214 555.5,-1214 555.5,-1190 678.5,-1190 678.5,-1214"/>
+<text text-anchor="middle" x="617" y="-1199.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::reverse</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending&#45;&gt;interface~swap -->
+<g id="call~~graph~~CallGraph_edge34" class="edge">
+<title>proc~sort_ascending&#45;&gt;interface~swap</title>
+<path fill="none" stroke="#000000" d="M1637.23,-824.61C1657.55,-824.51 1679.11,-824.41 1698.52,-824.31"/>
+<polygon fill="#000000" stroke="#000000" points="1698.78,-827.81 1708.76,-824.26 1698.74,-820.81 1698.78,-827.81"/>
+</g>
+<!-- proc~sort_ascending_64&#45;&gt;proc~swap64 -->
+<g id="call~~graph~~CallGraph_edge35" class="edge">
+<title>proc~sort_ascending_64&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" d="M1855.03,-866C1864.47,-866 1873.97,-866 1883.15,-866"/>
+<polygon fill="#000000" stroke="#000000" points="1883.37,-869.5 1893.37,-866 1883.37,-862.5 1883.37,-869.5"/>
+</g>
+<!-- proc~split1&#45;&gt;proc~expand_vector -->
+<g id="call~~graph~~CallGraph_edge36" class="edge">
+<title>proc~split1&#45;&gt;proc~expand_vector</title>
+<path fill="none" stroke="#000000" d="M1438.21,-926C1446.67,-926 1455.6,-926 1464.58,-926"/>
+<polygon fill="#000000" stroke="#000000" points="1464.73,-929.5 1474.73,-926 1464.73,-922.5 1464.73,-929.5"/>
+</g>
+<!-- proc~split2&#45;&gt;proc~split1 -->
+<g id="call~~graph~~CallGraph_edge37" class="edge">
+<title>proc~split2&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" d="M1276.84,-919.47C1289.33,-920.25 1302.71,-921.09 1315.58,-921.9"/>
+<polygon fill="#000000" stroke="#000000" points="1315.56,-925.4 1325.76,-922.54 1316,-918.42 1315.56,-925.4"/>
+</g>
+<!-- proc~startswith_cs&#45;&gt;interface~startswith -->
+<g id="call~~graph~~CallGraph_edge38" class="edge">
+<title>proc~startswith_cs&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M761.83,-500.09C729.4,-494.45 692.44,-487.08 664.11,-480.49"/>
+<polygon fill="#000000" stroke="#000000" points="664.62,-477.01 654.08,-478.1 663,-483.82 664.62,-477.01"/>
+</g>
+<!-- proc~startswith_sc&#45;&gt;interface~startswith -->
+<g id="call~~graph~~CallGraph_edge39" class="edge">
+<title>proc~startswith_sc&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M761.78,-472.44C740.02,-472.84 716.23,-472.85 694.37,-472.47"/>
+<polygon fill="#000000" stroke="#000000" points="694.22,-468.97 684.15,-472.26 694.08,-475.97 694.22,-468.97"/>
+</g>
+<!-- proc~startswith_ss&#45;&gt;interface~startswith -->
+<g id="call~~graph~~CallGraph_edge40" class="edge">
+<title>proc~startswith_ss&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M800.71,-436.03C771.9,-443.08 730.38,-451.5 694.2,-457.82"/>
+<polygon fill="#000000" stroke="#000000" points="693.41,-454.4 684.15,-459.54 694.6,-461.3 693.41,-454.4"/>
+</g>
+<!-- proc~str_to_array -->
+<g id="call~~graph~~CallGraph_node50" class="node">
+<title>proc~str_to_array</title>
+<g id="a_call~~graph~~CallGraph_node50"><a xlink:href=".././proc/str_to_array.html" xlink:title="aoc_utilities::str_to_array">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="690,-722 544,-722 544,-698 690,-698 690,-722"/>
+<text text-anchor="middle" x="617" y="-707.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::str_to_array</text>
+</a>
+</g>
+</g>
+<!-- proc~string_to_int_64 -->
+<g id="call~~graph~~CallGraph_node52" class="node">
+<title>proc~string_to_int_64</title>
+<g id="a_call~~graph~~CallGraph_node52"><a xlink:href=".././proc/string_to_int_64.html" xlink:title="aoc_utilities::string%string_to_int_64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="206,-766 0,-766 0,-742 206,-742 206,-766"/>
+<text text-anchor="middle" x="103" y="-751.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::string%string_to_int_64</text>
+</a>
+</g>
+</g>
+<!-- proc~swap_hands -->
+<g id="call~~graph~~CallGraph_node55" class="node">
+<title>proc~swap_hands</title>
+<g id="a_call~~graph~~CallGraph_node55"><a xlink:href=".././proc/swap_hands.html" xlink:title="problem_7b::swap_hands">
+<polygon fill="#d9534f" stroke="#d9534f" points="691,-764 543,-764 543,-740 691,-740 691,-764"/>
+<text text-anchor="middle" x="617" y="-749.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7b::swap_hands</text>
+</a>
+</g>
+</g>
+<!-- proc~traverse -->
+<g id="call~~graph~~CallGraph_node57" class="node">
+<title>proc~traverse</title>
+<g id="a_call~~graph~~CallGraph_node57"><a xlink:href=".././proc/traverse.html" xlink:title="problem_5::traverse">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="677.5,-520 556.5,-520 556.5,-496 677.5,-496 677.5,-520"/>
+<text text-anchor="middle" x="617" y="-505.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5::traverse</text>
+</a>
+</g>
+</g>
+<!-- proc~traverse&#45;&gt;proc~map -->
+<g id="call~~graph~~CallGraph_edge41" class="edge">
+<title>proc~traverse&#45;&gt;proc~map</title>
+<path fill="none" stroke="#000000" d="M677.71,-519.48C708.58,-525.41 746.16,-532.64 777.01,-538.56"/>
+<polygon fill="#000000" stroke="#000000" points="776.71,-542.07 787.19,-540.52 778.03,-535.2 776.71,-542.07"/>
+</g>
+<!-- proc~unique32&#45;&gt;interface~sort -->
+<g id="call~~graph~~CallGraph_edge42" class="edge">
+<title>proc~unique32&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M1283.62,-806.07C1295.72,-808.43 1308.38,-810.89 1320.43,-813.23"/>
+<polygon fill="#000000" stroke="#000000" points="1319.89,-816.69 1330.37,-815.16 1321.23,-809.82 1319.89,-816.69"/>
+</g>
+<!-- proc~unique64&#45;&gt;interface~sort -->
+<g id="call~~graph~~CallGraph_edge43" class="edge">
+<title>proc~unique64&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M1287.3,-831.46C1298.22,-830.71 1309.51,-829.93 1320.3,-829.19"/>
+<polygon fill="#000000" stroke="#000000" points="1320.73,-832.67 1330.46,-828.49 1320.25,-825.68 1320.73,-832.67"/>
+</g>
+<!-- program~problem_1 -->
+<g id="call~~graph~~CallGraph_node60" class="node">
+<title>program~problem_1</title>
+<g id="a_call~~graph~~CallGraph_node60"><a xlink:href=".././program/problem_1.html" xlink:title="problem_1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-972 325,-972 325,-948 394,-948 394,-972"/>
+<text text-anchor="middle" x="359.5" y="-957.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_1</text>
+</a>
+</g>
+</g>
+<!-- program~problem_1&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge44" class="edge">
+<title>program~problem_1&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M394.16,-964.74C426.35,-969.28 476.42,-976.33 520.85,-982.59"/>
+<polygon fill="#000000" stroke="#000000" points="520.43,-986.07 530.83,-984 521.41,-979.14 520.43,-986.07"/>
+</g>
+<!-- program~problem_1&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge45" class="edge">
+<title>program~problem_1&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M388.72,-972.07C419,-984.66 468.72,-1004.29 513,-1017 521.41,-1019.41 530.29,-1021.66 539.16,-1023.72"/>
+<polygon fill="#000000" stroke="#000000" points="538.62,-1027.18 549.14,-1025.96 540.15,-1020.35 538.62,-1027.18"/>
+</g>
+<!-- program~problem_1&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge46" class="edge">
+<title>program~problem_1&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M394.01,-960.03C418.52,-958.67 451.76,-953.85 477,-939 498.78,-926.19 491.37,-908.06 513,-895 516.02,-893.18 519.17,-891.51 522.42,-889.98"/>
+<polygon fill="#000000" stroke="#000000" points="523.92,-893.15 531.79,-886.05 521.21,-886.69 523.92,-893.15"/>
+</g>
+<!-- program~problem_1&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge47" class="edge">
+<title>program~problem_1&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M394.16,-954.2C431.31,-947.81 492.27,-937.31 540.89,-928.93"/>
+<polygon fill="#000000" stroke="#000000" points="541.49,-932.38 550.75,-927.24 540.3,-925.48 541.49,-932.38"/>
+</g>
+<!-- program~problem_2 -->
+<g id="call~~graph~~CallGraph_node61" class="node">
+<title>program~problem_2</title>
+<g id="a_call~~graph~~CallGraph_node61"><a xlink:href=".././program/problem_2.html" xlink:title="problem_2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-930 325,-930 325,-906 394,-906 394,-930"/>
+<text text-anchor="middle" x="359.5" y="-915.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_2</text>
+</a>
+</g>
+</g>
+<!-- program~problem_2&#45;&gt;interface~split -->
+<g id="call~~graph~~CallGraph_edge48" class="edge">
+<title>program~problem_2&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M394.03,-923.03C424.87,-927.46 471.91,-933.7 513,-937 678.23,-950.28 873.73,-954.29 971.42,-955.49"/>
+<polygon fill="#000000" stroke="#000000" points="971.66,-958.99 981.7,-955.61 971.74,-951.99 971.66,-958.99"/>
+</g>
+<!-- program~problem_2&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge49" class="edge">
+<title>program~problem_2&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M394.07,-919.36C418.16,-921.43 450.84,-926.54 477,-939 496.06,-948.08 494.26,-960.27 513,-970 521.32,-974.32 530.4,-977.95 539.61,-981"/>
+<polygon fill="#000000" stroke="#000000" points="538.63,-984.36 549.22,-983.96 540.69,-977.67 538.63,-984.36"/>
+</g>
+<!-- program~problem_2&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge50" class="edge">
+<title>program~problem_2&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M394.18,-916.14C419.42,-916.48 453.51,-920.83 477,-939 507.2,-962.36 483.07,-993.3 513,-1017 514.86,-1018.47 516.8,-1019.85 518.8,-1021.14"/>
+<polygon fill="#000000" stroke="#000000" points="517.5,-1024.42 527.94,-1026.23 520.91,-1018.31 517.5,-1024.42"/>
+</g>
+<!-- program~problem_2&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge51" class="edge">
+<title>program~problem_2&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M394.16,-912.2C430.09,-906.02 488.3,-895.99 536.08,-887.76"/>
+<polygon fill="#000000" stroke="#000000" points="536.84,-891.18 546.1,-886.04 535.65,-884.29 536.84,-891.18"/>
+</g>
+<!-- program~problem_2&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge52" class="edge">
+<title>program~problem_2&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M394.16,-917.74C431.23,-917.45 492.01,-916.97 540.59,-916.59"/>
+<polygon fill="#000000" stroke="#000000" points="540.78,-920.09 550.75,-916.51 540.73,-913.09 540.78,-920.09"/>
+</g>
+<!-- program~problem_3 -->
+<g id="call~~graph~~CallGraph_node62" class="node">
+<title>program~problem_3</title>
+<g id="a_call~~graph~~CallGraph_node62"><a xlink:href=".././program/problem_3.html" xlink:title="problem_3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="137.5,-682 68.5,-682 68.5,-658 137.5,-658 137.5,-682"/>
+<text text-anchor="middle" x="103" y="-667.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3</text>
+</a>
+</g>
+</g>
+<!-- program~problem_3&#45;&gt;proc~check -->
+<g id="call~~graph~~CallGraph_edge53" class="edge">
+<title>program~problem_3&#45;&gt;proc~check</title>
+<path fill="none" stroke="#000000" d="M137.53,-670C177.56,-670 245.36,-670 295.32,-670"/>
+<polygon fill="#000000" stroke="#000000" points="295.38,-673.5 305.38,-670 295.38,-666.5 295.38,-673.5"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge54" class="edge">
+<title>program~problem_3&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M137.76,-667.58C160.34,-667.93 188.95,-672.54 206,-691 294.11,-786.42 146.41,-893.07 242,-981 281.03,-1016.9 422.33,-1013.12 519.62,-1005.66"/>
+<polygon fill="#000000" stroke="#000000" points="520.08,-1009.14 529.78,-1004.86 519.53,-1002.16 520.08,-1009.14"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge55" class="edge">
+<title>program~problem_3&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M137.53,-667.34C160.31,-667.53 189.24,-672.03 206,-691 272.99,-766.86 167.66,-1076.32 242,-1145 318.72,-1215.87 383.58,-1191.71 477,-1145 500.85,-1133.07 493.02,-1114.66 513,-1097 532.69,-1079.6 558.31,-1064.9 579.07,-1054.53"/>
+<polygon fill="#000000" stroke="#000000" points="580.77,-1057.59 588.23,-1050.07 577.71,-1051.3 580.77,-1057.59"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~get_number -->
+<g id="call~~graph~~CallGraph_edge56" class="edge">
+<title>program~problem_3&#45;&gt;proc~get_number</title>
+<path fill="none" stroke="#000000" d="M137.62,-663.92C165.49,-659.11 206.2,-652.62 242,-649 343.01,-638.77 459.95,-633.95 535.8,-631.75"/>
+<polygon fill="#000000" stroke="#000000" points="536.33,-635.24 546.22,-631.46 536.13,-628.24 536.33,-635.24"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~is_not_number -->
+<g id="call~~graph~~CallGraph_edge57" class="edge">
+<title>program~problem_3&#45;&gt;proc~is_not_number</title>
+<path fill="none" stroke="#000000" d="M108.16,-657.73C122.12,-617.74 170.55,-488.81 242,-403 339.5,-285.9 368.83,-242.32 513,-193 697.38,-129.92 800.26,-205.72 918,-361 974.83,-435.95 1012.52,-543.34 1026.93,-589.05"/>
+<polygon fill="#000000" stroke="#000000" points="1023.65,-590.29 1029.95,-598.81 1030.34,-588.22 1023.65,-590.29"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~is_symbol -->
+<g id="call~~graph~~CallGraph_edge58" class="edge">
+<title>program~problem_3&#45;&gt;proc~is_symbol</title>
+<path fill="none" stroke="#000000" d="M137.25,-657.92C164.9,-648.41 205.49,-635.69 242,-629 427.17,-595.07 650.1,-600.34 763.11,-606.18"/>
+<polygon fill="#000000" stroke="#000000" points="763.19,-609.69 773.36,-606.73 763.56,-602.7 763.19,-609.69"/>
+</g>
+<!-- program~problem_3&#45;&gt;proc~read_file_to_char_array -->
+<g id="call~~graph~~CallGraph_edge59" class="edge">
+<title>program~problem_3&#45;&gt;proc~read_file_to_char_array</title>
+<path fill="none" stroke="#000000" d="M137.72,-668.1C159.99,-668.74 188.24,-673.47 206,-691 259.11,-743.42 188.25,-803.24 242,-855 243.53,-856.47 245.12,-857.86 246.77,-859.16"/>
+<polygon fill="#000000" stroke="#000000" points="245.23,-862.34 255.47,-865.04 249.15,-856.55 245.23,-862.34"/>
+</g>
+<!-- program~problem_4 -->
+<g id="call~~graph~~CallGraph_node63" class="node">
+<title>program~problem_4</title>
+<g id="a_call~~graph~~CallGraph_node63"><a xlink:href=".././program/problem_4.html" xlink:title="problem_4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-1052 325,-1052 325,-1028 394,-1028 394,-1052"/>
+<text text-anchor="middle" x="359.5" y="-1037.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_4</text>
+</a>
+</g>
+</g>
+<!-- program~problem_4&#45;&gt;interface~split -->
+<g id="call~~graph~~CallGraph_edge60" class="edge">
+<title>program~problem_4&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M394.01,-1045.39C424.83,-1050.06 471.86,-1056.45 513,-1059 605.27,-1064.73 629.72,-1073.65 721,-1059 824.44,-1042.39 940.05,-996.72 997.31,-972.15"/>
+<polygon fill="#000000" stroke="#000000" points="998.86,-975.29 1006.64,-968.11 996.08,-968.87 998.86,-975.29"/>
+</g>
+<!-- program~problem_4&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge61" class="edge">
+<title>program~problem_4&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M394.16,-1034.2C430.09,-1028.02 488.3,-1017.99 536.08,-1009.76"/>
+<polygon fill="#000000" stroke="#000000" points="536.84,-1013.18 546.1,-1008.04 535.65,-1006.29 536.84,-1013.18"/>
+</g>
+<!-- program~problem_4&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge62" class="edge">
+<title>program~problem_4&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M394.16,-1039.74C425.59,-1039.49 474.07,-1039.11 517.7,-1038.77"/>
+<polygon fill="#000000" stroke="#000000" points="517.82,-1042.27 527.8,-1038.69 517.77,-1035.27 517.82,-1042.27"/>
+</g>
+<!-- program~problem_4&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge63" class="edge">
+<title>program~problem_4&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M394.06,-1030.11C419.73,-1021.02 454.46,-1005.24 477,-981 505.22,-950.66 480.98,-921.3 513,-895 514.59,-893.7 516.23,-892.47 517.93,-891.31"/>
+<polygon fill="#000000" stroke="#000000" points="519.97,-894.17 526.8,-886.08 516.41,-888.14 519.97,-894.17"/>
+</g>
+<!-- program~problem_4&#45;&gt;proc~parse_ints -->
+<g id="call~~graph~~CallGraph_edge64" class="edge">
+<title>program~problem_4&#45;&gt;proc~parse_ints</title>
+<path fill="none" stroke="#000000" d="M394.07,-1041.36C418.16,-1043.43 450.84,-1048.54 477,-1061 496.06,-1070.08 494.26,-1082.27 513,-1092 521.32,-1096.32 530.4,-1099.95 539.61,-1103"/>
+<polygon fill="#000000" stroke="#000000" points="538.63,-1106.36 549.22,-1105.96 540.69,-1099.67 538.63,-1106.36"/>
+</g>
+<!-- program~problem_4&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge65" class="edge">
+<title>program~problem_4&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M385.46,-1027.88C431.45,-1005.57 529.59,-957.94 581.75,-932.62"/>
+<polygon fill="#000000" stroke="#000000" points="583.47,-935.68 590.94,-928.16 580.41,-929.38 583.47,-935.68"/>
+</g>
+<!-- program~problem_5 -->
+<g id="call~~graph~~CallGraph_node64" class="node">
+<title>program~problem_5</title>
+<g id="a_call~~graph~~CallGraph_node64"><a xlink:href=".././program/problem_5.html" xlink:title="problem_5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-562 325,-562 325,-538 394,-538 394,-562"/>
+<text text-anchor="middle" x="359.5" y="-547.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;interface~startswith -->
+<g id="call~~graph~~CallGraph_edge66" class="edge">
+<title>program~problem_5&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M385.59,-537.89C415.38,-523.93 466.84,-501.1 513,-487 521.65,-484.36 530.82,-481.95 539.97,-479.79"/>
+<polygon fill="#000000" stroke="#000000" points="540.89,-483.17 549.87,-477.54 539.34,-476.34 540.89,-483.17"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge67" class="edge">
+<title>program~problem_5&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M382.89,-562.01C410.17,-577.95 455.3,-608.84 477,-649 538.32,-762.49 441.5,-829.63 513,-937 526.12,-956.71 548.22,-970.61 568.58,-979.95"/>
+<polygon fill="#000000" stroke="#000000" points="567.21,-983.17 577.78,-983.92 569.99,-976.74 567.21,-983.17"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge68" class="edge">
+<title>program~problem_5&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M383.54,-562.19C411.05,-578.12 455.96,-608.78 477,-649 515.09,-721.81 457.98,-955.97 513,-1017 515,-1019.22 517.18,-1021.25 519.48,-1023.09"/>
+<polygon fill="#000000" stroke="#000000" points="517.56,-1026.01 527.81,-1028.68 521.46,-1020.2 517.56,-1026.01"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~in_seed_list -->
+<g id="call~~graph~~CallGraph_edge69" class="edge">
+<title>program~problem_5&#45;&gt;proc~in_seed_list</title>
+<path fill="none" stroke="#000000" d="M374.07,-537.78C399.42,-515.65 456.5,-469.02 513,-445 521.05,-441.58 529.7,-438.7 538.45,-436.28"/>
+<polygon fill="#000000" stroke="#000000" points="539.51,-439.62 548.33,-433.74 537.77,-432.84 539.51,-439.62"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge70" class="edge">
+<title>program~problem_5&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M381.85,-562.05C408.49,-578.25 453.39,-609.62 477,-649 515.81,-713.75 468.4,-754.09 513,-815 527.25,-834.46 550.01,-848.47 570.51,-857.93"/>
+<polygon fill="#000000" stroke="#000000" points="569.17,-861.16 579.74,-861.96 571.98,-854.75 569.17,-861.16"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~parse_ints64 -->
+<g id="call~~graph~~CallGraph_edge71" class="edge">
+<title>program~problem_5&#45;&gt;proc~parse_ints64</title>
+<path fill="none" stroke="#000000" d="M375.03,-537.96C397.63,-519 442.21,-480.67 477,-445 494.17,-427.4 491.81,-415.46 513,-403 518.87,-399.55 525.21,-396.66 531.76,-394.24"/>
+<polygon fill="#000000" stroke="#000000" points="533.1,-397.48 541.49,-391.02 530.9,-390.84 533.1,-397.48"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~populate -->
+<g id="call~~graph~~CallGraph_edge72" class="edge">
+<title>program~problem_5&#45;&gt;proc~populate</title>
+<path fill="none" stroke="#000000" d="M394.16,-550C432.24,-550 495.35,-550 544.54,-550"/>
+<polygon fill="#000000" stroke="#000000" points="544.81,-553.5 554.81,-550 544.81,-546.5 544.81,-553.5"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge73" class="edge">
+<title>program~problem_5&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M382.75,-562.08C409.89,-578.1 454.88,-609.07 477,-649 530.54,-745.66 437.08,-814.72 513,-895 520.63,-903.07 530.46,-908.49 541,-912.06"/>
+<polygon fill="#000000" stroke="#000000" points="540.27,-915.49 550.85,-914.85 542.18,-908.76 540.27,-915.49"/>
+</g>
+<!-- program~problem_5&#45;&gt;proc~traverse -->
+<g id="call~~graph~~CallGraph_edge74" class="edge">
+<title>program~problem_5&#45;&gt;proc~traverse</title>
+<path fill="none" stroke="#000000" d="M394.16,-544.47C432.7,-538.13 496.88,-527.58 546.31,-519.46"/>
+<polygon fill="#000000" stroke="#000000" points="547.01,-522.89 556.31,-517.81 545.87,-515.98 547.01,-522.89"/>
+</g>
+<!-- program~problem_6 -->
+<g id="call~~graph~~CallGraph_node65" class="node">
+<title>program~problem_6</title>
+<g id="a_call~~graph~~CallGraph_node65"><a xlink:href=".././program/problem_6.html" xlink:title="problem_6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-1094 325,-1094 325,-1070 394,-1070 394,-1094"/>
+<text text-anchor="middle" x="359.5" y="-1079.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6</text>
+</a>
+</g>
+</g>
+<!-- program~problem_6&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge75" class="edge">
+<title>program~problem_6&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M394.01,-1082.03C418.52,-1080.67 451.76,-1075.85 477,-1061 498.78,-1048.19 491.37,-1030.06 513,-1017 516.02,-1015.18 519.17,-1013.51 522.42,-1011.98"/>
+<polygon fill="#000000" stroke="#000000" points="523.92,-1015.15 531.79,-1008.05 521.21,-1008.69 523.92,-1015.15"/>
+</g>
+<!-- program~problem_6&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge76" class="edge">
+<title>program~problem_6&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M394.16,-1076.2C430.09,-1070.02 488.3,-1059.99 536.08,-1051.76"/>
+<polygon fill="#000000" stroke="#000000" points="536.84,-1055.18 546.1,-1050.04 535.65,-1048.29 536.84,-1055.18"/>
+</g>
+<!-- program~problem_6&#45;&gt;proc~go -->
+<g id="call~~graph~~CallGraph_edge77" class="edge">
+<title>program~problem_6&#45;&gt;proc~go</title>
+<path fill="none" stroke="#000000" d="M394.1,-1082.76C418.36,-1084.53 451.23,-1089.52 477,-1103 497.05,-1113.49 493.07,-1128.29 513,-1139 527.91,-1147.01 545.53,-1151.98 561.95,-1155.05"/>
+<polygon fill="#000000" stroke="#000000" points="561.54,-1158.53 571.98,-1156.73 562.7,-1151.63 561.54,-1158.53"/>
+</g>
+<!-- program~problem_7b -->
+<g id="call~~graph~~CallGraph_node66" class="node">
+<title>program~problem_7b</title>
+<g id="a_call~~graph~~CallGraph_node66"><a xlink:href=".././program/problem_7b.html" xlink:title="problem_7b">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="397.5,-762 321.5,-762 321.5,-738 397.5,-738 397.5,-762"/>
+<text text-anchor="middle" x="359.5" y="-747.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7b</text>
+</a>
+</g>
+</g>
+<!-- program~problem_7b&#45;&gt;interface~split -->
+<g id="call~~graph~~CallGraph_edge78" class="edge">
+<title>program~problem_7b&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M397.68,-750.19C421.77,-751.83 453,-756.88 477,-771 498.78,-783.81 491.24,-802.16 513,-815 593.94,-862.74 629.94,-829.79 721,-853 819.84,-878.19 932.83,-918.35 992.15,-940.34"/>
+<polygon fill="#000000" stroke="#000000" points="990.95,-943.63 1001.54,-943.84 993.39,-937.07 990.95,-943.63"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~beats -->
+<g id="call~~graph~~CallGraph_edge79" class="edge">
+<title>program~problem_7b&#45;&gt;proc~beats</title>
+<path fill="none" stroke="#000000" d="M397.65,-756.4C437.71,-763.3 502.25,-774.41 550.79,-782.77"/>
+<polygon fill="#000000" stroke="#000000" points="550.44,-786.26 560.89,-784.51 551.63,-779.36 550.44,-786.26"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge80" class="edge">
+<title>program~problem_7b&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M397.56,-746.72C423.16,-746.58 456.23,-750.94 477,-771 531.31,-823.43 468.4,-876.09 513,-937 527.25,-956.46 550.01,-970.47 570.51,-979.93"/>
+<polygon fill="#000000" stroke="#000000" points="569.17,-983.16 579.74,-983.96 571.98,-976.75 569.17,-983.16"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge81" class="edge">
+<title>program~problem_7b&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M397.71,-746.3C423.56,-745.92 456.85,-750.17 477,-771 553.83,-850.41 437.08,-936.72 513,-1017 514.87,-1018.97 516.86,-1020.79 518.97,-1022.45"/>
+<polygon fill="#000000" stroke="#000000" points="517.32,-1025.56 527.59,-1028.18 521.2,-1019.73 517.32,-1025.56"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge82" class="edge">
+<title>program~problem_7b&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M397.61,-748.25C422.43,-748.95 454.52,-753.7 477,-771 506.94,-794.04 483.87,-823.94 513,-848 517.55,-851.76 522.58,-854.99 527.89,-857.76"/>
+<polygon fill="#000000" stroke="#000000" points="526.52,-860.98 537.06,-862 529.45,-854.62 526.52,-860.98"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge83" class="edge">
+<title>program~problem_7b&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M397.69,-747.17C423.02,-747.3 455.7,-751.81 477,-771 519.64,-809.41 470.8,-856.11 513,-895 520.96,-902.34 530.77,-907.4 541.13,-910.86"/>
+<polygon fill="#000000" stroke="#000000" points="540.2,-914.23 550.77,-913.59 542.11,-907.49 540.2,-914.23"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~str_to_array -->
+<g id="call~~graph~~CallGraph_edge84" class="edge">
+<title>program~problem_7b&#45;&gt;proc~str_to_array</title>
+<path fill="none" stroke="#000000" d="M397.65,-744.18C433.24,-738.61 488.15,-730.02 534.01,-722.84"/>
+<polygon fill="#000000" stroke="#000000" points="534.6,-726.29 543.94,-721.28 533.52,-719.37 534.6,-726.29"/>
+</g>
+<!-- program~problem_7b&#45;&gt;proc~swap_hands -->
+<g id="call~~graph~~CallGraph_edge85" class="edge">
+<title>program~problem_7b&#45;&gt;proc~swap_hands</title>
+<path fill="none" stroke="#000000" d="M397.65,-750.29C432.91,-750.57 487.13,-750.99 532.72,-751.35"/>
+<polygon fill="#000000" stroke="#000000" points="532.88,-754.85 542.9,-751.43 532.93,-747.85 532.88,-754.85"/>
+</g>
+<!-- program~problem_8 -->
+<g id="call~~graph~~CallGraph_node67" class="node">
+<title>program~problem_8</title>
+<g id="a_call~~graph~~CallGraph_node67"><a xlink:href=".././program/problem_8.html" xlink:title="problem_8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-436 325,-436 325,-412 394,-412 394,-436"/>
+<text text-anchor="middle" x="359.5" y="-421.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge86" class="edge">
+<title>program~problem_8&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M381.72,-436.08C409.1,-452.95 455.73,-486.36 477,-529 558.25,-691.9 414.87,-783.67 513,-937 525.61,-956.7 547.29,-970.54 567.52,-979.83"/>
+<polygon fill="#000000" stroke="#000000" points="566.41,-983.16 576.98,-983.91 569.18,-976.73 566.41,-983.16"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge87" class="edge">
+<title>program~problem_8&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M381.81,-436.03C409.3,-452.85 456.04,-486.21 477,-529 524.83,-626.65 441.16,-935.37 513,-1017 514.98,-1019.25 517.13,-1021.29 519.41,-1023.15"/>
+<polygon fill="#000000" stroke="#000000" points="517.45,-1026.05 527.68,-1028.79 521.39,-1020.27 517.45,-1026.05"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~find_node -->
+<g id="call~~graph~~CallGraph_edge88" class="edge">
+<title>program~problem_8&#45;&gt;proc~find_node</title>
+<path fill="none" stroke="#000000" d="M385.59,-411.89C415.38,-397.93 466.84,-375.1 513,-361 522.43,-358.12 532.46,-355.52 542.42,-353.21"/>
+<polygon fill="#000000" stroke="#000000" points="543.34,-356.6 552.34,-351 541.81,-349.76 543.34,-356.6"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~lcm -->
+<g id="call~~graph~~CallGraph_edge89" class="edge">
+<title>program~problem_8&#45;&gt;proc~lcm</title>
+<path fill="none" stroke="#000000" d="M374.07,-411.78C399.42,-389.65 456.5,-343.02 513,-319 526.18,-313.4 540.95,-309.26 555.11,-306.21"/>
+<polygon fill="#000000" stroke="#000000" points="556.15,-309.57 565.27,-304.17 554.78,-302.7 556.15,-309.57"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~moves -->
+<g id="call~~graph~~CallGraph_edge90" class="edge">
+<title>program~problem_8&#45;&gt;proc~moves</title>
+<path fill="none" stroke="#000000" d="M369.22,-411.75C390.31,-383.11 447.25,-311.57 513,-277 524.65,-270.87 537.91,-266.53 550.95,-263.46"/>
+<polygon fill="#000000" stroke="#000000" points="551.8,-266.86 560.84,-261.34 550.33,-260.01 551.8,-266.86"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~moves_any_z -->
+<g id="call~~graph~~CallGraph_edge91" class="edge">
+<title>program~problem_8&#45;&gt;proc~moves_any_z</title>
+<path fill="none" stroke="#000000" d="M366.42,-411.86C383.71,-377.79 437.72,-280.8 513,-235 519.32,-231.15 526.23,-228 533.38,-225.41"/>
+<polygon fill="#000000" stroke="#000000" points="534.79,-228.63 543.23,-222.23 532.64,-221.97 534.79,-228.63"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge92" class="edge">
+<title>program~problem_8&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M381.48,-436.2C408.6,-453.21 454.94,-486.76 477,-529 536.3,-642.56 441.94,-708.4 513,-815 526.13,-834.7 548.23,-848.61 568.59,-857.94"/>
+<polygon fill="#000000" stroke="#000000" points="567.22,-861.16 577.79,-861.92 570,-854.74 567.22,-861.16"/>
+</g>
+<!-- program~problem_8&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge93" class="edge">
+<title>program~problem_8&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M381.66,-436.11C408.97,-453.02 455.52,-486.47 477,-529 513.84,-601.95 458.27,-834.31 513,-895 520.49,-903.3 530.29,-908.83 540.86,-912.44"/>
+<polygon fill="#000000" stroke="#000000" points="540.18,-915.89 550.75,-915.24 542.09,-909.15 540.18,-915.89"/>
+</g>
+<!-- program~problem_9 -->
+<g id="call~~graph~~CallGraph_node68" class="node">
+<title>program~problem_9</title>
+<g id="a_call~~graph~~CallGraph_node68"><a xlink:href=".././program/problem_9.html" xlink:title="problem_9">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-1136 325,-1136 325,-1112 394,-1112 394,-1136"/>
+<text text-anchor="middle" x="359.5" y="-1121.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_9</text>
+</a>
+</g>
+</g>
+<!-- program~problem_9&#45;&gt;interface~parse -->
+<g id="call~~graph~~CallGraph_edge94" class="edge">
+<title>program~problem_9&#45;&gt;interface~parse</title>
+<path fill="none" stroke="#000000" d="M369.66,-1136.15C391.27,-1163.87 448.5,-1231.94 513,-1265 524.58,-1270.94 537.71,-1275.2 550.61,-1278.25"/>
+<polygon fill="#000000" stroke="#000000" points="549.9,-1281.68 560.41,-1280.36 551.37,-1274.83 549.9,-1281.68"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~clock_end -->
+<g id="call~~graph~~CallGraph_edge95" class="edge">
+<title>program~problem_9&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M394.11,-1126.1C419.47,-1125.91 453.76,-1121.65 477,-1103 509.31,-1077.06 480.98,-1043.3 513,-1017 515.46,-1014.98 518.06,-1013.14 520.77,-1011.46"/>
+<polygon fill="#000000" stroke="#000000" points="522.62,-1014.44 529.79,-1006.63 519.32,-1008.27 522.62,-1014.44"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~clock_start -->
+<g id="call~~graph~~CallGraph_edge96" class="edge">
+<title>program~problem_9&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M394.2,-1120.27C417.77,-1117.1 449.78,-1111.66 477,-1103 515.83,-1090.65 557.89,-1069.85 585.45,-1055.11"/>
+<polygon fill="#000000" stroke="#000000" points="587.44,-1058.01 594.56,-1050.17 584.1,-1051.86 587.44,-1058.01"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~extrapolate -->
+<g id="call~~graph~~CallGraph_edge97" class="edge">
+<title>program~problem_9&#45;&gt;proc~extrapolate</title>
+<path fill="none" stroke="#000000" d="M375.02,-1136.15C400.98,-1157.21 457.79,-1200.4 513,-1223 521.1,-1226.31 529.78,-1229.12 538.54,-1231.5"/>
+<polygon fill="#000000" stroke="#000000" points="537.88,-1234.95 548.43,-1234.01 539.59,-1228.16 537.88,-1234.95"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge98" class="edge">
+<title>program~problem_9&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M394.03,-1127.47C420.22,-1128.2 455.64,-1124.51 477,-1103 543.11,-1036.43 447.65,-962.32 513,-895 513.93,-894.04 514.89,-893.12 515.88,-892.24"/>
+<polygon fill="#000000" stroke="#000000" points="518.09,-894.96 523.97,-886.15 513.88,-889.36 518.09,-894.96"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge99" class="edge">
+<title>program~problem_9&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M394.24,-1126.88C420.02,-1127.17 454.79,-1123.18 477,-1103 520.74,-1063.26 476.66,-1021.6 513,-975 527.95,-955.84 550.98,-941.81 571.48,-932.25"/>
+<polygon fill="#000000" stroke="#000000" points="572.96,-935.42 580.68,-928.17 570.12,-929.02 572.96,-935.42"/>
+</g>
+<!-- program~problem_9&#45;&gt;proc~reverse -->
+<g id="call~~graph~~CallGraph_edge100" class="edge">
+<title>program~problem_9&#45;&gt;proc~reverse</title>
+<path fill="none" stroke="#000000" d="M388.72,-1136.07C419,-1148.66 468.72,-1168.29 513,-1181 523.41,-1183.99 534.53,-1186.72 545.46,-1189.15"/>
+<polygon fill="#000000" stroke="#000000" points="544.92,-1192.61 555.43,-1191.3 546.39,-1185.77 544.92,-1192.61"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pancallgraphCallGraph = svgPanZoom('#callgraphCallGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_8 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_8      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="15.8% of total for programs.">112 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_08.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_08.f90.html'>problem_08.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_8</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_8.html#variable-iunit~9">iunit</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-n_lines~9">n_lines</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-line~10">line</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-instructions">instructions</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-vals~8">vals</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-i~19">i</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-j~11">j</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-idx">idx</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-idx_zzz">idx_zzz</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-imoves~3">imoves</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-ias">ias</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-izs">izs</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-instructions_ints">instructions_ints</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-idx_vec">idx_vec</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-idx_zzz_vec">idx_zzz_vec</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-imoves_vec">imoves_vec</a>
+            <a class="list-group-item" href="../program/problem_8.html#variable-nodes">nodes</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_8.html#type-node">node</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_8.html#proc-moves">moves</a>
+            <a class="list-group-item" href="../program/problem_8.html#proc-moves_any_z">moves_any_z</a>
+            <a class="list-group-item" href="../program/problem_8.html#proc-all_in_set">all_in_set</a>
+            <a class="list-group-item" href="../program/problem_8.html#proc-find_node">find_node</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_8.html#src">problem_8</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_8~~UsesGraph Pages: 1 -->
+<svg id="programproblem_8UsesGraph" width="319pt" height="52pt"
+ viewBox="0.00 0.00 319.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_8~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~problem_8~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 315,-48 315,4 -4,4"/>
+<!-- program~problem_8 -->
+<g id="program~~problem_8~~UsesGraph_node1" class="node">
+<title>program~problem_8</title>
+<polygon fill="none" stroke="black" points="311,-44 242,-44 242,-20 311,-20 311,-44"/>
+<text text-anchor="middle" x="276.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_8</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_8~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~problem_8&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_8~~UsesGraph_edge1" class="edge">
+<title>program~problem_8&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.92,-32.58C230.52,-32.75 217.7,-32.92 206,-33 172.22,-33.24 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_8~~UsesGraph_node3" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_8~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
+<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_8~~UsesGraph_edge2" class="edge">
+<title>program~problem_8&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.8,-25.67C233.66,-24.14 224.8,-22.48 216.16,-20.86"/>
+<polygon fill="#000000" stroke="#000000" points="216.65,-17.39 206.17,-18.98 215.36,-24.27 216.65,-17.39"/>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_8~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_8~~CallsGraph Pages: 1 -->
+<svg id="programproblem_8CallsGraph" width="321pt" height="326pt"
+ viewBox="0.00 0.00 321.00 326.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_8~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 322)">
+<title>program~~problem_8~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-322 317,-322 317,4 -4,4"/>
+<!-- program~problem_8 -->
+<g id="program~~problem_8~~CallsGraph_node1" class="node">
+<title>program~problem_8</title>
+<polygon fill="none" stroke="black" points="69,-171 0,-171 0,-147 69,-147 69,-171"/>
+<text text-anchor="middle" x="34.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_8</text>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_8~~CallsGraph_node2" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_8~~CallsGraph_node2"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="296,-318 122,-318 122,-294 296,-294 296,-318"/>
+<text text-anchor="middle" x="209" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~clock_end -->
+<g id="program~~problem_8~~CallsGraph_edge1" class="edge">
+<title>program~problem_8&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M38.55,-171.35C45.57,-196.95 65.35,-255.85 105,-285 107.41,-286.77 109.94,-288.41 112.55,-289.91"/>
+<polygon fill="#000000" stroke="#000000" points="111.25,-293.17 121.76,-294.53 114.39,-286.91 111.25,-293.17"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_8~~CallsGraph_node3" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_8~~CallsGraph_node3"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="298,-276 120,-276 120,-252 298,-252 298,-276"/>
+<text text-anchor="middle" x="209" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~clock_start -->
+<g id="program~~problem_8~~CallsGraph_edge2" class="edge">
+<title>program~problem_8&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M41.99,-171.25C52.55,-189.91 75.3,-225.18 105,-243 108.03,-244.82 111.18,-246.48 114.43,-248"/>
+<polygon fill="#000000" stroke="#000000" points="113.23,-251.29 123.81,-251.91 115.93,-244.83 113.23,-251.29"/>
+</g>
+<!-- proc~find_node -->
+<g id="program~~problem_8~~CallsGraph_node4" class="node">
+<title>proc~find_node</title>
+<g id="a_program~~problem_8~~CallsGraph_node4"><a xlink:href=".././proc/find_node.html" xlink:title="problem_8::find_node">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="273.5,-234 144.5,-234 144.5,-210 273.5,-210 273.5,-234"/>
+<text text-anchor="middle" x="209" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::find_node</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~find_node -->
+<g id="program~~problem_8~~CallsGraph_edge3" class="edge">
+<title>program~problem_8&#45;&gt;proc~find_node</title>
+<path fill="none" stroke="#000000" d="M51.79,-171.07C65.37,-180.56 85.56,-193.41 105,-201 114.31,-204.64 124.34,-207.68 134.37,-210.21"/>
+<polygon fill="#000000" stroke="#000000" points="133.84,-213.68 144.37,-212.58 135.45,-206.87 133.84,-213.68"/>
+</g>
+<!-- proc~lcm -->
+<g id="program~~problem_8~~CallsGraph_node5" class="node">
+<title>proc~lcm</title>
+<g id="a_program~~problem_8~~CallsGraph_node5"><a xlink:href=".././proc/lcm.html" xlink:title="aoc_utilities::lcm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="260.5,-192 157.5,-192 157.5,-168 260.5,-168 260.5,-192"/>
+<text text-anchor="middle" x="209" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::lcm</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~lcm -->
+<g id="program~~problem_8~~CallsGraph_edge4" class="edge">
+<title>program~problem_8&#45;&gt;proc~lcm</title>
+<path fill="none" stroke="#000000" d="M69.17,-163.1C91.33,-165.8 120.97,-169.41 147.18,-172.6"/>
+<polygon fill="#000000" stroke="#000000" points="147.06,-176.11 157.41,-173.84 147.91,-169.16 147.06,-176.11"/>
+</g>
+<!-- proc~moves -->
+<g id="program~~problem_8~~CallsGraph_node6" class="node">
+<title>proc~moves</title>
+<g id="a_program~~problem_8~~CallsGraph_node6"><a xlink:href=".././proc/moves.html" xlink:title="problem_8::moves">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="265,-150 153,-150 153,-126 265,-126 265,-150"/>
+<text text-anchor="middle" x="209" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::moves</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~moves -->
+<g id="program~~problem_8~~CallsGraph_edge5" class="edge">
+<title>program~problem_8&#45;&gt;proc~moves</title>
+<path fill="none" stroke="#000000" d="M69.17,-154.9C90.02,-152.36 117.51,-149.02 142.52,-145.97"/>
+<polygon fill="#000000" stroke="#000000" points="143.19,-149.42 152.69,-144.73 142.34,-142.47 143.19,-149.42"/>
+</g>
+<!-- proc~moves_any_z -->
+<g id="program~~problem_8~~CallsGraph_node7" class="node">
+<title>proc~moves_any_z</title>
+<g id="a_program~~problem_8~~CallsGraph_node7"><a xlink:href=".././proc/moves_any_z.html" xlink:title="problem_8::moves_any_z">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="282.5,-108 135.5,-108 135.5,-84 282.5,-84 282.5,-108"/>
+<text text-anchor="middle" x="209" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8::moves_any_z</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~moves_any_z -->
+<g id="program~~problem_8~~CallsGraph_edge6" class="edge">
+<title>program~problem_8&#45;&gt;proc~moves_any_z</title>
+<path fill="none" stroke="#000000" d="M51.79,-146.93C65.37,-137.44 85.56,-124.59 105,-117 111.6,-114.42 118.57,-112.14 125.65,-110.13"/>
+<polygon fill="#000000" stroke="#000000" points="126.57,-113.5 135.34,-107.55 124.77,-106.74 126.57,-113.5"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_8~~CallsGraph_node8" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_8~~CallsGraph_node8"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="313,-66 105,-66 105,-42 313,-42 313,-66"/>
+<text text-anchor="middle" x="209" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_8~~CallsGraph_edge7" class="edge">
+<title>program~problem_8&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M41.99,-146.75C52.55,-128.09 75.3,-92.82 105,-75 108.03,-73.18 111.18,-71.52 114.43,-70"/>
+<polygon fill="#000000" stroke="#000000" points="115.93,-73.17 123.81,-66.09 113.23,-66.71 115.93,-73.17"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_8~~CallsGraph_node9" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_8~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="275,-24 143,-24 143,0 275,0 275,-24"/>
+<text text-anchor="middle" x="209" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- program~problem_8&#45;&gt;proc~read_line -->
+<g id="program~~problem_8~~CallsGraph_edge8" class="edge">
+<title>program~problem_8&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M38.55,-146.65C45.57,-121.05 65.35,-62.15 105,-33 113.36,-26.86 123.08,-22.41 133.15,-19.2"/>
+<polygon fill="#000000" stroke="#000000" points="134.18,-22.54 142.88,-16.49 132.31,-15.8 134.18,-22.54"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iunit~9"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_lines~9"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_lines</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~10"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-instructions"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>instructions</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vals~8"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~19"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~11"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx_zzz"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idx_zzz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imoves~3"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imoves</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ias"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ias</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-izs"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>izs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-instructions_ints"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>instructions_ints</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx_vec"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>idx_vec</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx_zzz_vec"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>idx_zzz_vec</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imoves_vec"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>imoves_vec</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nodes"></span>
+              type(<a href='../type/node.html'>node</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>nodes</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    <section>
+   <h2>Derived Types</h2>
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-node"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/node.html'>node</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name"></span>
+              character(len=3),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+<td> =</td>
+                <td>&#39;&#39;</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lr"></span>
+              character(len=3),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(2)
+            </td>
+            <td>::</td>
+            <td><strong>lr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lr_idx"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(2)
+            </td>
+            <td>::</td>
+            <td><strong>lr_idx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+    </section>
+   <br>
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-moves"></span><h3>pure function <a href='../proc/moves.html'>moves</a>(istart, iend) result(imoves)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istart"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>istart</strong></td>
+            <td>
+<p>indices for start and end nodes</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iend"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iend</strong></td>
+            <td>
+<p>indices for start and end nodes</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-moves_any_z"></span><h3>pure function <a href='../proc/moves_any_z.html'>moves_any_z</a>(istart, iend) result(imoves)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istart~2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>istart</strong></td>
+            <td>
+<p>indices for start and end nodes</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iend~2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>iend</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-all_in_set"></span><h3>pure function <a href='../proc/all_in_set.html'>all_in_set</a>(ivals, iset)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>returns true if all the elements of ivals are in the set iset</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ivals~4"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>ivals</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iset"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>iset</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-find_node"></span><h3>pure function <a href='../proc/find_node.html'>find_node</a>(name)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_8</span>
+
+<span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span><span class="w"> </span><span class="c">! use long ints</span>
+<span class="k">use </span><span class="n">aoc_utilities</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">instructions</span>
+<span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vals</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">idx_zzz</span><span class="p">,</span><span class="w"> </span><span class="n">imoves</span><span class="p">,</span><span class="w"> </span><span class="n">ias</span><span class="p">,</span><span class="w"> </span><span class="n">izs</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">instructions_ints</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx_vec</span><span class="p">,</span><span class="w"> </span><span class="n">idx_zzz_vec</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">imoves_vec</span>
+
+<span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">node</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lr</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lr_idx</span><span class="w"> </span><span class="c">! the indices in the nodes array of the l,r nodes</span>
+<span class="k">end type </span><span class="n">node</span>
+<span class="k">type</span><span class="p">(</span><span class="n">node</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="c">! read the data file:</span>
+<span class="c">! open(newunit=iunit, file=&#39;inputs/day8_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day8.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="n">n_lines</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">instructions_ints</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instructions</span><span class="p">)))</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">instructions</span><span class="p">)</span>
+<span class="w">    </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">instructions</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span><span class="w">   </span><span class="c">! make an int array for easier access</span>
+<span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">instructions_ints</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">instructions_ints</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="k">end select</span>
+<span class="k">end do</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">    read</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="s2">&quot;(A3,1X,1X,1X,1X,A3,1X,1X,A3,1X)&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end do</span>
+<span class="k">close</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="c">! compute all the lr indices:</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<span class="w">    </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr_idx</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_node</span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">    </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr_idx</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_node</span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">lr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">end do</span>
+
+<span class="c">!********************************************</span>
+
+<span class="n">imoves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moves</span><span class="p">(</span><span class="n">find_node</span><span class="p">(</span><span class="s1">&#39;AAA&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">find_node</span><span class="p">(</span><span class="s1">&#39;ZZZ&#39;</span><span class="p">))</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;8a : number of moves:&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">imoves</span>
+
+<span class="c">!********************************************</span>
+
+<span class="c">! get indices of the ones that end in A and Z:</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">idx_vec</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">idx_zzz_vec</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">name</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">idx_vec</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">idx_vec</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">name</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">idx_zzz_vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">idx_zzz_vec</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
+<span class="k">end do</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">idx_vec</span><span class="p">)</span><span class="o">/=</span><span class="n">size</span><span class="p">(</span><span class="n">idx_zzz_vec</span><span class="p">))</span><span class="w"> </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;error: they need to be the same size?&#39;</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">imoves_vec</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">idx_vec</span><span class="p">)))</span>
+<span class="c">! for EACH start, find the number of moves that it takes to get to ONE of the ends.</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">idx_vec</span><span class="p">)</span>
+<span class="w">    </span><span class="n">imoves_vec</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moves_any_z</span><span class="p">(</span><span class="n">idx_vec</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">idx_zzz_vec</span><span class="p">)</span>
+<span class="k">end do</span>
+<span class="c">! don&#39;t know why this works ¯\_(ツ)_/¯</span>
+<span class="c">! I think it&#39;s a feature of the specific data given</span>
+<span class="c">! (it&#39;s a repeating cycle once it gets to the end)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;8b : number of moves: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">lcm</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">lcm</span><span class="p">(</span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">),&amp;</span>
+<span class="w">                                             </span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">2</span><span class="p">)),&amp;</span>
+<span class="w">                                             </span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">3</span><span class="p">)),&amp;</span>
+<span class="w">                                             </span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">4</span><span class="p">)),&amp;</span>
+<span class="w">                                             </span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">5</span><span class="p">)),&amp;</span>
+<span class="w">                                             </span><span class="n">imoves_vec</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c">! !</span>
+<span class="c">! ! brute force. run all the moves in parallel until they are all done.</span>
+<span class="c">! !</span>
+<span class="c">! i = 0</span>
+<span class="c">! imoves = 0</span>
+<span class="c">! do</span>
+<span class="c">!     if (all_in_set(idx_vec, idx_zzz_vec)) exit</span>
+<span class="c">!     imoves = imoves + 1 ! another move</span>
+<span class="c">!     i = i + 1</span>
+<span class="c">!     if (i&gt;len(instructions)) i = 1</span>
+<span class="c">!     do concurrent (j = 1 : size(idx_vec))</span>
+<span class="c">!         idx_vec(j) = nodes(idx_vec(j))%lr_idx(instructions_ints(i))</span>
+<span class="c">!     end do</span>
+<span class="c">! end do</span>
+<span class="c">! write(*,*) &#39;8b : number of moves:&#39;, imoves</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    pure function </span><span class="n">moves</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">iend</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">imoves</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">iend</span><span class="w"> </span><span class="c">!! indices for start and end nodes</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">imoves</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">imoves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">            </span><span class="c">!write(*,*) nodes(idx)%name</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">iend</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="w">            </span><span class="c">! if (idx == istart) write(*,*) &#39;back to start&#39;</span>
+<span class="w">            </span><span class="n">imoves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imoves</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! another move</span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="nb">len</span><span class="p">(</span><span class="n">instructions</span><span class="p">))</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">idx</span><span class="p">)%</span><span class="n">lr_idx</span><span class="p">(</span><span class="n">instructions_ints</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">    end function </span><span class="n">moves</span>
+
+<span class="w">    </span><span class="k">pure function </span><span class="n">moves_any_z</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">iend</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">imoves</span><span class="p">)</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istart</span><span class="w"> </span><span class="c">!! indices for start and end nodes</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iend</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">imoves</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">imoves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">            </span><span class="c">!write(*,*) nodes(idx)%name</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">iend</span><span class="p">))</span><span class="w"> </span><span class="k">exit</span>
+<span class="w">            </span><span class="c">! if (idx == istart) write(*,*) &#39;back to start&#39;</span>
+<span class="w">            </span><span class="n">imoves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imoves</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! another move</span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="nb">len</span><span class="p">(</span><span class="n">instructions</span><span class="p">))</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">idx</span><span class="p">)%</span><span class="n">lr_idx</span><span class="p">(</span><span class="n">instructions_ints</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">    end function </span><span class="n">moves_any_z</span>
+
+
+<span class="w">    </span><span class="k">pure </span><span class="kt">logical </span><span class="k">function </span><span class="n">all_in_set</span><span class="p">(</span><span class="n">ivals</span><span class="p">,</span><span class="w"> </span><span class="n">iset</span><span class="p">)</span>
+<span class="w">    </span><span class="c">!! returns true if all the elements of ivals are in the set iset</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ivals</span><span class="p">,</span><span class="w"> </span><span class="n">iset</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="n">all_in_set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">ivals</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">ivals</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="n">iset</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">all_in_set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="k">exit</span>
+<span class="k">        end if</span>
+<span class="k">    end do</span>
+<span class="k">    end function </span><span class="n">all_in_set</span>
+
+<span class="w">    </span><span class="k">pure </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">find_node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">find_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">                </span><span class="k">return</span>
+<span class="k">            end if</span>
+<span class="k">        end do</span>
+<span class="k">        error stop</span><span class="w"> </span><span class="s1">&#39;could not find node&#39;</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">find_node</span>
+
+<span class="k">end program </span><span class="n">problem_8</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

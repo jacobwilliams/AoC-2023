@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>startswith_cc &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>startswith_cc
+      <small>Function</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.5% of total for procedures.">4 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/aoc_utilities.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+            <li class="breadcrumb-item active" aria-current="page">startswith_cc</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/startswith_cc.html#src">startswith_cc</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private pure function startswith_cc(str, substring)  
+</h2>
+    
+
+    <p>starts with function for strings</p>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-str~5"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-substring"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>substring</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-startswith_cc"></span>
+          logical
+        </small>
+      </h3>
+      
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~startswith_cc~~CalledByGraph Pages: 1 -->
+<svg id="procstartswith_ccCalledByGraph" width="434pt" height="158pt"
+ viewBox="0.00 0.00 434.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~startswith_cc~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 154)">
+<title>proc~~startswith_cc~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 430,-154 430,4 -4,4"/>
+<!-- proc~startswith_cc -->
+<g id="proc~~startswith_cc~~CalledByGraph_node1" class="node">
+<title>proc~startswith_cc</title>
+<polygon fill="none" stroke="black" points="426,-150 275,-150 275,-126 426,-126 426,-150"/>
+<text text-anchor="middle" x="350.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::startswith_cc</text>
+</g>
+<!-- interface~startswith -->
+<g id="proc~~startswith_cc~~CalledByGraph_node2" class="node">
+<title>interface~startswith</title>
+<g id="a_proc~~startswith_cc~~CalledByGraph_node2"><a xlink:href=".././interface/startswith.html" xlink:title="aoc_utilities::startswith">
+<polygon fill="#a7506f" stroke="#a7506f" points="239,-66 105,-66 105,-42 239,-42 239,-66"/>
+<text text-anchor="middle" x="172" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cc -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge1" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.52,-66.23C209.06,-80.2 242.99,-102.93 275,-117 279.72,-119.08 284.7,-121 289.76,-122.77"/>
+<polygon fill="#000000" stroke="#000000" points="288.94,-126.19 299.53,-126 291.13,-119.54 288.94,-126.19"/>
+</g>
+<!-- proc~startswith_cs -->
+<g id="proc~~startswith_cc~~CalledByGraph_node3" class="node">
+<title>proc~startswith_cs</title>
+<g id="a_proc~~startswith_cc~~CalledByGraph_node3"><a xlink:href=".././proc/startswith_cs.html" xlink:title="aoc_utilities::startswith_cs">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="426,-108 275,-108 275,-84 426,-84 426,-108"/>
+<text text-anchor="middle" x="350.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_cs</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_cs -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge6" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_cs</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M239.22,-63.2C263.27,-68.5 289.64,-75.06 310.56,-81.03"/>
+<polygon fill="#000000" stroke="#000000" points="309.78,-84.44 320.36,-83.9 311.75,-77.73 309.78,-84.44"/>
+</g>
+<!-- proc~startswith_sc -->
+<g id="proc~~startswith_cc~~CalledByGraph_node4" class="node">
+<title>proc~startswith_sc</title>
+<g id="a_proc~~startswith_cc~~CalledByGraph_node4"><a xlink:href=".././proc/startswith_sc.html" xlink:title="aoc_utilities::startswith_sc">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="426,-66 275,-66 275,-42 426,-42 426,-66"/>
+<text text-anchor="middle" x="350.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_sc</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_sc -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge7" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_sc</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M239.22,-47.44C247.59,-47.29 256.24,-47.23 264.84,-47.25"/>
+<polygon fill="#000000" stroke="#000000" points="264.88,-50.76 274.9,-47.32 264.92,-43.76 264.88,-50.76"/>
+</g>
+<!-- proc~startswith_ss -->
+<g id="proc~~startswith_cc~~CalledByGraph_node5" class="node">
+<title>proc~startswith_ss</title>
+<g id="a_proc~~startswith_cc~~CalledByGraph_node5"><a xlink:href=".././proc/startswith_ss.html" xlink:title="aoc_utilities::startswith_ss">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="425.5,-24 275.5,-24 275.5,0 425.5,0 425.5,-24"/>
+<text text-anchor="middle" x="350.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::startswith_ss</text>
+</a>
+</g>
+</g>
+<!-- interface~startswith&#45;&gt;proc~startswith_ss -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge8" class="edge">
+<title>interface~startswith&#45;&gt;proc~startswith_ss</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M202.15,-41.9C219.54,-36.63 242.62,-30.62 265.33,-25.29"/>
+<polygon fill="#000000" stroke="#000000" points="266.41,-28.63 275.37,-22.97 264.84,-21.81 266.41,-28.63"/>
+</g>
+<!-- proc~startswith_cs&#45;&gt;interface~startswith -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge2" class="edge">
+<title>proc~startswith_cs&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M274.99,-84.95C253.31,-80.02 230.51,-74.27 211.97,-68.98"/>
+<polygon fill="#000000" stroke="#000000" points="212.73,-65.56 202.15,-66.1 210.76,-72.28 212.73,-65.56"/>
+</g>
+<!-- proc~startswith_sc&#45;&gt;interface~startswith -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge3" class="edge">
+<title>proc~startswith_sc&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M274.9,-60.68C266.48,-60.77 257.88,-60.77 249.43,-60.7"/>
+<polygon fill="#000000" stroke="#000000" points="249.27,-57.19 239.22,-60.56 249.18,-64.19 249.27,-57.19"/>
+</g>
+<!-- proc~startswith_ss&#45;&gt;interface~startswith -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge4" class="edge">
+<title>proc~startswith_ss&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M320.36,-24.1C300.91,-29.98 274.37,-36.81 249.17,-42.57"/>
+<polygon fill="#000000" stroke="#000000" points="248.21,-39.2 239.22,-44.8 249.75,-46.03 248.21,-39.2"/>
+</g>
+<!-- program~problem_5 -->
+<g id="proc~~startswith_cc~~CalledByGraph_node6" class="node">
+<title>program~problem_5</title>
+<g id="a_proc~~startswith_cc~~CalledByGraph_node6"><a xlink:href=".././program/problem_5.html" xlink:title="problem_5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="69,-66 0,-66 0,-42 69,-42 69,-66"/>
+<text text-anchor="middle" x="34.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5</text>
+</a>
+</g>
+</g>
+<!-- program~problem_5&#45;&gt;interface~startswith -->
+<g id="proc~~startswith_cc~~CalledByGraph_edge5" class="edge">
+<title>program~problem_5&#45;&gt;interface~startswith</title>
+<path fill="none" stroke="#000000" d="M69.34,-54C77.2,-54 85.88,-54 94.76,-54"/>
+<polygon fill="#000000" stroke="#000000" points="94.83,-57.5 104.83,-54 94.83,-50.5 94.83,-57.5"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure </span><span class="kt">logical </span><span class="k">function </span><span class="n">startswith_cc</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">substring</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">substring</span>
+<span class="w">        </span><span class="n">startswith_cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">substring</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">startswith_cc</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
