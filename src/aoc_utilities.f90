@@ -1,4 +1,11 @@
-module aoc_utilities
+!************************************************************************************************
+!>
+!  Helper classes and routines for Advent of Code
+!
+!### Author
+!  * Jacob Williams
+
+    module aoc_utilities
 
     use iso_fortran_env
 
@@ -7,7 +14,6 @@ module aoc_utilities
     private
 
     integer,parameter :: chunk_size = 100 !! for dynamic allocations
-    character(len=*),parameter :: digits = '0123456789'
 
     type,public :: clock
         private
@@ -19,9 +25,12 @@ module aoc_utilities
     type(clock),public :: clk !! a public clock to use for timing in the problems
 
     type,public :: string
+        !! a type containing an allocatable character string.
+        !! so we can have an array of strings of different lengths.
         character(len=:),allocatable :: str
         contains
-        procedure,public :: to_int => string_to_int
+        procedure,public :: to_int    => string_to_int !! convert to integer
+        procedure,public :: to_int_64 => string_to_int_64
     end type string
 
     type,public :: int64_vec
@@ -34,9 +43,18 @@ module aoc_utilities
               read_file_to_integer64_array, &
               read_file_to_char_array
     public :: number_of_lines_in_file
-    public :: sort_ascending,sort_ascending_64
     public :: read_line
     public :: parse_ints, parse_ints64
+    public :: is_number, is_not_number
+    public :: str_to_array
+    public :: lcm
+    public :: reverse
+    public :: diff
+
+    interface sort
+        procedure :: sort_ascending, sort_ascending_64
+    end interface sort
+    public :: sort
 
     interface parse
         procedure :: parse_nums64
@@ -49,7 +67,9 @@ module aoc_utilities
     public :: split
 
     interface int
-        procedure :: string_to_int, char_to_int, char_array_to_int, char_to_int64
+        procedure :: string_to_int, &
+                     char_to_int, char_to_int64, &
+                     char_array_to_int
     end interface int
     public :: int
 
@@ -69,22 +89,24 @@ module aoc_utilities
     end interface swap
     public :: swap
 
-    public :: is_number, is_not_number
-    public :: str_to_array
-    public :: lcm
-    public :: reverse
-    public :: diff
-
 contains
+!************************************************************************************************
 
-! timing routines:
+!****************************************************************
+!>
+!  Start the clock
+
     subroutine clock_start(me)
-        !! start the timer
         class(clock),intent(inout) :: me
         call system_clock(me%begin, me%rate)
     end subroutine clock_start
+!****************************************************************
+
+!****************************************************************
+!>
+!  Print runtime in milliseconds form the start of the clock.
+
     subroutine clock_end(me, case_str)
-        !! print runtime in milliseconds
         class(clock),intent(inout) :: me
         character(len=*),intent(in) :: case_str !! description of the case
         integer :: itime !! time in integer milliseconds
@@ -94,47 +116,77 @@ contains
         write(*,'(a)') '---------------------------'
         write(*,*) ''
     end subroutine clock_end
+!****************************************************************
 
 !****************************************************************
+!>
+!  Basic string to integer routine
+
     pure function char_to_int(str) result(i)
-    !! basic string to integer routine
-    implicit none
-    character(len=*),intent(in) :: str
-    integer :: i
-    read(str,*) i
+        character(len=*),intent(in) :: str
+        integer :: i
+        read(str,*) i
     end function char_to_int
+!****************************************************************
+
+!****************************************************************
+!>
+!  Basic string to integer routine
+
     pure elemental function string_to_int(me) result(i)
-    !! basic string to integer routine
-    implicit none
-    class(string),intent(in) :: me
-    integer :: i
-    i = char_to_int(me%str)
+        class(string),intent(in) :: me
+        integer :: i
+        i = int(me%str)
     end function string_to_int
+!****************************************************************
+
+!****************************************************************
+!>
+!  Basic string to integer routine
+
+    pure elemental function string_to_int_64(me) result(i)
+        class(string),intent(in) :: me
+        integer(int64) :: i
+        i = int(me%str)
+    end function string_to_int_64
+!****************************************************************
+
+!****************************************************************
+!>
+!  Basic string to integer(ip) routine.
+!  Hacky hack just so we can overload as int()
+
     pure function char_to_int64(str, kind) result(i)
-    !! basic string to integer(ip) routine. hacky hack just so we can overload as int()
-    implicit none
-    character(len=*),intent(in) :: str
-    integer,intent(in) :: kind
-    integer(int64) :: i
-    if (kind/=int64) error stop 'error'
-    read(str,*) i
+        character(len=*),intent(in) :: str
+        integer,intent(in) :: kind
+        integer(int64) :: i
+        if (kind/=int64) error stop 'error'
+        read(str,*) i
     end function char_to_int64
+!****************************************************************
+
+!****************************************************************
+!>
+!  Character array to integer routine
+
     pure function char_array_to_int(str_array) result(i)
-    !! character array to integer routine
-    implicit none
-    character(len=1),dimension(:),intent(in) :: str_array !! example ['1','3'] --> 13
-    integer :: i
-    character(len=:),allocatable :: str
-    integer :: k
-    str = ''
-    do k = 1, size(str_array)
-        str = str//str_array(k)
-    end do
-    i = char_to_int(str)
+        character(len=1),dimension(:),intent(in) :: str_array !! example ['1','3'] --> 13
+        integer :: i
+        character(len=:),allocatable :: str
+        integer :: k
+        str = ''
+        do k = 1, size(str_array)
+            str = str//str_array(k)
+        end do
+        i = char_to_int(str)
     end function char_array_to_int
+!****************************************************************
+
+!****************************************************************
+!>
+!  Read a file into a 2d character array.
 
     function read_file_to_char_array(filename, border) result(array)
-        !! read a file into a 2d character array.
         character(len=*),intent(in) :: filename
         character(len=1),intent(in),optional :: border !! if true, extra border is added with this char
         character(len=1),dimension(:,:),allocatable :: array
@@ -163,8 +215,12 @@ contains
         close(iunit)
 
     end function read_file_to_char_array
+!****************************************************************
 
 !****************************************************************
+!>
+!  Read a file into an integer array (one element per line)
+
     function read_file_to_integer_array(filename) result(iarray)
 
     character(len=*),intent(in) :: filename
@@ -187,6 +243,9 @@ contains
 !****************************************************************
 
 !****************************************************************
+!>
+!  Read a file into an int64 integer array (one element per line)
+
     function read_file_to_integer64_array(filename) result(iarray)
 
     character(len=*),intent(in) :: filename
@@ -209,13 +268,14 @@ contains
 !****************************************************************
 
 !****************************************************************
+!>
+!  Returns the number of lines in a file (assumed to be open)
+
     function number_of_lines_in_file(iunit) result(n_lines)
 
-    implicit none
-
-    integer,intent(in)  :: iunit   !! the file unit number
-                                    !! (assumed to be open)
-    integer :: n_lines   !! the number of lines in the file
+    integer,intent(in)  :: iunit  !! the file unit number
+                                  !! (assumed to be open)
+    integer :: n_lines  !! the number of lines in the file
 
     character(len=1) :: tmp
     integer :: istat
@@ -232,15 +292,13 @@ contains
     end function number_of_lines_in_file
 !****************************************************************
 
-!*******************************************************************************
+!****************************************************************
 !>
 !  Sorts an integer array `ivec` in increasing order.
 !  Uses a basic recursive quicksort
 !  (with insertion sort for partitions with \(\le\) 20 elements).
 
     subroutine sort_ascending(ivec)
-
-    implicit none
 
     integer,dimension(:),intent(inout) :: ivec
 
@@ -253,8 +311,6 @@ contains
         recursive subroutine quicksort(ilow,ihigh)
 
         !! Sort the array
-
-        implicit none
 
         integer,intent(in) :: ilow
         integer,intent(in) :: ihigh
@@ -314,14 +370,11 @@ contains
         end subroutine partition
 
     end subroutine sort_ascending
-!*******************************************************************************
+!****************************************************************
 
-
-!*******************************************************************************
+!****************************************************************
 !>
     subroutine sort_ascending_64(ivec)
-
-    implicit none
 
     integer(int64),dimension(:),intent(inout) :: ivec
 
@@ -334,8 +387,6 @@ contains
         recursive subroutine quicksort(ilow,ihigh)
 
         !! Sort the array
-
-        implicit none
 
         integer(int64),intent(in) :: ilow
         integer(int64),intent(in) :: ihigh
@@ -395,14 +446,13 @@ contains
         end subroutine partition
 
     end subroutine sort_ascending_64
-!*******************************************************************************
-!*******************************************************************************
+!****************************************************************
+
+!****************************************************************
 !>
 !  Swap two integer values.
 
     pure elemental subroutine swap32(i1,i2)
-
-    implicit none
 
     integer,intent(inout) :: i1
     integer,intent(inout) :: i2
@@ -414,14 +464,13 @@ contains
     i2  = tmp
 
     end subroutine swap32
-!*******************************************************************************
-!*******************************************************************************
+!****************************************************************
+
+!****************************************************************
 !>
 !  Swap two integer values.
 
     pure elemental subroutine swap64(i1,i2)
-
-    implicit none
 
     integer(int64),intent(inout) :: i1
     integer(int64),intent(inout) :: i2
@@ -433,10 +482,13 @@ contains
     i2  = tmp
 
     end subroutine swap64
-!*******************************************************************************
-    pure elemental subroutine swap_str(i1,i2)
+!****************************************************************
 
-    implicit none
+!****************************************************************
+!>
+!  Swap two character string values
+
+    pure elemental subroutine swap_str(i1,i2)
 
     character(len=*),intent(inout) :: i1
     character(len=*),intent(inout) :: i2
@@ -448,8 +500,11 @@ contains
     i2  = tmp
 
     end subroutine swap_str
+!****************************************************************
 
-!*******************************************************************************
+!****************************************************************
+!>
+!  Split a `string`, given a token.
 
     pure function split2(s,token) result(vals)
 
@@ -466,9 +521,9 @@ contains
     end if
 
     end function split2
-!*******************************************************************************
+!****************************************************************
 
-!*****************************************************************************************
+!****************************************************************
 !>
 !  Split a character string using a token.
 !  This routine is inspired by the Python split function.
@@ -572,15 +627,13 @@ contains
     end if
 
     end function split1
-!*****************************************************************************************
+!****************************************************************
 
-!*****************************************************************************************
+!****************************************************************
 !>
 !  Add elements to the integer vector in chunks.
 
     pure subroutine expand_vector(vec,n,val,finished)
-
-    implicit none
 
     integer,dimension(:),allocatable,intent(inout) :: vec
     integer,intent(inout)       :: n           !! counter for last element added to `vec`.
@@ -620,15 +673,13 @@ contains
     end if
 
     end subroutine expand_vector
-!*******************************************************************************
+!****************************************************************
 
-!*****************************************************************************************
+!****************************************************************
 !>
 !  Reads the next line from a file.
 
     function read_line(iunit,status_ok) result(line)
-
-    implicit none
 
     integer,intent(in) :: iunit
     character(len=:),allocatable :: line
@@ -663,147 +714,156 @@ contains
     end do
 
     end function read_line
-!*****************************************************************************************
+!****************************************************************
 
-!*****************************************************************************************
-function unique32(vec) result(vec_unique)
-! Return only the unique values from vec.
+!****************************************************************
+!>
+!  Return only the unique values from vec.
 
-implicit none
+    function unique32(vec) result(vec_unique)
 
-integer,dimension(:),intent(in) :: vec
-integer,dimension(:),allocatable :: vec_unique
+        integer,dimension(:),intent(in) :: vec
+        integer,dimension(:),allocatable :: vec_unique
 
-integer :: i,num
-logical,dimension(size(vec)) :: mask
+        integer :: i,num
+        logical,dimension(size(vec)) :: mask
 
-mask = .false.
+        mask = .false.
 
-do i=1,size(vec)
+        do i=1,size(vec)
 
-    !count the number of occurrences of this element:
-    num = count( vec(i)==vec )
+            !count the number of occurrences of this element:
+            num = count( vec(i)==vec )
 
-    if (num==1) then
-        !there is only one, flag it:
-        mask(i) = .true.
-    else
-        !flag this value only if it hasn't already been flagged:
-        if (.not. any(vec(i)==vec .and. mask) ) mask(i) = .true.
-    end if
+            if (num==1) then
+                !there is only one, flag it:
+                mask(i) = .true.
+            else
+                !flag this value only if it hasn't already been flagged:
+                if (.not. any(vec(i)==vec .and. mask) ) mask(i) = .true.
+            end if
 
-end do
+        end do
 
-!return only flagged elements:
-allocate( vec_unique(count(mask)) )
-vec_unique = pack( vec, mask )
+        !return only flagged elements:
+        allocate( vec_unique(count(mask)) )
+        vec_unique = pack( vec, mask )
 
-!if you also need it sorted, then do so.
-! For example, with slatec routine:
-!call ISORT (vec_unique, [0], size(vec_unique), 1)
+        ! also sort it:
+        call sort(vec_unique)
 
-end function unique32
-!*****************************************************************************************
+    end function unique32
+!****************************************************************
 
-!*****************************************************************************************
-function unique64(vec) result(vec_unique)
-! Return only the unique values from vec.
+!****************************************************************
+!>
+!  Return only the unique values from vec.
 
-implicit none
+    function unique64(vec) result(vec_unique)
 
-integer(int64),dimension(:),intent(in) :: vec
-integer(int64),dimension(:),allocatable :: vec_unique
+        integer(int64),dimension(:),intent(in) :: vec
+        integer(int64),dimension(:),allocatable :: vec_unique
 
-integer(int64) :: i,num
-logical,dimension(size(vec)) :: mask
+        integer(int64) :: i,num
+        logical,dimension(size(vec)) :: mask
 
-mask = .false.
+        mask = .false.
 
-do i=1,size(vec)
+        do i=1,size(vec)
 
-    !count the number of occurrences of this element:
-    num = count( vec(i)==vec )
+            !count the number of occurrences of this element:
+            num = count( vec(i)==vec )
 
-    if (num==1) then
-        !there is only one, flag it:
-        mask(i) = .true.
-    else
-        !flag this value only if it hasn't already been flagged:
-        if (.not. any(vec(i)==vec .and. mask) ) mask(i) = .true.
-    end if
+            if (num==1) then
+                !there is only one, flag it:
+                mask(i) = .true.
+            else
+                !flag this value only if it hasn't already been flagged:
+                if (.not. any(vec(i)==vec .and. mask) ) mask(i) = .true.
+            end if
 
-end do
+        end do
 
-!return only flagged elements:
-allocate( vec_unique(count(mask)) )
-vec_unique = pack( vec, mask )
+        !return only flagged elements:
+        allocate( vec_unique(count(mask)) )
+        vec_unique = pack( vec, mask )
 
-!if you also need it sorted, then do so.
-! For example, with slatec routine:
-!call ISORT (vec_unique, [0], size(vec_unique), 1)
+        ! also sort it:
+        call sort(vec_unique)
 
-end function unique64
-!*****************************************************************************************
+    end function unique64
+!****************************************************************
 
-function parse_ints(line) result(ints)
-    ! parse positive ints from a string that also includes text
-    character(len=*),intent(in) :: line
-    integer,dimension(:),allocatable :: ints ! array of integers
-    integer :: i, j, n
-    integer :: istart
-    character(len=*),parameter :: tokens = '0123456789'
+!****************************************************************
+!>
+!  parse positive ints from a string that also includes text
 
-    n = len(line)
-    istart = 0
-    allocate(ints(0))
+    function parse_ints(line) result(ints)
+        character(len=*),intent(in) :: line
+        integer,dimension(:),allocatable :: ints ! array of integers
+        integer :: i, j, n
+        integer :: istart
+        character(len=*),parameter :: tokens = '0123456789'
 
-    do i = 1, n
-        if (index(tokens,line(i:i))>0) then
-            if (istart==0) istart = i
-        else
-            if (istart/=0) ints = [ints, int(line(istart:i-1))] ! get previous int
-            istart = 0
-        end if
-    end do
-    if (istart/=0) ints = [ints, int(line(istart:n))] ! get last int
+        n = len(line)
+        istart = 0
+        allocate(ints(0))
 
-end function parse_ints
-!*****************************************************************************************
+        do i = 1, n
+            if (index(tokens,line(i:i))>0) then
+                if (istart==0) istart = i
+            else
+                if (istart/=0) ints = [ints, int(line(istart:i-1))] ! get previous int
+                istart = 0
+            end if
+        end do
+        if (istart/=0) ints = [ints, int(line(istart:n))] ! get last int
 
-function parse_ints64(line) result(ints)
-    ! parse positive ints from a string that also includes text
-    character(len=*),intent(in) :: line
-    integer(int64),dimension(:),allocatable :: ints ! array of integers
-    integer(int64) :: i, j, n
-    integer(int64) :: istart
-    character(len=*),parameter :: tokens = '0123456789'
+    end function parse_ints
+!****************************************************************
 
-    n = len(line)
-    istart = 0
-    allocate(ints(0))
+!****************************************************************
+!>
+!  Parse positive ints from a string that also includes text
 
-    do i = 1, n
-        if (index(tokens,line(i:i))>0) then
-            if (istart==0) istart = i
-        else
-            if (istart/=0) ints = [ints, int(line(istart:i-1), kind=int64)] ! get previous int
-            istart = 0
-        end if
-    end do
-    if (istart/=0) ints = [ints, int(line(istart:n), kind=int64)] ! get last int
+    function parse_ints64(line) result(ints)
+        character(len=*),intent(in) :: line
+        integer(int64),dimension(:),allocatable :: ints ! array of integers
+        integer(int64) :: i, j, n
+        integer(int64) :: istart
+        character(len=*),parameter :: tokens = '0123456789'
 
-end function parse_ints64
-!*****************************************************************************************
+        n = len(line)
+        istart = 0
+        allocate(ints(0))
 
-function parse_nums64(line) result(ints)
-    ! parse space-deliminated int64 sequence (positive or negative)
-    character(len=*),intent(in) :: line
-    integer(int64),dimension(:),allocatable :: ints ! array of integers
-    ints = int(split(line, ' '))
-end function parse_nums64
+        do i = 1, n
+            if (index(tokens,line(i:i))>0) then
+                if (istart==0) istart = i
+            else
+                if (istart/=0) ints = [ints, int(line(istart:i-1), kind=int64)] ! get previous int
+                istart = 0
+            end if
+        end do
+        if (istart/=0) ints = [ints, int(line(istart:n), kind=int64)] ! get last int
 
-!*****************************************************************************************
-! starts with function for strings
+    end function parse_ints64
+!****************************************************************
+
+!****************************************************************
+!>
+!  parse space-deliminated int64 sequence (positive or negative)
+
+    function parse_nums64(line) result(ints)
+        character(len=*),intent(in) :: line
+        integer(int64),dimension(:),allocatable :: ints ! array of integers
+        ints = int(split(line, ' '))
+    end function parse_nums64
+
+!****************************************************************
+!>
+!  starts with function for strings
+
     pure logical function startswith_cc(str, substring)
         character(len=*),intent(in) :: str, substring
         startswith_cc = index(str, substring) == 1
@@ -822,17 +882,29 @@ end function parse_nums64
         type(string),intent(in) :: substring
         startswith_cs = startswith(str, substring%str)
     end function startswith_cs
-!*****************************************************************************************
+!****************************************************************
 
+!****************************************************************
+!>
+!  returns true if the character is a number from 0 to 9.
     logical function is_number(c)
     character(len=1),intent(in) :: c
     is_number = c >= '0' .and. c <= '9'
     end function is_number
+!****************************************************************
 
+!****************************************************************
+!>
+!  returns true if the character is not a number.
     logical function is_not_number(c)
     character(len=1),intent(in) :: c
     is_not_number = .not. is_number(c)
     end function is_not_number
+!****************************************************************
+
+!****************************************************************
+!>
+!  convert the character string to an array of characters
 
     function str_to_array(s) result(a)
         character(len=*),intent(in) :: s
@@ -842,9 +914,13 @@ end function parse_nums64
             a(i) = s(i:i)
         end do
     end function str_to_array
+!****************************************************************
+
+!****************************************************************
+!>
+!  LCM. based on code from NCAR Command Language
 
     pure integer(int64) function lcm(i,j)
-        !! LCM. based on code from NCAR Command Language
         integer(int64),intent(in) :: i,j
         integer(int64) :: rem,m,n
         m=abs(i)
@@ -859,21 +935,31 @@ end function parse_nums64
         end do
         lcm=abs(i*j/n)
     end function lcm
+!****************************************************************
+
+!****************************************************************
+!>
+!  Reverse an int64 vector
 
     pure function reverse(ivals) result(ireverse)
-        !! reverse an int64 array
         integer(int64),dimension(:),intent(in) :: ivals
         integer(int64),dimension(size(ivals)) :: ireverse
         integer :: i
         ireverse = [(ivals(i), i = size(ivals), 1, -1)]
     end function reverse
+!****************************************************************
 
+!****************************************************************
+!>
+!  Difference int64 vector
     pure function diff(ivals) result(idiff)
-        !! difference int64 vector
         integer(int64),dimension(:),intent(in) :: ivals
         integer(int64),dimension(:),allocatable :: idiff
         integer :: i !! counter
         idiff = [(ivals(i+1) - ivals(i), i = 1, size(ivals)-1)]
     end function diff
+!****************************************************************
 
-end module aoc_utilities
+!************************************************************************************************
+    end module aoc_utilities
+!************************************************************************************************
