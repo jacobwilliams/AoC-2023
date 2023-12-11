@@ -25,23 +25,16 @@ integer(ip) function go(expansion_factor)
 
     ! array = read_file_to_char_array('inputs/day11_test.txt')
     array = read_file_to_char_array('inputs/day11.txt')
-    nrows = size(array,1)
-    ncols = size(array,2)
+    nrows = size(array,1); ncols = size(array,2)
     n_galaxies = count(array=='#')
 
     ! track the real indices after expansion
-    allocate(ix(nrows, ncols), iy(nrows, ncols))
-    do i = 1, nrows                                ! probably could use spread here ...
-        ix(i,:) = i
-    end do
-    do j = 1, ncols
-        iy(:,j) = j
-    end do
+    ix = transpose(spread([(i, i=1,ncols)], 1, nrows)) ! row indices
+    iy =           spread([(i, i=1,nrows)], 1, ncols)  ! col indices
+    igal = pack(ix, array=='#') ! indices of galaxies
+    jgal = pack(iy, array=='#')
 
-    allocate(idists(n_galaxies, n_galaxies), &
-             igal(n_galaxies), jgal(n_galaxies) ); idists = 0
-
-    ! expand the array
+    ! expand the array, keeping track of the new row indices
     do i = 1, nrows ! add rows if necessary
         if (all(array(i,:)=='.')) ix(i:,:) = ix(i:,:) + expansion_factor-1 ! new row
     end do
@@ -49,18 +42,8 @@ integer(ip) function go(expansion_factor)
         if (all(array(:,j)=='.')) iy(:,j:) = iy(:,j:) + expansion_factor-1 ! new column
     end do
 
-    ! get the indices of the galaxies:
-    n = 0
-    do i = 1, nrows
-        do j = 1, ncols
-            if (array(i,j)=='#') then
-                n = n + 1
-                igal(n) = i; jgal(n) = j
-            end if
-        end do
-    end do
-
     ! now compute all the distances:
+    allocate(idists(n_galaxies, n_galaxies)); idists = 0
     do i = 1, n_galaxies
         do j = 1, n_galaxies
             if (j<=i) cycle ! only need the lower diagonal
