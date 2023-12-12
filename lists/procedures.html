@@ -85,8 +85,8 @@ a difference table. Straightfoward implemention:
 create the full table, and then evaluate it.</p></td></tr>
 			   <tr><td><a href='../proc/find_node.html'>find_node</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td></td></tr>
 			   <tr><td><a href='../proc/get_number.html'>get_number</a></td><td><a href='../program/problem_3.html'>problem_3</a></td><td>Function</td><td><p>get the full number contining the character at i,j</p></td></tr>
-			   <tr><td><a href='../proc/go.html'>go</a></td><td><a href='../program/problem_6.html'>problem_6</a></td><td>Function</td><td></td></tr>
-			   <tr><td><a href='../proc/go~2.html'>go</a></td><td><a href='../program/problem_11.html'>problem_11</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/go.html'>go</a></td><td><a href='../program/problem_11.html'>problem_11</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/go~2.html'>go</a></td><td><a href='../program/problem_6.html'>problem_6</a></td><td>Function</td><td></td></tr>
 			   <tr><td><a href='../proc/hand_type.html'>hand_type</a></td><td><a href='../program/problem_7.html'>problem_7</a></td><td>Function</td><td><p>returns the type of hand</p></td></tr>
 			   <tr><td><a href='../proc/in_seed_list.html'>in_seed_list</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Function</td><td></td></tr>
 			   <tr><td><a href='../proc/index_in_cards.html'>index_in_cards</a></td><td><a href='../program/problem_7.html'>problem_7</a></td><td>Function</td><td></td></tr>
@@ -666,24 +666,15 @@ Uses a basic recursive quicksort
 <!-- proc~go -->
 <g id="call~~graph~~CallGraph_node22" class="node">
 <title>proc~go</title>
-<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/go.html" xlink:title="problem_6::go">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="885,-824 795,-824 795,-800 885,-800 885,-824"/>
-<text text-anchor="middle" x="840" y="-809.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6::go</text>
-</a>
-</g>
-</g>
-<!-- proc~go~2 -->
-<g id="call~~graph~~CallGraph_node23" class="node">
-<title>proc~go~2</title>
-<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/go~2.html" xlink:title="problem_11::go">
+<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/go.html" xlink:title="problem_11::go">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="384,-801 287,-801 287,-777 384,-777 384,-801"/>
 <text text-anchor="middle" x="335.5" y="-786.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_11::go</text>
 </a>
 </g>
 </g>
-<!-- proc~go~2&#45;&gt;proc~dist -->
+<!-- proc~go&#45;&gt;proc~dist -->
 <g id="call~~graph~~CallGraph_edge26" class="edge">
-<title>proc~go~2&#45;&gt;proc~dist</title>
+<title>proc~go&#45;&gt;proc~dist</title>
 <path fill="none" stroke="#000000" d="M384.03,-789C423.11,-789 478.73,-789 520.99,-789"/>
 <polygon fill="#000000" stroke="#000000" points="521.15,-792.5 531.15,-789 521.15,-785.5 521.15,-792.5"/>
 </g>
@@ -696,11 +687,20 @@ Uses a basic recursive quicksort
 </a>
 </g>
 </g>
-<!-- proc~go~2&#45;&gt;proc~read_file_to_char_array -->
+<!-- proc~go&#45;&gt;proc~read_file_to_char_array -->
 <g id="call~~graph~~CallGraph_edge27" class="edge">
-<title>proc~go~2&#45;&gt;proc~read_file_to_char_array</title>
+<title>proc~go&#45;&gt;proc~read_file_to_char_array</title>
 <path fill="none" stroke="#000000" d="M339.57,-801.13C349.89,-839.22 387.16,-957.23 465,-1012 467.17,-1013.53 469.42,-1014.95 471.73,-1016.28"/>
 <polygon fill="#000000" stroke="#000000" points="470.43,-1019.55 480.93,-1020.97 473.6,-1013.31 470.43,-1019.55"/>
+</g>
+<!-- proc~go~2 -->
+<g id="call~~graph~~CallGraph_node23" class="node">
+<title>proc~go~2</title>
+<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/go~2.html" xlink:title="problem_6::go">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="885,-824 795,-824 795,-800 885,-800 885,-824"/>
+<text text-anchor="middle" x="840" y="-809.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6::go</text>
+</a>
+</g>
 </g>
 <!-- proc~hand_type&#45;&gt;interface~unique -->
 <g id="call~~graph~~CallGraph_edge28" class="edge">
@@ -1104,9 +1104,9 @@ Uses a basic recursive quicksort
 <path fill="none" stroke="#000000" d="M141.24,-745.53C256.62,-735.48 606.03,-710.59 700,-768 728.18,-785.22 709.38,-813.46 736,-833 738.09,-834.54 740.27,-835.96 742.52,-837.3"/>
 <polygon fill="#000000" stroke="#000000" points="741,-840.45 751.49,-841.95 744.23,-834.24 741,-840.45"/>
 </g>
-<!-- program~problem_11&#45;&gt;proc~go~2 -->
+<!-- program~problem_11&#45;&gt;proc~go -->
 <g id="call~~graph~~CallGraph_edge59" class="edge">
-<title>program~problem_11&#45;&gt;proc~go~2</title>
+<title>program~problem_11&#45;&gt;proc~go</title>
 <path fill="none" stroke="#000000" d="M141.03,-755.43C177.67,-761.79 234.28,-771.61 276.82,-778.99"/>
 <polygon fill="#000000" stroke="#000000" points="276.31,-782.45 286.76,-780.72 277.51,-775.56 276.31,-782.45"/>
 </g>
@@ -1329,9 +1329,9 @@ Uses a basic recursive quicksort
 <path fill="none" stroke="#000000" d="M617.2,-669.65C643.13,-670.48 678.12,-675.96 700,-697 745.07,-740.34 690.53,-790.08 736,-833 737.92,-834.81 739.94,-836.48 742.06,-838.02"/>
 <polygon fill="#000000" stroke="#000000" points="740.32,-841.06 750.66,-843.37 744.02,-835.12 740.32,-841.06"/>
 </g>
-<!-- program~problem_6&#45;&gt;proc~go -->
+<!-- program~problem_6&#45;&gt;proc~go~2 -->
 <g id="call~~graph~~CallGraph_edge89" class="edge">
-<title>program~problem_6&#45;&gt;proc~go</title>
+<title>program~problem_6&#45;&gt;proc~go~2</title>
 <path fill="none" stroke="#000000" d="M617.12,-670.34C642.67,-671.59 677.18,-677.29 700,-697 733.86,-726.24 701.87,-762.07 736,-791 749.5,-802.44 767.55,-808.23 784.77,-811"/>
 <polygon fill="#000000" stroke="#000000" points="784.4,-814.48 794.77,-812.31 785.31,-807.54 784.4,-814.48"/>
 </g>
