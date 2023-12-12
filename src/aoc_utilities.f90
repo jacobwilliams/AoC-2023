@@ -90,6 +90,11 @@
     end interface swap
     public :: swap
 
+    interface manhatten_distance
+        procedure :: manhatten_distance_64
+    end interface manhatten_distance
+    public :: manhatten_distance
+
 contains
 !************************************************************************************************
 
@@ -1078,6 +1083,16 @@ contains
     end if
 
     end subroutine locpt
+!*****************************************************************************************
+
+!*****************************************************************************************
+!>
+!  Manhattan distance between two `int64` points.
+
+    pure integer(int64) function manhatten_distance_64(x1,y1,x2,y2)
+        integer(int64),intent(in) :: x1,y1,x2,y2
+        manhatten_distance_64 = abs(x1 - x2) + abs(y1 - y2)
+    end function manhatten_distance_64
 !*****************************************************************************************
 
 !************************************************************************************************

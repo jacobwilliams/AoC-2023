@@ -47,18 +47,13 @@ integer(ip) function go(expansion_factor)
     do i = 1, n_galaxies
         do j = 1, n_galaxies
             if (j<=i) cycle ! only need the lower diagonal
-            idists(i,j) = dist(ix(igal(i),jgal(i)),iy(igal(i),jgal(i)),&
-                               ix(igal(j),jgal(j)),iy(igal(j),jgal(j)))
+            idists(i,j) = manhatten_distance(ix(igal(i),jgal(i)),iy(igal(i),jgal(i)),&
+                                             ix(igal(j),jgal(j)),iy(igal(j),jgal(j)))
         end do
     end do
 
     go = sum(idists)
 
 end function go
-
-pure integer function dist(x1,y1,x2,y2) ! Manhattan distance
-    integer(ip),intent(in) :: x1,y1,x2,y2
-    dist = abs(x1 - x2) + abs(y1 - y2)
-end function dist
 
 end program problem_11
