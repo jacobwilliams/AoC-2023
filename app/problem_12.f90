@@ -14,8 +14,8 @@ integer,dimension(:),allocatable :: a
 
 call clk%tic()
 
-open(newunit=iunit, file='inputs/day12_test.txt', status='OLD')
-! open(newunit=iunit, file='inputs/day12.txt', status='OLD')
+! open(newunit=iunit, file='inputs/day12_test.txt', status='OLD')
+open(newunit=iunit, file='inputs/day12.txt', status='OLD')
 n_lines = number_of_lines_in_file(iunit)
 isum = 0
 do i = 1, n_lines
