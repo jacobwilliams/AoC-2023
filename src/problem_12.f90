@@ -5,7 +5,8 @@ use aoc_utilities
 
 implicit none
 
-integer :: iunit, n_lines, i, n_unknowns, j, n_valid, n_perms, isum
+integer :: iunit, n_lines, i, n_unknowns, j
+integer(ip) :: n_valid, n_perms, isum
 character(len=:),allocatable :: line, pattern, tmp1, tmp2
 type(string),dimension(:),allocatable :: vals
 integer,dimension(:),allocatable :: ints
@@ -22,7 +23,8 @@ do i = 1, n_lines
     line = read_line(iunit)
     vals = split(line,' ')
 
-    ! !...part b ..... simple way....probably won't work...
+    ! write(*,*) '-----'
+    ! !...part b ..... brute force....probably won't work...
     ! write(*,*) 'vals(1)%str = ' // vals(1)%str
     ! write(*,*) 'vals(2)%str = ' // vals(2)%str
     ! tmp1 = vals(1)%str
@@ -33,7 +35,7 @@ do i = 1, n_lines
     ! end do
     ! write(*,*) 'vals(1)%str = ' // vals(1)%str
     ! write(*,*) 'vals(2)%str = ' // vals(2)%str
-    ! !stop
+    !stop
 
     !......
 
@@ -51,8 +53,8 @@ do i = 1, n_lines
     ! write(*,*) 'ints = ', ints
 
     n_unknowns = 0
-    do j = 1, len(line)
-        if (line(j:j)=='?') n_unknowns = n_unknowns + 1
+    do j = 1, len(pattern)
+        if (pattern(j:j)=='?') n_unknowns = n_unknowns + 1
     end do
 
     n_valid = 0 ! number of valid permutations
