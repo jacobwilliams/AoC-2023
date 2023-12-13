@@ -51,6 +51,7 @@
     public :: reverse
     public :: diff
     public :: locpt
+    public :: str_to_int_array_with_mapping
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -1094,6 +1095,24 @@ contains
         manhatten_distance_64 = abs(x1 - x2) + abs(y1 - y2)
     end function manhatten_distance_64
 !*****************************************************************************************
+
+    pure function str_to_int_array_with_mapping(str, ichars, iints) result(array)
+        character(len=*),intent(in) :: str
+        character(len=1),dimension(:),intent(in) :: ichars !! characters to process
+        integer,dimension(:),intent(in) :: iints !! int values of the chars
+        integer,dimension(:),allocatable :: array
+        integer :: i
+        integer,dimension(1) :: iloc
+        allocate(array(len(str)))
+        do i = 1, len(str)
+            iloc = findloc(ichars,str(i:i))
+            if (iloc(1)>0) then
+                array(i) = iints(iloc(1))
+            else
+                error stop 'error: could not map character: '//str(i:i)
+            end if
+        end do
+    end function str_to_int_array_with_mapping
 
 !************************************************************************************************
     end module aoc_utilities
