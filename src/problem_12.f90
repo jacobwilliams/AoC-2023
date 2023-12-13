@@ -12,22 +12,23 @@ integer,parameter :: QUESTION = 2
 ! some global variables
 integer,dimension(:),allocatable :: a,ints,ipattern,ipattern_tmp
 integer(ip) :: n_valid
+integer(ip) :: isum
+integer :: iline
 
 call clk%tic()
-write(*,*) 'hello'
 
-write(*,*) '12a: ', go(.false.)
-!write(*,*) '12b: ', go(.true.)
+call go(.false., isum); write(*,*) '12a: ', isum
+! call go(.true., isum); write(*,*) '12b: ', isum
 
 call clk%toc('12')
 
 contains
 
-function go(expand) result(isum)
+subroutine go(expand,isum)
     logical,intent(in) :: expand
-    integer(ip) :: isum
+    integer(ip),intent(out) :: isum
 
-    integer :: iunit, n_lines, iline, n_unknowns
+    integer :: iunit, n_lines, n_unknowns
     integer(ip) :: n_perms
     character(len=:),allocatable :: line, pattern
     type(string),dimension(:),allocatable :: vals
@@ -70,7 +71,7 @@ function go(expand) result(isum)
 
     end do
 
-    end function go
+    end subroutine go
 
     recursive subroutine test (i, n)
     !! each ? can be either a . or a #
@@ -89,6 +90,7 @@ function go(expand) result(isum)
         !     ipattern: 2220111  -> ???.###
         !            a: 011      -> .##
         !       result: 0110111  -> .##.###
+        !write(*,'(a,1x,i5,1x, *(I1))') 'test:', iline, ipattern_tmp
         ipattern_tmp = unpack(a, mask=ipattern==QUESTION, field=ipattern)
         if (match(ipattern_tmp, ints)) n_valid = n_valid + 1
     else
