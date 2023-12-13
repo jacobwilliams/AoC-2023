@@ -82,19 +82,13 @@ contains
     subroutine go(puzzle, ileft, iabove, ileft_skip, iabove_skip)
     integer,dimension(:,:),intent(in) :: puzzle
     integer,intent(out) :: ileft, iabove
-
     integer,intent(in),optional :: ileft_skip, iabove_skip
-
-    !... ug... have to try all of them now for part 2 since there may be more than one.... part b has to pick the other one....
-    !integer,intent(out) :: icase !! if 2: 1=row one was picked, 2=col one was picked
 
     integer :: nrows, ncols, i, j
     logical :: mirror
 
     nrows = size(puzzle,1)
     ncols = size(puzzle,2)
-
-    ! process this puzzle:
 
     ! add up the number of columns to the left of each vertical line of reflection;
     ! to that, also add 100 multiplied by the number of rows above each horizontal
