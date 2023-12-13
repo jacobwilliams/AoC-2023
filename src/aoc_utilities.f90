@@ -1096,6 +1096,10 @@ contains
     end function manhatten_distance_64
 !*****************************************************************************************
 
+!*****************************************************************************************
+!>
+!  Convert a string to a numeric array by mapping characters to integers (user-specified)
+
     pure function str_to_int_array_with_mapping(str, ichars, iints) result(array)
         character(len=*),intent(in) :: str
         character(len=1),dimension(:),intent(in) :: ichars !! characters to process
@@ -1113,6 +1117,7 @@ contains
             end if
         end do
     end function str_to_int_array_with_mapping
+!*****************************************************************************************
 
 !************************************************************************************************
     end module aoc_utilities
