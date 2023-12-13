@@ -5,188 +5,163 @@ use aoc_utilities
 
 implicit none
 
-integer :: iunit, n_lines, i, n_unknowns, j
-integer(ip) :: n_valid, n_perms, isum
-character(len=:),allocatable :: line, pattern, tmp1, tmp2
-type(string),dimension(:),allocatable :: vals
-integer,dimension(:),allocatable :: ints
+integer,parameter :: POINT    = 0
+integer,parameter :: NUMBER   = 1
+integer,parameter :: QUESTION = 2
 
-integer,dimension(:),allocatable :: a
+! some global variables
+integer,dimension(:),allocatable :: a,ints,ipattern,ipattern_tmp
+integer(ip) :: n_valid
 
 call clk%tic()
+write(*,*) 'hello'
 
-! open(newunit=iunit, file='inputs/day12_test.txt', status='OLD')
-open(newunit=iunit, file='inputs/day12.txt', status='OLD')
-n_lines = number_of_lines_in_file(iunit)
-isum = 0
-do i = 1, n_lines
-    line = read_line(iunit)
-    vals = split(line,' ')
-
-    ! write(*,*) '-----'
-    ! !...part b ..... brute force....probably won't work...
-    ! write(*,*) 'vals(1)%str = ' // vals(1)%str
-    ! write(*,*) 'vals(2)%str = ' // vals(2)%str
-    ! tmp1 = vals(1)%str
-    ! tmp2 = vals(2)%str
-    ! do j = 1 , 4
-    !     vals(1)%str = vals(1)%str//'?'//tmp1
-    !     vals(2)%str = vals(2)%str//','//tmp2
-    ! end do
-    ! write(*,*) 'vals(1)%str = ' // vals(1)%str
-    ! write(*,*) 'vals(2)%str = ' // vals(2)%str
-    !stop
-
-    !......
-
-
-    ints = parse_ints(vals(2)%str)     ! integer list  1,1,3
-    pattern = vals(1)%str              ! the pattern   #.#.###
-    call replace(pattern, '.', ' ')
-    pattern = trim(adjustl(pattern)) ! trim leading the trailing spaces
-
-    !write(*,*) 'vals(2)%str = ', vals(2)%str
-    !ints = int(split(vals(2)%str, ','))
-
-    ! print *, 'line : '//line
-    ! print *, 'pattern : '//pattern
-    ! write(*,*) 'ints = ', ints
-
-    n_unknowns = 0
-    do j = 1, len(pattern)
-        if (pattern(j:j)=='?') n_unknowns = n_unknowns + 1
-    end do
-
-    n_valid = 0 ! number of valid permutations
-
-    ! each ? can be either a . or a #
-    ! check pattern to match the int list
-
-    n_perms = 2 ** n_unknowns ! number of permutations
-    !write(*,*) 'n_unknowns = ', n_unknowns
-    !write(*,*) 'n_perms = ', n_perms
-
-    if (allocated(a)) deallocate(a)
-    allocate(a(n_unknowns))
-    call test(1, n_unknowns)
-
-    !write(*,*) 'nvalid = ', n_valid
-
-    isum = isum + n_valid
-
-end do
-write(*,*) '12a: ', isum
-
-! write(*,*) '12b: '
+write(*,*) '12a: ', go(.false.)
+!write(*,*) '12b: ', go(.true.)
 
 call clk%toc('12')
 
 contains
 
+function go(expand) result(isum)
+    logical,intent(in) :: expand
+    integer(ip) :: isum
+
+    integer :: iunit, n_lines, iline, n_unknowns
+    integer(ip) :: n_perms
+    character(len=:),allocatable :: line, pattern
+    type(string),dimension(:),allocatable :: vals
+
+    ! open(newunit=iunit, file='inputs/day12_test.txt', status='OLD')
+    open(newunit=iunit, file='inputs/day12.txt', status='OLD')
+    n_lines = number_of_lines_in_file(iunit)
+    isum = 0
+    do iline = 1, n_lines
+        line = read_line(iunit)
+        vals = split(line,' ')
+        ints = parse_ints(vals(2)%str)     ! integer list  1,1,3
+        pattern = vals(1)%str              ! the pattern   #.#.###
+
+        ! will convert the pattern to an array of numbers:
+        ipattern = str_to_int_array_with_mapping(pattern,['.','#','?'],&
+                                                        [POINT,NUMBER,QUESTION])  ! 1010111
+
+        if (expand) then
+            ! brute force it
+            ipattern = [ipattern, QUESTION, ipattern, QUESTION, &
+                        ipattern, QUESTION, ipattern, QUESTION, &
+                        ipattern]
+            ints = [ints, ints, ints, ints, ints]
+        end if
+
+        n_unknowns = count(ipattern==2)
+        n_valid = 0 ! number of valid permutations
+        n_perms = 2 ** n_unknowns ! number of permutations
+        ipattern_tmp = ipattern
+
+        ! recursively test all the permutations
+        if (allocated(a)) deallocate(a)
+        allocate(a(n_unknowns))
+        call test(1, n_unknowns)
+
+        isum = isum + n_valid
+
+       ! write(*,*) iline, 'n_valid = ', n_valid
+
+    end do
+
+    end function go
+
     recursive subroutine test (i, n)
+    !! each ? can be either a . or a #
+    !! check pattern to match the int list
+
     integer, intent(in) :: i, n
-    integer :: ix, m, k
-    integer,dimension(*),parameter :: icoeffs = [0,1] !! set of coefficients
-    character(len=:),allocatable :: tmp
+    integer :: ix
+    integer,dimension(*),parameter :: icoeffs = [POINT,NUMBER] !! set of coefficients ['.', '#']
+
+    ! what we are not doing here is accounting for permutations
+    ! that we know do not match, because the begin with a sequence
+    ! that doesn't match. those need to be skipped...
 
     if (i > n) then
-        ! so we have an array of 0s and 1s
-        ! convert them to .s and #s
-        k = 0
-        tmp = pattern
-        do m = 1, len(tmp)
-            if (tmp(m:m)=='?') then
-                k = k + 1
-                if (a(k)==0) then
-                    tmp(m:m) = ' '
-                else
-                    tmp(m:m) = '#'
-                end if
-            end if
-        end do
-        tmp = trim(adjustl(tmp))
-        ! write(*,*) 'perm: ', a
-        ! write(*,*) 'try:  '//tmp
-        ! write(*,*) 'tmp:  ->'//tmp//'<-'
-        ! write(*,*) 'ints: ',ints
-        if (match(tmp, ints)) then
-           ! write(*,*) 'MATCH!'
-            n_valid = n_valid + 1
-        end if
+        ! so we have an array of 0s and 1s -> replace the 2s in the ipattern with these
+        !     ipattern: 2220111  -> ???.###
+        !            a: 011      -> .##
+        !       result: 0110111  -> .##.###
+        ipattern_tmp = unpack(a, mask=ipattern==QUESTION, field=ipattern)
+        if (match(ipattern_tmp, ints)) n_valid = n_valid + 1
     else
-        do ix = 1,size(icoeffs)
+        do ix = 1, 2
             a(i) = icoeffs(ix)
             call test(i+1, n)
         end do
     end if
     end subroutine test
 
-    subroutine replace(str, c1, c2)
-        !! replace all c1 in str with c2
-        character(Len=*),intent(inout) :: str
-        character(len=1),intent(in) :: c1, c2
-        integer :: i
-        do i = 1, len(str)
-            if (str(i:i)==c1) str(i:i) = c2
-        end do
-    end subroutine replace
-
-    logical function match(line, ints)
-        character(Len=:),allocatable,intent(inout) :: line
+    logical function match(ipattern, ints)
+        !! returns true if the pattern is valid for the int list.
+        integer,dimension(:),intent(in) :: ipattern
         integer,dimension(:),intent(in) :: ints
-        type(string),dimension(:),allocatable :: vals
-        integer :: i
-        integer,dimension(:),allocatable :: itmp
 
-        ! replaces any consecutive spaces with one space
-        do
-            if (index(line, '  ')>0) then
-                call replace_alloc(line,'  ',' ')
-            else
-                exit
-            end if
-        end do
-        vals = split(line,' ')
-        match = size(vals) == size(ints)
-        if (match) then
-            allocate(itmp(size(vals)))
-            do i = 1, size(vals)
-                itmp(i) = len(vals(i)%str)   ! # # ###
-            end do
-            match = all(itmp == ints)
+        integer :: i, iacc, int_checked
+        integer,dimension(1) :: ifirst, iend
+        logical :: accumulating
+
+        ! .##..###... -> 2,3
+
+        ! start and end indices (ignoring leading and trailing spaces)
+        ifirst = findloc(ipattern,1)
+        iend   = findloc(ipattern,1,back=.true.)
+        if (ifirst(1)==0 .or. iend(1)==0) then ! all blank
+            match = .false.; return
         end if
 
-    end function match
-
-    subroutine replace_alloc(s,s1,s2)
-        !! replace s1 in s with s2. s is allocatable and will be resized if necessary.
-
-        character(len=:),allocatable,intent(inout) :: s
-        character(len=*),intent(in) :: s1
-        character(len=*),intent(in) :: s2
-
-        character(len=:),allocatable :: s_out, s_tmp
-        integer :: i,ilen,il1,il2
-        integer :: iloc
-
-        s_out = s
-        il1   = len(s1)
-        il2   = len(s2)
-        i     = 1
-        do
-            ilen = len(s_out)
-            iloc = index(s_out(i:ilen),s1)
-            if (iloc<1) exit   ! done
-            iloc = iloc + i-1
-                                s_tmp = ''
-            if (iloc>1)         s_tmp = s_out(1:iloc-1)
-                                s_tmp = s_tmp//s2
-            if (iloc+il1<=ilen) s_tmp = s_tmp//s_out(iloc+il1:ilen)
-            s_out = s_tmp
-            i = iloc + il2
+        ! step through the pattern and stop once we find it invalid
+        accumulating = .true.
+        iacc = 0
+        int_checked = 0 ! the count of ints that have been checked
+        match = .true. ! initialize
+        do i = ifirst(1), iend(1)
+            select case(ipattern(i))
+            case(POINT)
+                if (accumulating) then
+                    int_checked = int_checked + 1 ! check the next one
+                    if (int_checked>size(ints)) then
+                        ! too many ints
+                        match = .false.
+                        return
+                    else if (ints(int_checked)/=iacc) then
+                        ! doesn't match
+                        match = .false.
+                        return
+                    end if
+                    accumulating = .false.
+                    iacc = 0
+                end if
+            case(NUMBER)
+                if (accumulating) then
+                    iacc = iacc + 1
+                else
+                    ! start of a new number
+                    accumulating = .true.
+                    iacc = 1
+                end if
+                if (i==iend(1)) then ! last number
+                    int_checked = int_checked + 1 ! check the next one
+                    if (int_checked/=size(ints)) then
+                        ! not enough ints
+                        match = .false.
+                        return
+                    else if (ints(int_checked)/=iacc) then
+                        ! doesn't match
+                        match = .false.
+                        return
+                    end if
+                end if
+            end select
         end do
-        s = s_out
 
-    end subroutine replace_alloc
+    end function match
 
 end program problem_12

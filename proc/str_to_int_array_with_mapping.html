@@ -8,7 +8,7 @@
     <meta name="author" content="Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
-    <title>replace_alloc &ndash; AoC-2023</title>
+    <title>str_to_int_array_with_mapping &ndash; AoC-2023</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -62,8 +62,8 @@
 
     <div class="container">
   <div class="row">
-    <h1>replace_alloc
-      <small>Subroutine</small>
+    <h1>str_to_int_array_with_mapping
+      <small>Function</small>
       
     </h1>
       <div class="container p-2 mb-4 bg-light border rounded-3">
@@ -74,21 +74,21 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 2.3% of total for procedures.">25 statements</a>
+                 title=" 1.5% of total for procedures.">17 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/problem_12.f90"> Source File</a>
+              <a href="../src/aoc_utilities.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/problem_12.f90.html'>problem_12.f90</a></li>
-                <li class="breadcrumb-item"><a href='../program/problem_12.html'>problem_12</a></li>
-            <li class="breadcrumb-item active" aria-current="page">replace_alloc</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+            <li class="breadcrumb-item active" aria-current="page">str_to_int_array_with_mapping</li>
           </ol>
         </nav>
       </div>
@@ -129,7 +129,7 @@
     <div class="card card-primary">
       <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../proc/replace_alloc.html#src">replace_alloc</a>
+        <a class="list-group-item" href="../proc/str_to_int_array_with_mapping.html#src">str_to_int_array_with_mapping</a>
       </div>
     </div>
 
@@ -139,11 +139,10 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> subroutine replace_alloc(s, s1, s2)  
+    <h2>public pure function str_to_int_array_with_mapping(str, ichars, iints) result(array)  
 </h2>
     
 
-    <p>replace s1 in s with s2. s is allocatable and will be resized if necessary.</p>
 
 
     <h3>Arguments</h3>
@@ -159,22 +158,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-s"></span>
-              character(len=:),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              allocatable
-            </td>
-            <td>::</td>
-            <td><strong>s</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-s1"></span>
+              <span class="anchor" id="variable-str~9"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -182,29 +166,51 @@
               
             </td>
             <td>::</td>
-            <td><strong>s1</strong></td>
+            <td><strong>str</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s2"></span>
-              character(len=*),
+              <span class="anchor" id="variable-ichars"></span>
+              character(len=1),
             </td>
-<td>intent(in)</td>
+<td>intent(in),</td>
               <td></td>            <td>
-              
+              dimension(:)
             </td>
             <td>::</td>
-            <td><strong>s2</strong></td>
+            <td><strong>ichars</strong></td>
             <td>
-                
+                <p>characters to process</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iints"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>iints</strong></td>
+            <td>
+                <p>int values of the chars</p>
             </td>
         </tr>
     </tbody>
   </table>
 
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-array~2"></span>
+          integer, dimension(:), allocatable
+        </small>
+      </h3>
+      
     <br>
     <div class="card">
       <div class="card-header">
@@ -216,68 +222,47 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~replace_alloc~~CalledByGraph Pages: 1 -->
-<svg id="procreplace_allocCalledByGraph" width="566pt" height="50pt"
- viewBox="0.00 0.00 566.00 50.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~replace_alloc~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 46)">
-<title>proc~~replace_alloc~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-46 562,-46 562,4 -4,4"/>
-<!-- proc~replace_alloc -->
-<g id="proc~~replace_alloc~~CalledByGraph_node1" class="node">
-<title>proc~replace_alloc</title>
-<polygon fill="none" stroke="black" points="558,-24 404,-24 404,0 558,0 558,-24"/>
-<text text-anchor="middle" x="481" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_12::replace_alloc</text>
+<!-- Title: proc~~str_to_int_array_with_mapping~~CalledByGraph Pages: 1 -->
+<svg id="procstr_to_int_array_with_mappingCalledByGraph" width="497pt" height="32pt"
+ viewBox="0.00 0.00 497.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~str_to_int_array_with_mapping~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 493,-28 493,4 -4,4"/>
+<!-- proc~str_to_int_array_with_mapping -->
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph_node1" class="node">
+<title>proc~str_to_int_array_with_mapping</title>
+<polygon fill="none" stroke="black" points="489,-24 245,-24 245,0 489,0 489,-24"/>
+<text text-anchor="middle" x="367" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::str_to_int_array_with_mapping</text>
 </g>
-<!-- proc~match -->
-<g id="proc~~replace_alloc~~CalledByGraph_node2" class="node">
-<title>proc~match</title>
-<g id="a_proc~~replace_alloc~~CalledByGraph_node2"><a xlink:href=".././proc/match.html" xlink:title="problem_12::match">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="368,-24 251,-24 251,0 368,0 368,-24"/>
-<text text-anchor="middle" x="309.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::match</text>
+<!-- proc~go -->
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph_node2" class="node">
+<title>proc~go</title>
+<g id="a_proc~~str_to_int_array_with_mapping~~CalledByGraph_node2"><a xlink:href=".././proc/go.html" xlink:title="problem_12::go">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="209,-24 112,-24 112,0 209,0 209,-24"/>
+<text text-anchor="middle" x="160.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::go</text>
 </a>
 </g>
 </g>
-<!-- proc~match&#45;&gt;proc~replace_alloc -->
-<g id="proc~~replace_alloc~~CalledByGraph_edge1" class="edge">
-<title>proc~match&#45;&gt;proc~replace_alloc</title>
-<path fill="none" stroke="#000000" d="M368.36,-12C376.56,-12 385.14,-12 393.74,-12"/>
-<polygon fill="#000000" stroke="#000000" points="393.82,-15.5 403.82,-12 393.82,-8.5 393.82,-15.5"/>
-</g>
-<!-- proc~test -->
-<g id="proc~~replace_alloc~~CalledByGraph_node3" class="node">
-<title>proc~test</title>
-<g id="a_proc~~replace_alloc~~CalledByGraph_node3"><a xlink:href=".././proc/test.html" xlink:title="problem_12::test">
-<polygon fill="#d9534f" stroke="#d9534f" points="215,-24 112,-24 112,0 215,0 215,-24"/>
-<text text-anchor="middle" x="163.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::test</text>
-</a>
-</g>
-</g>
-<!-- proc~test&#45;&gt;proc~match -->
-<g id="proc~~replace_alloc~~CalledByGraph_edge2" class="edge">
-<title>proc~test&#45;&gt;proc~match</title>
-<path fill="none" stroke="#000000" d="M215.27,-12C223.53,-12 232.21,-12 240.8,-12"/>
-<polygon fill="#000000" stroke="#000000" points="240.82,-15.5 250.82,-12 240.82,-8.5 240.82,-15.5"/>
-</g>
-<!-- proc~test&#45;&gt;proc~test -->
-<g id="proc~~replace_alloc~~CalledByGraph_edge3" class="edge">
-<title>proc~test&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M143,-24.01C135.84,-32.97 142.67,-42 163.5,-42 176.19,-42 183.69,-38.65 185.99,-34"/>
-<polygon fill="#000000" stroke="#000000" points="189.38,-33.14 184,-24.01 182.52,-34.5 189.38,-33.14"/>
+<!-- proc~go&#45;&gt;proc~str_to_int_array_with_mapping -->
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph_edge1" class="edge">
+<title>proc~go&#45;&gt;proc~str_to_int_array_with_mapping</title>
+<path fill="none" stroke="#000000" d="M209.19,-12C217.16,-12 225.76,-12 234.69,-12"/>
+<polygon fill="#000000" stroke="#000000" points="234.88,-15.5 244.88,-12 234.88,-8.5 234.88,-15.5"/>
 </g>
 <!-- program~problem_12 -->
-<g id="proc~~replace_alloc~~CalledByGraph_node4" class="node">
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph_node3" class="node">
 <title>program~problem_12</title>
-<g id="a_proc~~replace_alloc~~CalledByGraph_node4"><a xlink:href=".././program/problem_12.html" xlink:title="problem_12">
+<g id="a_proc~~str_to_int_array_with_mapping~~CalledByGraph_node3"><a xlink:href=".././program/problem_12.html" xlink:title="problem_12">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-24 0,-24 0,0 76,0 76,-24"/>
 <text text-anchor="middle" x="38" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12</text>
 </a>
 </g>
 </g>
-<!-- program~problem_12&#45;&gt;proc~test -->
-<g id="proc~~replace_alloc~~CalledByGraph_edge4" class="edge">
-<title>program~problem_12&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M76.05,-12C84.12,-12 92.86,-12 101.58,-12"/>
-<polygon fill="#000000" stroke="#000000" points="101.77,-15.5 111.77,-12 101.77,-8.5 101.77,-15.5"/>
+<!-- program~problem_12&#45;&gt;proc~go -->
+<g id="proc~~str_to_int_array_with_mapping~~CalledByGraph_edge2" class="edge">
+<title>program~problem_12&#45;&gt;proc~go</title>
+<path fill="none" stroke="#000000" d="M76.14,-12C84.19,-12 92.89,-12 101.53,-12"/>
+<polygon fill="#000000" stroke="#000000" points="101.6,-15.5 111.6,-12 101.6,-8.5 101.6,-15.5"/>
 </g>
 </g>
 </svg>
@@ -374,36 +359,23 @@ implementation in a submodule of an interface in a parent module.
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">replace_alloc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
-<span class="w">        </span><span class="c">!! replace s1 in s with s2. s is allocatable and will be resized if necessary.</span>
-
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s</span>
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s1</span>
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s2</span>
-
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s_out</span><span class="p">,</span><span class="w"> </span><span class="n">s_tmp</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">ilen</span><span class="p">,</span><span class="n">il1</span><span class="p">,</span><span class="n">il2</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iloc</span>
-
-<span class="w">        </span><span class="n">s_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span>
-<span class="w">        </span><span class="n">il1</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">il2</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">i</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">        </span><span class="k">do</span>
-<span class="k">            </span><span class="n">ilen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">s_out</span><span class="p">)</span>
-<span class="w">            </span><span class="n">iloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">s_out</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">ilen</span><span class="p">),</span><span class="n">s1</span><span class="p">)</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iloc</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w">   </span><span class="c">! done</span>
-<span class="w">            </span><span class="n">iloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iloc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="o">-</span><span class="mi">1</span>
-<span class="w">                                </span><span class="n">s_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iloc</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="w">         </span><span class="n">s_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_out</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">iloc</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                                </span><span class="n">s_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_tmp</span><span class="o">//</span><span class="n">s2</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iloc</span><span class="o">+</span><span class="n">il1</span><span class="o">&lt;=</span><span class="n">ilen</span><span class="p">)</span><span class="w"> </span><span class="n">s_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_tmp</span><span class="o">//</span><span class="n">s_out</span><span class="p">(</span><span class="n">iloc</span><span class="o">+</span><span class="n">il1</span><span class="p">:</span><span class="n">ilen</span><span class="p">)</span>
-<span class="w">            </span><span class="n">s_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_tmp</span>
-<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iloc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">il2</span>
-<span class="w">        </span><span class="k">end do</span>
-<span class="k">        </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_out</span>
-
-<span class="w">    </span><span class="k">end subroutine </span><span class="n">replace_alloc</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure function </span><span class="n">str_to_int_array_with_mapping</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">ichars</span><span class="p">,</span><span class="w"> </span><span class="n">iints</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">str</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ichars</span><span class="w"> </span><span class="c">!! characters to process</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iints</span><span class="w"> </span><span class="c">!! int values of the chars</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="k">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iloc</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">str</span><span class="p">)))</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+<span class="w">            </span><span class="n">iloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">findloc</span><span class="p">(</span><span class="n">ichars</span><span class="p">,</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iloc</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                array</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iints</span><span class="p">(</span><span class="n">iloc</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="k">                error stop</span><span class="w"> </span><span class="s1">&#39;error: could not map character: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end do</span>
+<span class="k">    end function </span><span class="n">str_to_int_array_with_mapping</span>
 </pre></div>
 
     </section>
