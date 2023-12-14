@@ -26,7 +26,7 @@ type(function_cache) :: cache !! to cache the [[go]] function values
 
 call clk%tic()
 
-call cache%initialize(isize=1000000,chunk_size=1000)
+call cache%initialize(isize=10000,chunk_size=1000)
 
 ! open(newunit=iunit, file='inputs/day12_test.txt', status='OLD')
 open(newunit=iunit, file='inputs/day12.txt', status='OLD')
