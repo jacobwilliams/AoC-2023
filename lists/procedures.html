@@ -84,10 +84,11 @@ a difference table. Straightfoward implemention:
 create the full table, and then evaluate it.</p></td></tr>
 			   <tr><td><a href='../proc/find_node.html'>find_node</a></td><td><a href='../program/problem_8.html'>problem_8</a></td><td>Function</td><td></td></tr>
 			   <tr><td><a href='../proc/get_number.html'>get_number</a></td><td><a href='../program/problem_3.html'>problem_3</a></td><td>Function</td><td><p>get the full number contining the character at i,j</p></td></tr>
-			   <tr><td><a href='../proc/go.html'>go</a></td><td><a href='../program/problem_6.html'>problem_6</a></td><td>Function</td><td></td></tr>
-			   <tr><td><a href='../proc/go~2.html'>go</a></td><td><a href='../program/problem_13.html'>problem_13</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/go~3.html'>go</a></td><td><a href='../program/problem_12.html'>problem_12</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/go~4.html'>go</a></td><td><a href='../program/problem_11.html'>problem_11</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/go~2.html'>go</a></td><td><a href='../program/problem_11.html'>problem_11</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/go~3.html'>go</a></td><td><a href='../program/problem_6.html'>problem_6</a></td><td>Function</td><td></td></tr>
+			   <tr><td><a href='../proc/go~4.html'>go</a></td><td><a href='../program/problem_12.html'>problem_12</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../proc/go.html'>go</a></td><td><a href='../program/problem_13.html'>problem_13</a></td><td>Subroutine</td><td><p>compute the number of cols to left of mirror (0 if none)
+call with transpose(puzzle) to get number of rows above.</p></td></tr>
 			   <tr><td><a href='../proc/hand_type.html'>hand_type</a></td><td><a href='../program/problem_7.html'>problem_7</a></td><td>Function</td><td><p>returns the type of hand</p></td></tr>
 			   <tr><td><a href='../proc/in_seed_list.html'>in_seed_list</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>Function</td><td></td></tr>
 			   <tr><td><a href='../proc/index_in_cards.html'>index_in_cards</a></td><td><a href='../program/problem_7.html'>problem_7</a></td><td>Function</td><td></td></tr>
@@ -688,123 +689,24 @@ check pattern to match the int list</p></td></tr>
 <!-- proc~go -->
 <g id="call~~graph~~CallGraph_node22" class="node">
 <title>proc~go</title>
-<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/go.html" xlink:title="problem_6::go">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="903,-534 813,-534 813,-510 903,-510 903,-534"/>
-<text text-anchor="middle" x="858" y="-519.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6::go</text>
+<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/go.html" xlink:title="problem_13::go">
+<polygon fill="#d9534f" stroke="#d9534f" points="906.5,-1110 809.5,-1110 809.5,-1086 906.5,-1086 906.5,-1110"/>
+<text text-anchor="middle" x="858" y="-1095.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_13::go</text>
 </a>
 </g>
 </g>
 <!-- proc~go~2 -->
 <g id="call~~graph~~CallGraph_node23" class="node">
 <title>proc~go~2</title>
-<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/go~2.html" xlink:title="problem_13::go">
-<polygon fill="#d9534f" stroke="#d9534f" points="906.5,-1110 809.5,-1110 809.5,-1086 906.5,-1086 906.5,-1110"/>
-<text text-anchor="middle" x="858" y="-1095.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_13::go</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3 -->
-<g id="call~~graph~~CallGraph_node24" class="node">
-<title>proc~go~3</title>
-<g id="a_call~~graph~~CallGraph_node24"><a xlink:href=".././proc/go~3.html" xlink:title="problem_12::go">
-<polygon fill="#d9534f" stroke="#d9534f" points="631,-1320 534,-1320 534,-1296 631,-1296 631,-1320"/>
-<text text-anchor="middle" x="582.5" y="-1305.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::go</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;interface~split -->
-<g id="call~~graph~~CallGraph_edge27" class="edge">
-<title>proc~go~3&#45;&gt;interface~split</title>
-<path fill="none" stroke="#000000" d="M595.52,-1320.23C619.58,-1343.73 676.45,-1394.48 736,-1413 839.55,-1445.2 874.79,-1439.29 980,-1413 1076.26,-1388.95 1113.76,-1384.45 1177,-1308 1266.88,-1199.34 1286.97,-1020.88 1291.33,-958.43"/>
-<polygon fill="#000000" stroke="#000000" points="1294.84,-958.36 1291.97,-948.16 1287.85,-957.92 1294.84,-958.36"/>
-</g>
-<!-- proc~number_of_lines_in_file -->
-<g id="call~~graph~~CallGraph_node40" class="node">
-<title>proc~number_of_lines_in_file</title>
-<g id="a_call~~graph~~CallGraph_node40"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="962,-1068 754,-1068 754,-1044 962,-1044 962,-1068"/>
-<text text-anchor="middle" x="858" y="-1053.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;proc~number_of_lines_in_file -->
-<g id="call~~graph~~CallGraph_edge28" class="edge">
-<title>proc~go~3&#45;&gt;proc~number_of_lines_in_file</title>
-<path fill="none" stroke="#000000" d="M631.04,-1311.41C654.84,-1310.45 682.27,-1304.88 700,-1287 766.67,-1219.75 669.11,-1144.03 736,-1077 738.88,-1074.11 742.01,-1071.54 745.33,-1069.25"/>
-<polygon fill="#000000" stroke="#000000" points="747.15,-1072.24 753.95,-1064.12 743.57,-1066.22 747.15,-1072.24"/>
-</g>
-<!-- proc~parse_ints -->
-<g id="call~~graph~~CallGraph_node41" class="node">
-<title>proc~parse_ints</title>
-<g id="a_call~~graph~~CallGraph_node41"><a xlink:href=".././proc/parse_ints.html" xlink:title="aoc_utilities::parse_ints">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="926.5,-1278 789.5,-1278 789.5,-1254 926.5,-1254 926.5,-1278"/>
-<text text-anchor="middle" x="858" y="-1263.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_ints</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;proc~parse_ints -->
-<g id="call~~graph~~CallGraph_edge29" class="edge">
-<title>proc~go~3&#45;&gt;proc~parse_ints</title>
-<path fill="none" stroke="#000000" d="M631.14,-1300.68C672,-1294.41 731.67,-1285.25 779.42,-1277.91"/>
-<polygon fill="#000000" stroke="#000000" points="780.06,-1281.36 789.42,-1276.38 779,-1274.44 780.06,-1281.36"/>
-</g>
-<!-- proc~read_line -->
-<g id="call~~graph~~CallGraph_node49" class="node">
-<title>proc~read_line</title>
-<g id="a_call~~graph~~CallGraph_node49"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="924,-988 792,-988 792,-964 924,-964 924,-988"/>
-<text text-anchor="middle" x="858" y="-973.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;proc~read_line -->
-<g id="call~~graph~~CallGraph_edge30" class="edge">
-<title>proc~go~3&#45;&gt;proc~read_line</title>
-<path fill="none" stroke="#000000" d="M631.25,-1311.61C655.1,-1310.71 682.53,-1305.12 700,-1287 778.53,-1205.56 669.39,-1126.45 736,-1035 750.99,-1014.42 775.13,-1000.67 797.92,-991.67"/>
-<polygon fill="#000000" stroke="#000000" points="799.42,-994.85 807.58,-988.09 796.99,-988.28 799.42,-994.85"/>
-</g>
-<!-- proc~str_to_int_array_with_mapping -->
-<g id="call~~graph~~CallGraph_node60" class="node">
-<title>proc~str_to_int_array_with_mapping</title>
-<g id="a_call~~graph~~CallGraph_node60"><a xlink:href=".././proc/str_to_int_array_with_mapping.html" xlink:title="aoc_utilities::str_to_int_array_with_mapping">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="980,-1320 736,-1320 736,-1296 980,-1296 980,-1320"/>
-<text text-anchor="middle" x="858" y="-1305.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::str_to_int_array_with_mapping</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;proc~str_to_int_array_with_mapping -->
-<g id="call~~graph~~CallGraph_edge31" class="edge">
-<title>proc~go~3&#45;&gt;proc~str_to_int_array_with_mapping</title>
-<path fill="none" stroke="#000000" d="M631.14,-1308C657.61,-1308 691.96,-1308 725.85,-1308"/>
-<polygon fill="#000000" stroke="#000000" points="725.87,-1311.5 735.87,-1308 725.87,-1304.5 725.87,-1311.5"/>
-</g>
-<!-- proc~test -->
-<g id="call~~graph~~CallGraph_node67" class="node">
-<title>proc~test</title>
-<g id="a_call~~graph~~CallGraph_node67"><a xlink:href=".././proc/test.html" xlink:title="problem_12::test">
-<polygon fill="#d9534f" stroke="#d9534f" points="909.5,-1484 806.5,-1484 806.5,-1460 909.5,-1460 909.5,-1484"/>
-<text text-anchor="middle" x="858" y="-1469.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::test</text>
-</a>
-</g>
-</g>
-<!-- proc~go~3&#45;&gt;proc~test -->
-<g id="call~~graph~~CallGraph_edge32" class="edge">
-<title>proc~go~3&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M595.37,-1320.26C625.23,-1350.86 703.43,-1429.31 736,-1446 754.57,-1455.52 776.46,-1461.55 796.48,-1465.38"/>
-<polygon fill="#000000" stroke="#000000" points="795.98,-1468.85 806.44,-1467.14 797.2,-1461.95 795.98,-1468.85"/>
-</g>
-<!-- proc~go~4 -->
-<g id="call~~graph~~CallGraph_node25" class="node">
-<title>proc~go~4</title>
-<g id="a_call~~graph~~CallGraph_node25"><a xlink:href=".././proc/go~4.html" xlink:title="problem_11::go">
+<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/go~2.html" xlink:title="problem_11::go">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="384,-1152 287,-1152 287,-1128 384,-1128 384,-1152"/>
 <text text-anchor="middle" x="335.5" y="-1137.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_11::go</text>
 </a>
 </g>
 </g>
-<!-- proc~go~4&#45;&gt;interface~manhatten_distance -->
-<g id="call~~graph~~CallGraph_edge33" class="edge">
-<title>proc~go~4&#45;&gt;interface~manhatten_distance</title>
+<!-- proc~go~2&#45;&gt;interface~manhatten_distance -->
+<g id="call~~graph~~CallGraph_edge27" class="edge">
+<title>proc~go~2&#45;&gt;interface~manhatten_distance</title>
 <path fill="none" stroke="#000000" d="M343.52,-1152.11C361.69,-1183.04 412.53,-1266.85 465,-1329 494.92,-1364.44 534.78,-1400.81 559.26,-1422.14"/>
 <polygon fill="#000000" stroke="#000000" points="557.08,-1424.88 566.94,-1428.77 561.66,-1419.58 557.08,-1424.88"/>
 </g>
@@ -817,11 +719,110 @@ check pattern to match the int list</p></td></tr>
 </a>
 </g>
 </g>
-<!-- proc~go~4&#45;&gt;proc~read_file_to_char_array -->
-<g id="call~~graph~~CallGraph_edge34" class="edge">
-<title>proc~go~4&#45;&gt;proc~read_file_to_char_array</title>
+<!-- proc~go~2&#45;&gt;proc~read_file_to_char_array -->
+<g id="call~~graph~~CallGraph_edge28" class="edge">
+<title>proc~go~2&#45;&gt;proc~read_file_to_char_array</title>
 <path fill="none" stroke="#000000" d="M384.03,-1140C408.16,-1140 438.59,-1140 468.29,-1140"/>
 <polygon fill="#000000" stroke="#000000" points="468.33,-1143.5 478.33,-1140 468.33,-1136.5 468.33,-1143.5"/>
+</g>
+<!-- proc~go~3 -->
+<g id="call~~graph~~CallGraph_node24" class="node">
+<title>proc~go~3</title>
+<g id="a_call~~graph~~CallGraph_node24"><a xlink:href=".././proc/go~3.html" xlink:title="problem_6::go">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="903,-534 813,-534 813,-510 903,-510 903,-534"/>
+<text text-anchor="middle" x="858" y="-519.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6::go</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4 -->
+<g id="call~~graph~~CallGraph_node25" class="node">
+<title>proc~go~4</title>
+<g id="a_call~~graph~~CallGraph_node25"><a xlink:href=".././proc/go~4.html" xlink:title="problem_12::go">
+<polygon fill="#d9534f" stroke="#d9534f" points="631,-1320 534,-1320 534,-1296 631,-1296 631,-1320"/>
+<text text-anchor="middle" x="582.5" y="-1305.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::go</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;interface~split -->
+<g id="call~~graph~~CallGraph_edge29" class="edge">
+<title>proc~go~4&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M595.52,-1320.23C619.58,-1343.73 676.45,-1394.48 736,-1413 839.55,-1445.2 874.79,-1439.29 980,-1413 1076.26,-1388.95 1113.76,-1384.45 1177,-1308 1266.88,-1199.34 1286.97,-1020.88 1291.33,-958.43"/>
+<polygon fill="#000000" stroke="#000000" points="1294.84,-958.36 1291.97,-948.16 1287.85,-957.92 1294.84,-958.36"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_node40" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_call~~graph~~CallGraph_node40"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="962,-1068 754,-1068 754,-1044 962,-1044 962,-1068"/>
+<text text-anchor="middle" x="858" y="-1053.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;proc~number_of_lines_in_file -->
+<g id="call~~graph~~CallGraph_edge30" class="edge">
+<title>proc~go~4&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M631.04,-1311.41C654.84,-1310.45 682.27,-1304.88 700,-1287 766.67,-1219.75 669.11,-1144.03 736,-1077 738.88,-1074.11 742.01,-1071.54 745.33,-1069.25"/>
+<polygon fill="#000000" stroke="#000000" points="747.15,-1072.24 753.95,-1064.12 743.57,-1066.22 747.15,-1072.24"/>
+</g>
+<!-- proc~parse_ints -->
+<g id="call~~graph~~CallGraph_node41" class="node">
+<title>proc~parse_ints</title>
+<g id="a_call~~graph~~CallGraph_node41"><a xlink:href=".././proc/parse_ints.html" xlink:title="aoc_utilities::parse_ints">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="926.5,-1278 789.5,-1278 789.5,-1254 926.5,-1254 926.5,-1278"/>
+<text text-anchor="middle" x="858" y="-1263.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::parse_ints</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;proc~parse_ints -->
+<g id="call~~graph~~CallGraph_edge31" class="edge">
+<title>proc~go~4&#45;&gt;proc~parse_ints</title>
+<path fill="none" stroke="#000000" d="M631.14,-1300.68C672,-1294.41 731.67,-1285.25 779.42,-1277.91"/>
+<polygon fill="#000000" stroke="#000000" points="780.06,-1281.36 789.42,-1276.38 779,-1274.44 780.06,-1281.36"/>
+</g>
+<!-- proc~read_line -->
+<g id="call~~graph~~CallGraph_node49" class="node">
+<title>proc~read_line</title>
+<g id="a_call~~graph~~CallGraph_node49"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="924,-988 792,-988 792,-964 924,-964 924,-988"/>
+<text text-anchor="middle" x="858" y="-973.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;proc~read_line -->
+<g id="call~~graph~~CallGraph_edge32" class="edge">
+<title>proc~go~4&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M631.25,-1311.61C655.1,-1310.71 682.53,-1305.12 700,-1287 778.53,-1205.56 669.39,-1126.45 736,-1035 750.99,-1014.42 775.13,-1000.67 797.92,-991.67"/>
+<polygon fill="#000000" stroke="#000000" points="799.42,-994.85 807.58,-988.09 796.99,-988.28 799.42,-994.85"/>
+</g>
+<!-- proc~str_to_int_array_with_mapping -->
+<g id="call~~graph~~CallGraph_node60" class="node">
+<title>proc~str_to_int_array_with_mapping</title>
+<g id="a_call~~graph~~CallGraph_node60"><a xlink:href=".././proc/str_to_int_array_with_mapping.html" xlink:title="aoc_utilities::str_to_int_array_with_mapping">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="980,-1320 736,-1320 736,-1296 980,-1296 980,-1320"/>
+<text text-anchor="middle" x="858" y="-1305.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::str_to_int_array_with_mapping</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;proc~str_to_int_array_with_mapping -->
+<g id="call~~graph~~CallGraph_edge33" class="edge">
+<title>proc~go~4&#45;&gt;proc~str_to_int_array_with_mapping</title>
+<path fill="none" stroke="#000000" d="M631.14,-1308C657.61,-1308 691.96,-1308 725.85,-1308"/>
+<polygon fill="#000000" stroke="#000000" points="725.87,-1311.5 735.87,-1308 725.87,-1304.5 725.87,-1311.5"/>
+</g>
+<!-- proc~test -->
+<g id="call~~graph~~CallGraph_node67" class="node">
+<title>proc~test</title>
+<g id="a_call~~graph~~CallGraph_node67"><a xlink:href=".././proc/test.html" xlink:title="problem_12::test">
+<polygon fill="#d9534f" stroke="#d9534f" points="909.5,-1484 806.5,-1484 806.5,-1460 909.5,-1460 909.5,-1484"/>
+<text text-anchor="middle" x="858" y="-1469.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::test</text>
+</a>
+</g>
+</g>
+<!-- proc~go~4&#45;&gt;proc~test -->
+<g id="call~~graph~~CallGraph_edge34" class="edge">
+<title>proc~go~4&#45;&gt;proc~test</title>
+<path fill="none" stroke="#000000" d="M595.37,-1320.26C625.23,-1350.86 703.43,-1429.31 736,-1446 754.57,-1455.52 776.46,-1461.55 796.48,-1465.38"/>
+<polygon fill="#000000" stroke="#000000" points="795.98,-1468.85 806.44,-1467.14 797.2,-1461.95 795.98,-1468.85"/>
 </g>
 <!-- proc~hand_type&#45;&gt;interface~unique -->
 <g id="call~~graph~~CallGraph_edge35" class="edge">
@@ -1219,9 +1220,9 @@ check pattern to match the int list</p></td></tr>
 <path fill="none" stroke="#000000" d="M141.08,-894.1C252.99,-894.4 589.92,-895.29 758.58,-895.74"/>
 <polygon fill="#000000" stroke="#000000" points="758.7,-899.24 768.71,-895.77 758.72,-892.24 758.7,-899.24"/>
 </g>
-<!-- program~problem_11&#45;&gt;proc~go~4 -->
+<!-- program~problem_11&#45;&gt;proc~go~2 -->
 <g id="call~~graph~~CallGraph_edge68" class="edge">
-<title>program~problem_11&#45;&gt;proc~go~4</title>
+<title>program~problem_11&#45;&gt;proc~go~2</title>
 <path fill="none" stroke="#000000" d="M141.44,-894.35C162.16,-896.25 187.41,-901.52 206,-915 242.96,-941.81 302.11,-1067.6 325.01,-1118.52"/>
 <polygon fill="#000000" stroke="#000000" points="321.94,-1120.22 329.21,-1127.92 328.33,-1117.36 321.94,-1120.22"/>
 </g>
@@ -1246,9 +1247,9 @@ check pattern to match the int list</p></td></tr>
 <path fill="none" stroke="#000000" d="M373.66,-931.4C439.45,-926.79 580.75,-916.82 700,-908 719.04,-906.59 739.37,-905.06 758.87,-903.57"/>
 <polygon fill="#000000" stroke="#000000" points="759.28,-907.05 768.99,-902.8 758.75,-900.07 759.28,-907.05"/>
 </g>
-<!-- program~problem_12&#45;&gt;proc~go~3 -->
+<!-- program~problem_12&#45;&gt;proc~go~4 -->
 <g id="call~~graph~~CallGraph_edge71" class="edge">
-<title>program~problem_12&#45;&gt;proc~go~3</title>
+<title>program~problem_12&#45;&gt;proc~go~4</title>
 <path fill="none" stroke="#000000" d="M343.91,-946.09C361.28,-974.94 404.99,-1050.55 429,-1119 454.28,-1191.06 410.13,-1233.9 465,-1287 480.48,-1301.98 502.82,-1308.22 523.81,-1310.35"/>
 <polygon fill="#000000" stroke="#000000" points="523.74,-1313.86 533.97,-1311.09 524.25,-1306.88 523.74,-1313.86"/>
 </g>
@@ -1273,9 +1274,9 @@ check pattern to match the int list</p></td></tr>
 <path fill="none" stroke="#000000" d="M620.66,-1100.8C645.98,-1100.66 678.66,-1096.14 700,-1077 742.09,-1039.25 699.49,-998.17 736,-955 753.18,-934.69 779,-920.78 802.38,-911.59"/>
 <polygon fill="#000000" stroke="#000000" points="803.73,-914.82 811.88,-908.05 801.29,-908.26 803.73,-914.82"/>
 </g>
-<!-- program~problem_13&#45;&gt;proc~go~2 -->
+<!-- program~problem_13&#45;&gt;proc~go -->
 <g id="call~~graph~~CallGraph_edge74" class="edge">
-<title>program~problem_13&#45;&gt;proc~go~2</title>
+<title>program~problem_13&#45;&gt;proc~go</title>
 <path fill="none" stroke="#000000" d="M620.67,-1098C666.64,-1098 745.39,-1098 799.25,-1098"/>
 <polygon fill="#000000" stroke="#000000" points="799.34,-1101.5 809.34,-1098 799.34,-1094.5 799.34,-1101.5"/>
 </g>
@@ -1516,9 +1517,9 @@ check pattern to match the int list</p></td></tr>
 <path fill="none" stroke="#000000" d="M617.18,-496.14C643.63,-495.15 679.34,-498.68 700,-521 753.72,-579.02 682.09,-817.15 736,-875 742.58,-882.06 750.62,-887.28 759.39,-891.09"/>
 <polygon fill="#000000" stroke="#000000" points="758.18,-894.38 768.77,-894.57 760.61,-887.81 758.18,-894.38"/>
 </g>
-<!-- program~problem_6&#45;&gt;proc~go -->
+<!-- program~problem_6&#45;&gt;proc~go~3 -->
 <g id="call~~graph~~CallGraph_edge107" class="edge">
-<title>program~problem_6&#45;&gt;proc~go</title>
+<title>program~problem_6&#45;&gt;proc~go~3</title>
 <path fill="none" stroke="#000000" d="M617.04,-502.7C663.36,-506.42 747.48,-513.19 802.79,-517.64"/>
 <polygon fill="#000000" stroke="#000000" points="802.52,-521.13 812.77,-518.44 803.09,-514.15 802.52,-521.13"/>
 </g>
