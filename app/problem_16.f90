@@ -5,11 +5,11 @@ use aoc_utilities
 
 implicit none
 
-integer :: i, j, nrows, ncols
+integer :: i, j, nrows, ncols, max_count, icount, icase
 character(len=1),dimension(:,:),allocatable :: array
 logical,dimension(:,:,:),allocatable :: visited ! top,bottom,left,right
 
-integer,parameter :: TOP = 1
+integer,parameter :: TOP = 1      ! direction traveling FROM
 integer,parameter :: BOTTOM = 2
 integer,parameter :: LEFT = 3
 integer,parameter :: RIGHT = 4
@@ -17,15 +17,16 @@ integer,parameter :: RIGHT = 4
 call clk%tic()
 
 ! read the data file:
-
 ! array = read_file_to_char_array('inputs/day16_test.txt') ! pad with wall around the array
 array = read_file_to_char_array('inputs/day16.txt')
 nrows = size(array,1)
 ncols = size(array,2)
 
-! track if we have already done this case, to avoid unnecessary duplication
+! track if we have already done this case, to avoid unnecessary duplication,
+! otherwise it may loop indefinitly?
 allocate(visited(4, nrows, ncols))
 
+! part 1:
 visited = .false.
 call go(1,1,LEFT)
 write(*,*) '16a: ', count(visited(1,:,:) .or. &
@@ -33,9 +34,37 @@ write(*,*) '16a: ', count(visited(1,:,:) .or. &
                           visited(3,:,:) .or. &
                           visited(4,:,:))
 
+! part 2, just do all the cases:
+max_count = 0
+do icase = 1, 2 ! first and last col
+    do i = 1, nrows
+        visited = .false.
+        if (icase==1) then; call go(i,1,    LEFT)
+        else;               call go(i,ncols,RIGHT)
+        end if
+        icount = count(visited(1,:,:) .or. &
+                       visited(2,:,:) .or. &
+                       visited(3,:,:) .or. &
+                       visited(4,:,:))
+        if (icount>max_count) max_count = icount
+    end do
+end do
+do icase = 1, 2 ! first and last row
+    do j = 1, ncols
+        visited = .false.
+        if (icase==1) then; call go(1,    j,TOP)
+        else;               call go(nrows,j,BOTTOM)
+        end if
+        icount = count(visited(1,:,:) .or. &
+                       visited(2,:,:) .or. &
+                       visited(3,:,:) .or. &
+                       visited(4,:,:))
+        if (icount>max_count) max_count = icount
+    end do
+end do
+write(*,*) '16b: ',max_count
+
 call clk%toc('16')
-
-
 
 contains
 
@@ -47,7 +76,6 @@ contains
 
         if (i>nrows .or. i<1 .or. j>ncols .or. j<1) return ! off the board
         if (visited(direction_from, i, j)) return ! this case has already been done
-
         visited(direction_from, i, j) = .true. ! mark this one as visited in this direction
 
         associate (c => array(i,j))
