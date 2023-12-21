@@ -51,7 +51,7 @@
     public :: lcm
     public :: reverse
     public :: diff
-    public :: locpt
+    public :: locpt, parea
     public :: str_to_int_array_with_mapping, str_to_int64_array_with_mapping
     public :: int_array_to_char_array
 
@@ -1131,6 +1131,44 @@ contains
 
     end subroutine locpt
 !*****************************************************************************************
+
+!*****************************************************************************************
+!>
+! given a sequence of nb points (x(i),y(i)). parea computes
+! the area bounded by the closed polygonal curve which passes
+! through the points in the order that they are indexed. the
+! final point of the curve is assumed to be the first point
+! given. therefore, it need not be listed at the end of x and
+! y. the curve is not required to be simple.
+!
+!  From the NSWC library.
+
+    real(wp) function parea(x, y, nb)
+
+    real(wp),intent(in) :: x(nb), y(nb)
+    integer,intent(in) :: nb
+
+    real(wp) :: a
+    integer :: n, nm1, i
+    n = nb
+    if (x(1) == x(n) .and. y(1) == y(n)) n = n - 1
+    if (n - 3) 10, 20, 30
+
+ 10 parea = 0.0
+    return
+
+ 20 parea= 0.5_wp*((x(2) - x(1))*(y(3) - y(1)) - (x(3) - x(1))*(y(2) - y(1)))
+    return
+
+ 30 nm1 = n - 1
+    a = x(1)*(y(2) - y(n)) + x(n)*(y(1) - y(nm1))
+    do i = 2, nm1
+       a = a + x(i)*(y(i+1) - y(i-1))
+    end do
+    parea = 0.5_wp*a
+
+    end function parea
+
 
 !*****************************************************************************************
 !>
