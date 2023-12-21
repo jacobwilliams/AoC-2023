@@ -41,7 +41,8 @@
 
     public :: read_file_to_integer_array, &
               read_file_to_integer64_array, &
-              read_file_to_char_array
+              read_file_to_char_array, &
+              read_file_to_int_array
     public :: number_of_lines_in_file
     public :: read_line
     public :: parse_ints, parse_ints64
@@ -52,6 +53,7 @@
     public :: diff
     public :: locpt
     public :: str_to_int_array_with_mapping, str_to_int64_array_with_mapping
+    public :: int_array_to_char_array
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -191,6 +193,24 @@ contains
 
 !****************************************************************
 !>
+!  integer array to Character array
+
+    pure function int_array_to_char_array(iarray) result(carray)
+        integer,dimension(:,:),intent(in) :: iarray
+        character(len=1),dimension(:,:),allocatable :: carray
+        integer :: i,j
+
+        allocate(carray(size(iarray,1),size(iarray,2)))
+        do i = 1, size(iarray,1)
+            do j = 1, size(iarray,2)
+                write(carray(i,j),'(I1)') iarray(i,j)
+            end do
+        end do
+    end function int_array_to_char_array
+!****************************************************************
+
+!****************************************************************
+!>
 !  Read a file into a 2d character array.
 
     function read_file_to_char_array(filename, border) result(array)
@@ -222,6 +242,32 @@ contains
         close(iunit)
 
     end function read_file_to_char_array
+!****************************************************************
+
+!****************************************************************
+!>
+!  Read a file into a 2d character array.
+
+    function read_file_to_int_array(filename) result(array)
+        character(len=*),intent(in) :: filename
+        integer,dimension(:,:),allocatable :: array
+
+        integer :: i, iunit, n_lines, n_cols
+        character(len=:),allocatable :: line
+
+        open(newunit=iunit, file=filename, status='OLD')
+        n_lines = number_of_lines_in_file(iunit)
+        line = read_line(iunit)
+        n_cols = len(line)
+        rewind(iunit)
+        allocate(array(n_lines, n_cols))
+        do i = 1, n_lines
+            line = read_line(iunit)
+            read(line,'(*(I1))') array(i,1:n_cols)
+        end do
+        close(iunit)
+
+    end function read_file_to_int_array
 !****************************************************************
 
 !****************************************************************
