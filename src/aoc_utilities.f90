@@ -1135,14 +1135,14 @@ contains
 
 !*****************************************************************************************
 !>
-! given a sequence of nb points (x(i),y(i)). parea computes
-! the area bounded by the closed polygonal curve which passes
-! through the points in the order that they are indexed. the
-! final point of the curve is assumed to be the first point
-! given. therefore, it need not be listed at the end of x and
-! y. the curve is not required to be simple.
+!  given a sequence of nb points (x(i),y(i)). parea computes
+!  the area bounded by the closed polygonal curve which passes
+!  through the points in the order that they are indexed. the
+!  final point of the curve is assumed to be the first point
+!  given. therefore, it need not be listed at the end of x and
+!  y. the curve is not required to be simple.
 !
-!  From the NSWC library.
+!  * Original version from the NSWC Library
 
     real(wp) function parea(x, y, nb)
 
@@ -1151,22 +1151,22 @@ contains
 
     real(wp) :: a
     integer :: n, nm1, i
+
     n = nb
     if (x(1) == x(n) .and. y(1) == y(n)) n = n - 1
-    if (n - 3) 10, 20, 30
 
- 10 parea = 0.0
-    return
-
- 20 parea= 0.5_wp*((x(2) - x(1))*(y(3) - y(1)) - (x(3) - x(1))*(y(2) - y(1)))
-    return
-
- 30 nm1 = n - 1
-    a = x(1)*(y(2) - y(n)) + x(n)*(y(1) - y(nm1))
-    do i = 2, nm1
-       a = a + x(i)*(y(i+1) - y(i-1))
-    end do
-    parea = 0.5_wp*a
+    if (n-3 < 0) then
+        parea = 0.0_wp
+    else if (n-3==0) then
+        parea= 0.5_wp*((x(2) - x(1))*(y(3) - y(1)) - (x(3) - x(1))*(y(2) - y(1)))
+    else
+        nm1 = n - 1
+        a = x(1)*(y(2) - y(n)) + x(n)*(y(1) - y(nm1))
+        do i = 2, nm1
+            a = a + x(i)*(y(i+1) - y(i-1))
+        end do
+        parea = 0.5_wp*a
+    end if
 
     end function parea
 !*****************************************************************************************
