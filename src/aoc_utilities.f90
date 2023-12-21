@@ -54,6 +54,7 @@
     public :: locpt, parea
     public :: str_to_int_array_with_mapping, str_to_int64_array_with_mapping
     public :: int_array_to_char_array
+    public :: hex2int
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -1168,7 +1169,7 @@ contains
     parea = 0.5_wp*a
 
     end function parea
-
+!*****************************************************************************************
 
 !*****************************************************************************************
 !>
@@ -1225,6 +1226,36 @@ contains
             end if
         end do
     end function str_to_int64_array_with_mapping
+!*****************************************************************************************
+
+!*****************************************************************************************
+!>
+!!  hex string to int value. lowercase letters assumed!
+!!  no error checking here!
+
+    pure integer function hex2int(hex)
+        character(len=*),intent(in) :: hex
+        integer :: i, n, ipower
+
+        ! 70c71 -> 461937
+
+        n = len(hex)
+        hex2int = 0
+
+        !base 16 (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f)
+        ipower = -1
+        do i = n, 1, -1
+            ipower = ipower + 1
+            associate(c => hex(i:i))
+                if (c>='a' .and. c<='f') then
+                    hex2int = hex2int + (10+iachar(c)-iachar('a'))*(16**ipower)
+                else
+                    hex2int = hex2int + (iachar(c)-iachar('0'))*(16**ipower)
+                end if
+            end associate
+        end do
+
+    end function hex2int
 !*****************************************************************************************
 
 !************************************************************************************************
