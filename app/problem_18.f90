@@ -18,7 +18,7 @@ program problem_18
 
     subroutine go(partb, iresult)
 
-        logical,intent(in) :: partb
+        logical,intent(in) :: partb !! if solving part b
         integer(ip),intent(out) :: iresult
 
         integer :: iunit, iline, n_lines, n
@@ -26,27 +26,21 @@ program problem_18
         type(string),dimension(:),allocatable :: vals
         character(len=1) :: direction
         integer(ip),dimension(2) :: iloc, iloc2
-        integer(ip) :: xmin,xmax,ymin,ymax,ival, isteps
+        integer(ip) :: ival, isteps
         real(wp),dimension(:),allocatable :: xvec,yvec
 
-        character(len=1),dimension(0:3) :: direction_str = ['R', 'D', 'L', 'U'] !0,1,2,3
+        character(len=1),dimension(0:3) :: direction_str = ['R', 'D', 'L', 'U'] ! directions for part b : 0,1,2,3
 
         ! open(newunit=iunit, file='inputs/day18_test.txt', status='OLD')
         open(newunit=iunit, file='inputs/day18.txt', status='OLD')
         n_lines = number_of_lines_in_file(iunit)
 
-        ! once just to get the map size
-        xmin = huge(1)
-        xmax = 0
-        ymin = huge(1)
-        ymax = 0
         iloc = [0,0] ! where to start
         isteps = 0
         xvec = [0]; yvec = [0]
         do iline = 1, n_lines
             line = read_line(iunit)
             vals = split(line, ' ') ! direction, number, (hex)
-
             if (partb) then
                 ! values encoded in hex
                 hex       = vals(3)%str
@@ -56,16 +50,11 @@ program problem_18
                 direction = vals(1)%str
                 ival = int(vals(2)%str)
             end if
-
-            iloc2 = destination(iloc, direction, ival)
-            isteps = isteps + ival
-            xmin = merge(iloc2(1), xmin, iloc2(1)<xmin)
-            xmax = merge(iloc2(1), xmax, iloc2(1)>xmax)
-            ymin = merge(iloc2(2), ymin, iloc2(2)<ymin)
-            ymax = merge(iloc2(2), ymax, iloc2(2)>ymax)
-            xvec = [xvec, real(iloc2(1),wp)] ! save the points
+            isteps = isteps + ival ! keep track of the total perimeter size
+            iloc2 = destination(iloc, direction, ival) ! destination oint
+            xvec = [xvec, real(iloc2(1),wp)] ! save the points of the polygon
             yvec = [yvec, real(iloc2(2),wp)] !
-            iloc = iloc2
+            iloc = iloc2 ! update for next move
         end do
         close(iunit)
 
