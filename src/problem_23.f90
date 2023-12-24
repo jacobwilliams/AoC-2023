@@ -31,6 +31,8 @@ logical,dimension(:),allocatable :: nodes_visited
 integer(ip),dimension(:),allocatable :: inodes, jnodes !! node coordinates
 integer(ip) :: max_dist, total_nodes, nrows, ncols
 character(len=1),dimension(:,:),allocatable :: array
+integer(ip),dimension(:),allocatable :: node_dist
+integer(ip),dimension(:),allocatable :: node_prev
 
 call clk%tic()
 
@@ -53,6 +55,8 @@ contains
         integer(ip),dimension(1) :: iloc
         integer(ip) :: istart, iend, idist, i, j
 
+        logical,parameter :: use_dijkstra = .false.   !.... doesn't work yet .... don't know why .......
+
         ! initialize:
         max_dist = 0
         slopes = parta
@@ -61,6 +65,9 @@ contains
         if (allocated(nodes_visited)) deallocate(nodes_visited)
         if (allocated(inodes))        deallocate(inodes)
         if (allocated(jnodes))        deallocate(jnodes)
+
+        if (allocated(node_dist))     deallocate(node_dist)
+        if (allocated(node_prev))     deallocate(node_prev)
 
         ! read the data file:
         array = read_file_to_char_array(filename)
@@ -94,15 +101,62 @@ contains
             call build_graph(i,inodes(i),jnodes(i),idist,visited)
         end do
 
-        ! start at first, and find the longest that gets to the last.
-        ! recursively traverse the graph.
-        visited = .false.
-        allocate(nodes_visited(total_nodes)); nodes_visited = .false.
-        call traverse(1_ip, 0_ip, nodes_visited)
+        if (use_dijkstra) then
+            !write(*,*) 'hello use_dijkstra'         ! ... something wrong here... don't get the right answer
 
-        write(*,*) case, max_dist ! result for this case
+            ! based on AOC 2021, Problem 15
+
+            allocate(node_dist(total_nodes)); node_dist = -1; node_dist(1) = 0
+            allocate(node_prev(total_nodes)); node_prev = -1
+            allocate(nodes_visited(total_nodes)); nodes_visited = .false.
+            do
+                iloc = maxloc(node_dist, mask=.not. nodes_visited)
+                i = iloc(1)
+                nodes_visited(i) = .true.
+                if (i==total_nodes) exit ! we are done!
+                !write(*,*) 'visited ', i
+                if (allocated(nodes(i)%inext)) then
+                    do j = 1, size(nodes(i)%inext)  ! adjacent nodes to this one
+                        call dijkstra(i, j)
+                    end do
+                end if
+                !if (all(nodes_visited)) exit ! done
+            end do
+            !write(*,*) case, node_dist(size(node_dist)) ! result for this case (last node)
+            !write(*,*) nodes_visited
+            !write(*,*) node_dist
+        else
+            ! start at first, and find the longest that gets to the last.
+            ! recursively traverse the graph.
+            visited = .false.
+            allocate(nodes_visited(total_nodes)); nodes_visited = .false.
+            call traverse(1_ip, 0_ip, nodes_visited)
+            write(*,*) case, max_dist ! result for this case
+        end if
 
     end subroutine go
+
+    subroutine dijkstra(u, inext)
+        integer(ip),intent(in) :: u ! current
+        integer(ip),intent(in) :: inext ! index in inext array of the next node
+        integer(ip) :: idist
+
+        associate (next_node             => nodes(u)%inext(inext), &
+                   distance_to_next_node => nodes(u)%idist(inext))
+
+            if (nodes_visited(next_node)) return ! already visited this one
+
+            idist = node_dist(u) + distance_to_next_node ! add distance from u to v
+
+            if (idist > node_dist(next_node)) then
+                !write(*,*) 'highest so far: ', idist
+                node_dist(next_node) = idist
+                node_prev(next_node) = u
+            end if
+
+        end associate
+
+    end subroutine dijkstra
 
     recursive subroutine build_graph(node_num,i,j,idist,visited)
         integer(ip),intent(in) :: node_num !! current node number
