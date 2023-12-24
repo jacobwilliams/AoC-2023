@@ -41,7 +41,8 @@
 
     public :: read_file_to_integer_array, &
               read_file_to_integer64_array, &
-              read_file_to_char_array
+              read_file_to_char_array, &
+              read_file_to_int_array
     public :: number_of_lines_in_file
     public :: read_line
     public :: parse_ints, parse_ints64
@@ -50,8 +51,10 @@
     public :: lcm
     public :: reverse
     public :: diff
-    public :: locpt
+    public :: locpt, parea
     public :: str_to_int_array_with_mapping, str_to_int64_array_with_mapping
+    public :: int_array_to_char_array
+    public :: hex2int
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -191,6 +194,24 @@ contains
 
 !****************************************************************
 !>
+!  integer array to Character array
+
+    pure function int_array_to_char_array(iarray) result(carray)
+        integer,dimension(:,:),intent(in) :: iarray
+        character(len=1),dimension(:,:),allocatable :: carray
+        integer :: i,j
+
+        allocate(carray(size(iarray,1),size(iarray,2)))
+        do i = 1, size(iarray,1)
+            do j = 1, size(iarray,2)
+                write(carray(i,j),'(I1)') iarray(i,j)
+            end do
+        end do
+    end function int_array_to_char_array
+!****************************************************************
+
+!****************************************************************
+!>
 !  Read a file into a 2d character array.
 
     function read_file_to_char_array(filename, border) result(array)
@@ -222,6 +243,32 @@ contains
         close(iunit)
 
     end function read_file_to_char_array
+!****************************************************************
+
+!****************************************************************
+!>
+!  Read a file into a 2d character array.
+
+    function read_file_to_int_array(filename) result(array)
+        character(len=*),intent(in) :: filename
+        integer,dimension(:,:),allocatable :: array
+
+        integer :: i, iunit, n_lines, n_cols
+        character(len=:),allocatable :: line
+
+        open(newunit=iunit, file=filename, status='OLD')
+        n_lines = number_of_lines_in_file(iunit)
+        line = read_line(iunit)
+        n_cols = len(line)
+        rewind(iunit)
+        allocate(array(n_lines, n_cols))
+        do i = 1, n_lines
+            line = read_line(iunit)
+            read(line,'(*(I1))') array(i,1:n_cols)
+        end do
+        close(iunit)
+
+    end function read_file_to_int_array
 !****************************************************************
 
 !****************************************************************
@@ -1088,6 +1135,44 @@ contains
 
 !*****************************************************************************************
 !>
+!  given a sequence of nb points (x(i),y(i)). parea computes
+!  the area bounded by the closed polygonal curve which passes
+!  through the points in the order that they are indexed. the
+!  final point of the curve is assumed to be the first point
+!  given. therefore, it need not be listed at the end of x and
+!  y. the curve is not required to be simple.
+!
+!  * Original version from the NSWC Library
+
+    real(wp) function parea(x, y, nb)
+
+    real(wp),intent(in) :: x(nb), y(nb)
+    integer,intent(in) :: nb
+
+    real(wp) :: a
+    integer :: n, nm1, i
+
+    n = nb
+    if (x(1) == x(n) .and. y(1) == y(n)) n = n - 1
+
+    if (n-3 < 0) then
+        parea = 0.0_wp
+    else if (n-3==0) then
+        parea= 0.5_wp*((x(2) - x(1))*(y(3) - y(1)) - (x(3) - x(1))*(y(2) - y(1)))
+    else
+        nm1 = n - 1
+        a = x(1)*(y(2) - y(n)) + x(n)*(y(1) - y(nm1))
+        do i = 2, nm1
+            a = a + x(i)*(y(i+1) - y(i-1))
+        end do
+        parea = 0.5_wp*a
+    end if
+
+    end function parea
+!*****************************************************************************************
+
+!*****************************************************************************************
+!>
 !  Manhattan distance between two `int64` points.
 
     pure integer(int64) function manhatten_distance_64(x1,y1,x2,y2)
@@ -1141,6 +1226,36 @@ contains
             end if
         end do
     end function str_to_int64_array_with_mapping
+!*****************************************************************************************
+
+!*****************************************************************************************
+!>
+!!  hex string to int value. lowercase letters assumed!
+!!  no error checking here!
+
+    pure integer function hex2int(hex)
+        character(len=*),intent(in) :: hex
+        integer :: i, n, ipower
+
+        ! 70c71 -> 461937
+
+        n = len(hex)
+        hex2int = 0
+
+        !base 16 (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f)
+        ipower = -1
+        do i = n, 1, -1
+            ipower = ipower + 1
+            associate(c => hex(i:i))
+                if (c>='a' .and. c<='f') then
+                    hex2int = hex2int + (10+iachar(c)-iachar('a'))*(16**ipower)
+                else
+                    hex2int = hex2int + (iachar(c)-iachar('0'))*(16**ipower)
+                end if
+            end associate
+        end do
+
+    end function hex2int
 !*****************************************************************************************
 
 !************************************************************************************************

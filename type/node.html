@@ -74,20 +74,20 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="<p>11.1% of total for derived types.</p>Including implementation: 5 statements,  3.9% of total for derived types.">5 statements</a>
+                 title="<p> 3.8% of total for derived types.</p>Including implementation: 4 statements,  1.9% of total for derived types.">4 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/problem_08.f90"> Source File</a>
+              <a href="../src/problem_23.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/problem_08.f90.html'>problem_08.f90</a></li>
-                <li class="breadcrumb-item"><a href='../program/problem_8.html'>problem_8</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_23.f90.html'>problem_23.f90</a></li>
+                <li class="breadcrumb-item"><a href='../program/problem_23.html'>problem_23</a></li>
             <li class="breadcrumb-item active" aria-current="page">node</li>
           </ol>
         </nav>
@@ -114,9 +114,8 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/node.html#variable-name">name</a>
-            <a class="list-group-item" href="../type/node.html#variable-lr">lr</a>
-            <a class="list-group-item" href="../type/node.html#variable-lr_idx">lr_idx</a>
+            <a class="list-group-item" href="../type/node.html#variable-inext">inext</a>
+            <a class="list-group-item" href="../type/node.html#variable-idist">idist</a>
         </div>
       </div>
     </div>
@@ -170,53 +169,36 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-name"></span>
-              character(len=3),
+              <span class="anchor" id="variable-inext"></span>
+              integer(kind=ip),
             </td>
-              <td>public</td>
+              <td>public,</td>
             <td>
-              
+              dimension(:), allocatable
             </td>
             <td>::</td>
-            <td><strong>name</strong></td>
-<td> =</td>
-                <td>&#39;&#39;</td>
+            <td><strong>inext</strong></td>
+                <td></td>
+                <td></td>
             <td>
-                
+                <p>the node connected to this one</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-lr"></span>
-              character(len=3),
+              <span class="anchor" id="variable-idist"></span>
+              integer(kind=ip),
             </td>
               <td>public,</td>
             <td>
-              dimension(2)
+              dimension(:), allocatable
             </td>
             <td>::</td>
-            <td><strong>lr</strong></td>
+            <td><strong>idist</strong></td>
                 <td></td>
                 <td></td>
             <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-lr_idx"></span>
-              integer,
-            </td>
-              <td>public,</td>
-            <td>
-              dimension(2)
-            </td>
-            <td>::</td>
-            <td><strong>lr_idx</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
+                <p>distance to inext nodes</p>
             </td>
         </tr>
     </tbody>
@@ -231,9 +213,8 @@
     <section>
     <h3><span class="anchor" id="src"></span>Source Code</h3>
     <div class="hl codehilite"><pre><span></span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">node</span>
-<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
-<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lr</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lr_idx</span><span class="w"> </span><span class="c">! the indices in the nodes array of the l,r nodes</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inext</span><span class="w"> </span><span class="c">!! the node connected to this one</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idist</span><span class="w"> </span><span class="c">!! distance to inext nodes</span>
 <span class="k">end type </span><span class="n">node</span>
 </pre></div>
 

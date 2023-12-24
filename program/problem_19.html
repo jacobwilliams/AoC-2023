@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_19 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_19      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 7.0% of total for programs.">160 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_19.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_19.f90.html'>problem_19.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_19</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_19.html#variable-iunit~13">iunit</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-n_lines~12">n_lines</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-iline~4">iline</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-i~40">i</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-line~13">line</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-vals~11">vals</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-accepted~3">accepted</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-total_accepted~2">total_accepted</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-parts~2">parts</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-workflows~2">workflows</a>
+            <a class="list-group-item" href="../program/problem_19.html#variable-w~2">w</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_19.html#type-part~2">part</a>
+            <a class="list-group-item" href="../program/problem_19.html#type-rule~2">rule</a>
+            <a class="list-group-item" href="../program/problem_19.html#type-workflow~2">workflow</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_19.html#proc-rating">rating</a>
+            <a class="list-group-item" href="../program/problem_19.html#proc-process~2">process</a>
+            <a class="list-group-item" href="../program/problem_19.html#proc-workflow_name_to_index~2">workflow_name_to_index</a>
+            <a class="list-group-item" href="../program/problem_19.html#proc-parse_rule~2">parse_rule</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_19.html#src">problem_19</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_19~~UsesGraph Pages: 1 -->
+<svg id="programproblem_19UsesGraph" width="326pt" height="52pt"
+ viewBox="0.00 0.00 326.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_19~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~problem_19~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 322,-48 322,4 -4,4"/>
+<!-- program~problem_19 -->
+<g id="program~~problem_19~~UsesGraph_node1" class="node">
+<title>program~problem_19</title>
+<polygon fill="none" stroke="black" points="318,-44 242,-44 242,-20 318,-20 318,-44"/>
+<text text-anchor="middle" x="280" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_19</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_19~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~problem_19&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_19~~UsesGraph_edge1" class="edge">
+<title>program~problem_19&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.86,-32.61C230.37,-32.77 217.66,-32.92 206,-33 172.22,-33.23 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_19~~UsesGraph_node3" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_19~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
+<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_19~~UsesGraph_edge2" class="edge">
+<title>program~problem_19&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.76,-25.23C233.52,-23.73 224.68,-22.12 216.1,-20.56"/>
+<polygon fill="#000000" stroke="#000000" points="216.67,-17.11 206.2,-18.76 215.42,-24 216.67,-17.11"/>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_19~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_19~~CallsGraph Pages: 1 -->
+<svg id="programproblem_19CallsGraph" width="641pt" height="190pt"
+ viewBox="0.00 0.00 641.00 189.55" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_19~~CallsGraph" class="graph" transform="scale(1.67 1.67) rotate(0) translate(4 313.29)">
+<title>program~~problem_19~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-313.29 1069,-313.29 1069,4 -4,4"/>
+<!-- program~problem_19 -->
+<g id="program~~problem_19~~CallsGraph_node1" class="node">
+<title>program~problem_19</title>
+<polygon fill="none" stroke="black" points="76,-171 0,-171 0,-147 76,-147 76,-171"/>
+<text text-anchor="middle" x="38" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_19</text>
+</g>
+<!-- interface~split -->
+<g id="program~~problem_19~~CallsGraph_node2" class="node">
+<title>interface~split</title>
+<g id="a_program~~problem_19~~CallsGraph_node2"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
+<polygon fill="#a7506f" stroke="#a7506f" points="516.5,-233 411.5,-233 411.5,-209 516.5,-209 516.5,-233"/>
+<text text-anchor="middle" x="464" y="-218.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;interface~split -->
+<g id="program~~problem_19~~CallsGraph_edge1" class="edge">
+<title>program~problem_19&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M41.76,-171.22C48.48,-197.68 68.41,-259.88 112,-285 218.69,-346.49 371.34,-273.89 434.23,-238.37"/>
+<polygon fill="#000000" stroke="#000000" points="436.27,-241.24 443.19,-233.22 432.78,-235.17 436.27,-241.24"/>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_19~~CallsGraph_node3" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_19~~CallsGraph_node3"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="303,-276 129,-276 129,-252 303,-252 303,-276"/>
+<text text-anchor="middle" x="216" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~clock_end -->
+<g id="program~~problem_19~~CallsGraph_edge2" class="edge">
+<title>program~problem_19&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M45.97,-171.25C57.28,-189.91 81.46,-225.18 112,-243 115.22,-244.88 118.59,-246.6 122.06,-248.16"/>
+<polygon fill="#000000" stroke="#000000" points="120.85,-251.45 131.43,-251.95 123.47,-244.96 120.85,-251.45"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_19~~CallsGraph_node4" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_19~~CallsGraph_node4"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-234 127,-234 127,-210 305,-210 305,-234"/>
+<text text-anchor="middle" x="216" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~clock_start -->
+<g id="program~~problem_19~~CallsGraph_edge3" class="edge">
+<title>program~problem_19&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M56.21,-171.03C70.52,-180.5 91.76,-193.34 112,-201 118.25,-203.36 124.82,-205.48 131.49,-207.37"/>
+<polygon fill="#000000" stroke="#000000" points="130.74,-210.8 141.31,-209.99 132.55,-204.03 130.74,-210.8"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_19~~CallsGraph_node5" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_19~~CallsGraph_node5"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="320,-192 112,-192 112,-168 320,-168 320,-192"/>
+<text text-anchor="middle" x="216" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_19~~CallsGraph_edge4" class="edge">
+<title>program~problem_19&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M76.33,-163.45C84.88,-164.47 94.4,-165.61 104.33,-166.8"/>
+<polygon fill="#000000" stroke="#000000" points="104.04,-170.28 114.38,-167.99 104.87,-163.33 104.04,-170.28"/>
+</g>
+<!-- proc~parse_rule~2 -->
+<g id="program~~problem_19~~CallsGraph_node6" class="node">
+<title>proc~parse_rule~2</title>
+<g id="a_program~~problem_19~~CallsGraph_node6"><a xlink:href=".././proc/parse_rule~2.html" xlink:title="problem_19::parse_rule">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="285.5,-150 146.5,-150 146.5,-126 285.5,-126 285.5,-150"/>
+<text text-anchor="middle" x="216" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19::parse_rule</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~parse_rule~2 -->
+<g id="program~~problem_19~~CallsGraph_edge5" class="edge">
+<title>program~problem_19&#45;&gt;proc~parse_rule~2</title>
+<path fill="none" stroke="#000000" d="M76.33,-154.55C93.84,-152.46 115.42,-149.88 136.3,-147.39"/>
+<polygon fill="#000000" stroke="#000000" points="136.95,-150.84 146.47,-146.18 136.12,-143.89 136.95,-150.84"/>
+</g>
+<!-- proc~process~2 -->
+<g id="program~~problem_19~~CallsGraph_node7" class="node">
+<title>proc~process~2</title>
+<g id="a_program~~problem_19~~CallsGraph_node7"><a xlink:href=".././proc/process~2.html" xlink:title="problem_19::process">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="278,-108 154,-108 154,-84 278,-84 278,-108"/>
+<text text-anchor="middle" x="216" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19::process</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~process~2 -->
+<g id="program~~problem_19~~CallsGraph_edge6" class="edge">
+<title>program~problem_19&#45;&gt;proc~process~2</title>
+<path fill="none" stroke="#000000" d="M56.21,-146.97C70.52,-137.5 91.76,-124.66 112,-117 122.13,-113.17 133.1,-109.99 143.97,-107.36"/>
+<polygon fill="#000000" stroke="#000000" points="144.93,-110.73 153.9,-105.09 143.37,-103.9 144.93,-110.73"/>
+</g>
+<!-- proc~rating -->
+<g id="program~~problem_19~~CallsGraph_node8" class="node">
+<title>proc~rating</title>
+<g id="a_program~~problem_19~~CallsGraph_node8"><a xlink:href=".././proc/rating.html" xlink:title="problem_19::rating">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="273.5,-66 158.5,-66 158.5,-42 273.5,-42 273.5,-66"/>
+<text text-anchor="middle" x="216" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19::rating</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~rating -->
+<g id="program~~problem_19~~CallsGraph_edge7" class="edge">
+<title>program~problem_19&#45;&gt;proc~rating</title>
+<path fill="none" stroke="#000000" d="M45.97,-146.75C57.28,-128.09 81.46,-92.82 112,-75 123.01,-68.58 135.67,-64.1 148.27,-60.97"/>
+<polygon fill="#000000" stroke="#000000" points="149.32,-64.33 158.33,-58.75 147.81,-57.49 149.32,-64.33"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_19~~CallsGraph_node9" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_19~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="282,-24 150,-24 150,0 282,0 282,-24"/>
+<text text-anchor="middle" x="216" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- program~problem_19&#45;&gt;proc~read_line -->
+<g id="program~~problem_19~~CallsGraph_edge8" class="edge">
+<title>program~problem_19&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M42.4,-146.64C50.13,-121.02 71.56,-62.08 112,-33 120.37,-26.98 130.05,-22.6 140.07,-19.42"/>
+<polygon fill="#000000" stroke="#000000" points="141.04,-22.78 149.74,-16.73 139.17,-16.04 141.04,-22.78"/>
+</g>
+<!-- proc~split1 -->
+<g id="program~~problem_19~~CallsGraph_node10" class="node">
+<title>proc~split1</title>
+<g id="a_program~~problem_19~~CallsGraph_node10"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="868,-233 756,-233 756,-209 868,-209 868,-233"/>
+<text text-anchor="middle" x="812" y="-218.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split1 -->
+<g id="program~~problem_19~~CallsGraph_edge9" class="edge">
+<title>interface~split&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.77,-221.49C568.29,-221.91 649.61,-222.39 720,-222 728.29,-221.95 737,-221.89 745.62,-221.8"/>
+<polygon fill="#000000" stroke="#000000" points="745.69,-225.3 755.66,-221.71 745.63,-218.3 745.69,-225.3"/>
+</g>
+<!-- proc~split2 -->
+<g id="program~~problem_19~~CallsGraph_node11" class="node">
+<title>proc~split2</title>
+<g id="a_program~~problem_19~~CallsGraph_node11"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="720,-213 608,-213 608,-189 720,-189 720,-213"/>
+<text text-anchor="middle" x="664" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split2 -->
+<g id="program~~problem_19~~CallsGraph_edge10" class="edge">
+<title>interface~split&#45;&gt;proc~split2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.51,-215.8C541.29,-213.29 571.28,-210.27 597.65,-207.6"/>
+<polygon fill="#000000" stroke="#000000" points="598.34,-211.05 607.94,-206.56 597.64,-204.08 598.34,-211.05"/>
+</g>
+<!-- proc~parse_rule~2&#45;&gt;interface~split -->
+<g id="program~~problem_19~~CallsGraph_edge11" class="edge">
+<title>proc~parse_rule~2&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M285.66,-149.92C297.23,-152.52 309.03,-155.55 320,-159 358.96,-171.27 401.69,-190.62 430.2,-204.44"/>
+<polygon fill="#000000" stroke="#000000" points="428.78,-207.64 439.3,-208.9 431.85,-201.36 428.78,-207.64"/>
+</g>
+<!-- proc~workflow_name_to_index~2 -->
+<g id="program~~problem_19~~CallsGraph_node12" class="node">
+<title>proc~workflow_name_to_index~2</title>
+<g id="a_program~~problem_19~~CallsGraph_node12"><a xlink:href=".././proc/workflow_name_to_index~2.html" xlink:title="problem_19::workflow_name_to_index">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="572,-108 356,-108 356,-84 572,-84 572,-108"/>
+<text text-anchor="middle" x="464" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19::workflow_name_to_index</text>
+</a>
+</g>
+</g>
+<!-- proc~process~2&#45;&gt;proc~workflow_name_to_index~2 -->
+<g id="program~~problem_19~~CallsGraph_edge12" class="edge">
+<title>proc~process~2&#45;&gt;proc~workflow_name_to_index~2</title>
+<path fill="none" stroke="#000000" d="M278.13,-96C298.58,-96 322.12,-96 345.4,-96"/>
+<polygon fill="#000000" stroke="#000000" points="345.7,-99.5 355.7,-96 345.7,-92.5 345.7,-99.5"/>
+</g>
+<!-- proc~expand_vector -->
+<g id="program~~problem_19~~CallsGraph_node13" class="node">
+<title>proc~expand_vector</title>
+<g id="a_program~~problem_19~~CallsGraph_node13"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1065,-233 904,-233 904,-209 1065,-209 1065,-233"/>
+<text text-anchor="middle" x="984.5" y="-218.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~split1&#45;&gt;proc~expand_vector -->
+<g id="program~~problem_19~~CallsGraph_edge13" class="edge">
+<title>proc~split1&#45;&gt;proc~expand_vector</title>
+<path fill="none" stroke="#000000" d="M868.36,-221C876.53,-221 885.13,-221 893.79,-221"/>
+<polygon fill="#000000" stroke="#000000" points="893.96,-224.5 903.96,-221 893.96,-217.5 893.96,-224.5"/>
+</g>
+<!-- proc~split2&#45;&gt;proc~split1 -->
+<g id="program~~problem_19~~CallsGraph_edge14" class="edge">
+<title>proc~split2&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" d="M720.2,-208.56C728.55,-209.71 737.24,-210.9 745.79,-212.07"/>
+<polygon fill="#000000" stroke="#000000" points="745.34,-215.54 755.73,-213.43 746.29,-208.6 745.34,-215.54"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramproblem_19CallsGraph = svgPanZoom('#programproblem_19CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iunit~13"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_lines~12"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_lines</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iline~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iline</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~40"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~13"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vals~11"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-accepted~3"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>accepted</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-total_accepted~2"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_accepted</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-parts~2"></span>
+              type(<a href='../type/part~2.html'>part</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>parts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-workflows~2"></span>
+              type(<a href='../type/workflow~2.html'>workflow</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>workflows</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~2"></span>
+              type(<a href='../type/workflow~2.html'>workflow</a>),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>w</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    <section>
+   <h2>Derived Types</h2>
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-part~2"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/part~2.html'>part</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmas~2"></span>
+              integer(kind=ip),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(4)
+            </td>
+            <td>::</td>
+            <td><strong>xmas</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-rule~2"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/rule~2.html'>rule</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-accept~2"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>accept</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-reject~2"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>reject</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operator~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operator</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operator_arg~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operator_arg</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-operator_val~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>operator_val</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-goto~2"></span>
+              character(len=:),
+            </td>
+              <td>public,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>goto</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-workflow~2"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/workflow~2.html'>workflow</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name~3"></span>
+              character(len=:),
+            </td>
+              <td>public,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rules~2"></span>
+              type(<a href='../type/rule~2.html'>rule</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>rules</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+    </section>
+   <br>
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-rating"></span><h3>pure function <a href='../proc/rating.html'>rating</a>(p)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~4"></span>
+              type(<a href='../type/part~2.html'>part</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-process~2"></span><h3> function <a href='../proc/process~2.html'>process</a>(p) result(accepted)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>process this part through all the workflows.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~5"></span>
+              type(<a href='../type/part~2.html'>part</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-workflow_name_to_index~2"></span><h3> function <a href='../proc/workflow_name_to_index~2.html'>workflow_name_to_index</a>(name) result(idx)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>get the index of this workflow in the array</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name~6"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-parse_rule~2"></span><h3> function <a href='../proc/parse_rule~2.html'>parse_rule</a>(s) result(r)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~5"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/rule~2.html'>rule</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_19</span>
+
+<span class="w">    </span><span class="k">use </span><span class="n">aoc_utilities</span>
+<span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span><span class="p">,</span><span class="w"> </span><span class="n">iline</span><span class="p">,</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="c">!, name</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vals</span>
+<span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">accepted</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">total_accepted</span>
+
+<span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">part</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xmas</span><span class="w">  </span><span class="c">! [x,m,a,s]</span>
+<span class="w">    </span><span class="k">end type </span><span class="n">part</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">part</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">parts</span>
+
+<span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rule</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">accept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">reject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c">! 1:&lt;, 2:&gt;</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">operator_arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c">! 1:x, 2:m, 3:a, 4:s</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">operator_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c">! value to compare to</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="c">! where to next (workflow name)</span>
+<span class="w">    </span><span class="k">end type </span><span class="n">rule</span>
+
+<span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">workflow</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">rule</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rules</span>
+<span class="w">    </span><span class="k">end type </span><span class="n">workflow</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">workflow</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">workflows</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">workflow</span><span class="p">),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">w</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c">! open(newunit=iunit, file=&#39;inputs/day19_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="w">    </span><span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day19.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">workflows</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="k">do </span><span class="n">iline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">        </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">!now parse part ratings</span>
+<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">parts</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">parts</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">! parsing parts</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="w">            </span><span class="c">! {x=787,m=2655,a=1222,s=2876}</span>
+<span class="w">            </span><span class="n">vals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">parts</span><span class="p">,</span><span class="w"> </span><span class="n">part</span><span class="p">(</span><span class="n">xmas</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">(</span><span class="mi">4</span><span class="p">:)),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                       </span><span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">(</span><span class="mi">3</span><span class="p">:)),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                       </span><span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">3</span><span class="p">)%</span><span class="n">str</span><span class="p">(</span><span class="mi">3</span><span class="p">:)),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                       </span><span class="nb">int</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">4</span><span class="p">)%</span><span class="n">str</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">4</span><span class="p">)%</span><span class="n">str</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))])]</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="c">! parsing workflows : qqz{s&gt;2770:qs,m&lt;1801:hdj,R}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">w</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="n">w</span><span class="p">);</span><span class="w"> </span><span class="k">allocate</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="c">! blank one</span>
+<span class="w">            </span><span class="n">vals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">w</span><span class="p">%</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="w">  </span><span class="c">! workflow name</span>
+<span class="w">            </span><span class="c">!write(*,*) &#39;---&gt;&#39;//w%name//&#39;&lt;-----&#39;</span>
+<span class="w">            </span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c">! remove last bracket</span>
+<span class="w">            </span><span class="n">vals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! workflow rules</span>
+<span class="w">            </span><span class="c">! add each rule to the workflow</span>
+<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">w</span><span class="p">%</span><span class="n">rules</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="w">                </span><span class="n">w</span><span class="p">%</span><span class="n">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">w</span><span class="p">%</span><span class="n">rules</span><span class="p">,</span><span class="w"> </span><span class="n">parse_rule</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">str</span><span class="p">)]</span>
+<span class="w">            </span><span class="k">end do</span>
+<span class="k">            </span><span class="n">workflows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">workflows</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">]</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">    end do</span>
+
+<span class="k">    </span><span class="n">total_accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+<span class="w">        </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">process</span><span class="p">(</span><span class="n">parts</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="c">!write(*,*) parts(i), accepted</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">accepted</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">total_accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total_accepted</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rating</span><span class="p">(</span><span class="n">parts</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end do</span>
+
+<span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;19a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">total_accepted</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;19&#39;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">contains</span>
+
+<span class="k">        pure </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">rating</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="w">            </span><span class="k">type</span><span class="p">(</span><span class="n">part</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p</span>
+<span class="w">            </span><span class="n">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">xmas</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end function </span><span class="n">rating</span>
+
+<span class="w">        </span><span class="k">function </span><span class="n">process</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">accepted</span><span class="p">)</span>
+<span class="w">            </span><span class="c">!! process this part through all the workflows.</span>
+<span class="w">            </span><span class="k">type</span><span class="p">(</span><span class="n">part</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p</span>
+<span class="w">            </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">accepted</span>
+
+<span class="w">            </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">irule</span>
+
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workflow_name_to_index</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">)</span><span class="w">     </span><span class="c">! start at the first workflow</span>
+<span class="w">            </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! first rule</span>
+<span class="w">            </span><span class="k">do</span>
+<span class="k">                associate</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">workflows</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">rules</span><span class="p">(</span><span class="n">irule</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">                    </span><span class="c">! check if we are done</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">accept</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="k">                    if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="n">reject</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.;</span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="k">                    if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="n">operator</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                        </span><span class="c">! process the operator</span>
+<span class="w">                        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="n">operator</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c">! &lt;</span>
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">xmas</span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="n">operator_arg</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">%</span><span class="n">operator_val</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                                </span><span class="c">! check if done</span>
+<span class="w">                                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="k">                                if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="o">==</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="w">                                </span><span class="c">! go to next workflow:</span>
+<span class="w">                                </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workflow_name_to_index</span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="p">)</span>
+<span class="w">                                </span><span class="c">!write(*,*) &#39;goto &#39;//r%goto</span>
+<span class="w">                                </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! start at first rule of new workflow</span>
+<span class="w">                             </span><span class="k">else</span>
+<span class="k">                                </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irule</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! next rule</span>
+<span class="w">                             </span><span class="k">end if</span>
+<span class="k">                        case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c">! &gt;</span>
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">xmas</span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="n">operator_arg</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">%</span><span class="n">operator_val</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                                </span><span class="c">! check if done</span>
+<span class="w">                                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="k">                                if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="o">==</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="p">;</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="k">end if</span>
+<span class="w">                                </span><span class="c">! go to next workflow:</span>
+<span class="w">                                </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workflow_name_to_index</span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="p">)</span>
+<span class="w">                                </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! start at first rule of new workflow</span>
+<span class="w">                            </span><span class="k">else</span>
+<span class="k">                                </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irule</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! next rule</span>
+<span class="w">                            </span><span class="k">end if</span>
+<span class="k">                        end select</span>
+<span class="k">                    else</span>
+<span class="w">                        </span><span class="c">! goto another workflow</span>
+<span class="w">                        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workflow_name_to_index</span><span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="p">)</span>
+<span class="w">                        </span><span class="n">irule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! start at first rule of new workflow</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end associate</span>
+<span class="k">            end do</span>
+
+<span class="k">        end function </span><span class="n">process</span>
+
+<span class="w">        </span><span class="k">function </span><span class="n">workflow_name_to_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="w">            </span><span class="c">!! get the index of this workflow in the array</span>
+<span class="w">            </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span>
+<span class="w">            </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+<span class="w">            </span><span class="k">do </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">workflows</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">workflows</span><span class="p">(</span><span class="n">idx</span><span class="p">)%</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="c">! found it</span>
+<span class="w">            </span><span class="k">end do</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="o">&gt;</span><span class="n">size</span><span class="p">(</span><span class="n">workflows</span><span class="p">))</span><span class="w"> </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;workflow not found: &#39;</span><span class="o">//</span><span class="n">name</span>
+<span class="w">        </span><span class="k">end function </span><span class="n">workflow_name_to_index</span>
+
+<span class="w">        </span><span class="k">function </span><span class="n">parse_rule</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="w">            </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s</span>
+<span class="w">            </span><span class="k">type</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r</span>
+
+<span class="w">            </span><span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">v</span>
+<span class="w">            </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xmas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;xmas&#39;</span><span class="w"> </span><span class="c">! 1,2,3,4</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">r</span><span class="p">%</span><span class="k">accept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">r</span><span class="p">%</span><span class="n">reject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">3</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="w"> </span><span class="c">! example: a&lt;2006:qkq</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator_arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">xmas</span><span class="p">,</span><span class="n">s</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="w"> </span><span class="c">! can be a workflow or A or R</span>
+<span class="w">                </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="mi">3</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator_arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">xmas</span><span class="p">,</span><span class="n">s</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="n">operator_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="w"> </span><span class="c">! can be a workflow or A or R</span>
+<span class="w">                </span><span class="k">else</span>
+<span class="k">                    </span><span class="n">r</span><span class="p">%</span><span class="k">goto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w">  </span><span class="c">! it&#39;s a workflow name</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end if</span>
+<span class="k">        end function </span><span class="n">parse_rule</span>
+
+<span class="k">end program </span><span class="n">problem_19</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
