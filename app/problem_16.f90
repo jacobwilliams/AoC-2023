@@ -108,7 +108,7 @@ contains
                         end if
                         visited(direction_from, i,j+k) = .true.
                     case(RIGHT)  ! <--
-                        if ((j+k)<1) return
+                        if ((j-k)<1) return
                         if (array(i,j-k)/='.') then
                             call go(i,j-k,direction_from)
                             return
