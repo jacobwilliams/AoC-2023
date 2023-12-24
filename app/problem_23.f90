@@ -198,10 +198,11 @@ contains
         !! count the number of adjacent cells not a tree
         integer(ip),intent(in) :: i,j
         integer(ip) :: icount
-        icount = count([not_tree(i-1,j  ),&
-                        not_tree(i+1,j  ),&
-                        not_tree(i,  j+1),&
-                        not_tree(i,  j-1)])
+        icount = 0
+        if (i>=1)     icount = icount + count([not_tree(i-1,j  )])
+        if (i<=nrows) icount = icount + count([not_tree(i+1,j  )])
+        if (j<=ncols) icount = icount + count([not_tree(i,  j+1)])
+        if (j>=1)     icount = icount + count([not_tree(i,  j-1)])
     end function count_adjacent
 
     pure function get_cell(i,j) result(a)
@@ -217,7 +218,11 @@ contains
     pure logical function not_tree(i,j)
         !! returns true if the cell isn't a tree
         integer(ip),intent(in) :: i,j !! coordinates
-        not_tree = array(i,j) /= '#'
+        if (i<1 .or. i>nrows .or. j<1 .or. j>ncols) then
+            not_tree = .false.  ! off the board, call it a tree
+        else
+            not_tree = array(i,j) /= '#'
+        end if
     end function not_tree
 
 end program problem_23
