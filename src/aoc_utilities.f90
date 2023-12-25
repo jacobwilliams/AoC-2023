@@ -55,6 +55,7 @@
     public :: str_to_int_array_with_mapping, str_to_int64_array_with_mapping
     public :: int_array_to_char_array
     public :: hex2int
+    public :: inverse
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -157,7 +158,7 @@ contains
     pure elemental function string_to_int_64(me) result(i)
         class(string),intent(in) :: me
         integer(int64) :: i
-        i = int(me%str)
+        i = int(me%str, int64)
     end function string_to_int_64
 !****************************************************************
 
@@ -1257,6 +1258,38 @@ contains
 
     end function hex2int
 !*****************************************************************************************
+
+!*****************************************************************************************
+!>
+!  inverse of a 2x2 matrix.
+!
+!  See: https://caps.gsfc.nasa.gov/simpson/software/m22inv_f90.txt
+
+    subroutine inverse (a, ainv, status_ok)
+
+        real(wp), dimension(2,2), intent(in)  :: a
+        real(wp), dimension(2,2), intent(out) :: ainv
+        logical, intent(out) :: status_ok
+
+        real(wp), parameter :: eps = 1.0e-10_wp
+        real(wp), dimension(2,2) :: cofactor
+
+        associate( det => a(1,1)*a(2,2) - a(1,2)*a(2,1) )
+            if (abs(det) <= eps) then
+                ainv = 0.0_wp
+                status_ok = .false.
+            else
+                cofactor(1,1) = +a(2,2)
+                cofactor(1,2) = -a(2,1)
+                cofactor(2,1) = -a(1,2)
+                cofactor(2,2) = +a(1,1)
+                ainv = transpose(cofactor) / det
+                status_ok = .true.
+            end if
+        end associate
+
+    end subroutine inverse
+!************************************************************************************************
 
 !************************************************************************************************
     end module aoc_utilities
