@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_22 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_22      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 4.3% of total for programs.">107 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_22.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_22.f90.html'>problem_22.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_22</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_22.html#variable-iunit~6">iunit</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-n_lines~4">n_lines</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-i~34">i</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-j~20">j</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-line~7">line</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-start_end">start_end</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-starts">starts</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-ends">ends</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-istart_array">istart_array</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-iend_array">iend_array</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-array~8">array</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-ipieces_above">ipieces_above</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-ipieces_below">ipieces_below</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-ok_to_disintegrate">ok_to_disintegrate</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-moved~2">moved</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-tmp_moved">tmp_moved</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-ok_tmp">ok_tmp</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_22.html#proc-get_pieces_above">get_pieces_above</a>
+            <a class="list-group-item" href="../program/problem_22.html#proc-get_pieces_below">get_pieces_below</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_22.html#proc-update_array">update_array</a>
+            <a class="list-group-item" href="../program/problem_22.html#proc-move_piece_down">move_piece_down</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_22.html#src">problem_22</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_22~~UsesGraph Pages: 1 -->
+<svg id="programproblem_22UsesGraph" width="326pt" height="52pt"
+ viewBox="0.00 0.00 326.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_22~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~problem_22~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 322,-48 322,4 -4,4"/>
+<!-- program~problem_22 -->
+<g id="program~~problem_22~~UsesGraph_node1" class="node">
+<title>program~problem_22</title>
+<polygon fill="none" stroke="black" points="318,-44 242,-44 242,-20 318,-20 318,-44"/>
+<text text-anchor="middle" x="280" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_22~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~problem_22&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_22~~UsesGraph_edge1" class="edge">
+<title>program~problem_22&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.86,-32.61C230.37,-32.77 217.66,-32.92 206,-33 172.22,-33.23 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_22~~UsesGraph_node3" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_22~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
+<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_22~~UsesGraph_edge2" class="edge">
+<title>program~problem_22&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.76,-25.23C233.52,-23.73 224.68,-22.12 216.1,-20.56"/>
+<polygon fill="#000000" stroke="#000000" points="216.67,-17.11 206.2,-18.76 215.42,-24 216.67,-17.11"/>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_22~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_22~~CallsGraph Pages: 1 -->
+<svg id="programproblem_22CallsGraph" width="641pt" height="140pt"
+ viewBox="0.00 0.00 641.00 140.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_22~~CallsGraph" class="graph" transform="scale(2.52 2.52) rotate(0) translate(4 349.96)">
+<title>program~~problem_22~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-349.96 1612,-349.96 1612,4 -4,4"/>
+<!-- program~problem_22 -->
+<g id="program~~problem_22~~CallsGraph_node1" class="node">
+<title>program~problem_22</title>
+<polygon fill="none" stroke="black" points="76,-183.96 0,-183.96 0,-159.96 76,-159.96 76,-183.96"/>
+<text text-anchor="middle" x="38" y="-169.56" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
+</g>
+<!-- interface~split -->
+<g id="program~~problem_22~~CallsGraph_node2" class="node">
+<title>interface~split</title>
+<g id="a_program~~problem_22~~CallsGraph_node2"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
+<polygon fill="#a7506f" stroke="#a7506f" points="268.5,-345.96 163.5,-345.96 163.5,-321.96 268.5,-321.96 268.5,-345.96"/>
+<text text-anchor="middle" x="216" y="-331.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;interface~split -->
+<g id="program~~problem_22~~CallsGraph_edge1" class="edge">
+<title>program~problem_22&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M41.54,-184.07C48,-211.69 67.79,-279.56 112,-312.96 123.89,-321.95 138.67,-327.34 153.3,-330.51"/>
+<polygon fill="#000000" stroke="#000000" points="152.89,-334 163.36,-332.37 154.16,-327.11 152.89,-334"/>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_22~~CallsGraph_node3" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_22~~CallsGraph_node3"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="303,-303.96 129,-303.96 129,-279.96 303,-279.96 303,-303.96"/>
+<text text-anchor="middle" x="216" y="-289.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~clock_end -->
+<g id="program~~problem_22~~CallsGraph_edge2" class="edge">
+<title>program~problem_22&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M44.39,-184.29C54.4,-205.63 77.98,-249.24 112,-270.96 114.77,-272.73 117.66,-274.36 120.64,-275.85"/>
+<polygon fill="#000000" stroke="#000000" points="119.25,-279.06 129.81,-279.93 122.09,-272.66 119.25,-279.06"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_22~~CallsGraph_node4" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_22~~CallsGraph_node4"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-261.96 127,-261.96 127,-237.96 305,-237.96 305,-261.96"/>
+<text text-anchor="middle" x="216" y="-247.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~clock_start -->
+<g id="program~~problem_22~~CallsGraph_edge3" class="edge">
+<title>program~problem_22&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M52.56,-184.01C66.54,-195.82 89.4,-213.52 112,-223.96 121.39,-228.3 131.6,-231.99 141.84,-235.1"/>
+<polygon fill="#000000" stroke="#000000" points="141.05,-238.52 151.63,-237.91 142.98,-231.79 141.05,-238.52"/>
+</g>
+<!-- proc~get_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_node5" class="node">
+<title>proc~get_pieces_above</title>
+<g id="a_program~~problem_22~~CallsGraph_node5"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="534,-221.96 356,-221.96 356,-197.96 534,-197.96 534,-221.96"/>
+<text text-anchor="middle" x="445" y="-207.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_edge4" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_pieces_above</title>
+<path fill="none" stroke="#000000" d="M76.05,-178.68C87.54,-180.59 100.27,-182.54 112,-183.96 190.34,-193.45 279.52,-200.22 345.72,-204.46"/>
+<polygon fill="#000000" stroke="#000000" points="345.52,-207.95 355.72,-205.09 345.96,-200.97 345.52,-207.95"/>
+</g>
+<!-- proc~get_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_node6" class="node">
+<title>proc~get_pieces_below</title>
+<g id="a_program~~problem_22~~CallsGraph_node6"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="533.5,-179.96 356.5,-179.96 356.5,-155.96 533.5,-155.96 533.5,-179.96"/>
+<text text-anchor="middle" x="445" y="-165.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge5" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M76.01,-171.6C136.69,-171 259.23,-169.79 346.21,-168.93"/>
+<polygon fill="#000000" stroke="#000000" points="346.41,-172.43 356.37,-168.83 346.34,-165.43 346.41,-172.43"/>
+</g>
+<!-- proc~move_piece_down -->
+<g id="program~~problem_22~~CallsGraph_node7" class="node">
+<title>proc~move_piece_down</title>
+<g id="a_program~~problem_22~~CallsGraph_node7"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
+<polygon fill="#d9534f" stroke="#d9534f" points="306.5,-143.96 125.5,-143.96 125.5,-119.96 306.5,-119.96 306.5,-143.96"/>
+<text text-anchor="middle" x="216" y="-129.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~move_piece_down -->
+<g id="program~~problem_22~~CallsGraph_edge6" class="edge">
+<title>program~problem_22&#45;&gt;proc~move_piece_down</title>
+<path fill="none" stroke="#000000" d="M76.33,-163.48C98.33,-158.48 126.74,-152.02 152.12,-146.26"/>
+<polygon fill="#000000" stroke="#000000" points="153.06,-149.63 162.04,-144 151.51,-142.8 153.06,-149.63"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_22~~CallsGraph_node8" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_22~~CallsGraph_node8"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="320,-101.96 112,-101.96 112,-77.96 320,-77.96 320,-101.96"/>
+<text text-anchor="middle" x="216" y="-87.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_22~~CallsGraph_edge7" class="edge">
+<title>program~problem_22&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M50.08,-159.56C63.37,-145.51 87,-123 112,-110.96 116.39,-108.85 120.99,-106.95 125.7,-105.24"/>
+<polygon fill="#000000" stroke="#000000" points="127.12,-108.46 135.51,-101.99 124.92,-101.81 127.12,-108.46"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_22~~CallsGraph_node9" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_22~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="282,-59.96 150,-59.96 150,-35.96 282,-35.96 282,-59.96"/>
+<text text-anchor="middle" x="216" y="-45.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~read_line -->
+<g id="program~~problem_22~~CallsGraph_edge8" class="edge">
+<title>program~problem_22&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M43.95,-159.84C53.56,-137.91 76.93,-91.82 112,-68.96 120.57,-63.38 130.33,-59.23 140.35,-56.16"/>
+<polygon fill="#000000" stroke="#000000" points="141.27,-59.53 150,-53.53 139.43,-52.78 141.27,-59.53"/>
+</g>
+<!-- proc~update_array -->
+<g id="program~~problem_22~~CallsGraph_node10" class="node">
+<title>proc~update_array</title>
+<g id="a_program~~problem_22~~CallsGraph_node10"><a xlink:href=".././proc/update_array.html" xlink:title="problem_22::update_array">
+<polygon fill="#d9534f" stroke="#d9534f" points="522,-78.96 368,-78.96 368,-54.96 522,-54.96 522,-78.96"/>
+<text text-anchor="middle" x="445" y="-64.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::update_array</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~update_array -->
+<g id="program~~problem_22~~CallsGraph_edge9" class="edge">
+<title>program~problem_22&#45;&gt;proc~update_array</title>
+<path fill="none" stroke="#000000" d="M40.83,-159.75C45.93,-130.57 63.29,-56.98 112,-26.96 207.67,31.98 348.47,-21.08 411.46,-50.47"/>
+<polygon fill="#000000" stroke="#000000" points="410,-53.65 420.53,-54.79 413.01,-47.33 410,-53.65"/>
+</g>
+<!-- proc~split1 -->
+<g id="program~~problem_22~~CallsGraph_node12" class="node">
+<title>proc~split1</title>
+<g id="a_program~~problem_22~~CallsGraph_node12"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="686,-315.96 574,-315.96 574,-291.96 686,-291.96 686,-315.96"/>
+<text text-anchor="middle" x="630" y="-301.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split1 -->
+<g id="program~~problem_22~~CallsGraph_edge10" class="edge">
+<title>interface~split&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M268.68,-331.75C331.48,-328.85 440.63,-323.16 534,-314.96 543.57,-314.12 553.68,-313.1 563.58,-312.02"/>
+<polygon fill="#000000" stroke="#000000" points="564.24,-315.47 573.79,-310.88 563.47,-308.51 564.24,-315.47"/>
+</g>
+<!-- proc~split2 -->
+<g id="program~~problem_22~~CallsGraph_node13" class="node">
+<title>proc~split2</title>
+<g id="a_program~~problem_22~~CallsGraph_node13"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="501,-305.96 389,-305.96 389,-281.96 501,-281.96 501,-305.96"/>
+<text text-anchor="middle" x="445" y="-291.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split2 -->
+<g id="program~~problem_22~~CallsGraph_edge11" class="edge">
+<title>interface~split&#45;&gt;proc~split2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M268.51,-324.89C301.13,-319.14 343.61,-311.65 378.6,-305.49"/>
+<polygon fill="#000000" stroke="#000000" points="379.49,-308.89 388.73,-303.7 378.27,-301.99 379.49,-308.89"/>
+</g>
+<!-- interface~unique -->
+<g id="program~~problem_22~~CallsGraph_node11" class="node">
+<title>interface~unique</title>
+<g id="a_program~~problem_22~~CallsGraph_node11"><a xlink:href=".././interface/unique.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="690,-210.96 570,-210.96 570,-186.96 690,-186.96 690,-210.96"/>
+<text text-anchor="middle" x="630" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+</a>
+</g>
+</g>
+<!-- proc~get_pieces_above&#45;&gt;interface~unique -->
+<g id="program~~problem_22~~CallsGraph_edge12" class="edge">
+<title>proc~get_pieces_above&#45;&gt;interface~unique</title>
+<path fill="none" stroke="#000000" d="M534.02,-204.67C542.67,-204.15 551.37,-203.63 559.8,-203.12"/>
+<polygon fill="#000000" stroke="#000000" points="560.16,-206.61 569.93,-202.51 559.74,-199.62 560.16,-206.61"/>
+</g>
+<!-- proc~get_pieces_below&#45;&gt;interface~unique -->
+<g id="program~~problem_22~~CallsGraph_edge13" class="edge">
+<title>proc~get_pieces_below&#45;&gt;interface~unique</title>
+<path fill="none" stroke="#000000" d="M517.01,-179.99C531.08,-182.38 545.83,-184.88 559.83,-187.25"/>
+<polygon fill="#000000" stroke="#000000" points="559.44,-190.73 569.88,-188.95 560.61,-183.83 559.44,-190.73"/>
+</g>
+<!-- proc~move_piece_down&#45;&gt;proc~get_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge14" class="edge">
+<title>proc~move_piece_down&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M292.9,-144C313.82,-147.32 336.66,-150.94 358.1,-154.34"/>
+<polygon fill="#000000" stroke="#000000" points="357.74,-157.83 368.17,-155.94 358.84,-150.91 357.74,-157.83"/>
+</g>
+<!-- proc~move_piece_down&#45;&gt;proc~update_array -->
+<g id="program~~problem_22~~CallsGraph_edge15" class="edge">
+<title>proc~move_piece_down&#45;&gt;proc~update_array</title>
+<path fill="none" stroke="#000000" d="M282.99,-119.94C295.36,-117.28 308.13,-114.26 320,-110.96 348.63,-103.01 380.18,-91.78 404.29,-82.65"/>
+<polygon fill="#000000" stroke="#000000" points="405.71,-85.86 413.8,-79.02 403.21,-79.32 405.71,-85.86"/>
+</g>
+<!-- proc~unique32 -->
+<g id="program~~problem_22~~CallsGraph_node15" class="node">
+<title>proc~unique32</title>
+<g id="a_program~~problem_22~~CallsGraph_node15"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="873,-252.96 740,-252.96 740,-228.96 873,-228.96 873,-252.96"/>
+<text text-anchor="middle" x="806.5" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+</a>
+</g>
+</g>
+<!-- interface~unique&#45;&gt;proc~unique32 -->
+<g id="program~~problem_22~~CallsGraph_edge16" class="edge">
+<title>interface~unique&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M681,-211C701.18,-215.85 724.62,-221.5 745.68,-226.57"/>
+<polygon fill="#000000" stroke="#000000" points="744.95,-229.99 755.49,-228.93 746.58,-223.18 744.95,-229.99"/>
+</g>
+<!-- proc~unique64 -->
+<g id="program~~problem_22~~CallsGraph_node16" class="node">
+<title>proc~unique64</title>
+<g id="a_program~~problem_22~~CallsGraph_node16"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="873,-210.96 740,-210.96 740,-186.96 873,-186.96 873,-210.96"/>
+<text text-anchor="middle" x="806.5" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+</a>
+</g>
+</g>
+<!-- interface~unique&#45;&gt;proc~unique64 -->
+<g id="program~~problem_22~~CallsGraph_edge17" class="edge">
+<title>interface~unique&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M690.08,-198.96C702.84,-198.96 716.51,-198.96 729.81,-198.96"/>
+<polygon fill="#000000" stroke="#000000" points="729.89,-202.46 739.89,-198.96 729.89,-195.46 729.89,-202.46"/>
+</g>
+<!-- proc~expand_vector -->
+<g id="program~~problem_22~~CallsGraph_node14" class="node">
+<title>proc~expand_vector</title>
+<g id="a_program~~problem_22~~CallsGraph_node14"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="887,-315.96 726,-315.96 726,-291.96 887,-291.96 887,-315.96"/>
+<text text-anchor="middle" x="806.5" y="-301.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~split1&#45;&gt;proc~expand_vector -->
+<g id="program~~problem_22~~CallsGraph_edge18" class="edge">
+<title>proc~split1&#45;&gt;proc~expand_vector</title>
+<path fill="none" stroke="#000000" d="M686.21,-303.96C695.65,-303.96 705.67,-303.96 715.73,-303.96"/>
+<polygon fill="#000000" stroke="#000000" points="715.78,-307.46 725.78,-303.96 715.78,-300.46 715.78,-307.46"/>
+</g>
+<!-- proc~split2&#45;&gt;proc~split1 -->
+<g id="program~~problem_22~~CallsGraph_edge19" class="edge">
+<title>proc~split2&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" d="M501.4,-296.99C521.02,-298.06 543.28,-299.28 563.65,-300.39"/>
+<polygon fill="#000000" stroke="#000000" points="563.61,-303.9 573.79,-300.95 563.99,-296.91 563.61,-303.9"/>
+</g>
+<!-- interface~sort -->
+<g id="program~~problem_22~~CallsGraph_node17" class="node">
+<title>interface~sort</title>
+<g id="a_program~~problem_22~~CallsGraph_node17"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
+<polygon fill="#a7506f" stroke="#a7506f" points="1026,-231.96 923,-231.96 923,-207.96 1026,-207.96 1026,-231.96"/>
+<text text-anchor="middle" x="974.5" y="-217.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+</a>
+</g>
+</g>
+<!-- proc~unique32&#45;&gt;interface~sort -->
+<g id="program~~problem_22~~CallsGraph_edge20" class="edge">
+<title>proc~unique32&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M873.11,-232.66C886.19,-231.01 899.88,-229.28 912.8,-227.64"/>
+<polygon fill="#000000" stroke="#000000" points="913.48,-231.09 922.96,-226.36 912.6,-224.14 913.48,-231.09"/>
+</g>
+<!-- proc~unique64&#45;&gt;interface~sort -->
+<g id="program~~problem_22~~CallsGraph_edge21" class="edge">
+<title>proc~unique64&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M873.11,-207.26C886.19,-208.92 899.88,-210.65 912.8,-212.28"/>
+<polygon fill="#000000" stroke="#000000" points="912.6,-215.79 922.96,-213.57 913.48,-208.84 912.6,-215.79"/>
+</g>
+<!-- proc~sort_ascending -->
+<g id="program~~problem_22~~CallsGraph_node18" class="node">
+<title>proc~sort_ascending</title>
+<g id="a_program~~problem_22~~CallsGraph_node18"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
+<polygon fill="#d9534f" stroke="#d9534f" points="1225,-211.96 1062,-211.96 1062,-187.96 1225,-187.96 1225,-211.96"/>
+<text text-anchor="middle" x="1143.5" y="-197.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending -->
+<g id="program~~problem_22~~CallsGraph_edge22" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1026.06,-213.91C1034.29,-212.92 1043.03,-211.88 1051.87,-210.82"/>
+<polygon fill="#000000" stroke="#000000" points="1052.37,-214.28 1061.89,-209.62 1051.54,-207.33 1052.37,-214.28"/>
+</g>
+<!-- proc~sort_ascending_64 -->
+<g id="program~~problem_22~~CallsGraph_node19" class="node">
+<title>proc~sort_ascending_64</title>
+<g id="a_program~~problem_22~~CallsGraph_node19"><a xlink:href=".././proc/sort_ascending_64.html" xlink:title="aoc_utilities::sort_ascending_64">
+<polygon fill="#d9534f" stroke="#d9534f" points="1443,-252.96 1261,-252.96 1261,-228.96 1443,-228.96 1443,-252.96"/>
+<text text-anchor="middle" x="1352" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending_64</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending_64 -->
+<g id="program~~problem_22~~CallsGraph_edge23" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending_64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1026.14,-222.8C1083.5,-226 1178.4,-231.31 1250.86,-235.36"/>
+<polygon fill="#000000" stroke="#000000" points="1250.74,-238.86 1260.92,-235.93 1251.14,-231.87 1250.74,-238.86"/>
+</g>
+<!-- interface~swap -->
+<g id="program~~problem_22~~CallsGraph_node20" class="node">
+<title>interface~swap</title>
+<g id="a_program~~problem_22~~CallsGraph_node20"><a xlink:href=".././interface/swap.html" xlink:title="aoc_utilities::swap">
+<polygon fill="#a7506f" stroke="#a7506f" points="1407,-210.96 1297,-210.96 1297,-186.96 1407,-186.96 1407,-210.96"/>
+<text text-anchor="middle" x="1352" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending&#45;&gt;interface~swap -->
+<g id="program~~problem_22~~CallsGraph_edge24" class="edge">
+<title>proc~sort_ascending&#45;&gt;interface~swap</title>
+<path fill="none" stroke="#000000" d="M1225.23,-199.57C1245.55,-199.47 1267.11,-199.37 1286.52,-199.28"/>
+<polygon fill="#000000" stroke="#000000" points="1286.78,-202.78 1296.76,-199.23 1286.74,-195.78 1286.78,-202.78"/>
+</g>
+<!-- proc~swap64 -->
+<g id="program~~problem_22~~CallsGraph_node21" class="node">
+<title>proc~swap64</title>
+<g id="a_program~~problem_22~~CallsGraph_node21"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
+<polygon fill="#d9534f" stroke="#d9534f" points="1605.5,-252.96 1481.5,-252.96 1481.5,-228.96 1605.5,-228.96 1605.5,-252.96"/>
+<text text-anchor="middle" x="1543.5" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending_64&#45;&gt;proc~swap64 -->
+<g id="program~~problem_22~~CallsGraph_edge25" class="edge">
+<title>proc~sort_ascending_64&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" d="M1443.03,-240.96C1452.47,-240.96 1461.97,-240.96 1471.15,-240.96"/>
+<polygon fill="#000000" stroke="#000000" points="1471.37,-244.46 1481.37,-240.96 1471.37,-237.46 1471.37,-244.46"/>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap64 -->
+<g id="program~~problem_22~~CallsGraph_edge27" class="edge">
+<title>interface~swap&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-210.94C1429.16,-215.84 1454.92,-221.55 1478,-226.67"/>
+<polygon fill="#000000" stroke="#000000" points="1477.53,-230.15 1488.05,-228.9 1479.04,-223.32 1477.53,-230.15"/>
+</g>
+<!-- proc~swap32 -->
+<g id="program~~problem_22~~CallsGraph_node22" class="node">
+<title>proc~swap32</title>
+<g id="a_program~~problem_22~~CallsGraph_node22"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
+<polygon fill="#d9534f" stroke="#d9534f" points="1605.5,-210.96 1481.5,-210.96 1481.5,-186.96 1605.5,-186.96 1605.5,-210.96"/>
+<text text-anchor="middle" x="1543.5" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
+</a>
+</g>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap32 -->
+<g id="program~~problem_22~~CallsGraph_edge26" class="edge">
+<title>interface~swap&#45;&gt;proc~swap32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-198.96C1426.98,-198.96 1449.88,-198.96 1471.11,-198.96"/>
+<polygon fill="#000000" stroke="#000000" points="1471.37,-202.46 1481.37,-198.96 1471.37,-195.46 1471.37,-202.46"/>
+</g>
+<!-- proc~swap_str -->
+<g id="program~~problem_22~~CallsGraph_node23" class="node">
+<title>proc~swap_str</title>
+<g id="a_program~~problem_22~~CallsGraph_node23"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
+<polygon fill="#d9534f" stroke="#d9534f" points="1608,-168.96 1479,-168.96 1479,-144.96 1608,-144.96 1608,-168.96"/>
+<text text-anchor="middle" x="1543.5" y="-154.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
+</a>
+</g>
+</g>
+<!-- interface~swap&#45;&gt;proc~swap_str -->
+<g id="program~~problem_22~~CallsGraph_edge28" class="edge">
+<title>interface~swap&#45;&gt;proc~swap_str</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-186.99C1429.16,-182.09 1454.92,-176.38 1478,-171.26"/>
+<polygon fill="#000000" stroke="#000000" points="1479.04,-174.61 1488.05,-169.03 1477.53,-167.78 1479.04,-174.61"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramproblem_22CallsGraph = svgPanZoom('#programproblem_22CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iunit~6"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_lines~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_lines</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~34"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~20"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~7"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-start_end"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>start_end</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-starts"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>starts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ends"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>ends</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istart_array"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>istart_array</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iend_array"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>iend_array</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-array~8"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:,:,:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>array</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipieces_above"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>ipieces_above</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipieces_below"></span>
+              integer(kind=ip),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>ipieces_below</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ok_to_disintegrate"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ok_to_disintegrate</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-moved~2"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>moved</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmp_moved"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmp_moved</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ok_tmp"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ok_tmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_pieces_above"></span><h3> function <a href='../proc/get_pieces_above.html'>get_pieces_above</a>(i) result(ipieces)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>get set of pieces above piece i</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~18"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip), dimension(:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_pieces_below"></span><h3> function <a href='../proc/get_pieces_below.html'>get_pieces_below</a>(i) result(ipieces)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>get set of pieces below piece i</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~19"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip), dimension(:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-update_array"></span><h3> subroutine <a href='../proc/update_array.html'>update_array</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>populate the array using the start/end indices</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-move_piece_down"></span><h3> subroutine <a href='../proc/move_piece_down.html'>move_piece_down</a>(i, moved)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>move a piece down (fall one square) if it can be moved</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~8"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+<p>piece number</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-moved"></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>moved</strong></td>
+            <td>
+<p>if it was actually movec</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_22</span>
+
+<span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span><span class="w"> </span><span class="c">! use long ints</span>
+<span class="k">use </span><span class="n">aoc_utilities</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span>
+<span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">start_end</span><span class="p">,</span><span class="w"> </span><span class="n">starts</span><span class="p">,</span><span class="w"> </span><span class="n">ends</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istart_array</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iend_array</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces_above</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces_below</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ok_to_disintegrate</span>
+<span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">moved</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span><span class="p">,</span><span class="w"> </span><span class="n">ok_tmp</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="c">! read the data:</span>
+<span class="c">! open(newunit=iunit, file=&#39;inputs/day22_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day22.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">iend_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">);</span><span class="w"> </span><span class="n">start_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">starts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">starts</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
+<span class="w">    </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">ends</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
+<span class="k">end do</span>
+<span class="k">close</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="c">! create the array to hold all the pieces:</span>
+<span class="k">allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)]),&amp;</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)]),&amp;</span>
+<span class="w">               </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)])))</span>
+<span class="k">call </span><span class="n">update_array</span><span class="p">()</span>
+
+<span class="c">!continue forward in time until all the bricks settle.</span>
+<span class="k">do</span>
+<span class="k">    </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">        </span><span class="k">call </span><span class="n">move_piece_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp_moved</span><span class="p">)</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"> </span><span class="c">! at least one was moved</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">    if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="c">! done moving all the pieces</span>
+<span class="k">end do</span>
+
+<span class="c">!find the ones we can remove without any other falling:</span>
+<span class="c">!  to do that, look to see if any above it are not otherwise held up by another piece</span>
+<span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">ipieces_above</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c">! nothing above, it so ok to remove</span>
+<span class="w">        </span><span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        </span><span class="n">ok_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">)</span><span class="w"> </span><span class="c">! check all the pieces above. if ALL have other supporters then OK to remove</span>
+<span class="w">            </span><span class="n">ipieces_below</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">ipieces_below</span><span class="o">==</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! only supported by i , so can&#39;t remove i</span>
+<span class="w">                </span><span class="n">ok_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">                </span><span class="k">exit</span>
+<span class="k">            end if</span>
+<span class="k">        end do</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">ok_tmp</span><span class="p">)</span><span class="w"> </span><span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">end do</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;22a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ok_to_disintegrate</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;22&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    subroutine </span><span class="n">update_array</span><span class="p">()</span>
+<span class="w">        </span><span class="c">!! populate the array using the start/end indices</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">            </span><span class="k">array</span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">),&amp;</span>
+<span class="w">                  </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">),&amp;</span>
+<span class="w">                  </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">    end subroutine </span><span class="n">update_array</span>
+
+<span class="w">    </span><span class="k">function </span><span class="n">get_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! get set of pieces above piece i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="w"> </span><span class="c">!! counter</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">ipieces</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">        </span><span class="k">do </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="k">do </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;=</span><span class="nb">ubound</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! above this one</span>
+<span class="w">                </span><span class="k">end do</span>
+<span class="k">            end do</span>
+<span class="k">        end do</span>
+<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">get_pieces_above</span>
+
+<span class="w">    </span><span class="k">function </span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! get set of pieces below piece i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="w"> </span><span class="c">!! counter</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">ipieces</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">        </span><span class="k">do </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="k">do </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! below this one</span>
+<span class="w">                </span><span class="k">end do</span>
+<span class="k">            end do</span>
+<span class="k">        end do</span>
+<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">get_pieces_below</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">move_piece_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! move a piece down (fall one square) if it can be moved</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="c">!! piece number</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="c">!! if it was actually movec</span>
+<span class="w">        </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! can only move if nothing below</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">                </span><span class="k">call </span><span class="n">update_array</span><span class="p">()</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end if</span>
+<span class="k">    end subroutine </span><span class="n">move_piece_down</span>
+
+<span class="k">end program </span><span class="n">problem_22</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
