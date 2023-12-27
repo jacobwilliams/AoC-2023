@@ -83,7 +83,7 @@ call numdiff%initialize(6,6,&
 call solver%initialize( n = 6, &
                         m = 6, &
                         max_iter = 10000, &
-                        tol = epsilon(1.0_wp),&
+                        tol  = epsilon(1.0_wp),&
                         tolx = epsilon(1.0_wp),&
                         func = func, &
                         grad_sparse = grad_sparse, &
