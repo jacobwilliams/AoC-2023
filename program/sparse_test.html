@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>sparse_test &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>sparse_test      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 3.9% of total for programs.">134 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sparse_test.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/sparse_test.f90.html'>sparse_test.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">sparse_test</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/sparse_test.html#variable-n~85">n</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-m~64">m</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-max_iter~3">max_iter</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-tol~5">tol</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-verbose~3">verbose</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-solver">solver</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-alpha~5">alpha</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-use_broyden~3">use_broyden</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-step_mode~2">step_mode</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-n_intervals~3">n_intervals</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-istat~2">istat</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-message">message</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-x~77">x</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-f_evals">f_evals</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-i~72">i</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-description">description</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-fmin_tol~3">fmin_tol</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-icol~12">icol</a>
+            <a class="list-group-item" href="../program/sparse_test.html#variable-irow~12">irow</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/sparse_test.html#proc-func~2">func</a>
+            <a class="list-group-item" href="../program/sparse_test.html#proc-grad">grad</a>
+            <a class="list-group-item" href="../program/sparse_test.html#proc-grad_sparse">grad_sparse</a>
+            <a class="list-group-item" href="../program/sparse_test.html#proc-export">export</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/sparse_test.html#src">sparse_test</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/nlesolver_module.html'>nlesolver_module</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~sparse_test~~UsesGraph Pages: 1 -->
+<svg id="programsparse_testUsesGraph" width="472pt" height="52pt"
+ viewBox="0.00 0.00 472.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~sparse_test~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>program~~sparse_test~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 468,-48 468,4 -4,4"/>
+<!-- program~sparse_test -->
+<g id="program~~sparse_test~~UsesGraph_node1" class="node">
+<title>program~sparse_test</title>
+<polygon fill="none" stroke="black" points="464,-44 391,-44 391,-20 464,-20 464,-44"/>
+<text text-anchor="middle" x="427.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">sparse_test</text>
+</g>
+<!-- module~nlesolver_module -->
+<g id="program~~sparse_test~~UsesGraph_node2" class="node">
+<title>module~nlesolver_module</title>
+<g id="a_program~~sparse_test~~UsesGraph_node2"><a xlink:href=".././module/nlesolver_module.html" xlink:title="nlesolver_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="355,-44 248,-44 248,-20 355,-20 355,-44"/>
+<text text-anchor="middle" x="301.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module</text>
+</a>
+</g>
+</g>
+<!-- program~sparse_test&#45;&gt;module~nlesolver_module -->
+<g id="program~~sparse_test~~UsesGraph_edge1" class="edge">
+<title>program~sparse_test&#45;&gt;module~nlesolver_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M390.97,-32C382.94,-32 374.19,-32 365.41,-32"/>
+<polygon fill="#000000" stroke="#000000" points="365.14,-28.5 355.14,-32 365.14,-35.5 365.14,-28.5"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~sparse_test~~UsesGraph_node3" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- module~nlesolver_module&#45;&gt;iso_fortran_env -->
+<g id="program~~sparse_test~~UsesGraph_edge2" class="edge">
+<title>module~nlesolver_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M247.62,-32.7C235.89,-32.82 223.52,-32.93 212,-33 175.56,-33.21 166.44,-33.22 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
+<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+</g>
+<!-- module~fmin_module -->
+<g id="program~~sparse_test~~UsesGraph_node4" class="node">
+<title>module~fmin_module</title>
+<g id="a_program~~sparse_test~~UsesGraph_node4"><a xlink:href=".././module/fmin_module.html" xlink:title="fmin_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="212,-24 130,-24 130,0 212,0 212,-24"/>
+<text text-anchor="middle" x="171" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fmin_module</text>
+</a>
+</g>
+</g>
+<!-- module~nlesolver_module&#45;&gt;module~fmin_module -->
+<g id="program~~sparse_test~~UsesGraph_edge3" class="edge">
+<title>module~nlesolver_module&#45;&gt;module~fmin_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M247.86,-23.81C239.39,-22.49 230.63,-21.13 222.22,-19.82"/>
+<polygon fill="#000000" stroke="#000000" points="222.58,-16.33 212.16,-18.25 221.5,-23.25 222.58,-16.33"/>
+</g>
+<!-- module~fmin_module&#45;&gt;iso_fortran_env -->
+<g id="program~~sparse_test~~UsesGraph_edge4" class="edge">
+<title>module~fmin_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.71,-18.6C121.53,-19.95 112.79,-21.38 104.17,-22.79"/>
+<polygon fill="#000000" stroke="#000000" points="103.46,-19.36 94.16,-24.43 104.59,-26.27 103.46,-19.36"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Test of a sparse problem.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~sparse_test~~CallsGraph Pages: 1 -->
+<svg id="programsparse_testCallsGraph" width="641pt" height="157pt"
+ viewBox="0.00 0.00 641.00 157.07" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~sparse_test~~CallsGraph" class="graph" transform="scale(1.81 1.81) rotate(0) translate(4 280)">
+<title>program~~sparse_test~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280 1155,-280 1155,4 -4,4"/>
+<!-- program~sparse_test -->
+<g id="program~~sparse_test~~CallsGraph_node1" class="node">
+<title>program~sparse_test</title>
+<polygon fill="none" stroke="black" points="73,-234 0,-234 0,-210 73,-210 73,-234"/>
+<text text-anchor="middle" x="36.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50">sparse_test</text>
+</g>
+<!-- proc~get_status -->
+<g id="program~~sparse_test~~CallsGraph_node2" class="node">
+<title>proc~get_status</title>
+<g id="a_program~~sparse_test~~CallsGraph_node2"><a xlink:href=".././proc/get_status.html" xlink:title="nlesolver_module::nlesolver_type%get_status">
+<polygon fill="#d9534f" stroke="#d9534f" points="414,-276 158,-276 158,-252 414,-252 414,-276"/>
+<text text-anchor="middle" x="286" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::nlesolver_type%get_status</text>
+</a>
+</g>
+</g>
+<!-- program~sparse_test&#45;&gt;proc~get_status -->
+<g id="program~~sparse_test~~CallsGraph_edge1" class="edge">
+<title>program~sparse_test&#45;&gt;proc~get_status</title>
+<path fill="none" stroke="#000000" d="M73.21,-233.76C84.55,-237.15 97.21,-240.58 109,-243 122.84,-245.84 137.37,-248.33 151.91,-250.52"/>
+<polygon fill="#000000" stroke="#000000" points="151.57,-254 161.97,-251.98 152.57,-247.08 151.57,-254"/>
+</g>
+<!-- proc~initialize_nlesolver_variables -->
+<g id="program~~sparse_test~~CallsGraph_node3" class="node">
+<title>proc~initialize_nlesolver_variables</title>
+<g id="a_program~~sparse_test~~CallsGraph_node3"><a xlink:href=".././proc/initialize_nlesolver_variables.html" xlink:title="nlesolver_module::nlesolver_type%initialize_nlesolver_variables">
+<polygon fill="#d9534f" stroke="#d9534f" points="463,-234 109,-234 109,-210 463,-210 463,-234"/>
+<text text-anchor="middle" x="286" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::nlesolver_type%initialize_nlesolver_variables</text>
+</a>
+</g>
+</g>
+<!-- program~sparse_test&#45;&gt;proc~initialize_nlesolver_variables -->
+<g id="program~~sparse_test~~CallsGraph_edge2" class="edge">
+<title>program~sparse_test&#45;&gt;proc~initialize_nlesolver_variables</title>
+<path fill="none" stroke="#000000" d="M73.22,-222C80.89,-222 89.5,-222 98.73,-222"/>
+<polygon fill="#000000" stroke="#000000" points="98.98,-225.5 108.98,-222 98.98,-218.5 98.98,-225.5"/>
+</g>
+<!-- proc~nlesolver_solver -->
+<g id="program~~sparse_test~~CallsGraph_node4" class="node">
+<title>proc~nlesolver_solver</title>
+<g id="a_program~~sparse_test~~CallsGraph_node4"><a xlink:href=".././proc/nlesolver_solver.html" xlink:title="nlesolver_module::nlesolver_type%nlesolver_solver">
+<polygon fill="#d9534f" stroke="#d9534f" points="430,-192 142,-192 142,-168 430,-168 430,-192"/>
+<text text-anchor="middle" x="286" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::nlesolver_type%nlesolver_solver</text>
+</a>
+</g>
+</g>
+<!-- program~sparse_test&#45;&gt;proc~nlesolver_solver -->
+<g id="program~~sparse_test~~CallsGraph_edge3" class="edge">
+<title>program~sparse_test&#45;&gt;proc~nlesolver_solver</title>
+<path fill="none" stroke="#000000" d="M73.21,-210.24C84.55,-206.85 97.21,-203.42 109,-201 122.84,-198.16 137.37,-195.67 151.91,-193.48"/>
+<polygon fill="#000000" stroke="#000000" points="152.57,-196.92 161.97,-192.02 151.57,-190 152.57,-196.92"/>
+</g>
+<!-- proc~set_status -->
+<g id="program~~sparse_test~~CallsGraph_node7" class="node">
+<title>proc~set_status</title>
+<g id="a_program~~sparse_test~~CallsGraph_node7"><a xlink:href=".././proc/set_status.html" xlink:title="nlesolver_module::nlesolver_type%set_status">
+<polygon fill="#d9534f" stroke="#d9534f" points="753,-234 499,-234 499,-210 753,-210 753,-234"/>
+<text text-anchor="middle" x="626" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::nlesolver_type%set_status</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_nlesolver_variables&#45;&gt;proc~set_status -->
+<g id="program~~sparse_test~~CallsGraph_edge4" class="edge">
+<title>proc~initialize_nlesolver_variables&#45;&gt;proc~set_status</title>
+<path fill="none" stroke="#000000" d="M463.42,-222C471.85,-222 480.24,-222 488.53,-222"/>
+<polygon fill="#000000" stroke="#000000" points="488.58,-225.5 498.58,-222 488.58,-218.5 488.58,-225.5"/>
+</g>
+<!-- proc~initialize_ez -->
+<g id="program~~sparse_test~~CallsGraph_node5" class="node">
+<title>proc~initialize_ez</title>
+<g id="a_program~~sparse_test~~CallsGraph_node5"><a xlink:href=".././proc/initialize_ez.html" xlink:title="lsqr_module::lsqr_solver_ez%initialize_ez">
+<polygon fill="#d9534f" stroke="#d9534f" points="741.5,-192 510.5,-192 510.5,-168 741.5,-168 741.5,-192"/>
+<text text-anchor="middle" x="626" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver_ez%initialize_ez</text>
+</a>
+</g>
+</g>
+<!-- proc~nlesolver_solver&#45;&gt;proc~initialize_ez -->
+<g id="program~~sparse_test~~CallsGraph_edge5" class="edge">
+<title>proc~nlesolver_solver&#45;&gt;proc~initialize_ez</title>
+<path fill="none" stroke="#000000" d="M430.34,-180C453.62,-180 477.56,-180 500.34,-180"/>
+<polygon fill="#000000" stroke="#000000" points="500.37,-183.5 510.37,-180 500.37,-176.5 500.37,-183.5"/>
+</g>
+<!-- proc~linear_solver -->
+<g id="program~~sparse_test~~CallsGraph_node6" class="node">
+<title>proc~linear_solver</title>
+<g id="a_program~~sparse_test~~CallsGraph_node6"><a xlink:href=".././proc/linear_solver.html" xlink:title="nlesolver_module::linear_solver">
+<polygon fill="#d9534f" stroke="#d9534f" points="717.5,-150 534.5,-150 534.5,-126 717.5,-126 717.5,-150"/>
+<text text-anchor="middle" x="626" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::linear_solver</text>
+</a>
+</g>
+</g>
+<!-- proc~nlesolver_solver&#45;&gt;proc~linear_solver -->
+<g id="program~~sparse_test~~CallsGraph_edge6" class="edge">
+<title>proc~nlesolver_solver&#45;&gt;proc~linear_solver</title>
+<path fill="none" stroke="#000000" d="M383.86,-167.96C427.84,-162.5 479.84,-156.04 524.27,-150.52"/>
+<polygon fill="#000000" stroke="#000000" points="524.73,-153.99 534.22,-149.28 523.86,-147.04 524.73,-153.99"/>
+</g>
+<!-- proc~nlesolver_solver&#45;&gt;proc~set_status -->
+<g id="program~~sparse_test~~CallsGraph_edge7" class="edge">
+<title>proc~nlesolver_solver&#45;&gt;proc~set_status</title>
+<path fill="none" stroke="#000000" d="M389.39,-192.04C413.54,-194.93 439.18,-198.04 463,-201 482.5,-203.43 503.31,-206.08 523.3,-208.66"/>
+<polygon fill="#000000" stroke="#000000" points="522.98,-212.14 533.35,-209.95 523.88,-205.2 522.98,-212.14"/>
+</g>
+<!-- proc~solve_ez -->
+<g id="program~~sparse_test~~CallsGraph_node8" class="node">
+<title>proc~solve_ez</title>
+<g id="a_program~~sparse_test~~CallsGraph_node8"><a xlink:href=".././proc/solve_ez.html" xlink:title="lsqr_module::lsqr_solver_ez%solve_ez">
+<polygon fill="#d9534f" stroke="#d9534f" points="733,-108 519,-108 519,-84 733,-84 733,-108"/>
+<text text-anchor="middle" x="626" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver_ez%solve_ez</text>
+</a>
+</g>
+</g>
+<!-- proc~nlesolver_solver&#45;&gt;proc~solve_ez -->
+<g id="program~~sparse_test~~CallsGraph_edge8" class="edge">
+<title>proc~nlesolver_solver&#45;&gt;proc~solve_ez</title>
+<path fill="none" stroke="#000000" d="M322.65,-167.93C364.49,-154.11 436.15,-131.52 499,-117 510.23,-114.41 522.08,-112 533.86,-109.81"/>
+<polygon fill="#000000" stroke="#000000" points="534.49,-113.26 543.71,-108.03 533.25,-106.37 534.49,-113.26"/>
+</g>
+<!-- proc~lsqr -->
+<g id="program~~sparse_test~~CallsGraph_node9" class="node">
+<title>proc~lsqr</title>
+<g id="a_program~~sparse_test~~CallsGraph_node9"><a xlink:href=".././proc/lsqr.html" xlink:title="lsqr_module::lsqr_solver%LSQR">
+<polygon fill="#d9534f" stroke="#d9534f" points="970,-108 789,-108 789,-84 970,-84 970,-108"/>
+<text text-anchor="middle" x="879.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver%LSQR</text>
+</a>
+</g>
+</g>
+<!-- proc~solve_ez&#45;&gt;proc~lsqr -->
+<g id="program~~sparse_test~~CallsGraph_edge9" class="edge">
+<title>proc~solve_ez&#45;&gt;proc~lsqr</title>
+<path fill="none" stroke="#000000" d="M733.29,-96C748.33,-96 763.74,-96 778.64,-96"/>
+<polygon fill="#000000" stroke="#000000" points="778.87,-99.5 788.87,-96 778.87,-92.5 778.87,-99.5"/>
+</g>
+<!-- aprod -->
+<g id="program~~sparse_test~~CallsGraph_node10" class="node">
+<title>aprod</title>
+<polygon fill="#777777" stroke="#777777" points="1105.5,-192 1051.5,-192 1051.5,-168 1105.5,-168 1105.5,-192"/>
+<text text-anchor="middle" x="1078.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aprod</text>
+</g>
+<!-- proc~lsqr&#45;&gt;aprod -->
+<g id="program~~sparse_test~~CallsGraph_edge10" class="edge">
+<title>proc~lsqr&#45;&gt;aprod</title>
+<path fill="none" stroke="#000000" d="M901.72,-108.14C926.26,-121.81 968.12,-144.07 1006,-159 1017.36,-163.48 1030.06,-167.51 1041.56,-170.81"/>
+<polygon fill="#000000" stroke="#000000" points="1040.74,-174.21 1051.31,-173.52 1042.61,-167.47 1040.74,-174.21"/>
+</g>
+<!-- proc~d2norm -->
+<g id="program~~sparse_test~~CallsGraph_node11" class="node">
+<title>proc~d2norm</title>
+<g id="a_program~~sparse_test~~CallsGraph_node11"><a xlink:href=".././proc/d2norm.html" xlink:title="lsqr_module::d2norm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1142,-150 1015,-150 1015,-126 1142,-126 1142,-150"/>
+<text text-anchor="middle" x="1078.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::d2norm</text>
+</a>
+</g>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~d2norm -->
+<g id="program~~sparse_test~~CallsGraph_edge11" class="edge">
+<title>proc~lsqr&#45;&gt;proc~d2norm</title>
+<path fill="none" stroke="#000000" d="M936.95,-108.04C960.14,-112.98 987.15,-118.74 1011.26,-123.88"/>
+<polygon fill="#000000" stroke="#000000" points="1010.53,-127.3 1021.04,-125.96 1011.99,-120.45 1010.53,-127.3"/>
+</g>
+<!-- proc~dcopy -->
+<g id="program~~sparse_test~~CallsGraph_node12" class="node">
+<title>proc~dcopy</title>
+<g id="a_program~~sparse_test~~CallsGraph_node12"><a xlink:href=".././proc/dcopy.html" xlink:title="lsqpblas_module::dcopy">
+<polygon fill="#d9534f" stroke="#d9534f" points="1149.5,-108 1007.5,-108 1007.5,-84 1149.5,-84 1149.5,-108"/>
+<text text-anchor="middle" x="1078.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dcopy</text>
+</a>
+</g>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dcopy -->
+<g id="program~~sparse_test~~CallsGraph_edge12" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M970.07,-96C979.15,-96 988.33,-96 997.31,-96"/>
+<polygon fill="#000000" stroke="#000000" points="997.34,-99.5 1007.34,-96 997.34,-92.5 997.34,-99.5"/>
+</g>
+<!-- proc~dnrm2 -->
+<g id="program~~sparse_test~~CallsGraph_node13" class="node">
+<title>proc~dnrm2</title>
+<g id="a_program~~sparse_test~~CallsGraph_node13"><a xlink:href=".././proc/dnrm2.html" xlink:title="lsqpblas_module::dnrm2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1151,-66 1006,-66 1006,-42 1151,-42 1151,-66"/>
+<text text-anchor="middle" x="1078.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dnrm2</text>
+</a>
+</g>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dnrm2 -->
+<g id="program~~sparse_test~~CallsGraph_edge13" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M936.95,-83.96C960.14,-79.02 987.15,-73.26 1011.26,-68.12"/>
+<polygon fill="#000000" stroke="#000000" points="1011.99,-71.55 1021.04,-66.04 1010.53,-64.7 1011.99,-71.55"/>
+</g>
+<!-- proc~dscal -->
+<g id="program~~sparse_test~~CallsGraph_node14" class="node">
+<title>proc~dscal</title>
+<g id="a_program~~sparse_test~~CallsGraph_node14"><a xlink:href=".././proc/dscal.html" xlink:title="lsqpblas_module::dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="1147,-24 1010,-24 1010,0 1147,0 1147,-24"/>
+<text text-anchor="middle" x="1078.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dscal -->
+<g id="program~~sparse_test~~CallsGraph_edge14" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dscal</title>
+<path fill="none" stroke="#000000" d="M901.72,-83.86C926.26,-70.19 968.12,-47.93 1006,-33 1011.19,-30.95 1016.66,-29 1022.17,-27.17"/>
+<polygon fill="#000000" stroke="#000000" points="1023.62,-30.38 1032.08,-24.01 1021.49,-23.71 1023.62,-30.38"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramsparse_testCallsGraph = svgPanZoom('#programsparse_testCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~85"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~64"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-max_iter~3"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>max_iter</strong></td>
+<td> =</td>
+                <td>100</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tol~5"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>tol</strong></td>
+<td> =</td>
+                <td>1.0e-8_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-verbose~3"></span>
+              logical,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>verbose</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-solver"></span>
+              type(<a href='../type/nlesolver_type.html'>nlesolver_type</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>solver</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~5"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-use_broyden~3"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>use_broyden</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-step_mode~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>step_mode</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_intervals~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_intervals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istat~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>istat</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Integer status code.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Text status message</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~77"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f_evals"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f_evals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~72"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-description"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>description</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fmin_tol~3"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fmin_tol</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icol~12"></span>
+              integer,
+            </td>
+            <td>
+parameter,               dimension(3)
+            </td>
+            <td>::</td>
+            <td><strong>icol</strong></td>
+<td> =</td>
+                <td>[1, 2, 2]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irow~12"></span>
+              integer,
+            </td>
+            <td>
+parameter,               dimension(3)
+            </td>
+            <td>::</td>
+            <td><strong>irow</strong></td>
+<td> =</td>
+                <td>[1, 1, 2]</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-func~2"></span><h3> subroutine <a href='../proc/func~2.html'>func</a>(me, x, f)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>compute the function</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~98"></span>
+              class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~65"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~26"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-grad"></span><h3> subroutine <a href='../proc/grad.html'>grad</a>(me, x, g)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>compute the gradient of the function (Jacobian):</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~99"></span>
+              class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~66"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g~3"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              dimension(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>g</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-grad_sparse"></span><h3> subroutine <a href='../proc/grad_sparse.html'>grad_sparse</a>(me, x, g)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>compute the gradient of the function (Jacobian):</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~100"></span>
+              class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~67"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>g</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-export"></span><h3> subroutine <a href='../proc/export.html'>export</a>(me, x, f, iter)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>export an iteration:</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~101"></span>
+              class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~68"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~27"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iter"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iter</strong></td>
+            <td>
+<p>iteration number</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">program </span><span class="n">sparse_test</span>
+
+<span class="w">    </span><span class="k">use </span><span class="n">nlesolver_module</span><span class="p">,</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">nlesolver_rk</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">max_iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0e-8_wp</span>
+<span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">solver</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">alpha</span>
+<span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">use_broyden</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">step_mode</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n_intervals</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span><span class="w"> </span><span class="c">!! Integer status code.</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">message</span><span class="w">  </span><span class="c">!! Text status message</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f_evals</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">description</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fmin_tol</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">fmin_tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0e-2_wp</span><span class="w"> </span><span class="c">! don&#39;t need a tight tol for this</span>
+<span class="w">    </span><span class="n">n_intervals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span>
+
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;***********************&#39;</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;* sparse_test         *&#39;</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;***********************&#39;</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span>
+
+<span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Constant alpha&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">            </span><span class="k">cycle</span><span class="w"> </span><span class="c">! not yet supported</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Constant alpha + broyden&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Backtracking line search&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">            </span><span class="k">cycle</span><span class="w"> </span><span class="c">! not yet supported</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Backtracking line search + broyden&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Exact line search&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="w">            </span><span class="k">cycle</span><span class="w"> </span><span class="c">! not yet supported</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Exact line search + broyden&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Fixed point search&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="w">            </span><span class="k">cycle</span><span class="w"> </span><span class="c">! not yet supported</span>
+<span class="w">            </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">            </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Fixed point search + broyden&#39;</span>
+<span class="w">        </span><span class="k">case </span><span class="n">default</span>
+<span class="w">            </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;invalid case&#39;</span>
+<span class="w">        </span><span class="k">end select</span>
+
+<span class="k">        write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;-------------------------------------------------------&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,I3,A,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Case &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; : &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">description</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">solver</span><span class="p">%</span><span class="n">initialize</span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">max_iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_iter</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">grad_sparse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grad_sparse</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">step_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">step_mode</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">use_broyden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">use_broyden</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">export_iteration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">export</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">n_intervals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n_intervals</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">fmin_tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin_tol</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">verbose</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">sparsity_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irow</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">icol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icol</span><span class="p">,&amp;</span>
+<span class="w">                                </span><span class="n">damp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">solver</span><span class="p">%</span><span class="n">status</span><span class="p">(</span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(I3,1X,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">message</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istat</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">error stop</span>
+
+<span class="k">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="p">]</span>
+<span class="w">        </span><span class="k">call </span><span class="n">solver</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">solver</span><span class="p">%</span><span class="n">status</span><span class="p">(</span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(I3,1X,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">istat</span><span class="p">,</span><span class="w"> </span><span class="n">message</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="k">    contains</span>
+
+<span class="k">    subroutine </span><span class="n">func</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! compute the function</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        class</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+
+<span class="w">        </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_evals</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="w">        </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.1_wp</span>
+<span class="w">        </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2_wp</span>
+
+<span class="w">        </span><span class="c">! root is 5.477226E-01  -2.000000E-01</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">func</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">grad</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! compute the gradient of the function (Jacobian):</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        class</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">g</span>
+
+<span class="w">        </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_evals</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c">! to approximate forward diff derivatives</span>
+
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c">!df(1)/dx</span>
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="w">         </span><span class="c">!df(2)/dx</span>
+
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w">         </span><span class="c">!df(1)/dy</span>
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w">         </span><span class="c">!df(2)/dy</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">grad</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">grad_sparse</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! compute the gradient of the function (Jacobian):</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        class</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">g</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">g_dense</span>
+
+<span class="w">        </span><span class="c">! for this example, just convert the dense</span>
+<span class="w">        </span><span class="c">! jacobian to the sparse representation</span>
+<span class="w">        </span><span class="k">call </span><span class="n">grad</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">g_dense</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">g</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_evals</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="c">! to approximate forward diff derivatives</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">grad_sparse</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">export</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">iter</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! export an iteration:</span>
+<span class="w">        </span><span class="k">implicit none</span>
+<span class="k">        class</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                  </span><span class="kd">::</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="c">!! iteration number</span>
+
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,I3,1X,A,I3,A,*(E15.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">iter</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="n">f_evals</span><span class="p">,</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="nb">norm2</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">export</span>
+
+<span class="c">!******************************************************************************************************</span>
+<span class="w">    </span><span class="k">end program </span><span class="n">sparse_test</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

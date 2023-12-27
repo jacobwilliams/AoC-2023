@@ -75,7 +75,7 @@
 			   <tr><td><a href='../type/box.html'>box</a></td><td><a href='../module/problem_15_module.html'>problem_15_module</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/clock.html'>clock</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/dag.html'>dag</a></td><td><a href='../module/dag_module.html'>dag_module</a></td><td>None</td><td><p>a directed acyclic graph (DAG)</p></td></tr>
-			   <tr><td><a href='../type/diff_func.html'>diff_func</a></td><td><a href='../module/diff_module.html'>diff_module</a></td><td>None</td><td><p>class to define the function for <a href="../proc/diff.html">diff</a></p></td></tr>
+			   <tr><td><a href='../type/diff_func.html'>diff_func</a></td><td><a href='../module/diff_module.html'>diff_module</a></td><td>None</td><td><p>class to define the function for <a href="../proc/diff~2.html">diff</a></p></td></tr>
 			   <tr><td><a href='../type/finite_diff_method.html'>finite_diff_method</a></td><td><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></td><td>None</td><td><p>defines the finite difference method
 used to compute the Jacobian.</p><a href="../type/finite_diff_method.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
 			   <tr><td><a href='../type/function_cache~2.html'>function_cache</a></td><td><a href='../module/numdiff_cache_module.html'>numdiff_cache_module</a></td><td>None</td><td><p>a vector function cache.</p></td></tr>
@@ -90,6 +90,12 @@ so we can have an array of these.</p></td></tr>
 			   <tr><td><a href='../type/item.html'>item</a></td><td><a href='../program/problem_17.html'>problem_17</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/item~2.html'>item</a></td><td><a href='../program/problem_17~2.html'>problem_17</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/lens.html'>lens</a></td><td><a href='../module/problem_15_module.html'>problem_15_module</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/lsqr_solver.html'>lsqr_solver</a></td><td><a href='../module/lsqr_module.html'>lsqr_module</a></td><td>None</td><td><p>main class to access the <a href="../type/lsqr_solver.html#boundprocedure-lsqr">lsqr</a> solver.</p><a href="../type/lsqr_solver.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+			   <tr><td><a href='../type/lsqr_solver_ez.html'>lsqr_solver_ez</a></td><td><a href='../module/lsqr_module.html'>lsqr_module</a></td><td><a href='../type/lsqr_solver.html'>lsqr_solver</a></td><td><p>a simplier version of <a href="../type/lsqr_solver.html">lsqr_solver</a> where
+the <code>aprod</code> function is provided internally.
+To use, first call the <code>initialize</code> method
+to set the matrix and other inputs.</p></td></tr>
+			   <tr><td><a href='../type/lusol_settings.html'>lusol_settings</a></td><td><a href='../module/lusol_ez_module.html'>lusol_ez_module</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/mapping.html'>mapping</a></td><td><a href='../program/problem_5.html'>problem_5</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/meth_array.html'>meth_array</a></td><td><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></td><td>None</td><td><p>to store an array of <a href="../type/finite_diff_method.html">finite_diff_method</a> types
 this is used when the <code>mode=2</code> option is used
@@ -99,16 +105,17 @@ in <a href="../type/numdiff_type.html">numdiff_type</a></p></td></tr>
 			   <tr><td><a href='../type/node.html'>node</a></td><td><a href='../program/problem_23.html'>problem_23</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/node_t.html'>node_t</a></td><td><a href='../program/problem_25.html'>problem_25</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/numdiff_type.html'>numdiff_type</a></td><td><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></td><td>None</td><td><p>base type for sparsity and Jacobian computations.</p></td></tr>
-			   <tr><td><a href='../type/part.html'>part</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
-			   <tr><td><a href='../type/part~2.html'>part</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
-			   <tr><td><a href='../type/rule.html'>rule</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
-			   <tr><td><a href='../type/rule~2.html'>rule</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/part.html'>part</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/part~2.html'>part</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/rule.html'>rule</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/rule~2.html'>rule</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
 			   <tr><td><a href='../type/sparsity_pattern.html'>sparsity_pattern</a></td><td><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></td><td>None</td><td><p>A sparsity pattern</p></td></tr>
 			   <tr><td><a href='../type/string.html'>string</a></td><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td>None</td><td><p>a type containing an allocatable character string.
 so we can have an array of strings of different lengths.</p></td></tr>
+			   <tr><td><a href='../type/test_solver.html'>test_solver</a></td><td><a href='../module/lsqrtest_module.html'>lsqrtest_module</a></td><td><a href='../type/lsqr_solver.html'>lsqr_solver</a></td><td></td></tr>
 			   <tr><td><a href='../type/vertex.html'>vertex</a></td><td><a href='../module/dag_module.html'>dag_module</a></td><td>None</td><td><p>a vertex of a directed acyclic graph (DAG)</p></td></tr>
-			   <tr><td><a href='../type/workflow.html'>workflow</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
-			   <tr><td><a href='../type/workflow~2.html'>workflow</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/workflow.html'>workflow</a></td><td><a href='../program/problem_19b.html'>problem_19b</a></td><td>None</td><td></td></tr>
+			   <tr><td><a href='../type/workflow~2.html'>workflow</a></td><td><a href='../program/problem_19.html'>problem_19</a></td><td>None</td><td></td></tr>
 			 </tbody></table>
              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -116,11 +123,11 @@ so we can have an array of strings of different lengths.</p></td></tr>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: type~~graph~~TypeGraph Pages: 1 -->
-<svg id="typegraphTypeGraph" width="466pt" height="918pt"
- viewBox="0.00 0.00 466.00 918.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 914)">
+<svg id="typegraphTypeGraph" width="466pt" height="1044pt"
+ viewBox="0.00 0.00 466.00 1044.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~graph~~TypeGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1040)">
 <title>type~~graph~~TypeGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-914 462,-914 462,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1040 462,-1040 462,4 -4,4"/>
 <!-- type~box -->
 <g id="type~~graph~~TypeGraph_node1" class="node">
 <title>type~box</title>
@@ -165,9 +172,9 @@ so we can have an array of strings of different lengths.</p></td></tr>
 </g>
 </g>
 <!-- type~vertex -->
-<g id="type~~graph~~TypeGraph_node29" class="node">
+<g id="type~~graph~~TypeGraph_node33" class="node">
 <title>type~vertex</title>
-<g id="a_type~~graph~~TypeGraph_node29"><a xlink:href=".././type/vertex.html" xlink:title="vertex">
+<g id="a_type~~graph~~TypeGraph_node33"><a xlink:href=".././type/vertex.html" xlink:title="vertex">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="246,-108 192,-108 192,-84 246,-84 246,-108"/>
 <text text-anchor="middle" x="219" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">vertex</text>
 </a>
@@ -293,196 +300,244 @@ so we can have an array of strings of different lengths.</p></td></tr>
 </a>
 </g>
 </g>
-<!-- type~mapping -->
+<!-- type~lsqr_solver -->
 <g id="type~~graph~~TypeGraph_node16" class="node">
+<title>type~lsqr_solver</title>
+<g id="a_type~~graph~~TypeGraph_node16"><a xlink:href=".././type/lsqr_solver.html" xlink:title="lsqr_solver">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="254,-616 184,-616 184,-592 254,-592 254,-616"/>
+<text text-anchor="middle" x="219" y="-601.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_solver</text>
+</a>
+</g>
+</g>
+<!-- type~lsqr_solver_ez -->
+<g id="type~~graph~~TypeGraph_node17" class="node">
+<title>type~lsqr_solver_ez</title>
+<g id="a_type~~graph~~TypeGraph_node17"><a xlink:href=".././type/lsqr_solver_ez.html" xlink:title="lsqr_solver_ez">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="454.5,-616 367.5,-616 367.5,-592 454.5,-592 454.5,-616"/>
+<text text-anchor="middle" x="411" y="-601.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_solver_ez</text>
+</a>
+</g>
+</g>
+<!-- type~lsqr_solver_ez&#45;&gt;type~lsqr_solver -->
+<g id="type~~graph~~TypeGraph_edge5" class="edge">
+<title>type~lsqr_solver_ez&#45;&gt;type~lsqr_solver</title>
+<path fill="none" stroke="#000000" d="M367.3,-602.06C351.46,-601.85 333.37,-602.21 317,-604"/>
+</g>
+<!-- type~lusol_settings -->
+<g id="type~~graph~~TypeGraph_node18" class="node">
+<title>type~lusol_settings</title>
+<g id="a_type~~graph~~TypeGraph_node18"><a xlink:href=".././type/lusol_settings.html" xlink:title="lusol_settings">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="453,-658 369,-658 369,-634 453,-634 453,-658"/>
+<text text-anchor="middle" x="411" y="-643.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_settings</text>
+</a>
+</g>
+</g>
+<!-- type~mapping -->
+<g id="type~~graph~~TypeGraph_node19" class="node">
 <title>type~mapping</title>
-<g id="a_type~~graph~~TypeGraph_node16"><a xlink:href=".././type/mapping.html" xlink:title="mapping">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-574 381,-574 381,-550 441,-550 441,-574"/>
-<text text-anchor="middle" x="411" y="-559.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mapping</text>
+<g id="a_type~~graph~~TypeGraph_node19"><a xlink:href=".././type/mapping.html" xlink:title="mapping">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-700 381,-700 381,-676 441,-676 441,-700"/>
+<text text-anchor="middle" x="411" y="-685.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mapping</text>
 </a>
 </g>
 </g>
 <!-- type~meth_array -->
-<g id="type~~graph~~TypeGraph_node17" class="node">
+<g id="type~~graph~~TypeGraph_node20" class="node">
 <title>type~meth_array</title>
-<g id="a_type~~graph~~TypeGraph_node17"><a xlink:href=".././type/meth_array.html" xlink:title="meth_array">
+<g id="a_type~~graph~~TypeGraph_node20"><a xlink:href=".././type/meth_array.html" xlink:title="meth_array">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="256,-280 182,-280 182,-256 256,-256 256,-280"/>
 <text text-anchor="middle" x="219" y="-265.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">meth_array</text>
 </a>
 </g>
 </g>
 <!-- type~meth_array&#45;&gt;type~finite_diff_method -->
-<g id="type~~graph~~TypeGraph_edge5" class="edge">
+<g id="type~~graph~~TypeGraph_edge6" class="edge">
 <title>type~meth_array&#45;&gt;type~finite_diff_method</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M181.94,-262.67C163.45,-259.94 140.39,-256.54 119.04,-253.39"/>
 <polygon fill="#000000" stroke="#000000" points="119.46,-249.91 109.06,-251.91 118.44,-256.83 119.46,-249.91"/>
 <text text-anchor="middle" x="139.5" y="-261.4" font-family="Helvetica,sans-Serif" font-size="9.50">meth</text>
 </g>
 <!-- type~nlesolver_type -->
-<g id="type~~graph~~TypeGraph_node18" class="node">
+<g id="type~~graph~~TypeGraph_node21" class="node">
 <title>type~nlesolver_type</title>
-<g id="a_type~~graph~~TypeGraph_node18"><a xlink:href=".././type/nlesolver_type.html" xlink:title="nlesolver_type">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="456,-616 366,-616 366,-592 456,-592 456,-616"/>
-<text text-anchor="middle" x="411" y="-601.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_type</text>
+<g id="a_type~~graph~~TypeGraph_node21"><a xlink:href=".././type/nlesolver_type.html" xlink:title="nlesolver_type">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="456,-742 366,-742 366,-718 456,-718 456,-742"/>
+<text text-anchor="middle" x="411" y="-727.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_type</text>
 </a>
 </g>
 </g>
 <!-- type~node -->
-<g id="type~~graph~~TypeGraph_node19" class="node">
+<g id="type~~graph~~TypeGraph_node22" class="node">
 <title>type~node</title>
-<g id="a_type~~graph~~TypeGraph_node19"><a xlink:href=".././type/node.html" xlink:title="node">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-658 384,-658 384,-634 438,-634 438,-658"/>
-<text text-anchor="middle" x="411" y="-643.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node</text>
+<g id="a_type~~graph~~TypeGraph_node22"><a xlink:href=".././type/node.html" xlink:title="node">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-784 384,-784 384,-760 438,-760 438,-784"/>
+<text text-anchor="middle" x="411" y="-769.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node</text>
 </a>
 </g>
 </g>
 <!-- type~node_t -->
-<g id="type~~graph~~TypeGraph_node20" class="node">
+<g id="type~~graph~~TypeGraph_node23" class="node">
 <title>type~node_t</title>
-<g id="a_type~~graph~~TypeGraph_node20"><a xlink:href=".././type/node_t.html" xlink:title="node_t">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-700 384,-700 384,-676 438,-676 438,-700"/>
-<text text-anchor="middle" x="411" y="-685.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node_t</text>
+<g id="a_type~~graph~~TypeGraph_node23"><a xlink:href=".././type/node_t.html" xlink:title="node_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-826 384,-826 384,-802 438,-802 438,-826"/>
+<text text-anchor="middle" x="411" y="-811.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node_t</text>
 </a>
 </g>
 </g>
 <!-- type~node~2 -->
-<g id="type~~graph~~TypeGraph_node21" class="node">
+<g id="type~~graph~~TypeGraph_node24" class="node">
 <title>type~node~2</title>
-<g id="a_type~~graph~~TypeGraph_node21"><a xlink:href=".././type/node~2.html" xlink:title="node">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-742 384,-742 384,-718 438,-718 438,-742"/>
-<text text-anchor="middle" x="411" y="-727.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node</text>
+<g id="a_type~~graph~~TypeGraph_node24"><a xlink:href=".././type/node~2.html" xlink:title="node">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-868 384,-868 384,-844 438,-844 438,-868"/>
+<text text-anchor="middle" x="411" y="-853.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">node</text>
 </a>
 </g>
 </g>
 <!-- type~numdiff_type -->
-<g id="type~~graph~~TypeGraph_node22" class="node">
+<g id="type~~graph~~TypeGraph_node25" class="node">
 <title>type~numdiff_type</title>
-<g id="a_type~~graph~~TypeGraph_node22"><a xlink:href=".././type/numdiff_type.html" xlink:title="numdiff_type">
+<g id="a_type~~graph~~TypeGraph_node25"><a xlink:href=".././type/numdiff_type.html" xlink:title="numdiff_type">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="452,-228 370,-228 370,-204 452,-204 452,-228"/>
 <text text-anchor="middle" x="411" y="-213.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_type</text>
 </a>
 </g>
 </g>
 <!-- type~numdiff_type&#45;&gt;type~finite_diff_method -->
-<g id="type~~graph~~TypeGraph_edge7" class="edge">
+<g id="type~~graph~~TypeGraph_edge8" class="edge">
 <title>type~numdiff_type&#45;&gt;type~finite_diff_method</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.68,-219.18C308.62,-224.01 192.14,-233.21 119.44,-238.95"/>
 <polygon fill="#000000" stroke="#000000" points="118.74,-235.49 109.05,-239.77 119.29,-242.47 118.74,-235.49"/>
 <text text-anchor="middle" x="219" y="-237.4" font-family="Helvetica,sans-Serif" font-size="9.50">meth</text>
 </g>
 <!-- type~numdiff_type&#45;&gt;type~function_cache~2 -->
-<g id="type~~graph~~TypeGraph_edge9" class="edge">
+<g id="type~~graph~~TypeGraph_edge10" class="edge">
 <title>type~numdiff_type&#45;&gt;type~function_cache~2</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.71,-208.37C342.5,-203.21 306.21,-196.33 276.18,-190.64"/>
 <polygon fill="#000000" stroke="#000000" points="276.73,-187.19 266.25,-188.76 275.43,-194.06 276.73,-187.19"/>
 <text text-anchor="middle" x="316" y="-206.4" font-family="Helvetica,sans-Serif" font-size="9.50">cache</text>
 </g>
 <!-- type~numdiff_type&#45;&gt;type~meth_array -->
-<g id="type~~graph~~TypeGraph_edge8" class="edge">
+<g id="type~~graph~~TypeGraph_edge9" class="edge">
 <title>type~numdiff_type&#45;&gt;type~meth_array</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.3,-228.12C371.97,-232.93 358.51,-238.2 346,-242 319.91,-249.92 290.06,-256.2 265.96,-260.6"/>
 <polygon fill="#000000" stroke="#000000" points="265.24,-257.17 256.01,-262.37 266.47,-264.06 265.24,-257.17"/>
 <text text-anchor="middle" x="316" y="-259.4" font-family="Helvetica,sans-Serif" font-size="9.50">class_meths</text>
 </g>
 <!-- type~sparsity_pattern -->
-<g id="type~~graph~~TypeGraph_node27" class="node">
+<g id="type~~graph~~TypeGraph_node30" class="node">
 <title>type~sparsity_pattern</title>
-<g id="a_type~~graph~~TypeGraph_node27"><a xlink:href=".././type/sparsity_pattern.html" xlink:title="sparsity_pattern">
+<g id="a_type~~graph~~TypeGraph_node30"><a xlink:href=".././type/sparsity_pattern.html" xlink:title="sparsity_pattern">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="268,-150 170,-150 170,-126 268,-126 268,-150"/>
 <text text-anchor="middle" x="219" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sparsity_pattern</text>
 </a>
 </g>
 </g>
 <!-- type~numdiff_type&#45;&gt;type~sparsity_pattern -->
-<g id="type~~graph~~TypeGraph_edge6" class="edge">
+<g id="type~~graph~~TypeGraph_edge7" class="edge">
 <title>type~numdiff_type&#45;&gt;type~sparsity_pattern</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M391.5,-203.92C379.01,-196.11 361.94,-186.11 346,-179 323.12,-168.8 296.91,-159.86 274.34,-152.95"/>
 <polygon fill="#000000" stroke="#000000" points="275.17,-149.55 264.58,-150.02 273.15,-156.25 275.17,-149.55"/>
 <text text-anchor="middle" x="316" y="-181.4" font-family="Helvetica,sans-Serif" font-size="9.50">sparsity</text>
 </g>
 <!-- type~part -->
-<g id="type~~graph~~TypeGraph_node23" class="node">
+<g id="type~~graph~~TypeGraph_node26" class="node">
 <title>type~part</title>
-<g id="a_type~~graph~~TypeGraph_node23"><a xlink:href=".././type/part.html" xlink:title="part">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-784 384,-784 384,-760 438,-760 438,-784"/>
-<text text-anchor="middle" x="411" y="-769.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">part</text>
-</a>
-</g>
-</g>
-<!-- type~part~2 -->
-<g id="type~~graph~~TypeGraph_node24" class="node">
-<title>type~part~2</title>
-<g id="a_type~~graph~~TypeGraph_node24"><a xlink:href=".././type/part~2.html" xlink:title="part">
+<g id="a_type~~graph~~TypeGraph_node26"><a xlink:href=".././type/part.html" xlink:title="part">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="438,-448 384,-448 384,-424 438,-424 438,-448"/>
 <text text-anchor="middle" x="411" y="-433.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">part</text>
 </a>
 </g>
 </g>
-<!-- type~part~2&#45;&gt;type~interval -->
-<g id="type~~graph~~TypeGraph_edge10" class="edge">
-<title>type~part~2&#45;&gt;type~interval</title>
+<!-- type~part&#45;&gt;type~interval -->
+<g id="type~~graph~~TypeGraph_edge11" class="edge">
+<title>type~part&#45;&gt;type~interval</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.98,-436C350.96,-436 293.81,-436 256.45,-436"/>
 <polygon fill="#000000" stroke="#000000" points="256.01,-432.5 246.01,-436 256.01,-439.5 256.01,-432.5"/>
 <text text-anchor="middle" x="316" y="-438.4" font-family="Helvetica,sans-Serif" font-size="9.50">xmas</text>
 </g>
+<!-- type~part~2 -->
+<g id="type~~graph~~TypeGraph_node27" class="node">
+<title>type~part~2</title>
+<g id="a_type~~graph~~TypeGraph_node27"><a xlink:href=".././type/part~2.html" xlink:title="part">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-910 384,-910 384,-886 438,-886 438,-910"/>
+<text text-anchor="middle" x="411" y="-895.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">part</text>
+</a>
+</g>
+</g>
 <!-- type~rule -->
-<g id="type~~graph~~TypeGraph_node25" class="node">
+<g id="type~~graph~~TypeGraph_node28" class="node">
 <title>type~rule</title>
-<g id="a_type~~graph~~TypeGraph_node25"><a xlink:href=".././type/rule.html" xlink:title="rule">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="246,-826 192,-826 192,-802 246,-802 246,-826"/>
-<text text-anchor="middle" x="219" y="-811.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rule</text>
+<g id="a_type~~graph~~TypeGraph_node28"><a xlink:href=".././type/rule.html" xlink:title="rule">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="246,-952 192,-952 192,-928 246,-928 246,-952"/>
+<text text-anchor="middle" x="219" y="-937.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rule</text>
 </a>
 </g>
 </g>
 <!-- type~rule~2 -->
-<g id="type~~graph~~TypeGraph_node26" class="node">
+<g id="type~~graph~~TypeGraph_node29" class="node">
 <title>type~rule~2</title>
-<g id="a_type~~graph~~TypeGraph_node26"><a xlink:href=".././type/rule~2.html" xlink:title="rule">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="246,-868 192,-868 192,-844 246,-844 246,-868"/>
-<text text-anchor="middle" x="219" y="-853.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rule</text>
+<g id="a_type~~graph~~TypeGraph_node29"><a xlink:href=".././type/rule~2.html" xlink:title="rule">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="246,-994 192,-994 192,-970 246,-970 246,-994"/>
+<text text-anchor="middle" x="219" y="-979.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">rule</text>
 </a>
 </g>
 </g>
 <!-- type~string -->
-<g id="type~~graph~~TypeGraph_node28" class="node">
+<g id="type~~graph~~TypeGraph_node31" class="node">
 <title>type~string</title>
-<g id="a_type~~graph~~TypeGraph_node28"><a xlink:href=".././type/string.html" xlink:title="string">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-910 384,-910 384,-886 438,-886 438,-910"/>
-<text text-anchor="middle" x="411" y="-895.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string</text>
+<g id="a_type~~graph~~TypeGraph_node31"><a xlink:href=".././type/string.html" xlink:title="string">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="438,-1036 384,-1036 384,-1012 438,-1012 438,-1036"/>
+<text text-anchor="middle" x="411" y="-1021.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string</text>
 </a>
 </g>
 </g>
+<!-- type~test_solver -->
+<g id="type~~graph~~TypeGraph_node32" class="node">
+<title>type~test_solver</title>
+<g id="a_type~~graph~~TypeGraph_node32"><a xlink:href=".././type/test_solver.html" xlink:title="test_solver">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="446,-574 376,-574 376,-550 446,-550 446,-574"/>
+<text text-anchor="middle" x="411" y="-559.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver</text>
+</a>
+</g>
+</g>
+<!-- type~test_solver&#45;&gt;type~lsqr_solver -->
+<g id="type~~graph~~TypeGraph_edge12" class="edge">
+<title>type~test_solver&#45;&gt;type~lsqr_solver</title>
+<path fill="none" stroke="#000000" d="M383.44,-574.11C356.28,-586.48 317.91,-603.9 317,-604"/>
+<path fill="none" stroke="#000000" d="M315,-604C298.59,-605.79 280.49,-606.18 264.54,-605.99"/>
+<polygon fill="#000000" stroke="#000000" points="264.46,-602.49 254.4,-605.8 264.33,-609.49 264.46,-602.49"/>
+</g>
 <!-- type~workflow -->
-<g id="type~~graph~~TypeGraph_node30" class="node">
+<g id="type~~graph~~TypeGraph_node34" class="node">
 <title>type~workflow</title>
-<g id="a_type~~graph~~TypeGraph_node30"><a xlink:href=".././type/workflow.html" xlink:title="workflow">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-826 381,-826 381,-802 441,-802 441,-826"/>
-<text text-anchor="middle" x="411" y="-811.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">workflow</text>
+<g id="a_type~~graph~~TypeGraph_node34"><a xlink:href=".././type/workflow.html" xlink:title="workflow">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-952 381,-952 381,-928 441,-928 441,-952"/>
+<text text-anchor="middle" x="411" y="-937.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">workflow</text>
 </a>
 </g>
 </g>
 <!-- type~workflow&#45;&gt;type~rule -->
-<g id="type~~graph~~TypeGraph_edge11" class="edge">
+<g id="type~~graph~~TypeGraph_edge13" class="edge">
 <title>type~workflow&#45;&gt;type~rule</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.73,-814C347.28,-814 292.52,-814 256.37,-814"/>
-<polygon fill="#000000" stroke="#000000" points="256.24,-810.5 246.24,-814 256.24,-817.5 256.24,-810.5"/>
-<text text-anchor="middle" x="316" y="-816.4" font-family="Helvetica,sans-Serif" font-size="9.50">rules</text>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.73,-940C347.28,-940 292.52,-940 256.37,-940"/>
+<polygon fill="#000000" stroke="#000000" points="256.24,-936.5 246.24,-940 256.24,-943.5 256.24,-936.5"/>
+<text text-anchor="middle" x="316" y="-942.4" font-family="Helvetica,sans-Serif" font-size="9.50">rules</text>
 </g>
 <!-- type~workflow~2 -->
-<g id="type~~graph~~TypeGraph_node31" class="node">
+<g id="type~~graph~~TypeGraph_node35" class="node">
 <title>type~workflow~2</title>
-<g id="a_type~~graph~~TypeGraph_node31"><a xlink:href=".././type/workflow~2.html" xlink:title="workflow">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-868 381,-868 381,-844 441,-844 441,-868"/>
-<text text-anchor="middle" x="411" y="-853.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">workflow</text>
+<g id="a_type~~graph~~TypeGraph_node35"><a xlink:href=".././type/workflow~2.html" xlink:title="workflow">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="441,-994 381,-994 381,-970 441,-970 441,-994"/>
+<text text-anchor="middle" x="411" y="-979.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">workflow</text>
 </a>
 </g>
 </g>
 <!-- type~workflow~2&#45;&gt;type~rule~2 -->
-<g id="type~~graph~~TypeGraph_edge12" class="edge">
+<g id="type~~graph~~TypeGraph_edge14" class="edge">
 <title>type~workflow~2&#45;&gt;type~rule~2</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.73,-856C347.28,-856 292.52,-856 256.37,-856"/>
-<polygon fill="#000000" stroke="#000000" points="256.24,-852.5 246.24,-856 256.24,-859.5 256.24,-852.5"/>
-<text text-anchor="middle" x="316" y="-858.4" font-family="Helvetica,sans-Serif" font-size="9.50">rules</text>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M380.73,-982C347.28,-982 292.52,-982 256.37,-982"/>
+<polygon fill="#000000" stroke="#000000" points="256.24,-978.5 246.24,-982 256.24,-985.5 256.24,-978.5"/>
+<text text-anchor="middle" x="316" y="-984.4" font-family="Helvetica,sans-Serif" font-size="9.50">rules</text>
 </g>
 </g>
 </svg>

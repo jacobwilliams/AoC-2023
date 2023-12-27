@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>lu1fac &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>lu1fac
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 2.3% of total for procedures.">240 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/lusol.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/lusol.f90.html'>lusol.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/lusol.html'>lusol</a></li>
+            <li class="breadcrumb-item active" aria-current="page">lu1fac</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/lu1fac.html#src">lu1fac</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine lu1fac(m, n, nelem, lena, luparm, parmlu, a, indc, indr, p, q, lenc, lenr, locc, locr, iploc, iqloc, ipinv, iqinv, w, inform)  
+</h2>
+    
+
+    <p>! nelem  = numnz     !!! Don't change nelem.
+! nelem is now numnz below (it might be less than the input value).</p>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~32"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~54"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nelem"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nelem</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lena"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lena</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-luparm"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>luparm</strong>(30)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-parmlu"></span>
+              real(kind=rp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>parmlu</strong>(30)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~6"></span>
+              real(kind=rp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(lena)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indc"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indc</strong>(lena)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indr"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indr</strong>(lena)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~9"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong>(m)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>q</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenc"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenc</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenr"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenr</strong>(m)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-locc"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>locc</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-locr"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>locr</strong>(m)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iploc"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iploc</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iqloc"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iqloc</strong>(m)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipinv"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipinv</strong>(m)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iqinv"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iqinv</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~8"></span>
+              real(kind=rp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>w</strong>(n)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inform~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inform</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~lu1fac~~CallsGraph Pages: 1 -->
+<svg id="proclu1facCallsGraph" width="577pt" height="595pt"
+ viewBox="0.00 0.00 577.00 595.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~lu1fac~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 591)">
+<title>proc~~lu1fac~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-591 573,-591 573,4 -4,4"/>
+<!-- proc~lu1fac -->
+<g id="proc~~lu1fac~~CallsGraph_node1" class="node">
+<title>proc~lu1fac</title>
+<polygon fill="none" stroke="black" points="78,-171 0,-171 0,-147 78,-147 78,-171"/>
+<text text-anchor="middle" x="39" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">lusol::lu1fac</text>
+</g>
+<!-- proc~lu1fad -->
+<g id="proc~~lu1fac~~CallsGraph_node2" class="node">
+<title>proc~lu1fad</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node2"><a xlink:href=".././proc/lu1fad.html" xlink:title="lusol::lu1fad">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-318 115.5,-318 115.5,-294 194.5,-294 194.5,-318"/>
+<text text-anchor="middle" x="155" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1fad</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1fad -->
+<g id="proc~~lu1fac~~CallsGraph_edge1" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1fad</title>
+<path fill="none" stroke="#000000" d="M44.5,-171.24C54,-195.62 78.2,-250.86 114,-285 115.1,-286.05 116.26,-287.06 117.47,-288.03"/>
+<polygon fill="#000000" stroke="#000000" points="115.74,-291.09 125.97,-293.88 119.71,-285.33 115.74,-291.09"/>
+</g>
+<!-- proc~lu1or1 -->
+<g id="proc~~lu1fac~~CallsGraph_node3" class="node">
+<title>proc~lu1or1</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node3"><a xlink:href=".././proc/lu1or1.html" xlink:title="lusol::lu1or1">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-276 115.5,-276 115.5,-252 194.5,-252 194.5,-276"/>
+<text text-anchor="middle" x="155" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or1</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or1 -->
+<g id="proc~~lu1fac~~CallsGraph_edge2" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or1</title>
+<path fill="none" stroke="#000000" d="M48.42,-171.1C61.08,-188.64 86.49,-221.39 114,-243 115.57,-244.24 117.23,-245.43 118.94,-246.59"/>
+<polygon fill="#000000" stroke="#000000" points="117.4,-249.75 127.75,-251.99 121.05,-243.78 117.4,-249.75"/>
+</g>
+<!-- proc~lu1or2 -->
+<g id="proc~~lu1fac~~CallsGraph_node4" class="node">
+<title>proc~lu1or2</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node4"><a xlink:href=".././proc/lu1or2.html" xlink:title="lusol::lu1or2">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-234 115.5,-234 115.5,-210 194.5,-210 194.5,-234"/>
+<text text-anchor="middle" x="155" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or2</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or2 -->
+<g id="proc~~lu1fac~~CallsGraph_edge3" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or2</title>
+<path fill="none" stroke="#000000" d="M60.95,-171.13C75.71,-179.62 95.98,-191.16 114,-201 116.52,-202.37 119.13,-203.78 121.76,-205.19"/>
+<polygon fill="#000000" stroke="#000000" points="120.19,-208.32 130.66,-209.91 123.47,-202.14 120.19,-208.32"/>
+</g>
+<!-- proc~lu1or3 -->
+<g id="proc~~lu1fac~~CallsGraph_node5" class="node">
+<title>proc~lu1or3</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node5"><a xlink:href=".././proc/lu1or3.html" xlink:title="lusol::lu1or3">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-192 115.5,-192 115.5,-168 194.5,-168 194.5,-192"/>
+<text text-anchor="middle" x="155" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or3</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or3 -->
+<g id="proc~~lu1fac~~CallsGraph_edge4" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or3</title>
+<path fill="none" stroke="#000000" d="M78.28,-166.05C86.92,-167.64 96.22,-169.36 105.23,-171.02"/>
+<polygon fill="#000000" stroke="#000000" points="104.77,-174.49 115.24,-172.86 106.04,-167.61 104.77,-174.49"/>
+</g>
+<!-- proc~lu1or4 -->
+<g id="proc~~lu1fac~~CallsGraph_node6" class="node">
+<title>proc~lu1or4</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node6"><a xlink:href=".././proc/lu1or4.html" xlink:title="lusol::lu1or4">
+<polygon fill="#d9534f" stroke="#d9534f" points="194.5,-150 115.5,-150 115.5,-126 194.5,-126 194.5,-150"/>
+<text text-anchor="middle" x="155" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or4</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or4 -->
+<g id="proc~~lu1fac~~CallsGraph_edge5" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or4</title>
+<path fill="none" stroke="#000000" d="M78.28,-151.95C86.92,-150.36 96.22,-148.64 105.23,-146.98"/>
+<polygon fill="#000000" stroke="#000000" points="106.04,-150.39 115.24,-145.14 104.77,-143.51 106.04,-150.39"/>
+</g>
+<!-- proc~lu1pq1 -->
+<g id="proc~~lu1fac~~CallsGraph_node7" class="node">
+<title>proc~lu1pq1</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node7"><a xlink:href=".././proc/lu1pq1.html" xlink:title="lusol::lu1pq1">
+<polygon fill="#d9534f" stroke="#d9534f" points="196,-108 114,-108 114,-84 196,-84 196,-108"/>
+<text text-anchor="middle" x="155" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq1</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1pq1 -->
+<g id="proc~~lu1fac~~CallsGraph_edge6" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1pq1</title>
+<path fill="none" stroke="#000000" d="M60.95,-146.87C75.71,-138.38 95.98,-126.84 114,-117 116.52,-115.63 119.13,-114.22 121.76,-112.81"/>
+<polygon fill="#000000" stroke="#000000" points="123.47,-115.86 130.66,-108.09 120.19,-109.68 123.47,-115.86"/>
+</g>
+<!-- proc~lu1slk -->
+<g id="proc~~lu1fac~~CallsGraph_node8" class="node">
+<title>proc~lu1slk</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node8"><a xlink:href=".././proc/lu1slk.html" xlink:title="lusol::lu1slk">
+<polygon fill="#d9534f" stroke="#d9534f" points="193,-66 117,-66 117,-42 193,-42 193,-66"/>
+<text text-anchor="middle" x="155" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1slk</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1slk -->
+<g id="proc~~lu1fac~~CallsGraph_edge7" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1slk</title>
+<path fill="none" stroke="#000000" d="M48.42,-146.9C61.08,-129.36 86.49,-96.61 114,-75 115.57,-73.76 117.23,-72.57 118.94,-71.41"/>
+<polygon fill="#000000" stroke="#000000" points="121.05,-74.22 127.75,-66.01 117.4,-68.25 121.05,-74.22"/>
+</g>
+<!-- proc~lu6chk -->
+<g id="proc~~lu1fac~~CallsGraph_node9" class="node">
+<title>proc~lu6chk</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node9"><a xlink:href=".././proc/lu6chk.html" xlink:title="lusol::lu6chk">
+<polygon fill="#d9534f" stroke="#d9534f" points="195,-24 115,-24 115,0 195,0 195,-24"/>
+<text text-anchor="middle" x="155" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6chk</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu6chk -->
+<g id="proc~~lu1fac~~CallsGraph_edge8" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu6chk</title>
+<path fill="none" stroke="#000000" d="M44.5,-146.76C54,-122.38 78.2,-67.14 114,-33 115.1,-31.95 116.26,-30.94 117.47,-29.97"/>
+<polygon fill="#000000" stroke="#000000" points="119.71,-32.67 125.97,-24.12 115.74,-26.91 119.71,-32.67"/>
+</g>
+<!-- proc~hbuild -->
+<g id="proc~~lu1fac~~CallsGraph_node10" class="node">
+<title>proc~hbuild</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node10"><a xlink:href=".././proc/hbuild.html" xlink:title="lusol::Hbuild">
+<polygon fill="#d9534f" stroke="#d9534f" points="315,-587 236,-587 236,-563 315,-563 315,-587"/>
+<text text-anchor="middle" x="275.5" y="-572.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hbuild</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hbuild -->
+<g id="proc~~lu1fac~~CallsGraph_edge9" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hbuild</title>
+<path fill="none" stroke="#000000" d="M156.83,-318.25C160,-356.4 174.23,-474.94 232,-549 234.19,-551.81 236.79,-554.4 239.59,-556.75"/>
+<polygon fill="#000000" stroke="#000000" points="237.74,-559.73 247.89,-562.77 241.85,-554.06 237.74,-559.73"/>
+</g>
+<!-- proc~hchange -->
+<g id="proc~~lu1fac~~CallsGraph_node11" class="node">
+<title>proc~hchange</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node11"><a xlink:href=".././proc/hchange.html" xlink:title="lusol::Hchange">
+<polygon fill="#d9534f" stroke="#d9534f" points="448,-545 355,-545 355,-521 448,-521 448,-545"/>
+<text text-anchor="middle" x="401.5" y="-530.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hchange</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hchange -->
+<g id="proc~~lu1fac~~CallsGraph_edge10" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hchange</title>
+<path fill="none" stroke="#000000" d="M156.22,-318C157.59,-354.61 167.17,-465.47 232,-516 263.45,-540.51 308.86,-543.82 344.62,-541.52"/>
+<polygon fill="#000000" stroke="#000000" points="345.22,-544.98 354.91,-540.69 344.66,-538.01 345.22,-544.98"/>
+</g>
+<!-- proc~hdelete -->
+<g id="proc~~lu1fac~~CallsGraph_node12" class="node">
+<title>proc~hdelete</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node12"><a xlink:href=".././proc/hdelete.html" xlink:title="lusol::Hdelete">
+<polygon fill="#d9534f" stroke="#d9534f" points="319,-507 232,-507 232,-483 319,-483 319,-507"/>
+<text text-anchor="middle" x="275.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hdelete</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hdelete -->
+<g id="proc~~lu1fac~~CallsGraph_edge11" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hdelete</title>
+<path fill="none" stroke="#000000" d="M158.52,-318.17C165.3,-348.24 186.62,-427.04 232,-474 233.04,-475.07 234.14,-476.1 235.29,-477.08"/>
+<polygon fill="#000000" stroke="#000000" points="233.33,-479.98 243.51,-482.91 237.38,-474.27 233.33,-479.98"/>
+</g>
+<!-- proc~lu1ful -->
+<g id="proc~~lu1fac~~CallsGraph_node13" class="node">
+<title>proc~lu1ful</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node13"><a xlink:href=".././proc/lu1ful.html" xlink:title="lusol::lu1ful">
+<polygon fill="#d9534f" stroke="#d9534f" points="313,-465 238,-465 238,-441 313,-441 313,-465"/>
+<text text-anchor="middle" x="275.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1ful</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1ful -->
+<g id="proc~~lu1fac~~CallsGraph_edge12" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1ful</title>
+<path fill="none" stroke="#000000" d="M160.64,-318.31C170.43,-342.82 195.33,-398.28 232,-432 233.14,-433.04 234.33,-434.05 235.58,-435.01"/>
+<polygon fill="#000000" stroke="#000000" points="234.03,-438.19 244.3,-440.8 237.9,-432.35 234.03,-438.19"/>
+</g>
+<!-- proc~lu1gau -->
+<g id="proc~~lu1fac~~CallsGraph_node14" class="node">
+<title>proc~lu1gau</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node14"><a xlink:href=".././proc/lu1gau.html" xlink:title="lusol::lu1gau">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-423 234.5,-423 234.5,-399 316.5,-399 316.5,-423"/>
+<text text-anchor="middle" x="275.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1gau</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1gau -->
+<g id="proc~~lu1fac~~CallsGraph_edge13" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1gau</title>
+<path fill="none" stroke="#000000" d="M164.65,-318.17C177.66,-335.8 203.76,-368.66 232,-390 233.76,-391.33 235.62,-392.61 237.53,-393.84"/>
+<polygon fill="#000000" stroke="#000000" points="235.78,-396.87 246.18,-398.88 239.3,-390.82 235.78,-396.87"/>
+</g>
+<!-- proc~lu1mar -->
+<g id="proc~~lu1fac~~CallsGraph_node15" class="node">
+<title>proc~lu1mar</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node15"><a xlink:href=".././proc/lu1mar.html" xlink:title="lusol::lu1mar">
+<polygon fill="#d9534f" stroke="#d9534f" points="317,-381 234,-381 234,-357 317,-357 317,-381"/>
+<text text-anchor="middle" x="275.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mar</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mar -->
+<g id="proc~~lu1fac~~CallsGraph_edge14" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mar</title>
+<path fill="none" stroke="#000000" d="M177.15,-318.03C192.32,-326.57 213.3,-338.22 232,-348 234.76,-349.44 237.62,-350.91 240.51,-352.38"/>
+<polygon fill="#000000" stroke="#000000" points="239.17,-355.62 249.68,-356.98 242.31,-349.37 239.17,-355.62"/>
+</g>
+<!-- proc~lu1mrp -->
+<g id="proc~~lu1fac~~CallsGraph_node16" class="node">
+<title>proc~lu1mrp</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node16"><a xlink:href=".././proc/lu1mrp.html" xlink:title="lusol::lu1mRP">
+<polygon fill="#d9534f" stroke="#d9534f" points="318,-339 233,-339 233,-315 318,-315 318,-339"/>
+<text text-anchor="middle" x="275.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mRP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mrp -->
+<g id="proc~~lu1fac~~CallsGraph_edge15" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mrp</title>
+<path fill="none" stroke="#000000" d="M194.8,-312.88C203.72,-314.46 213.35,-316.16 222.73,-317.82"/>
+<polygon fill="#000000" stroke="#000000" points="222.3,-321.3 232.75,-319.6 223.52,-314.41 222.3,-321.3"/>
+</g>
+<!-- proc~lu1msp -->
+<g id="proc~~lu1fac~~CallsGraph_node17" class="node">
+<title>proc~lu1msp</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node17"><a xlink:href=".././proc/lu1msp.html" xlink:title="lusol::lu1mSP">
+<polygon fill="#d9534f" stroke="#d9534f" points="318,-297 233,-297 233,-273 318,-273 318,-297"/>
+<text text-anchor="middle" x="275.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mSP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1msp -->
+<g id="proc~~lu1fac~~CallsGraph_edge16" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1msp</title>
+<path fill="none" stroke="#000000" d="M194.8,-299.12C203.72,-297.54 213.35,-295.84 222.73,-294.18"/>
+<polygon fill="#000000" stroke="#000000" points="223.52,-297.59 232.75,-292.4 222.3,-290.7 223.52,-297.59"/>
+</g>
+<!-- proc~lu1mxc -->
+<g id="proc~~lu1fac~~CallsGraph_node18" class="node">
+<title>proc~lu1mxc</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node18"><a xlink:href=".././proc/lu1mxc.html" xlink:title="lusol::lu1mxc">
+<polygon fill="#d9534f" stroke="#d9534f" points="317.5,-255 233.5,-255 233.5,-231 317.5,-231 317.5,-255"/>
+<text text-anchor="middle" x="275.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mxc</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mxc -->
+<g id="proc~~lu1fac~~CallsGraph_edge17" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mxc</title>
+<path fill="none" stroke="#000000" d="M179.36,-293.96C184.84,-291.07 190.65,-287.96 196,-285 212.2,-276.03 215.69,-272.77 232,-264 234.67,-262.56 237.45,-261.11 240.25,-259.67"/>
+<polygon fill="#000000" stroke="#000000" points="241.84,-262.79 249.18,-255.15 238.68,-256.54 241.84,-262.79"/>
+</g>
+<!-- proc~lu1mxr -->
+<g id="proc~~lu1fac~~CallsGraph_node19" class="node">
+<title>proc~lu1mxr</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node19"><a xlink:href=".././proc/lu1mxr.html" xlink:title="lusol::lu1mxr">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-213 234.5,-213 234.5,-189 316.5,-189 316.5,-213"/>
+<text text-anchor="middle" x="275.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mxr</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mxr -->
+<g id="proc~~lu1fac~~CallsGraph_edge18" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mxr</title>
+<path fill="none" stroke="#000000" d="M184.07,-293.92C188.35,-291.35 192.5,-288.38 196,-285 219.21,-262.61 208.52,-244.11 232,-222 233.12,-220.94 234.31,-219.93 235.55,-218.95"/>
+<polygon fill="#000000" stroke="#000000" points="237.88,-221.6 244.23,-213.13 233.98,-215.79 237.88,-221.6"/>
+</g>
+<!-- proc~lu1pen -->
+<g id="proc~~lu1fac~~CallsGraph_node20" class="node">
+<title>proc~lu1pen</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node20"><a xlink:href=".././proc/lu1pen.html" xlink:title="lusol::lu1pen">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-171 234.5,-171 234.5,-147 316.5,-147 316.5,-171"/>
+<text text-anchor="middle" x="275.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pen</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pen -->
+<g id="proc~~lu1fac~~CallsGraph_edge19" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pen</title>
+<path fill="none" stroke="#000000" d="M185.46,-293.94C189.37,-291.42 193.04,-288.45 196,-285 228.11,-247.55 199.43,-217.05 232,-180 232.86,-179.03 233.77,-178.09 234.72,-177.2"/>
+<polygon fill="#000000" stroke="#000000" points="236.93,-179.92 242.78,-171.09 232.7,-174.34 236.93,-179.92"/>
+</g>
+<!-- proc~lu1pq2 -->
+<g id="proc~~lu1fac~~CallsGraph_node21" class="node">
+<title>proc~lu1pq2</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node21"><a xlink:href=".././proc/lu1pq2.html" xlink:title="lusol::lu1pq2">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-129 234.5,-129 234.5,-105 316.5,-105 316.5,-129"/>
+<text text-anchor="middle" x="275.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq2</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pq2 -->
+<g id="proc~~lu1fac~~CallsGraph_edge20" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pq2</title>
+<path fill="none" stroke="#000000" d="M186.14,-293.91C189.86,-291.41 193.29,-288.46 196,-285 237.44,-232.02 189.91,-190.47 232,-138 232.7,-137.13 233.44,-136.3 234.21,-135.5"/>
+<polygon fill="#000000" stroke="#000000" points="236.51,-138.14 242.07,-129.12 232.1,-132.7 236.51,-138.14"/>
+</g>
+<!-- proc~lu1pq3 -->
+<g id="proc~~lu1fac~~CallsGraph_node22" class="node">
+<title>proc~lu1pq3</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node22"><a xlink:href=".././proc/lu1pq3.html" xlink:title="lusol::lu1pq3">
+<polygon fill="#d9534f" stroke="#d9534f" points="316.5,-87 234.5,-87 234.5,-63 316.5,-63 316.5,-87"/>
+<text text-anchor="middle" x="275.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq3</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pq3 -->
+<g id="proc~~lu1fac~~CallsGraph_edge21" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pq3</title>
+<path fill="none" stroke="#000000" d="M186.7,-293.76C190.24,-291.3 193.48,-288.4 196,-285 246.91,-216.3 180.25,-164.07 232,-96 232.57,-95.25 233.17,-94.53 233.8,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="236.16,-96.42 241.48,-87.26 231.61,-91.1 236.16,-96.42"/>
+</g>
+<!-- proc~lu1rec -->
+<g id="proc~~lu1fac~~CallsGraph_node23" class="node">
+<title>proc~lu1rec</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node23"><a xlink:href=".././proc/lu1rec.html" xlink:title="lusol::lu1rec">
+<polygon fill="#d9534f" stroke="#d9534f" points="314.5,-45 236.5,-45 236.5,-21 314.5,-21 314.5,-45"/>
+<text text-anchor="middle" x="275.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1rec</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1rec -->
+<g id="proc~~lu1fac~~CallsGraph_edge22" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1rec</title>
+<path fill="none" stroke="#000000" d="M186.81,-293.84C190.33,-291.37 193.54,-288.44 196,-285 256.46,-200.49 170.51,-137.76 232,-54 232.55,-53.25 233.14,-52.52 233.76,-51.81"/>
+<polygon fill="#000000" stroke="#000000" points="236.13,-54.39 241.37,-45.18 231.53,-49.11 236.13,-54.39"/>
+</g>
+<!-- proc~hinsert -->
+<g id="proc~~lu1fac~~CallsGraph_node25" class="node">
+<title>proc~hinsert</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node25"><a xlink:href=".././proc/hinsert.html" xlink:title="lusol::Hinsert">
+<polygon fill="#d9534f" stroke="#d9534f" points="443,-587 360,-587 360,-563 443,-563 443,-587"/>
+<text text-anchor="middle" x="401.5" y="-572.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hinsert</text>
+</a>
+</g>
+</g>
+<!-- proc~hbuild&#45;&gt;proc~hinsert -->
+<g id="proc~~lu1fac~~CallsGraph_edge23" class="edge">
+<title>proc~hbuild&#45;&gt;proc~hinsert</title>
+<path fill="none" stroke="#000000" d="M315.05,-575C326.05,-575 338.2,-575 349.81,-575"/>
+<polygon fill="#000000" stroke="#000000" points="349.82,-578.5 359.82,-575 349.82,-571.5 349.82,-578.5"/>
+</g>
+<!-- proc~hdown -->
+<g id="proc~~lu1fac~~CallsGraph_node24" class="node">
+<title>proc~hdown</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node24"><a xlink:href=".././proc/hdown.html" xlink:title="lusol::Hdown">
+<polygon fill="#d9534f" stroke="#d9534f" points="567.5,-545 485.5,-545 485.5,-521 567.5,-521 567.5,-545"/>
+<text text-anchor="middle" x="526.5" y="-530.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hdown</text>
+</a>
+</g>
+</g>
+<!-- proc~hchange&#45;&gt;proc~hdown -->
+<g id="proc~~lu1fac~~CallsGraph_edge24" class="edge">
+<title>proc~hchange&#45;&gt;proc~hdown</title>
+<path fill="none" stroke="#000000" d="M448.3,-533C457.04,-533 466.23,-533 475.1,-533"/>
+<polygon fill="#000000" stroke="#000000" points="475.33,-536.5 485.33,-533 475.33,-529.5 475.33,-536.5"/>
+</g>
+<!-- proc~hup -->
+<g id="proc~~lu1fac~~CallsGraph_node26" class="node">
+<title>proc~hup</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node26"><a xlink:href=".././proc/hup.html" xlink:title="lusol::Hup">
+<polygon fill="#d9534f" stroke="#d9534f" points="560,-587 493,-587 493,-563 560,-563 560,-587"/>
+<text text-anchor="middle" x="526.5" y="-572.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hup</text>
+</a>
+</g>
+</g>
+<!-- proc~hchange&#45;&gt;proc~hup -->
+<g id="proc~~lu1fac~~CallsGraph_edge25" class="edge">
+<title>proc~hchange&#45;&gt;proc~hup</title>
+<path fill="none" stroke="#000000" d="M437.75,-545.04C451.96,-549.89 468.47,-555.53 483.31,-560.59"/>
+<polygon fill="#000000" stroke="#000000" points="482.18,-563.91 492.78,-563.83 484.45,-557.28 482.18,-563.91"/>
+</g>
+<!-- proc~hdelete&#45;&gt;proc~hchange -->
+<g id="proc~~lu1fac~~CallsGraph_edge26" class="edge">
+<title>proc~hdelete&#45;&gt;proc~hchange</title>
+<path fill="none" stroke="#000000" d="M315.73,-507.02C327.04,-510.49 339.52,-514.31 351.35,-517.94"/>
+<polygon fill="#000000" stroke="#000000" points="350.51,-521.34 361.1,-520.92 352.56,-514.65 350.51,-521.34"/>
+</g>
+<!-- proc~lu1dcp -->
+<g id="proc~~lu1fac~~CallsGraph_node27" class="node">
+<title>proc~lu1dcp</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node27"><a xlink:href=".././proc/lu1dcp.html" xlink:title="lusol::lu1DCP">
+<polygon fill="#d9534f" stroke="#d9534f" points="443,-484 360,-484 360,-460 443,-460 443,-484"/>
+<text text-anchor="middle" x="401.5" y="-469.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1DCP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1ful&#45;&gt;proc~lu1dcp -->
+<g id="proc~~lu1fac~~CallsGraph_edge27" class="edge">
+<title>proc~lu1ful&#45;&gt;proc~lu1dcp</title>
+<path fill="none" stroke="#000000" d="M313.03,-458.6C324.53,-460.36 337.44,-462.34 349.74,-464.22"/>
+<polygon fill="#000000" stroke="#000000" points="349.47,-467.72 359.89,-465.78 350.53,-460.8 349.47,-467.72"/>
+</g>
+<!-- proc~lu1dpp -->
+<g id="proc~~lu1fac~~CallsGraph_node28" class="node">
+<title>proc~lu1dpp</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node28"><a xlink:href=".././proc/lu1dpp.html" xlink:title="lusol::lu1DPP">
+<polygon fill="#d9534f" stroke="#d9534f" points="442.5,-442 360.5,-442 360.5,-418 442.5,-418 442.5,-442"/>
+<text text-anchor="middle" x="401.5" y="-427.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1DPP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1ful&#45;&gt;proc~lu1dpp -->
+<g id="proc~~lu1fac~~CallsGraph_edge28" class="edge">
+<title>proc~lu1ful&#45;&gt;proc~lu1dpp</title>
+<path fill="none" stroke="#000000" d="M313.03,-446.22C324.76,-444.05 337.95,-441.6 350.47,-439.28"/>
+<polygon fill="#000000" stroke="#000000" points="351.13,-442.72 360.33,-437.45 349.86,-435.83 351.13,-442.72"/>
+</g>
+<!-- proc~hinsert&#45;&gt;proc~hup -->
+<g id="proc~~lu1fac~~CallsGraph_edge29" class="edge">
+<title>proc~hinsert&#45;&gt;proc~hup</title>
+<path fill="none" stroke="#000000" d="M443.12,-575C455.69,-575 469.58,-575 482.33,-575"/>
+<polygon fill="#000000" stroke="#000000" points="482.7,-578.5 492.7,-575 482.7,-571.5 482.7,-578.5"/>
+</g>
+<!-- proc~jdamax -->
+<g id="proc~~lu1fac~~CallsGraph_node29" class="node">
+<title>proc~jdamax</title>
+<g id="a_proc~~lu1fac~~CallsGraph_node29"><a xlink:href=".././proc/jdamax.html" xlink:title="lusol::jdamax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="569,-463 484,-463 484,-439 569,-439 569,-463"/>
+<text text-anchor="middle" x="526.5" y="-448.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::jdamax</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1dcp&#45;&gt;proc~jdamax -->
+<g id="proc~~lu1fac~~CallsGraph_edge30" class="edge">
+<title>proc~lu1dcp&#45;&gt;proc~jdamax</title>
+<path fill="none" stroke="#000000" d="M443.12,-465.07C452.88,-463.4 463.44,-461.6 473.63,-459.86"/>
+<polygon fill="#000000" stroke="#000000" points="474.4,-463.28 483.66,-458.14 473.22,-456.38 474.4,-463.28"/>
+</g>
+<!-- proc~lu1dpp&#45;&gt;proc~jdamax -->
+<g id="proc~~lu1fac~~CallsGraph_edge31" class="edge">
+<title>proc~lu1dpp&#45;&gt;proc~jdamax</title>
+<path fill="none" stroke="#000000" d="M442.77,-436.88C452.65,-438.56 463.37,-440.39 473.7,-442.16"/>
+<polygon fill="#000000" stroke="#000000" points="473.42,-445.66 483.87,-443.89 474.6,-438.76 473.42,-445.66"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~lu1fac~~CalledByGraph Pages: 1 -->
+<svg id="proclu1facCalledByGraph" width="463pt" height="74pt"
+ viewBox="0.00 0.00 463.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~lu1fac~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~lu1fac~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 459,-70 459,4 -4,4"/>
+<!-- proc~lu1fac -->
+<g id="proc~~lu1fac~~CalledByGraph_node1" class="node">
+<title>proc~lu1fac</title>
+<polygon fill="none" stroke="black" points="455,-45 377,-45 377,-21 455,-21 455,-45"/>
+<text text-anchor="middle" x="416" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">lusol::lu1fac</text>
+</g>
+<!-- proc~solve -->
+<g id="proc~~lu1fac~~CalledByGraph_node2" class="node">
+<title>proc~solve</title>
+<g id="a_proc~~lu1fac~~CalledByGraph_node2"><a xlink:href=".././proc/solve.html" xlink:title="lusol_ez_module::solve">
+<polygon fill="#d9534f" stroke="#d9534f" points="341,-45 205,-45 205,-21 341,-21 341,-45"/>
+<text text-anchor="middle" x="273" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_ez_module::solve</text>
+</a>
+</g>
+</g>
+<!-- proc~solve&#45;&gt;proc~lu1fac -->
+<g id="proc~~lu1fac~~CalledByGraph_edge1" class="edge">
+<title>proc~solve&#45;&gt;proc~lu1fac</title>
+<path fill="none" stroke="#000000" d="M341.2,-33C349.77,-33 358.42,-33 366.62,-33"/>
+<polygon fill="#000000" stroke="#000000" points="366.73,-36.5 376.73,-33 366.73,-29.5 366.73,-36.5"/>
+</g>
+<!-- proc~test_1 -->
+<g id="proc~~lu1fac~~CalledByGraph_node3" class="node">
+<title>proc~test_1</title>
+<g id="a_proc~~lu1fac~~CalledByGraph_node3"><a xlink:href=".././proc/test_1.html" xlink:title="main::test_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-66 90,-66 90,-42 169,-42 169,-66"/>
+<text text-anchor="middle" x="129.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_1</text>
+</a>
+</g>
+</g>
+<!-- proc~test_1&#45;&gt;proc~solve -->
+<g id="proc~~lu1fac~~CalledByGraph_edge2" class="edge">
+<title>proc~test_1&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-48.26C177.19,-47.07 185.92,-45.78 194.78,-44.46"/>
+<polygon fill="#000000" stroke="#000000" points="195.43,-47.9 204.81,-42.97 194.41,-40.98 195.43,-47.9"/>
+</g>
+<!-- proc~test_2 -->
+<g id="proc~~lu1fac~~CalledByGraph_node4" class="node">
+<title>proc~test_2</title>
+<g id="a_proc~~lu1fac~~CalledByGraph_node4"><a xlink:href=".././proc/test_2.html" xlink:title="main::test_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-24 90,-24 90,0 169,0 169,-24"/>
+<text text-anchor="middle" x="129.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_2</text>
+</a>
+</g>
+</g>
+<!-- proc~test_2&#45;&gt;proc~solve -->
+<g id="proc~~lu1fac~~CalledByGraph_edge3" class="edge">
+<title>proc~test_2&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-17.74C177.19,-18.93 185.92,-20.22 194.78,-21.54"/>
+<polygon fill="#000000" stroke="#000000" points="194.41,-25.02 204.81,-23.03 195.43,-18.1 194.41,-25.02"/>
+</g>
+<!-- program~main -->
+<g id="proc~~lu1fac~~CalledByGraph_node5" class="node">
+<title>program~main</title>
+<g id="a_proc~~lu1fac~~CalledByGraph_node5"><a xlink:href=".././program/main.html" xlink:title="main">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
+<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;proc~test_1 -->
+<g id="proc~~lu1fac~~CalledByGraph_edge4" class="edge">
+<title>program~main&#45;&gt;proc~test_1</title>
+<path fill="none" stroke="#000000" d="M54.14,-38.46C62.09,-40.12 71.08,-42 80.01,-43.87"/>
+<polygon fill="#000000" stroke="#000000" points="79.49,-47.33 89.99,-45.95 80.92,-40.48 79.49,-47.33"/>
+</g>
+<!-- program~main&#45;&gt;proc~test_2 -->
+<g id="proc~~lu1fac~~CalledByGraph_edge5" class="edge">
+<title>program~main&#45;&gt;proc~test_2</title>
+<path fill="none" stroke="#000000" d="M54.14,-27.54C62.09,-25.88 71.08,-24 80.01,-22.13"/>
+<polygon fill="#000000" stroke="#000000" points="80.92,-25.52 89.99,-20.05 79.49,-18.67 80.92,-25.52"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">  </span><span class="k">subroutine </span><span class="n">lu1fac</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">nelem</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">luparm</span><span class="p">,</span><span class="w"> </span><span class="n">parmlu</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">a</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w">     </span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">lenc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="w"> </span><span class="p">,</span><span class="w">                       </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">iploc</span><span class="p">,</span><span class="w"> </span><span class="n">iqloc</span><span class="p">,</span><span class="w"> </span><span class="n">ipinv</span><span class="p">,</span><span class="w"> </span><span class="n">iqinv</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nelem</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lena</span><span class="p">),</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lena</span><span class="p">),</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">p</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">      </span><span class="p">,</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">lenc</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w">   </span><span class="p">,</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">iploc</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">iqloc</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">ipinv</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">iqinv</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  </span><span class="p">,</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">locc</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">),</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lena</span><span class="p">),</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">inform</span>
+
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! lu1fac computes a factorization A = L*U, where A is a sparse</span>
+<span class="w">    </span><span class="c">! matrix with m rows and n columns, P*L*P&#39; is lower triangular</span>
+<span class="w">    </span><span class="c">! and P*U*Q is upper triangular for certain permutations P, Q</span>
+<span class="w">    </span><span class="c">! (which are returned in the arrays p, q).</span>
+<span class="w">    </span><span class="c">! Stability is ensured by limiting the size of the elements of L.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! The nonzeros of A are input via the parallel arrays a, indc, indr,</span>
+<span class="w">    </span><span class="c">! which should contain nelem entries of the form    aij,    i,    j</span>
+<span class="w">    </span><span class="c">! in any order.  There should be no duplicate pairs         i,    j.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! ******************************************************************</span>
+<span class="w">    </span><span class="c">! *        Beware !!!   The row indices i must be in indc,         *</span>
+<span class="w">    </span><span class="c">! *              and the column indices j must be in indr.         *</span>
+<span class="w">    </span><span class="c">! *              (Not the other way round!)                        *</span>
+<span class="w">    </span><span class="c">! ******************************************************************</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! It does not matter if some of the entries in a(*) are zero.</span>
+<span class="w">    </span><span class="c">! Entries satisfying  abs( a(i) ) .le. parmlu(3)  are ignored.</span>
+<span class="w">    </span><span class="c">! Other parameters in luparm and parmlu are described below.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! The matrix A may be singular.  On exit, nsing = luparm(11) gives</span>
+<span class="w">    </span><span class="c">! the number of apparent singularities.  This is the number of</span>
+<span class="w">    </span><span class="c">! &quot;small&quot; diagonals of the permuted factor U, as judged by</span>
+<span class="w">    </span><span class="c">! the input tolerances Utol1 = parmlu(4) and  Utol2 = parmlu(5).</span>
+<span class="w">    </span><span class="c">! The diagonal element diagj associated with column j of A is</span>
+<span class="w">    </span><span class="c">! &quot;small&quot; if</span>
+<span class="w">    </span><span class="c">!                 abs( diagj ) .le. Utol1</span>
+<span class="w">    </span><span class="c">! or</span>
+<span class="w">    </span><span class="c">!                 abs( diagj ) .le. Utol2 * max( uj ),</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! where max( uj ) is the maximum element in the j-th column of U.</span>
+<span class="w">    </span><span class="c">! The position of such elements is returned in w(*).  In general,</span>
+<span class="w">    </span><span class="c">! w(j) = + max( uj ),  but if column j is a singularity,</span>
+<span class="w">    </span><span class="c">! w(j) = - max( uj ).  Thus, w(j) .le. 0 if column j appears to be</span>
+<span class="w">    </span><span class="c">! dependent on the other columns of A.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! NOTE: lu1fac (like certain other sparse LU packages) does not</span>
+<span class="w">    </span><span class="c">! treat dense columns efficiently.  This means it will be slow</span>
+<span class="w">    </span><span class="c">! on &quot;arrow matrices&quot; of the form</span>
+<span class="w">    </span><span class="c">!                  A = (x       a)</span>
+<span class="w">    </span><span class="c">!                      (  x     b)</span>
+<span class="w">    </span><span class="c">!                      (    x   c)</span>
+<span class="w">    </span><span class="c">!                      (      x d)</span>
+<span class="w">    </span><span class="c">!                      (x x x x e)</span>
+<span class="w">    </span><span class="c">! if the numerical values in the dense column allow it to be</span>
+<span class="w">    </span><span class="c">! chosen LATE in the pivot order.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! With TPP (Threshold Partial Pivoting), the dense column is</span>
+<span class="w">    </span><span class="c">! likely to be chosen late.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! With TCP (Threshold Complete Pivoting), if any of a,b,c,d</span>
+<span class="w">    </span><span class="c">! is significantly larger than other elements of A, it will</span>
+<span class="w">    </span><span class="c">! be chosen as the first pivot and the dense column will be</span>
+<span class="w">    </span><span class="c">! eliminated, giving reasonably sparse factors.</span>
+<span class="w">    </span><span class="c">! However, if element e is so big that TCP chooses it, the factors</span>
+<span class="w">    </span><span class="c">! will become dense.  (It&#39;s hard to win on these examples!)</span>
+<span class="w">    </span><span class="c">!==================================================================</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! Notes on the array names</span>
+<span class="w">    </span><span class="c">! ------------------------</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! During the LU factorization, the sparsity pattern of the matrix</span>
+<span class="w">    </span><span class="c">! being factored is stored twice: in a column list and a row list.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! The column list is ( a, indc, locc, lenc )</span>
+<span class="w">    </span><span class="c">! where</span>
+<span class="w">    </span><span class="c">!       a(*)    holds the nonzeros,</span>
+<span class="w">    </span><span class="c">!       indc(*) holds the indices for the column list,</span>
+<span class="w">    </span><span class="c">!       locc(j) points to the start of column j in a(*) and indc(*),</span>
+<span class="w">    </span><span class="c">!       lenc(j) is the number of nonzeros in column j.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! The row list is    (    indr, locr, lenr )</span>
+<span class="w">    </span><span class="c">! where</span>
+<span class="w">    </span><span class="c">!       indr(*) holds the indices for the row list,</span>
+<span class="w">    </span><span class="c">!       locr(i) points to the start of row i in indr(*),</span>
+<span class="w">    </span><span class="c">!       lenr(i) is the number of nonzeros in row i.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! At all stages of the LU factorization, p contains a complete</span>
+<span class="w">    </span><span class="c">! row permutation.  At the start of stage k,  p(1), ..., p(k-1)</span>
+<span class="w">    </span><span class="c">! are the first k-1 rows of the final row permutation P.</span>
+<span class="w">    </span><span class="c">! The remaining rows are stored in an ordered list</span>
+<span class="w">    </span><span class="c">!                    ( p, iploc, ipinv )</span>
+<span class="w">    </span><span class="c">! where</span>
+<span class="w">    </span><span class="c">!       iploc(nz) points to the start in p(*) of the set of rows</span>
+<span class="w">    </span><span class="c">!                 that currently contain nz nonzeros,</span>
+<span class="w">    </span><span class="c">!       ipinv(i)  points to the position of row i in p(*).</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! For example,</span>
+<span class="w">    </span><span class="c">!       iploc(1) = k   (and this is where rows of length 1 begin),</span>
+<span class="w">    </span><span class="c">!       iploc(2) = k+p  if there are p rows of length 1</span>
+<span class="w">    </span><span class="c">!                      (and this is where rows of length 2 begin).</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! Similarly for q, iqloc, iqinv.</span>
+<span class="w">    </span><span class="c">!==================================================================</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! 00 Jun 1983  Original version.</span>
+<span class="w">    </span><span class="c">! 00 Jul 1987  nrank  saved in luparm(16).</span>
+<span class="w">    </span><span class="c">! 12 Apr 1989  ipinv, iqinv added as workspace.</span>
+<span class="w">    </span><span class="c">! 26 Apr 1989  maxtie replaced by maxcol in Markowitz search.</span>
+<span class="w">    </span><span class="c">! 16 Mar 1992  jumin  saved in luparm(19).</span>
+<span class="w">    </span><span class="c">! 10 Jun 1992  lu1fad has to move empty rows and cols to the bottom</span>
+<span class="w">    </span><span class="c">!              (via lu1pq3) before doing the dense LU.</span>
+<span class="w">    </span><span class="c">! 12 Jun 1992  Deleted dense LU (lu1ful, lu1vlu).</span>
+<span class="w">    </span><span class="c">! 25 Oct 1993  keepLU implemented.</span>
+<span class="w">    </span><span class="c">! 07 Feb 1994  Added new dense LU (lu1ful, lu1den).</span>
+<span class="w">    </span><span class="c">! 21 Dec 1994  Bugs fixed in lu1fad (nrank) and lu1ful (ipvt).</span>
+<span class="w">    </span><span class="c">! 08 Aug 1995  Use p instead of w as parameter to lu1or3 (for F90).</span>
+<span class="w">    </span><span class="c">! 13 Sep 2000  TPP and TCP options implemented.</span>
+<span class="w">    </span><span class="c">! 17 Oct 2000  Fixed troubles due to A = empty matrix (Todd Munson).</span>
+<span class="w">    </span><span class="c">! 01 Dec 2000  Save Lmax, Umax, etc. after both lu1fad and lu6chk.</span>
+<span class="w">    </span><span class="c">!              lu1fad sets them when keepLU = false.</span>
+<span class="w">    </span><span class="c">!              lu6chk sets them otherwise, and includes items</span>
+<span class="w">    </span><span class="c">!              from the dense LU.</span>
+<span class="w">    </span><span class="c">! 11 Mar 2001  lu6chk now looks at diag(U) when keepLU = false.</span>
+<span class="w">    </span><span class="c">! 26 Apr 2002  New TCP implementation using heap routines to</span>
+<span class="w">    </span><span class="c">!              store largest element in each column.</span>
+<span class="w">    </span><span class="c">!              New workspace arrays Ha, Hj, Hk required.</span>
+<span class="w">    </span><span class="c">!              For compatibility, borrow space from a, indc, indr</span>
+<span class="w">    </span><span class="c">!              rather than adding new input parameters.</span>
+<span class="w">    </span><span class="c">! 01 May 2002  lu1den changed to lu1DPP (dense partial  pivoting).</span>
+<span class="w">    </span><span class="c">!              lu1DCP implemented       (dense complete pivoting).</span>
+<span class="w">    </span><span class="c">!              Both TPP and TCP now switch to dense mode and end.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! 10 Jan 2010: First f90 version.</span>
+<span class="w">    </span><span class="c">!---------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  INPUT PARAMETERS</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  m      (not altered) is the number of rows in A.</span>
+<span class="w">    </span><span class="c">!  n      (not altered) is the number of columns in A.</span>
+<span class="w">    </span><span class="c">!  nelem  (not altered) is the number of matrix entries given in</span>
+<span class="w">    </span><span class="c">!         the arrays a, indc, indr.</span>
+<span class="w">    </span><span class="c">!  lena   (not altered) is the dimension of  a, indc, indr.</span>
+<span class="w">    </span><span class="c">!         This should be significantly larger than nelem.</span>
+<span class="w">    </span><span class="c">!         Typically one should have</span>
+<span class="w">    </span><span class="c">!            lena &gt; max( 2*nelem, 10*m, 10*n, 10000 )</span>
+<span class="w">    </span><span class="c">!         but some applications may need more.</span>
+<span class="w">    </span><span class="c">!         On machines with virtual memory it is safe to have</span>
+<span class="w">    </span><span class="c">!         lena &quot;far bigger than necessary&quot;, since not all of the</span>
+<span class="w">    </span><span class="c">!         arrays will be used.</span>
+<span class="w">    </span><span class="c">!  a      (overwritten) contains entries   Aij  in   a(1:nelem).</span>
+<span class="w">    </span><span class="c">!  indc   (overwritten) contains the indices i in indc(1:nelem).</span>
+<span class="w">    </span><span class="c">!  indr   (overwritten) contains the indices j in indr(1:nelem).</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm input parameters:                                Typical value</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm( 1) = nout     File number for printed messages.         6</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm( 2) = lprint   Print level.                              0</span>
+<span class="w">    </span><span class="c">!                   &lt;  0 suppresses output.</span>
+<span class="w">    </span><span class="c">!                   =  0 gives error messages.</span>
+<span class="w">    </span><span class="c">!                  &gt;= 10 gives statistics about the LU factors.</span>
+<span class="w">    </span><span class="c">!                  &gt;= 50 gives debug output from lu1fac</span>
+<span class="w">    </span><span class="c">!                        (the pivot row and column and the</span>
+<span class="w">    </span><span class="c">!                        no. of rows and columns involved at</span>
+<span class="w">    </span><span class="c">!                        each elimination step).</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm( 3) = maxcol   lu1fac: maximum number of columns         5</span>
+<span class="w">    </span><span class="c">!                        searched allowed in a Markowitz-type</span>
+<span class="w">    </span><span class="c">!                        search for the next pivot element.</span>
+<span class="w">    </span><span class="c">!                        For some of the factorization, the</span>
+<span class="w">    </span><span class="c">!                        number of rows searched is</span>
+<span class="w">    </span><span class="c">!                        maxrow = maxcol - 1.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm( 6) = 0    =&gt;  TPP: Threshold Partial   Pivoting.        0</span>
+<span class="w">    </span><span class="c">!             = 1    =&gt;  TRP: Threshold Rook      Pivoting.</span>
+<span class="w">    </span><span class="c">!             = 2    =&gt;  TCP: Threshold Complete  Pivoting.</span>
+<span class="w">    </span><span class="c">!             = 3    =&gt;  TSP: Threshold Symmetric Pivoting.</span>
+<span class="w">    </span><span class="c">!             = 4    =&gt;  TDP: Threshold Diagonal  Pivoting.</span>
+<span class="w">    </span><span class="c">!                             (TDP not yet implemented).</span>
+<span class="w">    </span><span class="c">!                        TRP and TCP are more expensive than TPP but</span>
+<span class="w">    </span><span class="c">!                        more stable and better at revealing rank.</span>
+<span class="w">    </span><span class="c">!                        Take care with setting parmlu(1), especially</span>
+<span class="w">    </span><span class="c">!                        with TCP.</span>
+<span class="w">    </span><span class="c">!                        NOTE: TSP and TDP are for symmetric matrices</span>
+<span class="w">    </span><span class="c">!                        that are either definite or quasi-definite.</span>
+<span class="w">    </span><span class="c">!                        TSP is effectively TRP for symmetric matrices.</span>
+<span class="w">    </span><span class="c">!                        TDP is effectively TCP for symmetric matrices.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm( 8) = keepLU   lu1fac: keepLU = 1 means the numerical    1</span>
+<span class="w">    </span><span class="c">!                        factors will be computed if possible.</span>
+<span class="w">    </span><span class="c">!                        keepLU = 0 means L and U will be discarded</span>
+<span class="w">    </span><span class="c">!                        but other information such as the row and</span>
+<span class="w">    </span><span class="c">!                        column permutations will be returned.</span>
+<span class="w">    </span><span class="c">!                        The latter option requires less storage.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  parmlu input parameters:                                Typical value</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  parmlu( 1) = Ltol1    Max Lij allowed during Factor.</span>
+<span class="w">    </span><span class="c">!                                                  TPP     10.0 or 100.0</span>
+<span class="w">    </span><span class="c">!                                                  TRP      4.0 or  10.0</span>
+<span class="w">    </span><span class="c">!                                                  TCP      5.0 or  10.0</span>
+<span class="w">    </span><span class="c">!                                                  TSP      4.0 or  10.0</span>
+<span class="w">    </span><span class="c">!                        With TRP and TCP (Rook and Complete Pivoting),</span>
+<span class="w">    </span><span class="c">!                        values less than 25.0 may be expensive</span>
+<span class="w">    </span><span class="c">!                        on badly scaled data.  However,</span>
+<span class="w">    </span><span class="c">!                        values less than 10.0 may be needed</span>
+<span class="w">    </span><span class="c">!                        to obtain a reliable rank-revealing</span>
+<span class="w">    </span><span class="c">!                        factorization.</span>
+<span class="w">    </span><span class="c">!  parmlu( 2) = Ltol2    Max Lij allowed during Updates.            10.0</span>
+<span class="w">    </span><span class="c">!                        during updates.</span>
+<span class="w">    </span><span class="c">!  parmlu( 3) = small    Absolute tolerance for       eps**0.8 = 3.0d-13</span>
+<span class="w">    </span><span class="c">!                        treating reals as zero.</span>
+<span class="w">    </span><span class="c">!  parmlu( 4) = Utol1    Absolute tol for flagging    eps**0.67= 3.7d-11</span>
+<span class="w">    </span><span class="c">!                        small diagonals of U.</span>
+<span class="w">    </span><span class="c">!  parmlu( 5) = Utol2    Relative tol for flagging    eps**0.67= 3.7d-11</span>
+<span class="w">    </span><span class="c">!                        small diagonals of U.</span>
+<span class="w">    </span><span class="c">!                        (eps = machine precision)</span>
+<span class="w">    </span><span class="c">!  parmlu( 6) = Uspace   Factor limiting waste space in  U.      3.0</span>
+<span class="w">    </span><span class="c">!                        In lu1fac, the row or column lists</span>
+<span class="w">    </span><span class="c">!                        are compressed if their length</span>
+<span class="w">    </span><span class="c">!                        exceeds Uspace times the length of</span>
+<span class="w">    </span><span class="c">!                        either file after the last compression.</span>
+<span class="w">    </span><span class="c">!  parmlu( 7) = dens1    The density at which the Markowitz      0.3</span>
+<span class="w">    </span><span class="c">!                        pivot strategy should search maxcol</span>
+<span class="w">    </span><span class="c">!                        columns and no rows.</span>
+<span class="w">    </span><span class="c">!                        (Use 0.3 unless you are experimenting</span>
+<span class="w">    </span><span class="c">!                        with the pivot strategy.)</span>
+<span class="w">    </span><span class="c">!  parmlu( 8) = dens2    the density at which the Markowitz      0.5</span>
+<span class="w">    </span><span class="c">!                        strategy should search only 1 column,</span>
+<span class="w">    </span><span class="c">!                        or (if storage is available)</span>
+<span class="w">    </span><span class="c">!                        the density at which all remaining</span>
+<span class="w">    </span><span class="c">!                        rows and columns will be processed</span>
+<span class="w">    </span><span class="c">!                        by a dense LU code.</span>
+<span class="w">    </span><span class="c">!                        For example, if dens2 = 0.1 and lena is</span>
+<span class="w">    </span><span class="c">!                        large enough, a dense LU will be used</span>
+<span class="w">    </span><span class="c">!                        once more than 10 per cent of the</span>
+<span class="w">    </span><span class="c">!                        remaining matrix is nonzero.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  OUTPUT PARAMETERS</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  a, indc, indr     contain the nonzero entries in the LU factors of A.</span>
+<span class="w">    </span><span class="c">!         If keepLU = 1, they are in a form suitable for use</span>
+<span class="w">    </span><span class="c">!         by other parts of the LUSOL package, such as lu6sol.</span>
+<span class="w">    </span><span class="c">!         U is stored by rows at the start of a, indr.</span>
+<span class="w">    </span><span class="c">!         L is stored by cols at the end   of a, indc.</span>
+<span class="w">    </span><span class="c">!         If keepLU = 0, only the diagonals of U are stored, at the</span>
+<span class="w">    </span><span class="c">!         end of a.</span>
+<span class="w">    </span><span class="c">!  p, q   are the row and column permutations defining the</span>
+<span class="w">    </span><span class="c">!         pivot order.  For example, row p(1) and column q(1)</span>
+<span class="w">    </span><span class="c">!         defines the first diagonal of U.</span>
+<span class="w">    </span><span class="c">!  lenc(1:numl0) contains the number of entries in nontrivial</span>
+<span class="w">    </span><span class="c">!         columns of L (in pivot order).</span>
+<span class="w">    </span><span class="c">!  lenr(1:m) contains the number of entries in each row of U</span>
+<span class="w">    </span><span class="c">!         (in original order).</span>
+<span class="w">    </span><span class="c">!  locc(1:n) = 0 (ready for the LU update routines).</span>
+<span class="w">    </span><span class="c">!  locr(1:m) points to the beginning of the rows of U in a, indr.</span>
+<span class="w">    </span><span class="c">!  iploc, iqloc, ipinv, iqinv  are undefined.</span>
+<span class="w">    </span><span class="c">!  w      indicates singularity as described above.</span>
+<span class="w">    </span><span class="c">!  inform = 0 if the LU factors were obtained successfully.</span>
+<span class="w">    </span><span class="c">!         = 1 if U appears to be singular, as judged by lu6chk.</span>
+<span class="w">    </span><span class="c">!         = 3 if some index pair indc(l), indr(l) lies outside</span>
+<span class="w">    </span><span class="c">!             the matrix dimensions 1:m , 1:n.</span>
+<span class="w">    </span><span class="c">!         = 4 if some index pair indc(l), indr(l) duplicates</span>
+<span class="w">    </span><span class="c">!             another such pair.</span>
+<span class="w">    </span><span class="c">!         = 7 if the arrays a, indc, indr were not large enough.</span>
+<span class="w">    </span><span class="c">!             Their length &quot;lena&quot; should be increase to at least</span>
+<span class="w">    </span><span class="c">!             the value &quot;minlen&quot; given in luparm(13).</span>
+<span class="w">    </span><span class="c">!         = 8 if there was some other fatal error.  (Shouldn&#39;t happen!)</span>
+<span class="w">    </span><span class="c">!         = 9 if no diagonal pivot could be found with TSP or TDP.</span>
+<span class="w">    </span><span class="c">!             The matrix must not be sufficiently definite</span>
+<span class="w">    </span><span class="c">!             or quasi-definite.</span>
+<span class="w">    </span><span class="c">!         =10 if there was some other fatal error.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm output parameters:</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  luparm(10) = inform   Return code from last call to any LU routine.</span>
+<span class="w">    </span><span class="c">!  luparm(11) = nsing    No. of singularities marked in the</span>
+<span class="w">    </span><span class="c">!                        output array w(*).</span>
+<span class="w">    </span><span class="c">!  luparm(12) = jsing    Column index of last singularity.</span>
+<span class="w">    </span><span class="c">!  luparm(13) = minlen   Minimum recommended value for  lena.</span>
+<span class="w">    </span><span class="c">!  luparm(14) = maxlen   ?</span>
+<span class="w">    </span><span class="c">!  luparm(15) = nupdat   No. of updates performed by the lu8 routines.</span>
+<span class="w">    </span><span class="c">!  luparm(16) = nrank    No. of nonempty rows of U.</span>
+<span class="w">    </span><span class="c">!  luparm(17) = ndens1   No. of columns remaining when the density of</span>
+<span class="w">    </span><span class="c">!                        the matrix being factorized reached dens1.</span>
+<span class="w">    </span><span class="c">!  luparm(18) = ndens2   No. of columns remaining when the density of</span>
+<span class="w">    </span><span class="c">!                        the matrix being factorized reached dens2.</span>
+<span class="w">    </span><span class="c">!  luparm(19) = jumin    The column index associated with DUmin.</span>
+<span class="w">    </span><span class="c">!  luparm(20) = numL0    No. of columns in initial  L.</span>
+<span class="w">    </span><span class="c">!  luparm(21) = lenL0    Size of initial  L  (no. of nonzeros).</span>
+<span class="w">    </span><span class="c">!  luparm(22) = lenU0    Size of initial  U.</span>
+<span class="w">    </span><span class="c">!  luparm(23) = lenL     Size of current  L.</span>
+<span class="w">    </span><span class="c">!  luparm(24) = lenU     Size of current  U.</span>
+<span class="w">    </span><span class="c">!  luparm(25) = lrow     Length of row file.</span>
+<span class="w">    </span><span class="c">!  luparm(26) = ncp      No. of compressions of LU data structures.</span>
+<span class="w">    </span><span class="c">!  luparm(27) = mersum   lu1fac: sum of Markowitz merit counts.</span>
+<span class="w">    </span><span class="c">!  luparm(28) = nUtri    lu1fac: triangular rows in U.</span>
+<span class="w">    </span><span class="c">!  luparm(29) = nLtri    lu1fac: triangular rows in L.</span>
+<span class="w">    </span><span class="c">!  luparm(30) = nslack   lu1fac: no. of unit vectors at start of U. (info only)</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  parmlu output parameters:</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">!  parmlu(10) = Amax     Maximum element in  A.</span>
+<span class="w">    </span><span class="c">!  parmlu(11) = Lmax     Maximum multiplier in current  L.</span>
+<span class="w">    </span><span class="c">!  parmlu(12) = Umax     Maximum element in current  U.</span>
+<span class="w">    </span><span class="c">!  parmlu(13) = DUmax    Maximum diagonal in  U.</span>
+<span class="w">    </span><span class="c">!  parmlu(14) = DUmin    Minimum diagonal in  U.</span>
+<span class="w">    </span><span class="c">!  parmlu(15) = Akmax    Maximum element generated at any stage</span>
+<span class="w">    </span><span class="c">!                        during TCP factorization.</span>
+<span class="w">    </span><span class="c">!  parmlu(16) = growth   TPP: Umax/Amax    TRP, TCP, TSP: Akmax/Amax</span>
+<span class="w">    </span><span class="c">!  parmlu(17) =</span>
+<span class="w">    </span><span class="c">!  parmlu(18) =</span>
+<span class="w">    </span><span class="c">!  parmlu(19) =</span>
+<span class="w">    </span><span class="c">!  parmlu(20) = resid    lu6sol: residual after solve with U or U&#39;.</span>
+<span class="w">    </span><span class="c">!  ...</span>
+<span class="w">    </span><span class="c">!  parmlu(30) =</span>
+<span class="w">    </span><span class="c">!---------------------------------------------------------------------</span>
+
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">mnkey</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">kPiv</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">idummy</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jsing</span><span class="p">,</span><span class="w"> </span><span class="n">jumin</span><span class="p">,</span><span class="w">              </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">,</span><span class="w"> </span><span class="n">lena2</span><span class="p">,</span><span class="w"> </span><span class="n">lenH</span><span class="p">,</span><span class="w"> </span><span class="n">lenL</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">lenLk</span><span class="p">,</span><span class="w"> </span><span class="n">lenU</span><span class="p">,</span><span class="w"> </span><span class="n">lenUk</span><span class="p">,</span><span class="w"> </span><span class="n">lerr</span><span class="p">,</span><span class="w">                </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">ll</span><span class="p">,</span><span class="w"> </span><span class="n">llsave</span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="p">,</span><span class="w"> </span><span class="n">lmaxr</span><span class="p">,</span><span class="w"> </span><span class="n">locH</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">lprint</span><span class="p">,</span><span class="w"> </span><span class="n">lPiv</span><span class="p">,</span><span class="w"> </span><span class="n">lrow</span><span class="p">,</span><span class="w"> </span><span class="n">ltopl</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">lu</span><span class="p">,</span><span class="w"> </span><span class="n">mersum</span><span class="p">,</span><span class="w"> </span><span class="n">minlen</span><span class="p">,</span><span class="w"> </span><span class="n">nbump</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">ncp</span><span class="p">,</span><span class="w"> </span><span class="n">ndens1</span><span class="p">,</span><span class="w"> </span><span class="n">ndens2</span><span class="p">,</span><span class="w">                     </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">nLtri</span><span class="p">,</span><span class="w"> </span><span class="n">nmove</span><span class="p">,</span><span class="w"> </span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="n">nrank</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">nsing</span><span class="p">,</span><span class="w"> </span><span class="n">numl0</span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="p">,</span><span class="w"> </span><span class="n">nslack</span><span class="p">,</span><span class="w"> </span><span class="n">nUtri</span>
+<span class="w">    </span><span class="kt">logical</span><span class="w">                </span><span class="kd">::</span><span class="w"> </span><span class="n">keepLU</span><span class="p">,</span><span class="w"> </span><span class="n">TCP</span><span class="p">,</span><span class="w"> </span><span class="n">TPP</span><span class="p">,</span><span class="w"> </span><span class="n">TRP</span><span class="p">,</span><span class="w"> </span><span class="n">TSP</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Agrwth</span><span class="p">,</span><span class="w"> </span><span class="n">Akmax</span><span class="p">,</span><span class="w"> </span><span class="nb">Amax</span><span class="p">,</span><span class="w"> </span><span class="n">avgmer</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">condU</span><span class="p">,</span><span class="w"> </span><span class="n">delem</span><span class="p">,</span><span class="w"> </span><span class="n">densty</span><span class="p">,</span><span class="w"> </span><span class="n">dincr</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">dm</span><span class="p">,</span><span class="w"> </span><span class="n">dn</span><span class="p">,</span><span class="w"> </span><span class="n">DUmax</span><span class="p">,</span><span class="w"> </span><span class="n">DUmin</span><span class="p">,</span><span class="w"> </span><span class="n">growth</span><span class="p">,</span><span class="w">            </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">Lmax</span><span class="p">,</span><span class="w"> </span><span class="n">Ltol</span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="p">,</span><span class="w"> </span><span class="n">Ugrwth</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                              </span><span class="n">Umax</span>
+
+<span class="w">    </span><span class="c">! Grab relevant input parameters.</span>
+
+<span class="w">    </span><span class="n">nout</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">lprint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">lPiv</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="w">    </span><span class="n">keepLU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="n">Ltol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c">! Limit on size of Lij</span>
+<span class="w">    </span><span class="n">small</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="c">! Drop tolerance</span>
+
+<span class="w">    </span><span class="n">TPP</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">lPiv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c">! Threshold Partial   Pivoting (normal).</span>
+<span class="w">    </span><span class="n">TRP</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">lPiv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c">! Threshold Rook      Pivoting</span>
+<span class="w">    </span><span class="n">TCP</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">lPiv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c">! Threshold Complete  Pivoting.</span>
+<span class="w">    </span><span class="n">TSP</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">lPiv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="c">! Threshold Symmetric Pivoting.</span>
+<span class="w">    </span><span class="n">kPiv</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PP&#39;</span>
+<span class="w">    </span><span class="n">kPiv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RP&#39;</span>
+<span class="w">    </span><span class="n">kPiv</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CP&#39;</span>
+<span class="w">    </span><span class="n">kPiv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SP&#39;</span>
+
+<span class="w">    </span><span class="c">! Initialize output parameters.</span>
+
+<span class="w">    </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">minlen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nelem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="n">numl0</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">lenL</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">lenU</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">lrow</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">mersum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">nUtri</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">m</span>
+<span class="w">    </span><span class="n">nLtri</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">ndens1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">ndens2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">nrank</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">nsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">jsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">jumin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">nslack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="nb">Amax</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+<span class="w">    </span><span class="n">Lmax</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+<span class="w">    </span><span class="n">Umax</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+<span class="w">    </span><span class="n">DUmax</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+<span class="w">    </span><span class="n">DUmin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+<span class="w">    </span><span class="n">Akmax</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">zero</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">mnkey</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span>
+<span class="w">    </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">mnkey</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;=&#39;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        </span><span class="n">mnkey</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="w">    </span><span class="c">! Float version of dimensions.</span>
+
+<span class="w">    </span><span class="n">dm</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">m</span>
+<span class="w">    </span><span class="n">dn</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="n">delem</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">nelem</span>
+
+<span class="w">    </span><span class="c">! Initialize workspace parameters.</span>
+
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">             </span><span class="c">! ncp</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lena</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">minlen</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">970</span>
+
+<span class="w">    </span><span class="c">!-------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! Organize the  aij&#39;s  in  a, indc, indr.</span>
+<span class="w">    </span><span class="c">! lu1or1  deletes small entries, tests for illegal  i,j&#39;s,</span>
+<span class="w">    </span><span class="c">!         and counts the nonzeros in each row and column.</span>
+<span class="w">    </span><span class="c">! lu1or2  reorders the elements of  A  by columns.</span>
+<span class="w">    </span><span class="c">! lu1or3  uses the column list to test for duplicate entries</span>
+<span class="w">    </span><span class="c">!         (same indices  i,j).</span>
+<span class="w">    </span><span class="c">! lu1or4  constructs a row list from the column list.</span>
+<span class="w">    </span><span class="c">!-------------------------------------------------------------------</span>
+<span class="w">    </span><span class="k">call </span><span class="n">lu1or1</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">nelem</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="p">,</span><span class="w">                     </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">a</span><span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">,</span><span class="w">                      </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="nb">Amax</span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="p">,</span><span class="w"> </span><span class="n">lerr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nout</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w">  </span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">       </span><span class="n">densty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0_rp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delem</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">dm</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dn</span><span class="p">)</span>
+<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">mnkey</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="p">,</span><span class="w"> </span><span class="nb">Amax</span><span class="p">,</span><span class="w"> </span><span class="n">densty</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">930</span>
+
+<span class="c">!!! nelem  = numnz     !!! Don&#39;t change nelem.</span>
+<span class="c">!!! nelem is now numnz below (it might be less than the input value).</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">lu1or2</span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="p">,</span><span class="w"> </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">lu1or3</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">lerr</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">940</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">lu1or4</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="p">,</span><span class="w"> </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! Set up lists of rows and columns with equal numbers of nonzeros,</span>
+<span class="w">    </span><span class="c">! using  indc(*)  as workspace.</span>
+<span class="w">    </span><span class="c">! 12 Dec 2015: Always call lu1slk here now.</span>
+<span class="w">    </span><span class="c">! This sets nslack and w(j) = 1.0 for slacks, else 0.0.</span>
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="k">call </span><span class="n">lu1pq1</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">iploc</span><span class="p">,</span><span class="w"> </span><span class="n">ipinv</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">numnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">lu1pq1</span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">iqloc</span><span class="p">,</span><span class="w"> </span><span class="n">iqinv</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">numnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">call </span><span class="n">lu1slk</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">iqloc</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="p">,</span><span class="w"> </span><span class="n">nslack</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nslack</span>
+
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! For TCP, allocate Ha, Hj, Hk at the end of a, indc, indr.</span>
+<span class="w">    </span><span class="c">! Then compute the factorization  A = L*U.</span>
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="n">lenH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="c">! Keep -Wmaybe-uninitialized happy.</span>
+<span class="w">    </span><span class="n">lena2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="c">!</span>
+<span class="w">    </span><span class="n">locH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="c">!</span>
+<span class="w">    </span><span class="n">lmaxr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="c">!</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TPP</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">TSP</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">       </span><span class="n">lenH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">lena2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span>
+<span class="w">       </span><span class="n">locH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span>
+<span class="w">       </span><span class="n">lmaxr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">TRP</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">       </span><span class="n">lenH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">             </span><span class="c">! Dummy</span>
+<span class="w">       </span><span class="n">lena2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="w">     </span><span class="c">! Reduced length of      a</span>
+<span class="w">       </span><span class="n">locH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span><span class="w">          </span><span class="c">! Dummy</span>
+<span class="w">       </span><span class="n">lmaxr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lena2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">     </span><span class="c">! Start of Amaxr      in a</span>
+<span class="w">    </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">TCP</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">       </span><span class="n">lenH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w">             </span><span class="c">! Length of heap</span>
+<span class="w">       </span><span class="n">lena2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">lenH</span><span class="w">  </span><span class="c">! Reduced length of      a, indc, indr</span>
+<span class="w">       </span><span class="n">locH</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lena2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">     </span><span class="c">! Start of Ha, Hj, Hk in a, indc, indr</span>
+<span class="w">       </span><span class="n">lmaxr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">             </span><span class="c">! Dummy</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    call </span><span class="n">lu1fad</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">numnz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lena2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">luparm</span><span class="p">,</span><span class="w"> </span><span class="n">parmlu</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">a</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w">     </span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">lenc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="w">  </span><span class="p">,</span><span class="w">                       </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">iploc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iqloc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ipinv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iqinv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w">     </span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">lenH</span><span class="w">  </span><span class="p">,</span><span class="n">a</span><span class="p">(</span><span class="n">locH</span><span class="p">),</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">locH</span><span class="p">),</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">locH</span><span class="p">),</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lmaxr</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">lenL</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">lenU</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">minlen</span><span class="p">,</span><span class="w"> </span><span class="n">mersum</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">nUtri</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nLtri</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ndens1</span><span class="p">,</span><span class="w"> </span><span class="n">ndens2</span><span class="p">,</span><span class="w"> </span><span class="n">nrank</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nslack</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span>
+<span class="w">                 </span><span class="n">Lmax</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">Umax</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">DUmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DUmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Akmax</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nrank</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenL</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">970</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">985</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">==</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">981</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">980</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">keepLU</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! The LU factors are at the top of  a, indc, indr,</span>
+<span class="w">       </span><span class="c">! with the columns of  L  and the rows of  U  in the order</span>
+<span class="w">       </span><span class="c">!</span>
+<span class="w">       </span><span class="c">! ( free )   ... ( u3 ) ( l3 ) ( u2 ) ( l2 ) ( u1 ) ( l1 ).</span>
+<span class="w">       </span><span class="c">!</span>
+<span class="w">       </span><span class="c">! Starting with ( l1 ) and ( u1 ), move the rows of  U  to the</span>
+<span class="w">       </span><span class="c">! left and the columns of  L  to the right, giving</span>
+<span class="w">       </span><span class="c">!</span>
+<span class="w">       </span><span class="c">! ( u1 ) ( u2 ) ( u3 ) ...   ( free )   ... ( l3 ) ( l2 ) ( l1 ).</span>
+<span class="w">       </span><span class="c">!</span>
+<span class="w">       </span><span class="c">! Also, set  numl0 = the number of nonempty columns of L.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="n">lu</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">       </span><span class="n">ll</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lena</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">lm</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lena2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">ltopl</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenL</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenU</span>
+<span class="w">       </span><span class="n">lrow</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lenU</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nrank</span>
+<span class="w">          </span><span class="n">i</span><span class="w">       </span><span class="o">=</span><span class="w">   </span><span class="n">p</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">          </span><span class="n">lenUk</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">          </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w">   </span><span class="n">lenUk</span>
+<span class="w">          </span><span class="n">j</span><span class="w">       </span><span class="o">=</span><span class="w">   </span><span class="n">q</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">          </span><span class="n">lenLk</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lenLk</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">             </span><span class="n">numl0</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">numl0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="n">iqloc</span><span class="p">(</span><span class="n">numl0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenLk</span>
+<span class="w">          </span><span class="k">end if</span>
+
+<span class="k">          if</span><span class="w"> </span><span class="p">(</span><span class="n">lu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenUk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ltopl</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">             </span><span class="c">!=========================================================</span>
+<span class="w">             </span><span class="c">! There is room to move ( uk ).  Just right-shift ( lk ).</span>
+<span class="w">             </span><span class="c">!=========================================================</span>
+<span class="w">             </span><span class="k">do </span><span class="n">idummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">lenLk</span>
+<span class="w">                </span><span class="n">ll</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">lm</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">a</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">                </span><span class="n">indc</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">                </span><span class="n">indr</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">             </span><span class="k">end do</span>
+<span class="k">          else</span>
+<span class="w">             </span><span class="c">!=========================================================</span>
+<span class="w">             </span><span class="c">! There is no room for ( uk ) yet.  We have to</span>
+<span class="w">             </span><span class="c">! right-shift the whole of the remaining LU file.</span>
+<span class="w">             </span><span class="c">! Note that ( lk ) ends up in the correct place.</span>
+<span class="w">             </span><span class="c">!=========================================================</span>
+<span class="w">             </span><span class="n">llsave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenLk</span>
+<span class="w">             </span><span class="n">nmove</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ltopl</span>
+
+<span class="w">             </span><span class="k">do </span><span class="n">idummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nmove</span>
+<span class="w">                </span><span class="n">ll</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">lm</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">a</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">                </span><span class="n">indc</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">                </span><span class="n">indr</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lm</span><span class="p">)</span>
+<span class="w">             </span><span class="k">end do</span>
+
+<span class="k">             </span><span class="n">ltopl</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span>
+<span class="w">             </span><span class="n">ll</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">llsave</span>
+<span class="w">             </span><span class="n">lm</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span>
+<span class="w">          </span><span class="k">end if</span>
+
+<span class="w">          </span><span class="c">!======================================================</span>
+<span class="w">          </span><span class="c">! Left-shift ( uk ).</span>
+<span class="w">          </span><span class="c">!======================================================</span>
+<span class="w">          </span><span class="n">locr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">l2</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">lm</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lenUk</span>
+
+<span class="w">          </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lm</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span>
+<span class="w">             </span><span class="n">lu</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="n">a</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">             </span><span class="n">indr</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">          </span><span class="k">end do</span>
+<span class="k">       end do</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Save the lengths of the nonempty columns of  L,</span>
+<span class="w">       </span><span class="c">! and initialize  locc(j)  for the LU update routines.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="n">lenc</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">numl0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iqloc</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">numl0</span><span class="p">)</span>
+<span class="w">       </span><span class="n">locc</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Test for singularity.</span>
+<span class="w">       </span><span class="c">! lu6chk  sets  nsing, jsing, jumin, Lmax, Umax, DUmax, DUmin</span>
+<span class="w">       </span><span class="c">! (including entries from the dense LU).</span>
+<span class="w">       </span><span class="c">! input      i1 = 1 means we&#39;re calling lu6chk from LUSOL.</span>
+<span class="w">       </span><span class="c">! output inform = 1 if there are singularities (nsing &gt; 0).</span>
+<span class="w">       </span><span class="c">! 12 Dec 2015: nslack is now an input.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="k">call </span><span class="n">lu6chk</span><span class="p">(</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nslack</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">luparm</span><span class="p">,</span><span class="w"> </span><span class="n">parmlu</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w">                               </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+<span class="w">       </span><span class="n">nsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="w">       </span><span class="n">jsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="w">       </span><span class="n">jumin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="w">       </span><span class="n">Lmax</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="w">       </span><span class="n">Umax</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="w">       </span><span class="n">DUmax</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="w">       </span><span class="n">DUmin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">else</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! keepLU = 0.  L and U were not kept, just the diagonals of U.</span>
+<span class="w">       </span><span class="c">! lu1fac will probably be called again soon with keepLU = .true.</span>
+<span class="w">       </span><span class="c">! 11 Mar 2001: lu6chk revised.  We can call it with keepLU = 0,</span>
+<span class="w">       </span><span class="c">!              but we want to keep Lmax, Umax from lu1fad.</span>
+<span class="w">       </span><span class="c">! 05 May 2002: Allow for TCP with new lu1DCP.  Diag(U) starts</span>
+<span class="w">       </span><span class="c">!              below lena2, not lena.  Need lena2 in next line.</span>
+<span class="w">       </span><span class="c">! 12 Dec 2015: nslack is now an input.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="k">call </span><span class="n">lu6chk</span><span class="p">(</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nslack</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">lena2</span><span class="p">,</span><span class="w"> </span><span class="n">luparm</span><span class="p">,</span><span class="w"> </span><span class="n">parmlu</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w">                               </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">lenc</span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+<span class="w">       </span><span class="n">nsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="w">       </span><span class="n">jsing</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="w">       </span><span class="n">jumin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="w">       </span><span class="n">DUmax</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="w">       </span><span class="n">DUmin</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="w">    </span><span class="c">!------------</span>
+<span class="w">    </span><span class="c">! Error exits.</span>
+<span class="w">    </span><span class="c">!------------</span>
+<span class="mi">930</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1300</span><span class="p">)</span><span class="w"> </span><span class="n">lerr</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lerr</span><span class="p">),</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lerr</span><span class="p">)</span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="mi">940</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1400</span><span class="p">)</span><span class="w"> </span><span class="n">lerr</span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lerr</span><span class="p">),</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lerr</span><span class="p">)</span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="mi">970</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1700</span><span class="p">)</span><span class="w"> </span><span class="n">lena</span><span class="p">,</span><span class="w"> </span><span class="n">minlen</span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="mi">980</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1800</span><span class="p">)</span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="mi">981</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">990</span>
+
+<span class="mi">985</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1900</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Store output parameters.</span>
+
+<span class="mi">990</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inform</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsing</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsing</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minlen</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nrank</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ndens1</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ndens2</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jumin</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numl0</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenL</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenU</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenL</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenU</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lrow</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mersum</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nUtri</span>
+<span class="w">    </span><span class="n">luparm</span><span class="p">(</span><span class="mi">29</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nLtri</span>
+
+<span class="w">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Amax</span>
+<span class="nb">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lmax</span>
+<span class="w">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Umax</span>
+<span class="w">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DUmax</span>
+<span class="w">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DUmin</span>
+<span class="w">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Akmax</span>
+
+<span class="w">    </span><span class="n">Agrwth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Akmax</span><span class="w">  </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nb">Amax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0e-20_rp</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ugrwth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Umax</span><span class="w">   </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nb">Amax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0e-20_rp</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">TPP</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">growth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ugrwth</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="c">! TRP or TCP or TSP</span>
+<span class="w">        </span><span class="n">growth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Agrwth</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    </span><span class="n">parmlu</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">growth</span>
+
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! Print statistics for the LU factors.</span>
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="n">ncp</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">luparm</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+<span class="w">    </span><span class="n">condU</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">DUmax</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="w"> </span><span class="n">DUmin</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-20_rp</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">dincr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lenL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenU</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nelem</span>
+<span class="w">    </span><span class="n">dincr</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">dincr</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0_rp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="w"> </span><span class="n">delem</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">avgmer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mersum</span>
+<span class="w">    </span><span class="n">avgmer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avgmer</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dm</span>
+<span class="w">    </span><span class="n">nbump</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nUtri</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nLtri</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nout</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w">  </span><span class="n">lprint</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">       if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">TPP</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1100</span><span class="p">)</span><span class="w"> </span><span class="n">avgmer</span><span class="p">,</span><span class="w"> </span><span class="n">lenL</span><span class="p">,</span><span class="w"> </span><span class="n">lenL</span><span class="o">+</span><span class="n">lenU</span><span class="p">,</span><span class="w"> </span><span class="n">ncp</span><span class="p">,</span><span class="w"> </span><span class="n">dincr</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">nUtri</span><span class="p">,</span><span class="w"> </span><span class="n">lenU</span><span class="p">,</span><span class="w"> </span><span class="n">Ltol</span><span class="p">,</span><span class="w"> </span><span class="n">Umax</span><span class="p">,</span><span class="w"> </span><span class="n">Ugrwth</span><span class="p">,</span><span class="w">           </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">nLtri</span><span class="p">,</span><span class="w"> </span><span class="n">ndens1</span><span class="p">,</span><span class="w"> </span><span class="n">Lmax</span>
+
+<span class="w">       </span><span class="k">else</span>
+<span class="k">          write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1120</span><span class="p">)</span><span class="w"> </span><span class="n">kPiv</span><span class="p">(</span><span class="n">lPiv</span><span class="p">),</span><span class="w"> </span><span class="n">avgmer</span><span class="p">,</span><span class="w">                        </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">lenL</span><span class="p">,</span><span class="w"> </span><span class="n">lenL</span><span class="o">+</span><span class="n">lenU</span><span class="p">,</span><span class="w"> </span><span class="n">ncp</span><span class="p">,</span><span class="w"> </span><span class="n">dincr</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">nUtri</span><span class="p">,</span><span class="w"> </span><span class="n">lenU</span><span class="p">,</span><span class="w"> </span><span class="n">Ltol</span><span class="p">,</span><span class="w"> </span><span class="n">Umax</span><span class="p">,</span><span class="w"> </span><span class="n">Ugrwth</span><span class="p">,</span><span class="w">           </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="n">nLtri</span><span class="p">,</span><span class="w"> </span><span class="n">ndens1</span><span class="p">,</span><span class="w"> </span><span class="n">Lmax</span><span class="p">,</span><span class="w"> </span><span class="n">Akmax</span><span class="p">,</span><span class="w"> </span><span class="n">Agrwth</span>
+<span class="w">       </span><span class="k">end if</span>
+
+<span class="k">       write</span><span class="p">(</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="p">)</span><span class="w"> </span><span class="n">nbump</span><span class="p">,</span><span class="w"> </span><span class="n">ndens2</span><span class="p">,</span><span class="w"> </span><span class="n">DUmax</span><span class="p">,</span><span class="w"> </span><span class="n">DUmin</span><span class="p">,</span><span class="w"> </span><span class="n">condU</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    return</span>
+
+<span class="mi">1000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="s1">&#39; m&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i12</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i12</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Elems&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w">                </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Amax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Density&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">f7</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="mi">1100</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="s1">&#39; Merit&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">f8</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  lenL&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  L+U&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i11</span><span class="p">,</span><span class="w">                </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Cmpressns&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Incres&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">f8</span><span class="p">.</span><span class="mi">2</span><span class="w">                        </span><span class="p">&amp;</span>
+<span class="w">      </span><span class="o">/</span><span class="w">     </span><span class="s1">&#39; Utri&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  lenU&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Ltol&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Umax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Ugrwth&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es8</span><span class="p">.</span><span class="mi">1</span><span class="w">                        </span><span class="p">&amp;</span>
+<span class="w">      </span><span class="o">/</span><span class="w">     </span><span class="s1">&#39; Ltri&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  dense1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Lmax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="mi">1120</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="s1">&#39; Mer&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="n">f8</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  lenL&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  L+U&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i11</span><span class="p">,</span><span class="w">              </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Cmpressns&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Incres&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">f8</span><span class="p">.</span><span class="mi">2</span><span class="w">                        </span><span class="p">&amp;</span>
+<span class="w">      </span><span class="o">/</span><span class="w">     </span><span class="s1">&#39; Utri&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  lenU&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Ltol&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="w">               </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Umax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Ugrwth&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es8</span><span class="p">.</span><span class="mi">1</span><span class="w">                        </span><span class="p">&amp;</span>
+<span class="w">      </span><span class="o">/</span><span class="w">     </span><span class="s1">&#39; Ltri&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  dense1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Lmax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es10</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  Akmax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es9</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  Agrwth&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es8</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1200</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="s1">&#39; bump&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  dense2&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  DUmax&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es9</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  DUmin&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es9</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  condU&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">es9</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1300</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; lu1fac  error...  entry  a(&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i8</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;)  has an illegal&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="s1">&#39; row or column index&#39;</span><span class="w">                                   </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="o">//</span><span class="s1">&#39; indc, indr =&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="n">i8</span><span class="p">)</span>
+<span class="mi">1400</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; lu1fac  error...  entry  a(&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i8</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;)  has the same&#39;</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="s1">&#39; indices as an earlier entry&#39;</span><span class="w">                           </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="o">//</span><span class="s1">&#39; indc, indr =&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="n">i8</span><span class="p">)</span>
+<span class="mi">1700</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; lu1fac  error...  insufficient storage&#39;</span><span class="w">                </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="o">//</span><span class="s1">&#39; Increase  lena  from&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;  to at least&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i10</span><span class="p">)</span>
+<span class="mi">1800</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; lu1fac  error...  fatal bug&#39;</span><span class="p">,</span><span class="w">                          </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="s1">&#39;   (sorry --- this should never happen)&#39;</span><span class="p">)</span>
+<span class="mi">1900</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; lu1fac  error...  TSP used but&#39;</span><span class="p">,</span><span class="w">                       </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="s1">&#39; diagonal pivot could not be found&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="k">end subroutine </span><span class="n">lu1fac</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

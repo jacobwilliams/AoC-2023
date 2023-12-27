@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>lu1gau &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>lu1gau
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.2% of total for procedures.">121 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/lusol.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/lusol.f90.html'>lusol.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/lusol.html'>lusol</a></li>
+            <li class="breadcrumb-item active" aria-current="page">lu1gau</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/lu1gau.html#src">lu1gau</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private  subroutine lu1gau(m, melim, ncold, nspare, small, lpivc1, lpivc2, lfirst, lpivr2, lfree, minfre, ilast, jlast, lrow, lcol, lu, nfill, a, indc, indr, lenc, lenr, locc, locr, mark, al, markl, au, ifill, jfill)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~34"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-melim"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>melim</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncold"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncold</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nspare"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nspare</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-small~2"></span>
+              real(kind=rp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>small</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lpivc1"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lpivc1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lpivc2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lpivc2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lfirst"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lfirst</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lpivr2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lpivr2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lfree"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lfree</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-minfre"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>minfre</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilast"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilast</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlast"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlast</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrow"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lrow</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lcol"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lcol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lu"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nfill"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nfill</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~8"></span>
+              real(kind=rp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indc~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indc</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indr~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenc~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenc</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenr~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-locc~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>locc</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-locr~3"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>locr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mark"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mark</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-al"></span>
+              real(kind=rp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>al</strong>(melim)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-markl"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>markl</strong>(melim)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-au"></span>
+              real(kind=rp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>au</strong>(ncold)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ifill"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ifill</strong>(melim)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jfill"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jfill</strong>(ncold)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~lu1gau~~CalledByGraph Pages: 1 -->
+<svg id="proclu1gauCalledByGraph" width="641pt" height="68pt"
+ viewBox="0.00 0.00 641.00 68.15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~lu1gau~~CalledByGraph" class="graph" transform="scale(1.09 1.09) rotate(0) translate(4 70)">
+<title>proc~~lu1gau~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 692,-70 692,4 -4,4"/>
+<!-- proc~lu1gau -->
+<g id="proc~~lu1gau~~CalledByGraph_node1" class="node">
+<title>proc~lu1gau</title>
+<polygon fill="none" stroke="black" points="688,-45 606,-45 606,-21 688,-21 688,-45"/>
+<text text-anchor="middle" x="647" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">lusol::lu1gau</text>
+</g>
+<!-- proc~lu1fad -->
+<g id="proc~~lu1gau~~CalledByGraph_node2" class="node">
+<title>proc~lu1fad</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node2"><a xlink:href=".././proc/lu1fad.html" xlink:title="lusol::lu1fad">
+<polygon fill="#d9534f" stroke="#d9534f" points="570,-45 491,-45 491,-21 570,-21 570,-45"/>
+<text text-anchor="middle" x="530.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1fad</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1gau -->
+<g id="proc~~lu1gau~~CalledByGraph_edge1" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1gau</title>
+<path fill="none" stroke="#000000" d="M570.26,-33C578.38,-33 587.06,-33 595.53,-33"/>
+<polygon fill="#000000" stroke="#000000" points="595.71,-36.5 605.71,-33 595.71,-29.5 595.71,-36.5"/>
+</g>
+<!-- proc~lu1fac -->
+<g id="proc~~lu1gau~~CalledByGraph_node3" class="node">
+<title>proc~lu1fac</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node3"><a xlink:href=".././proc/lu1fac.html" xlink:title="lusol::lu1fac">
+<polygon fill="#d9534f" stroke="#d9534f" points="455,-45 377,-45 377,-21 455,-21 455,-45"/>
+<text text-anchor="middle" x="416" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1fac</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1fad -->
+<g id="proc~~lu1gau~~CalledByGraph_edge2" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1fad</title>
+<path fill="none" stroke="#000000" d="M455.09,-33C463.24,-33 471.97,-33 480.48,-33"/>
+<polygon fill="#000000" stroke="#000000" points="480.69,-36.5 490.69,-33 480.69,-29.5 480.69,-36.5"/>
+</g>
+<!-- proc~solve -->
+<g id="proc~~lu1gau~~CalledByGraph_node4" class="node">
+<title>proc~solve</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node4"><a xlink:href=".././proc/solve.html" xlink:title="lusol_ez_module::solve">
+<polygon fill="#d9534f" stroke="#d9534f" points="341,-45 205,-45 205,-21 341,-21 341,-45"/>
+<text text-anchor="middle" x="273" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_ez_module::solve</text>
+</a>
+</g>
+</g>
+<!-- proc~solve&#45;&gt;proc~lu1fac -->
+<g id="proc~~lu1gau~~CalledByGraph_edge3" class="edge">
+<title>proc~solve&#45;&gt;proc~lu1fac</title>
+<path fill="none" stroke="#000000" d="M341.2,-33C349.77,-33 358.42,-33 366.62,-33"/>
+<polygon fill="#000000" stroke="#000000" points="366.73,-36.5 376.73,-33 366.73,-29.5 366.73,-36.5"/>
+</g>
+<!-- proc~test_1 -->
+<g id="proc~~lu1gau~~CalledByGraph_node5" class="node">
+<title>proc~test_1</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node5"><a xlink:href=".././proc/test_1.html" xlink:title="main::test_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-66 90,-66 90,-42 169,-42 169,-66"/>
+<text text-anchor="middle" x="129.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_1</text>
+</a>
+</g>
+</g>
+<!-- proc~test_1&#45;&gt;proc~solve -->
+<g id="proc~~lu1gau~~CalledByGraph_edge4" class="edge">
+<title>proc~test_1&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-48.26C177.19,-47.07 185.92,-45.78 194.78,-44.46"/>
+<polygon fill="#000000" stroke="#000000" points="195.43,-47.9 204.81,-42.97 194.41,-40.98 195.43,-47.9"/>
+</g>
+<!-- proc~test_2 -->
+<g id="proc~~lu1gau~~CalledByGraph_node6" class="node">
+<title>proc~test_2</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node6"><a xlink:href=".././proc/test_2.html" xlink:title="main::test_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-24 90,-24 90,0 169,0 169,-24"/>
+<text text-anchor="middle" x="129.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_2</text>
+</a>
+</g>
+</g>
+<!-- proc~test_2&#45;&gt;proc~solve -->
+<g id="proc~~lu1gau~~CalledByGraph_edge5" class="edge">
+<title>proc~test_2&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-17.74C177.19,-18.93 185.92,-20.22 194.78,-21.54"/>
+<polygon fill="#000000" stroke="#000000" points="194.41,-25.02 204.81,-23.03 195.43,-18.1 194.41,-25.02"/>
+</g>
+<!-- program~main -->
+<g id="proc~~lu1gau~~CalledByGraph_node7" class="node">
+<title>program~main</title>
+<g id="a_proc~~lu1gau~~CalledByGraph_node7"><a xlink:href=".././program/main.html" xlink:title="main">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
+<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;proc~test_1 -->
+<g id="proc~~lu1gau~~CalledByGraph_edge6" class="edge">
+<title>program~main&#45;&gt;proc~test_1</title>
+<path fill="none" stroke="#000000" d="M54.14,-38.46C62.09,-40.12 71.08,-42 80.01,-43.87"/>
+<polygon fill="#000000" stroke="#000000" points="79.49,-47.33 89.99,-45.95 80.92,-40.48 79.49,-47.33"/>
+</g>
+<!-- program~main&#45;&gt;proc~test_2 -->
+<g id="proc~~lu1gau~~CalledByGraph_edge7" class="edge">
+<title>program~main&#45;&gt;proc~test_2</title>
+<path fill="none" stroke="#000000" d="M54.14,-27.54C62.09,-25.88 71.08,-24 80.01,-22.13"/>
+<polygon fill="#000000" stroke="#000000" points="80.92,-25.52 89.99,-20.05 79.49,-18.67 80.92,-25.52"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panproclu1gauCalledByGraph = svgPanZoom('#proclu1gauCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">  </span><span class="k">subroutine </span><span class="n">lu1gau</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">melim</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ncold</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nspare</span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">lpivc1</span><span class="p">,</span><span class="w"> </span><span class="n">lpivc2</span><span class="p">,</span><span class="w"> </span><span class="n">lfirst</span><span class="p">,</span><span class="w"> </span><span class="n">lpivr2</span><span class="p">,</span><span class="w"> </span><span class="n">lfree</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">minfre</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">ilast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lrow</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">lcol</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">lu</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">nfill</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">a</span><span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">indc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">indr</span><span class="w">  </span><span class="p">,</span><span class="w">                         </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">lenc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">lenr</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">locc</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">locr</span><span class="w">  </span><span class="p">,</span><span class="w">                 </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">mark</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="n">al</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">markl</span><span class="w"> </span><span class="p">,</span><span class="w">                         </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="n">au</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">ifill</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jfill</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">melim</span><span class="p">,</span><span class="w"> </span><span class="n">ncold</span><span class="p">,</span><span class="w"> </span><span class="n">nspare</span><span class="p">,</span><span class="w">          </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">lpivc1</span><span class="p">,</span><span class="w"> </span><span class="n">lpivc2</span><span class="p">,</span><span class="w"> </span><span class="n">lpivr2</span><span class="p">,</span><span class="w"> </span><span class="n">lfree</span><span class="p">,</span><span class="w"> </span><span class="n">minfre</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">locr</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">mark</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">),</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">small</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">),</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">al</span><span class="p">(</span><span class="n">melim</span><span class="p">),</span><span class="w"> </span><span class="n">au</span><span class="p">(</span><span class="n">ncold</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ilast</span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="p">,</span><span class="w"> </span><span class="n">lfirst</span><span class="p">,</span><span class="w"> </span><span class="n">lrow</span><span class="p">,</span><span class="w"> </span><span class="n">lcol</span><span class="p">,</span><span class="w"> </span><span class="n">lu</span><span class="p">,</span><span class="w"> </span><span class="n">nfill</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">),</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">locc</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">lenc</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                    </span><span class="n">markl</span><span class="p">(</span><span class="n">melim</span><span class="p">),</span><span class="w"> </span><span class="n">ifill</span><span class="p">(</span><span class="n">melim</span><span class="p">),</span><span class="w"> </span><span class="n">jfill</span><span class="p">(</span><span class="n">ncold</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c">! lu1gau does most of the work for each step of</span>
+<span class="w">    </span><span class="c">! Gaussian elimination.</span>
+<span class="w">    </span><span class="c">! A multiple of the pivot column is added to each other column j</span>
+<span class="w">    </span><span class="c">! in the pivot row.  The column list is fully updated.</span>
+<span class="w">    </span><span class="c">! The row list is updated if there is room, but some fill-ins may</span>
+<span class="w">    </span><span class="c">! remain, as indicated by ifill and jfill.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! Input:</span>
+<span class="w">    </span><span class="c">! ilast    is the row    at the end of the row    list.</span>
+<span class="w">    </span><span class="c">! jlast    is the column at the end of the column list.</span>
+<span class="w">    </span><span class="c">! lfirst   is the first column to be processed.</span>
+<span class="w">    </span><span class="c">! lu + 1   is the corresponding element of U in au(*).</span>
+<span class="w">    </span><span class="c">! nfill    keeps track of pending fill-in.</span>
+<span class="w">    </span><span class="c">! a(*)     contains the nonzeros for each column j.</span>
+<span class="w">    </span><span class="c">! indc(*)  contains the row indices for each column j.</span>
+<span class="w">    </span><span class="c">! al(*)    contains the new column of L.  A multiple of it is</span>
+<span class="w">    </span><span class="c">!          used to modify each column.</span>
+<span class="w">    </span><span class="c">! mark(*)  has been set to -1, -2, -3, ... in the rows</span>
+<span class="w">    </span><span class="c">!          corresponding to nonzero 1, 2, 3, ... of the col of L.</span>
+<span class="w">    </span><span class="c">! au(*)    contains the new row of U.  Each nonzero gives the</span>
+<span class="w">    </span><span class="c">!          required multiple of the column of L.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! Workspace:</span>
+<span class="w">    </span><span class="c">! markl(*) marks the nonzeros of L actually used.</span>
+<span class="w">    </span><span class="c">!          (A different mark, namely j, is used for each column.)</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! Output:</span>
+<span class="w">    </span><span class="c">! ilast     New last row    in the row    list.</span>
+<span class="w">    </span><span class="c">! jlast     New last column in the column list.</span>
+<span class="w">    </span><span class="c">! lfirst    = 0 if all columns were completed,</span>
+<span class="w">    </span><span class="c">!           &gt; 0 otherwise.</span>
+<span class="w">    </span><span class="c">! lu        returns the position of the last nonzero of U</span>
+<span class="w">    </span><span class="c">!           actually used, in case we come back in again.</span>
+<span class="w">    </span><span class="c">! nfill     keeps track of the total extra space needed in the</span>
+<span class="w">    </span><span class="c">!           row file.</span>
+<span class="w">    </span><span class="c">! ifill(ll) counts pending fill-in for rows involved in the new</span>
+<span class="w">    </span><span class="c">!           column of L.</span>
+<span class="w">    </span><span class="c">! jfill(lu) marks the first pending fill-in stored in columns</span>
+<span class="w">    </span><span class="c">!           involved in the new row of U.</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! 16 Apr 1989: First version of lu1gau.</span>
+<span class="w">    </span><span class="c">! 23 Apr 1989: lfirst, lu, nfill are now input and output</span>
+<span class="w">    </span><span class="c">!              to allow re-entry if elimination is interrupted.</span>
+<span class="w">    </span><span class="c">! 23 Mar 2001: Introduced ilast, jlast.</span>
+<span class="w">    </span><span class="c">! 27 Mar 2001: Allow fill-in &quot;in situ&quot; if there is already room</span>
+<span class="w">    </span><span class="c">!              up to but NOT INCLUDING the end of the</span>
+<span class="w">    </span><span class="c">!              row or column file.</span>
+<span class="w">    </span><span class="c">!              Seems safe way to avoid overwriting empty rows/cols</span>
+<span class="w">    </span><span class="c">!              at the end.  (May not be needed though, now that we</span>
+<span class="w">    </span><span class="c">!              have ilast and jlast.)</span>
+<span class="w">    </span><span class="c">!</span>
+<span class="w">    </span><span class="c">! 10 Jan 2010: First f90 version.</span>
+<span class="w">    </span><span class="c">! 28 Feb 2010: Declare intent and local variables.</span>
+<span class="w">    </span><span class="c">!------------------------------------------------------------------</span>
+
+<span class="w">    </span><span class="kt">logical</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">atend</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">lc</span><span class="p">,</span><span class="w"> </span><span class="n">lc1</span><span class="p">,</span><span class="w"> </span><span class="n">lc2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                          </span><span class="n">leni</span><span class="p">,</span><span class="w"> </span><span class="n">lenj</span><span class="p">,</span><span class="w"> </span><span class="n">ll</span><span class="p">,</span><span class="w"> </span><span class="n">lr</span><span class="p">,</span><span class="w"> </span><span class="n">lr1</span><span class="p">,</span><span class="w"> </span><span class="n">lrep</span><span class="p">,</span><span class="w">          </span><span class="p">&amp;</span>
+<span class="w">                          </span><span class="n">ndone</span><span class="p">,</span><span class="w"> </span><span class="n">ndrop</span><span class="p">,</span><span class="w"> </span><span class="n">nfree</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">rp</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">aij</span><span class="p">,</span><span class="w"> </span><span class="n">uj</span>
+
+
+<span class="w">    </span><span class="k">do </span><span class="mi">600</span><span class="w"> </span><span class="n">lr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lfirst</span><span class="p">,</span><span class="w"> </span><span class="n">lpivr2</span>
+<span class="w">       </span><span class="n">j</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span>
+<span class="w">       </span><span class="n">lenj</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lenc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">       </span><span class="n">nfree</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lfree</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lcol</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nfree</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">minfre</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">900</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Inner loop to modify existing nonzeros in column  j.</span>
+<span class="w">       </span><span class="c">! The &quot;do l = lc1, lc2&quot; loop performs most of the arithmetic</span>
+<span class="w">       </span><span class="c">! involved in the whole LU factorization.</span>
+<span class="w">       </span><span class="c">! ndone  counts how many multipliers were used.</span>
+<span class="w">       </span><span class="c">! ndrop  counts how many modified nonzeros are negligibly small.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="n">lu</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">uj</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">au</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span>
+<span class="w">       </span><span class="n">lc1</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">locc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">       </span><span class="n">lc2</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenj</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">atend</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">jlast</span>
+<span class="w">       </span><span class="n">ndone</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lenj</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">500</span>
+
+<span class="w">       </span><span class="n">ndrop</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span><span class="p">,</span><span class="w"> </span><span class="n">lc2</span>
+<span class="w">          </span><span class="n">i</span><span class="w">        </span><span class="o">=</span><span class="w">   </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">          </span><span class="n">ll</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mark</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">             </span><span class="n">ndone</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">ndone</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="n">markl</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">             </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w">  </span><span class="n">al</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">uj</span>
+<span class="w">             </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">small</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">ndrop</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">ndrop</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="k">end if</span>
+<span class="k">          end if</span>
+<span class="k">       end do</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Remove any negligible modified nonzeros from both</span>
+<span class="w">       </span><span class="c">! the column file and the row file.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ndrop</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">500</span>
+<span class="w">       </span><span class="n">k</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span><span class="p">,</span><span class="w"> </span><span class="n">lc2</span>
+<span class="w">          </span><span class="n">i</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">small</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">             </span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">             </span><span class="n">indc</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">             </span><span class="n">k</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="k">cycle</span>
+<span class="k">          end if</span>
+
+<span class="w">          </span><span class="c">! Delete the nonzero from the row file.</span>
+
+<span class="w">          </span><span class="n">lenj</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lenj</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">lr1</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">locr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">          </span><span class="n">last</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lr1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="w">          </span><span class="k">do </span><span class="n">lrep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lr1</span><span class="p">,</span><span class="w"> </span><span class="n">last</span>
+<span class="w">             </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">indr</span><span class="p">(</span><span class="n">lrep</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="k">          end do</span>
+
+<span class="k">          </span><span class="n">indr</span><span class="p">(</span><span class="n">lrep</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indr</span><span class="p">(</span><span class="n">last</span><span class="p">)</span>
+<span class="w">          </span><span class="n">indr</span><span class="p">(</span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ilast</span><span class="p">)</span><span class="w"> </span><span class="n">lrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lrow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="k">end do</span>
+
+<span class="w">       </span><span class="c">! Free the deleted elements from the column file.</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">lc2</span>
+<span class="w">          </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">       </span><span class="k">end do</span>
+<span class="k">       if</span><span class="w"> </span><span class="p">(</span><span class="n">atend</span><span class="p">)</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Deal with the fill-in in column j.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="mi">500</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ndone</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">melim</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">590</span>
+
+<span class="w">       </span><span class="c">! See if column j already has room for the fill-in.</span>
+
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">atend</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">540</span>
+<span class="w">       </span><span class="n">last</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="n">lenj</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">l1</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">l2</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">melim</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ndone</span><span class="p">)</span>
+<span class="w">       </span><span class="c">! 27 Mar 2001: Be sure it&#39;s not at or past end of the col file.</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">lcol</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">520</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">520</span>
+<span class="w">       </span><span class="k">end do</span>
+<span class="k">       go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">540</span>
+
+<span class="w">       </span><span class="c">! We must move column j to the end of the column file.</span>
+<span class="w">       </span><span class="c">! First, leave some spare room at the end of the</span>
+<span class="w">       </span><span class="c">! current last column.</span>
+<span class="w">       </span><span class="c">! 14 Jul 2015: (William Gandler) Fix deceptive loop</span>
+<span class="w">       </span><span class="c">!              do l = lcol + 1, lcol + nspare</span>
+<span class="w">       </span><span class="c">!                 lcol    = l</span>
+
+<span class="mi">520</span><span class="w">    </span><span class="n">l1</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">l2</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nspare</span>
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span>
+<span class="w">       </span><span class="c">!  lcol    = l</span>
+<span class="w">          </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="c">! Spare space is free.</span>
+<span class="w">       </span><span class="k">end do</span>
+<span class="k">       </span><span class="n">lcol</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">l2</span>
+
+<span class="w">       </span><span class="n">atend</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">       </span><span class="n">jlast</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">       </span><span class="n">l1</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span>
+<span class="w">       </span><span class="n">lc1</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">locc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">last</span>
+<span class="w">          </span><span class="n">lcol</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">a</span><span class="p">(</span><span class="n">lcol</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">          </span><span class="n">indc</span><span class="p">(</span><span class="n">lcol</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="w">          </span><span class="n">indc</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">      </span><span class="c">! Free space.</span>
+<span class="w">       </span><span class="k">end do</span>
+
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="w">       </span><span class="c">! Inner loop for the fill-in in column j.</span>
+<span class="w">       </span><span class="c">! This is usually not very expensive.</span>
+<span class="w">       </span><span class="c">!---------------------------------------------------------------</span>
+<span class="mi">540</span><span class="w">    </span><span class="n">last</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lc1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenj</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">       </span><span class="n">ll</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">       </span><span class="k">do </span><span class="n">lc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lpivc1</span><span class="p">,</span><span class="w"> </span><span class="n">lpivc2</span>
+<span class="w">          </span><span class="n">ll</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">markl</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">j</span><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">          </span><span class="n">aij</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">al</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="o">*</span><span class="n">uj</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">aij</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">small</span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">          </span><span class="n">lenj</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lenj</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">last</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">a</span><span class="p">(</span><span class="n">last</span><span class="p">)</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">aij</span>
+<span class="w">          </span><span class="n">i</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">indc</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span>
+<span class="w">          </span><span class="n">indc</span><span class="p">(</span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">          </span><span class="n">leni</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="w">          </span><span class="c">! Add 1 fill-in to row i if there is already room.</span>
+<span class="w">          </span><span class="c">! 27 Mar 2001: Be sure it&#39;s not at or past the end</span>
+<span class="w">          </span><span class="c">! of the row file.</span>
+
+<span class="w">          </span><span class="n">l</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">locr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">leni</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lrow</span><span class="w">  </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w">  </span><span class="n">indr</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">             </span><span class="n">indr</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">             </span><span class="n">lenr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leni</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="k">else</span>
+
+<span class="w">             </span><span class="c">! Row i does not have room for the fill-in.</span>
+<span class="w">             </span><span class="c">! Increment ifill(ll) to count how often this has</span>
+<span class="w">             </span><span class="c">! happened to row i.  Also, add m to the row index</span>
+<span class="w">             </span><span class="c">! indc(last) in column j to mark it as a fill-in that is</span>
+<span class="w">             </span><span class="c">! still pending.</span>
+
+<span class="w">             </span><span class="c">! If this is the first pending fill-in for row i,</span>
+<span class="w">             </span><span class="c">! nfill includes the current length of row i</span>
+<span class="w">             </span><span class="c">! (since the whole row has to be moved later).</span>
+
+<span class="w">             </span><span class="c">! If this is the first pending fill-in for column j,</span>
+<span class="w">             </span><span class="c">! jfill(lu) records the current length of column j</span>
+<span class="w">             </span><span class="c">! (to shorten the search for pending fill-ins later).</span>
+
+<span class="w">             </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ifill</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">nfill</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">nfill</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">leni</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nspare</span>
+<span class="w">             </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">jfill</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">jfill</span><span class="p">(</span><span class="n">lu</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenj</span>
+<span class="w">             </span><span class="n">nfill</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">nfill</span><span class="w">     </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="n">ifill</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">ifill</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">             </span><span class="n">indc</span><span class="p">(</span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span>
+<span class="w">          </span><span class="k">end if</span>
+<span class="k">       end do</span>
+
+<span class="k">       if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">atend</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">lcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span>
+
+<span class="w">       </span><span class="c">! End loop for column  j.  Store its final length.</span>
+
+<span class="mi">590</span><span class="w">    </span><span class="n">lenc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenj</span>
+<span class="mi">600</span><span class="w"> </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Successful completion.</span>
+
+<span class="w">    </span><span class="n">lfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">return</span>
+
+<span class="w">    </span><span class="c">! Interruption.  We have to come back in after the</span>
+<span class="w">    </span><span class="c">! column file is compressed.  Give lfirst a new value.</span>
+<span class="w">    </span><span class="c">! lu and nfill will retain their current values.</span>
+
+<span class="mi">900</span><span class="w"> </span><span class="n">lfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lr</span>
+<span class="w">    </span><span class="k">return</span>
+
+<span class="k">  end subroutine </span><span class="n">lu1gau</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

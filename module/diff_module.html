@@ -79,7 +79,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="14.2% of total for modules and submodules.">728 statements</a>
+                 title=" 8.0% of total for modules and submodules.">728 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -152,8 +152,8 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/diff_module.html#proc-set_function">set_function</a>
-            <a class="list-group-item" href="../module/diff_module.html#proc-terminate~2">terminate</a>
-            <a class="list-group-item" href="../module/diff_module.html#proc-diff">diff</a>
+            <a class="list-group-item" href="../module/diff_module.html#proc-terminate">terminate</a>
+            <a class="list-group-item" href="../module/diff_module.html#proc-diff~2">diff</a>
             <a class="list-group-item" href="../module/diff_module.html#proc-faccur">faccur</a>
         </div>
       </div>
@@ -492,7 +492,7 @@ modules which it uses.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~78"></span>
+              <span class="anchor" id="variable-me~92"></span>
               class(<a href='../type/diff_func.html'>diff_func</a>),
             </td>
 <td>intent(inout)</td>
@@ -507,7 +507,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~44"></span>
+              <span class="anchor" id="variable-x~59"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -548,7 +548,7 @@ modules which it uses.
       </h3>
     </div>
     <div class="card-body">
-      <p>class to define the function for <a href="../proc/diff.html">diff</a></p>
+      <p>class to define the function for <a href="../proc/diff~2.html">diff</a></p>
 
         <h4>Components</h4>
           <table class="table table-striped varlist">
@@ -616,7 +616,7 @@ modules which it uses.
               </tr>
               <tr>
                 <td>  procedure, public ::
-  <strong><a href='../type/diff_func.html#boundprocedure-compute_derivative'>compute_derivative</a></strong> => <a href='../proc/diff.html'>diff</a></td>
+  <strong><a href='../type/diff_func.html#boundprocedure-compute_derivative'>compute_derivative</a></strong> => <a href='../proc/diff~2.html'>diff</a></td>
                 <td></td>
               </tr>
               <tr>
@@ -645,7 +645,7 @@ modules which it uses.
     </dl>
 
   <p>Set the function in a <a href="../type/diff_func.html">diff_func</a>.
-Must be called before <a href="../proc/diff.html">diff</a>.</p>
+Must be called before <a href="../proc/diff~2.html">diff</a>.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -660,7 +660,7 @@ Must be called before <a href="../proc/diff.html">diff</a>.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~41"></span>
+              <span class="anchor" id="variable-me~28"></span>
               class(<a href='../type/diff_func.html'>diff_func</a>),
             </td>
 <td>intent(inout)</td>
@@ -696,7 +696,7 @@ Must be called before <a href="../proc/diff.html">diff</a>.</p>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-terminate~2"></span><h3>private  subroutine <a href='../proc/terminate~2.html'>terminate</a>(me)  
+    <div class="card-header codesum"><span class="anchor" id="proc-terminate"></span><h3>private  subroutine <a href='../proc/terminate.html'>terminate</a>(me)  
 </h3></div>
     <div class="card-body">
           
@@ -716,7 +716,7 @@ This will set <code>ifail=-1</code>.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~43"></span>
+              <span class="anchor" id="variable-me~30"></span>
               class(<a href='../type/diff_func.html'>diff_func</a>),
             </td>
 <td>intent(inout)</td>
@@ -737,7 +737,7 @@ This will set <code>ifail=-1</code>.</p>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-diff"></span><h3>private  subroutine <a href='../proc/diff.html'>diff</a>(me, iord, x0, xmin, xmax, eps, accr, deriv, error, ifail)  
+    <div class="card-header codesum"><span class="anchor" id="proc-diff~2"></span><h3>private  subroutine <a href='../proc/diff~2.html'>diff</a>(me, iord, x0, xmin, xmax, eps, accr, deriv, error, ifail)  
 </h3></div>
     <div class="card-body">
           
@@ -764,7 +764,7 @@ is returned instead.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~42"></span>
+              <span class="anchor" id="variable-me~29"></span>
               class(<a href='../type/diff_func.html'>diff_func</a>),
             </td>
 <td>intent(inout)</td>
@@ -779,7 +779,7 @@ is returned instead.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iord~2"></span>
+              <span class="anchor" id="variable-iord"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -795,7 +795,7 @@ derivative,respectively, is required.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x0~2"></span>
+              <span class="anchor" id="variable-x0"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -827,7 +827,7 @@ calculable and continuous.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-xmax~2"></span>
+              <span class="anchor" id="variable-xmax"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -844,7 +844,7 @@ calculable and continuous.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-eps~4"></span>
+              <span class="anchor" id="variable-eps~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -882,7 +882,7 @@ complete confidence, then it should be set to zero.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-deriv~2"></span>
+              <span class="anchor" id="variable-deriv"></span>
               real(kind=wp),
             </td>
 <td>intent(out)</td>
@@ -915,7 +915,7 @@ returned for derivative.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ifail~2"></span>
+              <span class="anchor" id="variable-ifail"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -968,7 +968,7 @@ smallest spacing at which the function values are unequal near <code>x0+h0</code
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~40"></span>
+              <span class="anchor" id="variable-me~27"></span>
               class(<a href='../type/diff_func.html'>diff_func</a>),
             </td>
 <td>intent(inout)</td>
@@ -1088,7 +1088,7 @@ smallest spacing at which the function values are unequal near <code>x0+h0</code
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ifail~3"></span>
+              <span class="anchor" id="variable-ifail~2"></span>
               integer,
             </td>
 <td>intent(out)</td>

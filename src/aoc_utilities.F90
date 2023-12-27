@@ -7,13 +7,22 @@
 
     module aoc_utilities
 
-    use iso_fortran_env, ip => int64, wp => real64
+    use iso_fortran_env
 
     implicit none
 
     private
 
-    public :: ip, wp
+#ifdef REAL32
+    integer,parameter,public :: wp = real32   !! default real kind [4 bytes]
+#elif REAL64
+    integer,parameter,public :: wp = real64   !! default real kind [8 bytes]
+#elif REAL128
+    integer,parameter,public :: wp = real128  !! default real kind [16 bytes]
+#else
+    integer,parameter,public :: wp = real64   !! default real kind [8 bytes]
+#endif
+    integer,parameter,public :: ip = int64   !! default int kind
 
     integer,parameter :: chunk_size = 100 !! for dynamic allocations
 

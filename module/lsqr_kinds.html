@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>lsqr_kinds &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>lsqr_kinds
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.1% of total for modules and submodules.">8 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/lsqr_kinds.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/lsqr_kinds.f90.html'>lsqr_kinds.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">lsqr_kinds</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/lsqr_kinds.html#variable-wp~5">wp</a>
+            <a class="list-group-item" href="../module/lsqr_kinds.html#variable-zero~4">zero</a>
+            <a class="list-group-item" href="../module/lsqr_kinds.html#variable-one~3">one</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>Module for LSQR kinds and parameters</p>
+<h3>History</h3>
+<ul>
+<li>Jacob Williams : 8 Nov 2019 : created module</li>
+</ul>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~lsqr_kinds~~UsesGraph Pages: 1 -->
+<svg id="modulelsqr_kindsUsesGraph" width="203pt" height="32pt"
+ viewBox="0.00 0.00 203.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~lsqr_kinds~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>module~~lsqr_kinds~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 199,-28 199,4 -4,4"/>
+<!-- module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsesGraph_node1" class="node">
+<title>module~lsqr_kinds</title>
+<polygon fill="none" stroke="black" points="195,-24 130,-24 130,0 195,0 195,-24"/>
+<text text-anchor="middle" x="162.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">lsqr_kinds</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~lsqr_kinds~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- module~lsqr_kinds&#45;&gt;iso_fortran_env -->
+<g id="module~~lsqr_kinds~~UsesGraph_edge1" class="edge">
+<title>module~lsqr_kinds&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.88,-12C121.96,-12 113.22,-12 104.49,-12"/>
+<polygon fill="#000000" stroke="#000000" points="104.3,-8.5 94.3,-12 104.3,-15.5 104.3,-8.5"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~lsqr_kinds~~UsedByGraph Pages: 1 -->
+<svg id="modulelsqr_kindsUsedByGraph" width="641pt" height="101pt"
+ viewBox="0.00 0.00 641.00 100.62" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~lsqr_kinds~~UsedByGraph" class="graph" transform="scale(1.15 1.15) rotate(0) translate(4 112)">
+<title>module~~lsqr_kinds~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 735,-112 735,4 -4,4"/>
+<!-- module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node1" class="node">
+<title>module~lsqr_kinds</title>
+<polygon fill="none" stroke="black" points="65,-66 0,-66 0,-42 65,-42 65,-66"/>
+<text text-anchor="middle" x="32.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">lsqr_kinds</text>
+</g>
+<!-- module~lsqpblas_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node2" class="node">
+<title>module~lsqpblas_module</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node2"><a xlink:href=".././module/lsqpblas_module.html" xlink:title="lsqpblas_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="203,-66 101,-66 101,-42 203,-42 203,-66"/>
+<text text-anchor="middle" x="152" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module</text>
+</a>
+</g>
+</g>
+<!-- module~lsqpblas_module&#45;&gt;module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge1" class="edge">
+<title>module~lsqpblas_module&#45;&gt;module~lsqr_kinds</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.83,-54C92.32,-54 83.57,-54 75.3,-54"/>
+<polygon fill="#000000" stroke="#000000" points="75.15,-50.5 65.15,-54 75.15,-57.5 75.15,-50.5"/>
+</g>
+<!-- module~lsqr_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node3" class="node">
+<title>module~lsqr_module</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node3"><a xlink:href=".././module/lsqr_module.html" xlink:title="lsqr_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="317,-66 239,-66 239,-42 317,-42 317,-66"/>
+<text text-anchor="middle" x="278" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module</text>
+</a>
+</g>
+</g>
+<!-- module~lsqr_module&#45;&gt;module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge2" class="edge">
+<title>module~lsqr_module&#45;&gt;module~lsqr_kinds</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M256.54,-41.96C232.44,-29.07 190.87,-10.86 153,-14"/>
+</g>
+<!-- module~lsqr_module&#45;&gt;module~lsqpblas_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge5" class="edge">
+<title>module~lsqr_module&#45;&gt;module~lsqpblas_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M238.78,-54C230.7,-54 221.99,-54 213.31,-54"/>
+<polygon fill="#000000" stroke="#000000" points="213.19,-50.5 203.19,-54 213.19,-57.5 213.19,-50.5"/>
+</g>
+<!-- module~lsqrtest_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node4" class="node">
+<title>module~lsqrtest_module</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node4"><a xlink:href=".././module/lsqrtest_module.html" xlink:title="lsqrtest_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="545.5,-108 448.5,-108 448.5,-84 545.5,-84 545.5,-108"/>
+<text text-anchor="middle" x="497" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqrtest_module</text>
+</a>
+</g>
+</g>
+<!-- module~lsqrtest_module&#45;&gt;module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge3" class="edge">
+<title>module~lsqrtest_module&#45;&gt;module~lsqr_kinds</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M277,-94C198.6,-87.46 178.04,-90.98 101,-75 92.45,-73.23 83.44,-70.82 74.88,-68.26"/>
+<polygon fill="#000000" stroke="#000000" points="75.69,-64.85 65.1,-65.22 73.61,-71.53 75.69,-64.85"/>
+</g>
+<!-- module~lsqrtest_module&#45;&gt;module~lsqpblas_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge6" class="edge">
+<title>module~lsqrtest_module&#45;&gt;module~lsqpblas_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M448.5,-97.58C404.47,-98.57 337.19,-98.86 279,-94"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M277,-94C246.09,-91.42 212.72,-80.13 188.39,-70.2"/>
+<polygon fill="#000000" stroke="#000000" points="189.46,-66.85 178.88,-66.2 186.74,-73.3 189.46,-66.85"/>
+</g>
+<!-- module~lsqrtest_module&#45;&gt;module~lsqr_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge7" class="edge">
+<title>module~lsqrtest_module&#45;&gt;module~lsqr_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M448.38,-90.59C420.43,-87.02 384.53,-81.76 353,-75 344.55,-73.19 335.65,-70.95 327.06,-68.62"/>
+<polygon fill="#000000" stroke="#000000" points="327.74,-65.18 317.17,-65.86 325.86,-71.92 327.74,-65.18"/>
+</g>
+<!-- program~main~3 -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node5" class="node">
+<title>program~main~3</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node5"><a xlink:href=".././program/main~3.html" xlink:title="main">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="524,-24 470,-24 470,0 524,0 524,-24"/>
+<text text-anchor="middle" x="497" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
+</a>
+</g>
+</g>
+<!-- program~main~3&#45;&gt;module~lsqr_kinds -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge4" class="edge">
+<title>program~main~3&#45;&gt;module~lsqr_kinds</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M469.69,-10.78C412.14,-8.41 270.8,-4.22 153,-14"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151,-14C121.71,-16.72 90.25,-27.91 67.26,-37.77"/>
+<polygon fill="#000000" stroke="#000000" points="65.69,-34.63 57.96,-41.88 68.52,-41.04 65.69,-34.63"/>
+</g>
+<!-- program~main~3&#45;&gt;module~lsqr_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge9" class="edge">
+<title>program~main~3&#45;&gt;module~lsqr_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M469.98,-14.78C441.19,-18.11 393.48,-24.32 353,-33 344.55,-34.81 335.65,-37.05 327.06,-39.38"/>
+<polygon fill="#000000" stroke="#000000" points="325.86,-36.08 317.17,-42.14 327.74,-42.82 325.86,-36.08"/>
+</g>
+<!-- proc~nlesolver_solver -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node6" class="node">
+<title>proc~nlesolver_solver</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node6"><a xlink:href=".././proc/nlesolver_solver.html" xlink:title="nlesolver_module::nlesolver_type%nlesolver_solver">
+<polygon fill="#d9534f" stroke="#d9534f" points="641,-66 353,-66 353,-42 641,-42 641,-66"/>
+<text text-anchor="middle" x="497" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module::nlesolver_type%nlesolver_solver</text>
+</a>
+</g>
+</g>
+<!-- proc~nlesolver_solver&#45;&gt;module~lsqr_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge8" class="edge">
+<title>proc~nlesolver_solver&#45;&gt;module~lsqr_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.77,-54C343.86,-54 335.3,-54 327.37,-54"/>
+<polygon fill="#000000" stroke="#000000" points="327.33,-50.5 317.33,-54 327.33,-57.5 327.33,-50.5"/>
+</g>
+<!-- program~main~2 -->
+<g id="module~~lsqr_kinds~~UsedByGraph_node7" class="node">
+<title>program~main~2</title>
+<g id="a_module~~lsqr_kinds~~UsedByGraph_node7"><a xlink:href=".././program/main~2.html" xlink:title="main">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="731,-108 677,-108 677,-84 731,-84 731,-108"/>
+<text text-anchor="middle" x="704" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
+</a>
+</g>
+</g>
+<!-- program~main~2&#45;&gt;module~lsqrtest_module -->
+<g id="module~~lsqr_kinds~~UsedByGraph_edge10" class="edge">
+<title>program~main~2&#45;&gt;module~lsqrtest_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M676.62,-96C646.28,-96 595.55,-96 555.89,-96"/>
+<polygon fill="#000000" stroke="#000000" points="555.81,-92.5 545.81,-96 555.81,-99.5 555.81,-92.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulelsqr_kindsUsedByGraph = svgPanZoom('#modulelsqr_kindsUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsedByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wp~5"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>wp</strong></td>
+<td> =</td>
+                <td>real64</td>
+            <td>
+                <p>default real kind [8 bytes]</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~4"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>zero</strong></td>
+<td> =</td>
+                <td>0.0_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~3"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>one</strong></td>
+<td> =</td>
+                <td>1.0_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>main &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>main      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.7% of total for programs.">58 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/lusol_test.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/lusol_test.f90.html'>lusol_test.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">main</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/main.html#proc-test_1">test_1</a>
+            <a class="list-group-item" href="../program/main.html#proc-test_2">test_2</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/main.html#src">main</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/lusol_precision.html'>lusol_precision</a></li>
+                  <li class="list-inline-item"><a href='../module/lusol_ez_module.html'>lusol_ez_module</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~main~~UsesGraph Pages: 1 -->
+<svg id="programmainUsesGraph" width="545pt" height="63pt"
+ viewBox="0.00 0.00 545.00 63.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~main~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 59.25)">
+<title>program~~main~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-59.25 541,-59.25 541,4 -4,4"/>
+<!-- program~main -->
+<g id="program~~main~~UsesGraph_node1" class="node">
+<title>program~main</title>
+<polygon fill="none" stroke="black" points="537,-24 483,-24 483,0 537,0 537,-24"/>
+<text text-anchor="middle" x="510" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">main</text>
+</g>
+<!-- module~lusol_ez_module -->
+<g id="program~~main~~UsesGraph_node2" class="node">
+<title>module~lusol_ez_module</title>
+<g id="a_program~~main~~UsesGraph_node2"><a xlink:href=".././module/lusol_ez_module.html" xlink:title="lusol_ez_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="447,-44 347,-44 347,-20 447,-20 447,-44"/>
+<text text-anchor="middle" x="397" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_ez_module</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;module~lusol_ez_module -->
+<g id="program~~main~~UsesGraph_edge1" class="edge">
+<title>program~main&#45;&gt;module~lusol_ez_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M482.98,-16.69C475.25,-18.08 466.44,-19.67 457.5,-21.28"/>
+<polygon fill="#000000" stroke="#000000" points="456.62,-17.88 447.4,-23.1 457.86,-24.77 456.62,-17.88"/>
+</g>
+<!-- module~lusol_precision -->
+<g id="program~~main~~UsesGraph_node3" class="node">
+<title>module~lusol_precision</title>
+<g id="a_program~~main~~UsesGraph_node3"><a xlink:href=".././module/lusol_precision.html" xlink:title="lusol_precision">
+<polygon fill="#337ab7" stroke="#337ab7" points="221,-44 130,-44 130,-20 221,-20 221,-44"/>
+<text text-anchor="middle" x="175.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_precision</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;module~lusol_precision -->
+<g id="program~~main~~UsesGraph_edge2" class="edge">
+<title>program~main&#45;&gt;module~lusol_precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M482.74,-9.64C436.77,-6.01 338.8,-0.51 257,-11 246.36,-12.36 235.12,-14.71 224.52,-17.34"/>
+<polygon fill="#000000" stroke="#000000" points="223.39,-14.02 214.6,-19.93 225.16,-20.79 223.39,-14.02"/>
+</g>
+<!-- module~lusol_ez_module&#45;&gt;module~lusol_precision -->
+<g id="program~~main~~UsesGraph_edge4" class="edge">
+<title>module~lusol_ez_module&#45;&gt;module~lusol_precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355.73,-44.07C341.71,-47.7 325.79,-51.2 311,-53 287.18,-55.9 280.8,-56.05 257,-53 246.36,-51.64 235.12,-49.29 224.52,-46.66"/>
+<polygon fill="#000000" stroke="#000000" points="225.16,-43.21 214.6,-44.07 223.39,-49.98 225.16,-43.21"/>
+</g>
+<!-- module~lusol -->
+<g id="program~~main~~UsesGraph_node5" class="node">
+<title>module~lusol</title>
+<g id="a_program~~main~~UsesGraph_node5"><a xlink:href=".././module/lusol.html" xlink:title="lusol">
+<polygon fill="#337ab7" stroke="#337ab7" points="311,-44 257,-44 257,-20 311,-20 311,-44"/>
+<text text-anchor="middle" x="284" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol</text>
+</a>
+</g>
+</g>
+<!-- module~lusol_ez_module&#45;&gt;module~lusol -->
+<g id="program~~main~~UsesGraph_edge3" class="edge">
+<title>module~lusol_ez_module&#45;&gt;module~lusol</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M346.99,-32C338.33,-32 329.46,-32 321.24,-32"/>
+<polygon fill="#000000" stroke="#000000" points="321.23,-28.5 311.23,-32 321.23,-35.5 321.23,-28.5"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~main~~UsesGraph_node4" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- module~lusol_precision&#45;&gt;iso_fortran_env -->
+<g id="program~~main~~UsesGraph_edge5" class="edge">
+<title>module~lusol_precision&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.9,-32C121.71,-32 113.06,-32 104.57,-32"/>
+<polygon fill="#000000" stroke="#000000" points="104.34,-28.5 94.34,-32 104.34,-35.5 104.34,-28.5"/>
+</g>
+<!-- module~lusol&#45;&gt;module~lusol_precision -->
+<g id="program~~main~~UsesGraph_edge6" class="edge">
+<title>module~lusol&#45;&gt;module~lusol_precision</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M256.95,-32C249.16,-32 240.32,-32 231.41,-32"/>
+<polygon fill="#000000" stroke="#000000" points="231.38,-28.5 221.38,-32 231.38,-35.5 231.38,-28.5"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Main program for EZ test.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~main~~CallsGraph Pages: 1 -->
+<svg id="programmainCallsGraph" width="641pt" height="541pt"
+ viewBox="0.00 0.00 641.00 540.89" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~main~~CallsGraph" class="graph" transform="scale(1.49 1.49) rotate(0) translate(4 801)">
+<title>program~~main~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-801 950,-801 950,4 -4,4"/>
+<!-- program~main -->
+<g id="program~~main~~CallsGraph_node1" class="node">
+<title>program~main</title>
+<polygon fill="none" stroke="black" points="54,-234 0,-234 0,-210 54,-210 54,-234"/>
+<text text-anchor="middle" x="27" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50">main</text>
+</g>
+<!-- proc~test_1 -->
+<g id="program~~main~~CallsGraph_node2" class="node">
+<title>proc~test_1</title>
+<g id="a_program~~main~~CallsGraph_node2"><a xlink:href=".././proc/test_1.html" xlink:title="main::test_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-255 90,-255 90,-231 169,-231 169,-255"/>
+<text text-anchor="middle" x="129.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_1</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;proc~test_1 -->
+<g id="program~~main~~CallsGraph_edge1" class="edge">
+<title>program~main&#45;&gt;proc~test_1</title>
+<path fill="none" stroke="#000000" d="M54.14,-227.46C62.09,-229.12 71.08,-231 80.01,-232.87"/>
+<polygon fill="#000000" stroke="#000000" points="79.49,-236.33 89.99,-234.95 80.92,-229.48 79.49,-236.33"/>
+</g>
+<!-- proc~test_2 -->
+<g id="program~~main~~CallsGraph_node3" class="node">
+<title>proc~test_2</title>
+<g id="a_program~~main~~CallsGraph_node3"><a xlink:href=".././proc/test_2.html" xlink:title="main::test_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="169,-213 90,-213 90,-189 169,-189 169,-213"/>
+<text text-anchor="middle" x="129.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main::test_2</text>
+</a>
+</g>
+</g>
+<!-- program~main&#45;&gt;proc~test_2 -->
+<g id="program~~main~~CallsGraph_edge2" class="edge">
+<title>program~main&#45;&gt;proc~test_2</title>
+<path fill="none" stroke="#000000" d="M54.14,-216.54C62.09,-214.88 71.08,-213 80.01,-211.13"/>
+<polygon fill="#000000" stroke="#000000" points="80.92,-214.52 89.99,-209.05 79.49,-207.67 80.92,-214.52"/>
+</g>
+<!-- proc~solve -->
+<g id="program~~main~~CallsGraph_node4" class="node">
+<title>proc~solve</title>
+<g id="a_program~~main~~CallsGraph_node4"><a xlink:href=".././proc/solve.html" xlink:title="lusol_ez_module::solve">
+<polygon fill="#d9534f" stroke="#d9534f" points="341,-234 205,-234 205,-210 341,-210 341,-234"/>
+<text text-anchor="middle" x="273" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol_ez_module::solve</text>
+</a>
+</g>
+</g>
+<!-- proc~test_1&#45;&gt;proc~solve -->
+<g id="program~~main~~CallsGraph_edge3" class="edge">
+<title>proc~test_1&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-237.26C177.19,-236.07 185.92,-234.78 194.78,-233.46"/>
+<polygon fill="#000000" stroke="#000000" points="195.43,-236.9 204.81,-231.97 194.41,-229.98 195.43,-236.9"/>
+</g>
+<!-- proc~test_2&#45;&gt;proc~solve -->
+<g id="program~~main~~CallsGraph_edge4" class="edge">
+<title>proc~test_2&#45;&gt;proc~solve</title>
+<path fill="none" stroke="#000000" d="M169.17,-206.74C177.19,-207.93 185.92,-209.22 194.78,-210.54"/>
+<polygon fill="#000000" stroke="#000000" points="194.41,-214.02 204.81,-212.03 195.43,-207.1 194.41,-214.02"/>
+</g>
+<!-- proc~lu1fac -->
+<g id="program~~main~~CallsGraph_node5" class="node">
+<title>proc~lu1fac</title>
+<g id="a_program~~main~~CallsGraph_node5"><a xlink:href=".././proc/lu1fac.html" xlink:title="lusol::lu1fac">
+<polygon fill="#d9534f" stroke="#d9534f" points="455,-360 377,-360 377,-336 455,-336 455,-360"/>
+<text text-anchor="middle" x="416" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1fac</text>
+</a>
+</g>
+</g>
+<!-- proc~solve&#45;&gt;proc~lu1fac -->
+<g id="program~~main~~CallsGraph_edge5" class="edge">
+<title>proc~solve&#45;&gt;proc~lu1fac</title>
+<path fill="none" stroke="#000000" d="M287.52,-234.08C312.09,-256.04 364.25,-302.65 393.66,-328.93"/>
+<polygon fill="#000000" stroke="#000000" points="391.53,-331.72 401.31,-335.77 396.19,-326.5 391.53,-331.72"/>
+</g>
+<!-- proc~lu6sol -->
+<g id="program~~main~~CallsGraph_node6" class="node">
+<title>proc~lu6sol</title>
+<g id="a_program~~main~~CallsGraph_node6"><a xlink:href=".././proc/lu6sol.html" xlink:title="lusol::lu6sol">
+<polygon fill="#d9534f" stroke="#d9534f" points="454,-129 378,-129 378,-105 454,-105 454,-129"/>
+<text text-anchor="middle" x="416" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6sol</text>
+</a>
+</g>
+</g>
+<!-- proc~solve&#45;&gt;proc~lu6sol -->
+<g id="program~~main~~CallsGraph_edge6" class="edge">
+<title>proc~solve&#45;&gt;proc~lu6sol</title>
+<path fill="none" stroke="#000000" d="M290.17,-209.96C314.69,-191.7 361.45,-156.88 390.26,-135.42"/>
+<polygon fill="#000000" stroke="#000000" points="392.65,-138.01 398.58,-129.23 388.47,-132.39 392.65,-138.01"/>
+</g>
+<!-- proc~lu1fad -->
+<g id="program~~main~~CallsGraph_node7" class="node">
+<title>proc~lu1fad</title>
+<g id="a_program~~main~~CallsGraph_node7"><a xlink:href=".././proc/lu1fad.html" xlink:title="lusol::lu1fad">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-528 492.5,-528 492.5,-504 571.5,-504 571.5,-528"/>
+<text text-anchor="middle" x="532" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1fad</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1fad -->
+<g id="program~~main~~CallsGraph_edge7" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1fad</title>
+<path fill="none" stroke="#000000" d="M420.32,-360.18C428.31,-387.45 450.94,-454.25 491,-495 491.93,-495.94 492.91,-496.85 493.93,-497.73"/>
+<polygon fill="#000000" stroke="#000000" points="492.21,-500.81 502.36,-503.82 496.3,-495.13 492.21,-500.81"/>
+</g>
+<!-- proc~lu1or1 -->
+<g id="program~~main~~CallsGraph_node8" class="node">
+<title>proc~lu1or1</title>
+<g id="a_program~~main~~CallsGraph_node8"><a xlink:href=".././proc/lu1or1.html" xlink:title="lusol::lu1or1">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-486 492.5,-486 492.5,-462 571.5,-462 571.5,-486"/>
+<text text-anchor="middle" x="532" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or1</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or1 -->
+<g id="program~~main~~CallsGraph_edge8" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or1</title>
+<path fill="none" stroke="#000000" d="M423.04,-360.1C434.08,-381.22 459.32,-425.2 491,-453 492.3,-454.14 493.67,-455.24 495.09,-456.29"/>
+<polygon fill="#000000" stroke="#000000" points="493.33,-459.33 503.62,-461.87 497.16,-453.47 493.33,-459.33"/>
+</g>
+<!-- proc~lu1or2 -->
+<g id="program~~main~~CallsGraph_node9" class="node">
+<title>proc~lu1or2</title>
+<g id="a_program~~main~~CallsGraph_node9"><a xlink:href=".././proc/lu1or2.html" xlink:title="lusol::lu1or2">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-444 492.5,-444 492.5,-420 571.5,-420 571.5,-444"/>
+<text text-anchor="middle" x="532" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or2</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or2 -->
+<g id="program~~main~~CallsGraph_edge9" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or2</title>
+<path fill="none" stroke="#000000" d="M429.4,-360.07C443.57,-373.48 467.79,-395.32 491,-411 492.9,-412.28 494.89,-413.55 496.92,-414.78"/>
+<polygon fill="#000000" stroke="#000000" points="495.54,-418.03 505.96,-419.95 499.02,-411.95 495.54,-418.03"/>
+</g>
+<!-- proc~lu1or3 -->
+<g id="program~~main~~CallsGraph_node10" class="node">
+<title>proc~lu1or3</title>
+<g id="a_program~~main~~CallsGraph_node10"><a xlink:href=".././proc/lu1or3.html" xlink:title="lusol::lu1or3">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-402 492.5,-402 492.5,-378 571.5,-378 571.5,-402"/>
+<text text-anchor="middle" x="532" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or3</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or3 -->
+<g id="program~~main~~CallsGraph_edge10" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or3</title>
+<path fill="none" stroke="#000000" d="M449.67,-360.04C461.83,-364.52 475.82,-369.67 488.72,-374.42"/>
+<polygon fill="#000000" stroke="#000000" points="487.73,-377.79 498.33,-377.96 490.15,-371.22 487.73,-377.79"/>
+</g>
+<!-- proc~lu1or4 -->
+<g id="program~~main~~CallsGraph_node11" class="node">
+<title>proc~lu1or4</title>
+<g id="a_program~~main~~CallsGraph_node11"><a xlink:href=".././proc/lu1or4.html" xlink:title="lusol::lu1or4">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-360 492.5,-360 492.5,-336 571.5,-336 571.5,-360"/>
+<text text-anchor="middle" x="532" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1or4</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1or4 -->
+<g id="program~~main~~CallsGraph_edge11" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1or4</title>
+<path fill="none" stroke="#000000" d="M455.28,-348C463.92,-348 473.22,-348 482.23,-348"/>
+<polygon fill="#000000" stroke="#000000" points="482.24,-351.5 492.24,-348 482.24,-344.5 482.24,-351.5"/>
+</g>
+<!-- proc~lu1pq1 -->
+<g id="program~~main~~CallsGraph_node12" class="node">
+<title>proc~lu1pq1</title>
+<g id="a_program~~main~~CallsGraph_node12"><a xlink:href=".././proc/lu1pq1.html" xlink:title="lusol::lu1pq1">
+<polygon fill="#d9534f" stroke="#d9534f" points="573,-318 491,-318 491,-294 573,-294 573,-318"/>
+<text text-anchor="middle" x="532" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq1</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1pq1 -->
+<g id="program~~main~~CallsGraph_edge12" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1pq1</title>
+<path fill="none" stroke="#000000" d="M449.67,-335.96C461.83,-331.48 475.82,-326.33 488.72,-321.58"/>
+<polygon fill="#000000" stroke="#000000" points="490.15,-324.78 498.33,-318.04 487.73,-318.21 490.15,-324.78"/>
+</g>
+<!-- proc~lu1slk -->
+<g id="program~~main~~CallsGraph_node13" class="node">
+<title>proc~lu1slk</title>
+<g id="a_program~~main~~CallsGraph_node13"><a xlink:href=".././proc/lu1slk.html" xlink:title="lusol::lu1slk">
+<polygon fill="#d9534f" stroke="#d9534f" points="570,-276 494,-276 494,-252 570,-252 570,-276"/>
+<text text-anchor="middle" x="532" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1slk</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu1slk -->
+<g id="program~~main~~CallsGraph_edge13" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu1slk</title>
+<path fill="none" stroke="#000000" d="M429.4,-335.93C443.57,-322.52 467.79,-300.68 491,-285 492.9,-283.72 494.89,-282.45 496.92,-281.22"/>
+<polygon fill="#000000" stroke="#000000" points="499.02,-284.05 505.96,-276.05 495.54,-277.97 499.02,-284.05"/>
+</g>
+<!-- proc~lu6chk -->
+<g id="program~~main~~CallsGraph_node14" class="node">
+<title>proc~lu6chk</title>
+<g id="a_program~~main~~CallsGraph_node14"><a xlink:href=".././proc/lu6chk.html" xlink:title="lusol::lu6chk">
+<polygon fill="#d9534f" stroke="#d9534f" points="572,-234 492,-234 492,-210 572,-210 572,-234"/>
+<text text-anchor="middle" x="532" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6chk</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fac&#45;&gt;proc~lu6chk -->
+<g id="program~~main~~CallsGraph_edge14" class="edge">
+<title>proc~lu1fac&#45;&gt;proc~lu6chk</title>
+<path fill="none" stroke="#000000" d="M423.04,-335.9C434.08,-314.78 459.32,-270.8 491,-243 492.3,-241.86 493.67,-240.76 495.09,-239.71"/>
+<polygon fill="#000000" stroke="#000000" points="497.16,-242.53 503.62,-234.13 493.33,-236.67 497.16,-242.53"/>
+</g>
+<!-- proc~lu6l -->
+<g id="program~~main~~CallsGraph_node15" class="node">
+<title>proc~lu6l</title>
+<g id="a_program~~main~~CallsGraph_node15"><a xlink:href=".././proc/lu6l.html" xlink:title="lusol::lu6L">
+<polygon fill="#d9534f" stroke="#d9534f" points="565.5,-192 498.5,-192 498.5,-168 565.5,-168 565.5,-192"/>
+<text text-anchor="middle" x="532" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6L</text>
+</a>
+</g>
+</g>
+<!-- proc~lu6sol&#45;&gt;proc~lu6l -->
+<g id="program~~main~~CallsGraph_edge15" class="edge">
+<title>proc~lu6sol&#45;&gt;proc~lu6l</title>
+<path fill="none" stroke="#000000" d="M437.95,-129.13C452.71,-137.62 472.98,-149.16 491,-159 493.52,-160.37 496.13,-161.78 498.76,-163.19"/>
+<polygon fill="#000000" stroke="#000000" points="497.19,-166.32 507.66,-167.91 500.47,-160.14 497.19,-166.32"/>
+</g>
+<!-- proc~lu6ld -->
+<g id="program~~main~~CallsGraph_node16" class="node">
+<title>proc~lu6ld</title>
+<g id="a_program~~main~~CallsGraph_node16"><a xlink:href=".././proc/lu6ld.html" xlink:title="lusol::lu6LD">
+<polygon fill="#d9534f" stroke="#d9534f" points="570,-150 494,-150 494,-126 570,-126 570,-150"/>
+<text text-anchor="middle" x="532" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6LD</text>
+</a>
+</g>
+</g>
+<!-- proc~lu6sol&#45;&gt;proc~lu6ld -->
+<g id="program~~main~~CallsGraph_edge16" class="edge">
+<title>proc~lu6sol&#45;&gt;proc~lu6ld</title>
+<path fill="none" stroke="#000000" d="M454.01,-123.82C463.47,-125.56 473.77,-127.46 483.67,-129.28"/>
+<polygon fill="#000000" stroke="#000000" points="483.31,-132.77 493.78,-131.14 484.58,-125.89 483.31,-132.77"/>
+</g>
+<!-- proc~lu6lt -->
+<g id="program~~main~~CallsGraph_node17" class="node">
+<title>proc~lu6lt</title>
+<g id="a_program~~main~~CallsGraph_node17"><a xlink:href=".././proc/lu6lt.html" xlink:title="lusol::lu6Lt">
+<polygon fill="#d9534f" stroke="#d9534f" points="567.5,-108 496.5,-108 496.5,-84 567.5,-84 567.5,-108"/>
+<text text-anchor="middle" x="532" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6Lt</text>
+</a>
+</g>
+</g>
+<!-- proc~lu6sol&#45;&gt;proc~lu6lt -->
+<g id="program~~main~~CallsGraph_edge17" class="edge">
+<title>proc~lu6sol&#45;&gt;proc~lu6lt</title>
+<path fill="none" stroke="#000000" d="M454.01,-110.18C464.36,-108.28 475.71,-106.18 486.44,-104.21"/>
+<polygon fill="#000000" stroke="#000000" points="487.29,-107.61 496.49,-102.36 486.02,-100.73 487.29,-107.61"/>
+</g>
+<!-- proc~lu6u -->
+<g id="program~~main~~CallsGraph_node18" class="node">
+<title>proc~lu6u</title>
+<g id="a_program~~main~~CallsGraph_node18"><a xlink:href=".././proc/lu6u.html" xlink:title="lusol::lu6U">
+<polygon fill="#d9534f" stroke="#d9534f" points="566.5,-66 497.5,-66 497.5,-42 566.5,-42 566.5,-66"/>
+<text text-anchor="middle" x="532" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6U</text>
+</a>
+</g>
+</g>
+<!-- proc~lu6sol&#45;&gt;proc~lu6u -->
+<g id="program~~main~~CallsGraph_edge18" class="edge">
+<title>proc~lu6sol&#45;&gt;proc~lu6u</title>
+<path fill="none" stroke="#000000" d="M437.95,-104.87C452.71,-96.38 472.98,-84.84 491,-75 493.52,-73.63 496.13,-72.22 498.76,-70.81"/>
+<polygon fill="#000000" stroke="#000000" points="500.47,-73.86 507.66,-66.09 497.19,-67.68 500.47,-73.86"/>
+</g>
+<!-- proc~lu6ut -->
+<g id="program~~main~~CallsGraph_node19" class="node">
+<title>proc~lu6ut</title>
+<g id="a_program~~main~~CallsGraph_node19"><a xlink:href=".././proc/lu6ut.html" xlink:title="lusol::lu6Ut">
+<polygon fill="#d9534f" stroke="#d9534f" points="568.5,-24 495.5,-24 495.5,0 568.5,0 568.5,-24"/>
+<text text-anchor="middle" x="532" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu6Ut</text>
+</a>
+</g>
+</g>
+<!-- proc~lu6sol&#45;&gt;proc~lu6ut -->
+<g id="program~~main~~CallsGraph_edge19" class="edge">
+<title>proc~lu6sol&#45;&gt;proc~lu6ut</title>
+<path fill="none" stroke="#000000" d="M425.42,-104.9C438.08,-87.36 463.49,-54.61 491,-33 492.57,-31.76 494.23,-30.57 495.94,-29.41"/>
+<polygon fill="#000000" stroke="#000000" points="498.05,-32.22 504.75,-24.01 494.4,-26.25 498.05,-32.22"/>
+</g>
+<!-- proc~hbuild -->
+<g id="program~~main~~CallsGraph_node20" class="node">
+<title>proc~hbuild</title>
+<g id="a_program~~main~~CallsGraph_node20"><a xlink:href=".././proc/hbuild.html" xlink:title="lusol::Hbuild">
+<polygon fill="#d9534f" stroke="#d9534f" points="692,-797 613,-797 613,-773 692,-773 692,-797"/>
+<text text-anchor="middle" x="652.5" y="-782.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hbuild</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hbuild -->
+<g id="program~~main~~CallsGraph_edge20" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hbuild</title>
+<path fill="none" stroke="#000000" d="M533.83,-528.25C537,-566.4 551.23,-684.94 609,-759 611.19,-761.81 613.79,-764.4 616.59,-766.75"/>
+<polygon fill="#000000" stroke="#000000" points="614.74,-769.73 624.89,-772.77 618.85,-764.06 614.74,-769.73"/>
+</g>
+<!-- proc~hchange -->
+<g id="program~~main~~CallsGraph_node21" class="node">
+<title>proc~hchange</title>
+<g id="a_program~~main~~CallsGraph_node21"><a xlink:href=".././proc/hchange.html" xlink:title="lusol::Hchange">
+<polygon fill="#d9534f" stroke="#d9534f" points="825,-755 732,-755 732,-731 825,-731 825,-755"/>
+<text text-anchor="middle" x="778.5" y="-740.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hchange</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hchange -->
+<g id="program~~main~~CallsGraph_edge21" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hchange</title>
+<path fill="none" stroke="#000000" d="M533.22,-528C534.59,-564.61 544.17,-675.47 609,-726 640.45,-750.51 685.86,-753.82 721.62,-751.52"/>
+<polygon fill="#000000" stroke="#000000" points="722.22,-754.98 731.91,-750.69 721.66,-748.01 722.22,-754.98"/>
+</g>
+<!-- proc~hdelete -->
+<g id="program~~main~~CallsGraph_node22" class="node">
+<title>proc~hdelete</title>
+<g id="a_program~~main~~CallsGraph_node22"><a xlink:href=".././proc/hdelete.html" xlink:title="lusol::Hdelete">
+<polygon fill="#d9534f" stroke="#d9534f" points="696,-717 609,-717 609,-693 696,-693 696,-717"/>
+<text text-anchor="middle" x="652.5" y="-702.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hdelete</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~hdelete -->
+<g id="program~~main~~CallsGraph_edge22" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~hdelete</title>
+<path fill="none" stroke="#000000" d="M535.52,-528.17C542.3,-558.24 563.62,-637.04 609,-684 610.04,-685.07 611.14,-686.1 612.29,-687.08"/>
+<polygon fill="#000000" stroke="#000000" points="610.33,-689.98 620.51,-692.91 614.38,-684.27 610.33,-689.98"/>
+</g>
+<!-- proc~lu1ful -->
+<g id="program~~main~~CallsGraph_node23" class="node">
+<title>proc~lu1ful</title>
+<g id="a_program~~main~~CallsGraph_node23"><a xlink:href=".././proc/lu1ful.html" xlink:title="lusol::lu1ful">
+<polygon fill="#d9534f" stroke="#d9534f" points="690,-675 615,-675 615,-651 690,-651 690,-675"/>
+<text text-anchor="middle" x="652.5" y="-660.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1ful</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1ful -->
+<g id="program~~main~~CallsGraph_edge23" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1ful</title>
+<path fill="none" stroke="#000000" d="M537.64,-528.31C547.43,-552.82 572.33,-608.28 609,-642 610.14,-643.04 611.33,-644.05 612.58,-645.01"/>
+<polygon fill="#000000" stroke="#000000" points="611.03,-648.19 621.3,-650.8 614.9,-642.35 611.03,-648.19"/>
+</g>
+<!-- proc~lu1gau -->
+<g id="program~~main~~CallsGraph_node24" class="node">
+<title>proc~lu1gau</title>
+<g id="a_program~~main~~CallsGraph_node24"><a xlink:href=".././proc/lu1gau.html" xlink:title="lusol::lu1gau">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.5,-633 611.5,-633 611.5,-609 693.5,-609 693.5,-633"/>
+<text text-anchor="middle" x="652.5" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1gau</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1gau -->
+<g id="program~~main~~CallsGraph_edge24" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1gau</title>
+<path fill="none" stroke="#000000" d="M541.65,-528.17C554.66,-545.8 580.76,-578.66 609,-600 610.76,-601.33 612.62,-602.61 614.53,-603.84"/>
+<polygon fill="#000000" stroke="#000000" points="612.78,-606.87 623.18,-608.88 616.3,-600.82 612.78,-606.87"/>
+</g>
+<!-- proc~lu1mar -->
+<g id="program~~main~~CallsGraph_node25" class="node">
+<title>proc~lu1mar</title>
+<g id="a_program~~main~~CallsGraph_node25"><a xlink:href=".././proc/lu1mar.html" xlink:title="lusol::lu1mar">
+<polygon fill="#d9534f" stroke="#d9534f" points="694,-591 611,-591 611,-567 694,-567 694,-591"/>
+<text text-anchor="middle" x="652.5" y="-576.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mar</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mar -->
+<g id="program~~main~~CallsGraph_edge25" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mar</title>
+<path fill="none" stroke="#000000" d="M554.15,-528.03C569.32,-536.57 590.3,-548.22 609,-558 611.76,-559.44 614.62,-560.91 617.51,-562.38"/>
+<polygon fill="#000000" stroke="#000000" points="616.17,-565.62 626.68,-566.98 619.31,-559.37 616.17,-565.62"/>
+</g>
+<!-- proc~lu1mrp -->
+<g id="program~~main~~CallsGraph_node26" class="node">
+<title>proc~lu1mrp</title>
+<g id="a_program~~main~~CallsGraph_node26"><a xlink:href=".././proc/lu1mrp.html" xlink:title="lusol::lu1mRP">
+<polygon fill="#d9534f" stroke="#d9534f" points="695,-549 610,-549 610,-525 695,-525 695,-549"/>
+<text text-anchor="middle" x="652.5" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mRP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mrp -->
+<g id="program~~main~~CallsGraph_edge26" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mrp</title>
+<path fill="none" stroke="#000000" d="M571.8,-522.88C580.72,-524.46 590.35,-526.16 599.73,-527.82"/>
+<polygon fill="#000000" stroke="#000000" points="599.3,-531.3 609.75,-529.6 600.52,-524.41 599.3,-531.3"/>
+</g>
+<!-- proc~lu1msp -->
+<g id="program~~main~~CallsGraph_node27" class="node">
+<title>proc~lu1msp</title>
+<g id="a_program~~main~~CallsGraph_node27"><a xlink:href=".././proc/lu1msp.html" xlink:title="lusol::lu1mSP">
+<polygon fill="#d9534f" stroke="#d9534f" points="695,-507 610,-507 610,-483 695,-483 695,-507"/>
+<text text-anchor="middle" x="652.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mSP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1msp -->
+<g id="program~~main~~CallsGraph_edge27" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1msp</title>
+<path fill="none" stroke="#000000" d="M571.8,-509.12C580.72,-507.54 590.35,-505.84 599.73,-504.18"/>
+<polygon fill="#000000" stroke="#000000" points="600.52,-507.59 609.75,-502.4 599.3,-500.7 600.52,-507.59"/>
+</g>
+<!-- proc~lu1mxc -->
+<g id="program~~main~~CallsGraph_node28" class="node">
+<title>proc~lu1mxc</title>
+<g id="a_program~~main~~CallsGraph_node28"><a xlink:href=".././proc/lu1mxc.html" xlink:title="lusol::lu1mxc">
+<polygon fill="#d9534f" stroke="#d9534f" points="694.5,-465 610.5,-465 610.5,-441 694.5,-441 694.5,-465"/>
+<text text-anchor="middle" x="652.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mxc</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mxc -->
+<g id="program~~main~~CallsGraph_edge28" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mxc</title>
+<path fill="none" stroke="#000000" d="M556.36,-503.96C561.84,-501.07 567.65,-497.96 573,-495 589.2,-486.03 592.69,-482.77 609,-474 611.67,-472.56 614.45,-471.11 617.25,-469.67"/>
+<polygon fill="#000000" stroke="#000000" points="618.84,-472.79 626.18,-465.15 615.68,-466.54 618.84,-472.79"/>
+</g>
+<!-- proc~lu1mxr -->
+<g id="program~~main~~CallsGraph_node29" class="node">
+<title>proc~lu1mxr</title>
+<g id="a_program~~main~~CallsGraph_node29"><a xlink:href=".././proc/lu1mxr.html" xlink:title="lusol::lu1mxr">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.5,-423 611.5,-423 611.5,-399 693.5,-399 693.5,-423"/>
+<text text-anchor="middle" x="652.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1mxr</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1mxr -->
+<g id="program~~main~~CallsGraph_edge29" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1mxr</title>
+<path fill="none" stroke="#000000" d="M561.07,-503.92C565.35,-501.35 569.5,-498.38 573,-495 596.21,-472.61 585.52,-454.11 609,-432 610.12,-430.94 611.31,-429.93 612.55,-428.95"/>
+<polygon fill="#000000" stroke="#000000" points="614.88,-431.6 621.23,-423.13 610.98,-425.79 614.88,-431.6"/>
+</g>
+<!-- proc~lu1pen -->
+<g id="program~~main~~CallsGraph_node30" class="node">
+<title>proc~lu1pen</title>
+<g id="a_program~~main~~CallsGraph_node30"><a xlink:href=".././proc/lu1pen.html" xlink:title="lusol::lu1pen">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.5,-381 611.5,-381 611.5,-357 693.5,-357 693.5,-381"/>
+<text text-anchor="middle" x="652.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pen</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pen -->
+<g id="program~~main~~CallsGraph_edge30" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pen</title>
+<path fill="none" stroke="#000000" d="M562.46,-503.94C566.37,-501.42 570.04,-498.45 573,-495 605.11,-457.55 576.43,-427.05 609,-390 609.86,-389.03 610.77,-388.09 611.72,-387.2"/>
+<polygon fill="#000000" stroke="#000000" points="613.93,-389.92 619.78,-381.09 609.7,-384.34 613.93,-389.92"/>
+</g>
+<!-- proc~lu1pq2 -->
+<g id="program~~main~~CallsGraph_node31" class="node">
+<title>proc~lu1pq2</title>
+<g id="a_program~~main~~CallsGraph_node31"><a xlink:href=".././proc/lu1pq2.html" xlink:title="lusol::lu1pq2">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.5,-339 611.5,-339 611.5,-315 693.5,-315 693.5,-339"/>
+<text text-anchor="middle" x="652.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq2</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pq2 -->
+<g id="program~~main~~CallsGraph_edge31" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pq2</title>
+<path fill="none" stroke="#000000" d="M563.14,-503.91C566.86,-501.41 570.29,-498.46 573,-495 614.44,-442.02 566.91,-400.47 609,-348 609.7,-347.13 610.44,-346.3 611.21,-345.5"/>
+<polygon fill="#000000" stroke="#000000" points="613.51,-348.14 619.07,-339.12 609.1,-342.7 613.51,-348.14"/>
+</g>
+<!-- proc~lu1pq3 -->
+<g id="program~~main~~CallsGraph_node32" class="node">
+<title>proc~lu1pq3</title>
+<g id="a_program~~main~~CallsGraph_node32"><a xlink:href=".././proc/lu1pq3.html" xlink:title="lusol::lu1pq3">
+<polygon fill="#d9534f" stroke="#d9534f" points="693.5,-297 611.5,-297 611.5,-273 693.5,-273 693.5,-297"/>
+<text text-anchor="middle" x="652.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1pq3</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1pq3 -->
+<g id="program~~main~~CallsGraph_edge32" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1pq3</title>
+<path fill="none" stroke="#000000" d="M563.7,-503.76C567.24,-501.3 570.48,-498.4 573,-495 623.91,-426.3 557.25,-374.07 609,-306 609.57,-305.25 610.17,-304.53 610.8,-303.84"/>
+<polygon fill="#000000" stroke="#000000" points="613.16,-306.42 618.48,-297.26 608.61,-301.1 613.16,-306.42"/>
+</g>
+<!-- proc~lu1rec -->
+<g id="program~~main~~CallsGraph_node33" class="node">
+<title>proc~lu1rec</title>
+<g id="a_program~~main~~CallsGraph_node33"><a xlink:href=".././proc/lu1rec.html" xlink:title="lusol::lu1rec">
+<polygon fill="#d9534f" stroke="#d9534f" points="691.5,-255 613.5,-255 613.5,-231 691.5,-231 691.5,-255"/>
+<text text-anchor="middle" x="652.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1rec</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1fad&#45;&gt;proc~lu1rec -->
+<g id="program~~main~~CallsGraph_edge33" class="edge">
+<title>proc~lu1fad&#45;&gt;proc~lu1rec</title>
+<path fill="none" stroke="#000000" d="M563.81,-503.84C567.33,-501.37 570.54,-498.44 573,-495 633.46,-410.49 547.51,-347.76 609,-264 609.55,-263.25 610.14,-262.52 610.76,-261.81"/>
+<polygon fill="#000000" stroke="#000000" points="613.13,-264.39 618.37,-255.18 608.53,-259.11 613.13,-264.39"/>
+</g>
+<!-- proc~hinsert -->
+<g id="program~~main~~CallsGraph_node35" class="node">
+<title>proc~hinsert</title>
+<g id="a_program~~main~~CallsGraph_node35"><a xlink:href=".././proc/hinsert.html" xlink:title="lusol::Hinsert">
+<polygon fill="#d9534f" stroke="#d9534f" points="820,-797 737,-797 737,-773 820,-773 820,-797"/>
+<text text-anchor="middle" x="778.5" y="-782.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hinsert</text>
+</a>
+</g>
+</g>
+<!-- proc~hbuild&#45;&gt;proc~hinsert -->
+<g id="program~~main~~CallsGraph_edge34" class="edge">
+<title>proc~hbuild&#45;&gt;proc~hinsert</title>
+<path fill="none" stroke="#000000" d="M692.05,-785C703.05,-785 715.2,-785 726.81,-785"/>
+<polygon fill="#000000" stroke="#000000" points="726.82,-788.5 736.82,-785 726.82,-781.5 726.82,-788.5"/>
+</g>
+<!-- proc~hdown -->
+<g id="program~~main~~CallsGraph_node34" class="node">
+<title>proc~hdown</title>
+<g id="a_program~~main~~CallsGraph_node34"><a xlink:href=".././proc/hdown.html" xlink:title="lusol::Hdown">
+<polygon fill="#d9534f" stroke="#d9534f" points="944.5,-755 862.5,-755 862.5,-731 944.5,-731 944.5,-755"/>
+<text text-anchor="middle" x="903.5" y="-740.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hdown</text>
+</a>
+</g>
+</g>
+<!-- proc~hchange&#45;&gt;proc~hdown -->
+<g id="program~~main~~CallsGraph_edge35" class="edge">
+<title>proc~hchange&#45;&gt;proc~hdown</title>
+<path fill="none" stroke="#000000" d="M825.3,-743C834.04,-743 843.23,-743 852.1,-743"/>
+<polygon fill="#000000" stroke="#000000" points="852.33,-746.5 862.33,-743 852.33,-739.5 852.33,-746.5"/>
+</g>
+<!-- proc~hup -->
+<g id="program~~main~~CallsGraph_node36" class="node">
+<title>proc~hup</title>
+<g id="a_program~~main~~CallsGraph_node36"><a xlink:href=".././proc/hup.html" xlink:title="lusol::Hup">
+<polygon fill="#d9534f" stroke="#d9534f" points="937,-797 870,-797 870,-773 937,-773 937,-797"/>
+<text text-anchor="middle" x="903.5" y="-782.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::Hup</text>
+</a>
+</g>
+</g>
+<!-- proc~hchange&#45;&gt;proc~hup -->
+<g id="program~~main~~CallsGraph_edge36" class="edge">
+<title>proc~hchange&#45;&gt;proc~hup</title>
+<path fill="none" stroke="#000000" d="M814.75,-755.04C828.96,-759.89 845.47,-765.53 860.31,-770.59"/>
+<polygon fill="#000000" stroke="#000000" points="859.18,-773.91 869.78,-773.83 861.45,-767.28 859.18,-773.91"/>
+</g>
+<!-- proc~hdelete&#45;&gt;proc~hchange -->
+<g id="program~~main~~CallsGraph_edge37" class="edge">
+<title>proc~hdelete&#45;&gt;proc~hchange</title>
+<path fill="none" stroke="#000000" d="M692.73,-717.02C704.04,-720.49 716.52,-724.31 728.35,-727.94"/>
+<polygon fill="#000000" stroke="#000000" points="727.51,-731.34 738.1,-730.92 729.56,-724.65 727.51,-731.34"/>
+</g>
+<!-- proc~lu1dcp -->
+<g id="program~~main~~CallsGraph_node37" class="node">
+<title>proc~lu1dcp</title>
+<g id="a_program~~main~~CallsGraph_node37"><a xlink:href=".././proc/lu1dcp.html" xlink:title="lusol::lu1DCP">
+<polygon fill="#d9534f" stroke="#d9534f" points="820,-694 737,-694 737,-670 820,-670 820,-694"/>
+<text text-anchor="middle" x="778.5" y="-679.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1DCP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1ful&#45;&gt;proc~lu1dcp -->
+<g id="program~~main~~CallsGraph_edge38" class="edge">
+<title>proc~lu1ful&#45;&gt;proc~lu1dcp</title>
+<path fill="none" stroke="#000000" d="M690.03,-668.6C701.53,-670.36 714.44,-672.34 726.74,-674.22"/>
+<polygon fill="#000000" stroke="#000000" points="726.47,-677.72 736.89,-675.78 727.53,-670.8 726.47,-677.72"/>
+</g>
+<!-- proc~lu1dpp -->
+<g id="program~~main~~CallsGraph_node38" class="node">
+<title>proc~lu1dpp</title>
+<g id="a_program~~main~~CallsGraph_node38"><a xlink:href=".././proc/lu1dpp.html" xlink:title="lusol::lu1DPP">
+<polygon fill="#d9534f" stroke="#d9534f" points="819.5,-652 737.5,-652 737.5,-628 819.5,-628 819.5,-652"/>
+<text text-anchor="middle" x="778.5" y="-637.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::lu1DPP</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1ful&#45;&gt;proc~lu1dpp -->
+<g id="program~~main~~CallsGraph_edge39" class="edge">
+<title>proc~lu1ful&#45;&gt;proc~lu1dpp</title>
+<path fill="none" stroke="#000000" d="M690.03,-656.22C701.76,-654.05 714.95,-651.6 727.47,-649.28"/>
+<polygon fill="#000000" stroke="#000000" points="728.13,-652.72 737.33,-647.45 726.86,-645.83 728.13,-652.72"/>
+</g>
+<!-- proc~hinsert&#45;&gt;proc~hup -->
+<g id="program~~main~~CallsGraph_edge40" class="edge">
+<title>proc~hinsert&#45;&gt;proc~hup</title>
+<path fill="none" stroke="#000000" d="M820.12,-785C832.69,-785 846.58,-785 859.33,-785"/>
+<polygon fill="#000000" stroke="#000000" points="859.7,-788.5 869.7,-785 859.7,-781.5 859.7,-788.5"/>
+</g>
+<!-- proc~jdamax -->
+<g id="program~~main~~CallsGraph_node39" class="node">
+<title>proc~jdamax</title>
+<g id="a_program~~main~~CallsGraph_node39"><a xlink:href=".././proc/jdamax.html" xlink:title="lusol::jdamax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="946,-673 861,-673 861,-649 946,-649 946,-673"/>
+<text text-anchor="middle" x="903.5" y="-658.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lusol::jdamax</text>
+</a>
+</g>
+</g>
+<!-- proc~lu1dcp&#45;&gt;proc~jdamax -->
+<g id="program~~main~~CallsGraph_edge41" class="edge">
+<title>proc~lu1dcp&#45;&gt;proc~jdamax</title>
+<path fill="none" stroke="#000000" d="M820.12,-675.07C829.88,-673.4 840.44,-671.6 850.63,-669.86"/>
+<polygon fill="#000000" stroke="#000000" points="851.4,-673.28 860.66,-668.14 850.22,-666.38 851.4,-673.28"/>
+</g>
+<!-- proc~lu1dpp&#45;&gt;proc~jdamax -->
+<g id="program~~main~~CallsGraph_edge42" class="edge">
+<title>proc~lu1dpp&#45;&gt;proc~jdamax</title>
+<path fill="none" stroke="#000000" d="M819.77,-646.88C829.65,-648.56 840.37,-650.39 850.7,-652.16"/>
+<polygon fill="#000000" stroke="#000000" points="850.42,-655.66 860.87,-653.89 851.6,-648.76 850.42,-655.66"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogrammainCallsGraph = svgPanZoom('#programmainCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-test_1"></span><h3> subroutine <a href='../proc/test_1.html'>test_1</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-test_2"></span><h3> subroutine <a href='../proc/test_2.html'>test_2</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <a href="../proc/test_2.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">program </span><span class="n">main</span>
+
+<span class="w">    </span><span class="k">use </span><span class="n">lusol_precision</span><span class="p">,</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">rp</span>
+<span class="w">    </span><span class="k">use </span><span class="n">lusol_ez_module</span><span class="p">,</span><span class="w">     </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">solve</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    call </span><span class="n">test_1</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">test_2</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">contains</span>
+
+<span class="k">    subroutine </span><span class="n">test_1</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c">! define a 3x3 dense system to solve:</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c">!! number of rows in `A` matrix</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c">!! number of columns in `A` matrix</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b_vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,[</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x_vec</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span>
+
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;***** test 1&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="n">irow</span><span class="p">,</span><span class="n">icol</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">istat</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">x_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;istop = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">istat</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;x       = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;A*x     = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;A*x - b = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b_vec</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b_vec</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0e-12</span><span class="p">))</span><span class="w"> </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;TEST FAILED&#39;</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">test_1</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">test_2</span><span class="p">()</span>
+
+<span class="w">        </span><span class="c">! another test case (with n&gt;m). compare to scipy.</span>
+
+<span class="w">        </span><span class="c">!!```</span>
+<span class="w">        </span><span class="c">!! &gt;&gt;&gt; a</span>
+<span class="w">        </span><span class="c">!! array([[  4. ,   5. ,  66. ,   0.1],</span>
+<span class="w">        </span><span class="c">!!        [  1. ,  -3. ,   8. ,  -9. ],</span>
+<span class="w">        </span><span class="c">!!        [ 11. ,   3. , -87. ,   2. ]])</span>
+<span class="w">        </span><span class="c">!! &gt;&gt;&gt; b</span>
+<span class="w">        </span><span class="c">!! array([1, 2, 3])</span>
+<span class="w">        </span><span class="c">!! &gt;&gt;&gt; scipy.sparse.linalg.lsqr(a, b)</span>
+<span class="w">        </span><span class="c">!! (array([ 0.26437473,  0.04901579, -0.00426183, -0.21297414]), 1, 3, 5.5785963493386424e-12, 5.5785963493386424e-12, 110.70234866523838, 15.316189089999897, 6.119548932941366e-10, 0.343034538979173, array([0., 0., 0., 0.]))</span>
+<span class="w">        </span><span class="c">!! &gt;&gt;&gt;</span>
+<span class="w">        </span><span class="c">!!```</span>
+
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c">!! number of rows in `A` matrix</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c">!! number of columns in `A` matrix</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">4.1_wp</span><span class="p">,</span><span class="mf">1.1_wp</span><span class="p">,</span><span class="mi">1</span><span class="mf">1.1_wp</span><span class="p">,&amp;</span>
+<span class="w">                                                  </span><span class="mf">5.1_wp</span><span class="p">,</span><span class="o">-</span><span class="mf">3.1_wp</span><span class="p">,</span><span class="mf">3.1_wp</span><span class="p">,&amp;</span>
+<span class="w">                                                  </span><span class="mi">6</span><span class="mf">6.1_wp</span><span class="p">,</span><span class="mf">8.1_wp</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="mf">7.1_wp</span><span class="p">,&amp;</span>
+<span class="w">                                                  </span><span class="mf">0.1_wp</span><span class="p">,</span><span class="o">-</span><span class="mf">9.1_wp</span><span class="p">,</span><span class="mf">2.1_wp</span><span class="p">]</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b_vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,[</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x_vec</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span>
+
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;***** test 2&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="n">irow</span><span class="p">,</span><span class="n">icol</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">istat</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">x_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;istop = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">istat</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;x       = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;A*x     = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1P,A,*(E16.6))&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;A*x - b = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b_vec</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">matmul</span><span class="p">(</span><span class="n">a_mat</span><span class="p">,</span><span class="w"> </span><span class="n">x_vec</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b_vec</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.0e-12</span><span class="p">))</span><span class="w"> </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;TEST FAILED&#39;</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">test_2</span>
+
+
+<span class="w">    </span><span class="k">end program </span><span class="n">main</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
