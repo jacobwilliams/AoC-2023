@@ -1,5 +1,7 @@
 program problem_24
 
+!! NOTE: for part 2, requires compiling with quad precision: -DREAL128
+
 use aoc_utilities
 use nlesolver_module, only: nlesolver_type
 use numerical_differentiation_module, only: numdiff_type
