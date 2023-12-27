@@ -136,11 +136,12 @@ program problem_17
         integer(ip) :: idx !! index in the queue. -1 if not present
         integer(ip) :: i
         logical :: found
-        integer(ip) :: cache_idx,cache_ival
+        integer(ip) :: cache_idx
+        integer(ip),dimension(:),allocatable :: cache_ival
 
         call cache%get(state,cache_idx,cache_ival,found)
         if (found) then
-            idx = cache_ival
+            idx = cache_ival(1)
         else
             idx = -1
             if (.not. allocated(queue)) error stop 'error: queue not allocated'
@@ -150,7 +151,7 @@ program problem_17
                     exit
                 end if
             end do
-            if (idx /= -1) call cache%put(cache_idx,state,idx)
+            if (idx /= -1) call cache%put(cache_idx,state,[idx])
         end if
     end function index_in_queue
 
