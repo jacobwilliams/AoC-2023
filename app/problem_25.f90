@@ -1,6 +1,5 @@
 program problem_25
 
-use iso_fortran_env, only: wp => real64, ip => int64 ! use long ints
 use aoc_utilities
 use dag_module
 

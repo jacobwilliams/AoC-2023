@@ -2,7 +2,7 @@ program problem_17
     !! part b
 
     use aoc_utilities
-    use iso_fortran_env, ip => int64
+    use iso_fortran_env
     use aoc_cache_module
 
     implicit none

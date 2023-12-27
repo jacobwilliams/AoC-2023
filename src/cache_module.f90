@@ -8,7 +8,7 @@
 
     module aoc_cache_module
 
-    use iso_fortran_env, only: ip => int64, wp => real64
+    use aoc_utilities, only: ip, wp
 
     implicit none
 

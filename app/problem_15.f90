@@ -3,7 +3,7 @@
 !  A module for problem 15, part 2.
 
 module problem_15_module
-    use iso_fortran_env, only: ip => int64 ! use long ints
+    use iso_fortran_env
     use aoc_utilities
 
     implicit none
@@ -59,7 +59,7 @@ end module problem_15_module
 
 program problem_15
 
-use iso_fortran_env, only: ip => int64 ! use long ints
+use iso_fortran_env
 use aoc_utilities
 use problem_15_module
 

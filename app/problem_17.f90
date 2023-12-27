@@ -1,7 +1,7 @@
 program problem_17
 
     use aoc_utilities
-    use iso_fortran_env, ip => int64
+    use iso_fortran_env
 
     !! Based on AOC 2021 Day 15: https://github.com/jacobwilliams/AoC-2021/blob/master/test/problem_15.f90
     !! see: https://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode

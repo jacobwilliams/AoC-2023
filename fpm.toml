@@ -9,8 +9,10 @@ keywords = ["AOC"]
 [dependencies]
 # argv-fortran = { git="https://github.com/jacobwilliams/argv-fortran.git" }
 # json-fortran = { git="https://github.com/jacobwilliams/json-fortran.git", tag = "8.3.0" }
-daglib = { git="https://github.com/jacobwilliams/daglib" }
 # pikaia = { git="https://github.com/jacobwilliams/pikaia.git", tag = "2.0.0" }
+daglib = { git="https://github.com/jacobwilliams/daglib" }
+nlesolver-fortran = { git="https://github.com/jacobwilliams/nlesolver-fortran.git" }
+NumDiff = { git="https://github.com/jacobwilliams/NumDiff.git" }
 
 [build]
 auto-executables = true

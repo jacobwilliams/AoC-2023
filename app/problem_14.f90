@@ -1,6 +1,6 @@
 program problem_14
 
-use iso_fortran_env, only: ip => int64 ! use long ints
+use iso_fortran_env
 use aoc_utilities
 use aoc_cache_module
 

@@ -7,9 +7,9 @@ implicit none
 
 integer :: n_lines, i, j, n_cols, jstart, jend
 logical :: adjacent, tmp
-integer(int64) :: isum
+integer(ip) :: isum
 character(len=1),dimension(:,:),allocatable :: array
-integer(int64),dimension(:),allocatable :: ivals
+integer(ip),dimension(:),allocatable :: ivals
 
 call clk%tic()
 
@@ -88,7 +88,7 @@ contains
         is_symbol = is_not_number(c) .and. c /= '.'
     end function is_symbol
 
-    integer(int64) function get_number(i,j)
+    integer(ip) function get_number(i,j)
         !! get the full number contining the character at i,j
         integer,intent(in) :: i,j
         jstart = j

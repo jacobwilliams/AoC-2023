@@ -4,7 +4,7 @@ program problem_12b
 !! this one starts with the int list and checks it against the pattern.
 !! it also employs a function cache to speed it up.
 
-use iso_fortran_env, ip => int64, wp => real64
+use iso_fortran_env
 use aoc_utilities
 use aoc_cache_module
 
@@ -58,13 +58,16 @@ contains
         integer(ip),dimension(:),intent(in) :: ipattern
         integer(ip),dimension(:),intent(in) :: ints
         integer(ip) :: ival
+        integer(ip),dimension(:),allocatable :: ival_vec
 
         integer(ip) :: idx
         logical :: found
 
         ! first check the cache:
-        call cache%get([ipattern,ints],idx,ival,found)
-        if (.not. found) then
+        call cache%get([ipattern,ints],idx,ival_vec,found)
+        if (found) then
+            ival = ival_vec(1)
+        else
             if (size(ints)==0) then ! no more ints
                 ival = merge(0, 1, any(ipattern==NUMBER)) ! if any more numbers, invalid
             else if (size(ipattern)==0) then
@@ -78,7 +81,8 @@ contains
                 end select
             end if
             ! cache this function call:
-            call cache%put(idx,[ipattern,ints],ival)
+            ival_vec = [ival]
+            call cache%put(idx,[ipattern,ints],ival_vec)
 
         end if
 

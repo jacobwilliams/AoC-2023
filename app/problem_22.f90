@@ -1,6 +1,6 @@
 program problem_22
 
-use iso_fortran_env, only: wp => real64, ip => int64 ! use long ints
+use iso_fortran_env
 use aoc_utilities
 use aoc_cache_module
 
