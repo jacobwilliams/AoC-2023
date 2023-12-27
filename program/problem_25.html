@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>problem_25 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>problem_25      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 2.8% of total for programs.">93 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/problem_25.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/problem_25.f90.html'>problem_25.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">problem_25</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_25.html#variable-iunit~19">iunit</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-n_lines~11">n_lines</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-i~85">i</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-j~41">j</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-n_nodes~2">n_nodes</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-inode~2">inode</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-inode2">inode2</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-line~12">line</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-vals~11">vals</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-vals2~3">vals2</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-node1">node1</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-node2">node2</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-nodes~3">nodes</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-inodedep">inodedep</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-icounts~2">icounts</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-filetype~2">filetype</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-d~5">d</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-graph">graph</a>
+            <a class="list-group-item" href="../program/problem_25.html#variable-visited~5">visited</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_25.html#type-node_t">node_t</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_25.html#proc-node_index">node_index</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_25.html#proc-traverse~2">traverse</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/problem_25.html#src">problem_25</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+                  <li class="list-inline-item"><a href='../module/dag_module.html'>dag_module</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_25~~UsesGraph Pages: 1 -->
+<svg id="programproblem_25UsesGraph" width="329pt" height="74pt"
+ viewBox="0.00 0.00 329.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_25~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>program~~problem_25~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 325,-70 325,4 -4,4"/>
+<!-- program~problem_25 -->
+<g id="program~~problem_25~~UsesGraph_node1" class="node">
+<title>program~problem_25</title>
+<polygon fill="none" stroke="black" points="321,-45 245,-45 245,-21 321,-21 321,-45"/>
+<text text-anchor="middle" x="283" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_25</text>
+</g>
+<!-- module~aoc_utilities -->
+<g id="program~~problem_25~~UsesGraph_node2" class="node">
+<title>module~aoc_utilities</title>
+<g id="a_program~~problem_25~~UsesGraph_node2"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="207.5,-66 131.5,-66 131.5,-42 207.5,-42 207.5,-66"/>
+<text text-anchor="middle" x="169.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_25~~UsesGraph_edge1" class="edge">
+<title>program~problem_25&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M244.87,-39.99C236.22,-41.62 226.89,-43.38 217.86,-45.08"/>
+<polygon fill="#000000" stroke="#000000" points="217.03,-41.68 207.85,-46.97 218.32,-48.55 217.03,-41.68"/>
+</g>
+<!-- module~dag_module -->
+<g id="program~~problem_25~~UsesGraph_node3" class="node">
+<title>module~dag_module</title>
+<g id="a_program~~problem_25~~UsesGraph_node3"><a xlink:href=".././module/dag_module.html" xlink:title="dag_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="209,-24 130,-24 130,0 209,0 209,-24"/>
+<text text-anchor="middle" x="169.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;module~dag_module -->
+<g id="program~~problem_25~~UsesGraph_edge2" class="edge">
+<title>program~problem_25&#45;&gt;module~dag_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M244.87,-26.01C236.68,-24.46 227.87,-22.81 219.29,-21.19"/>
+<polygon fill="#000000" stroke="#000000" points="219.85,-17.73 209.37,-19.32 218.55,-24.61 219.85,-17.73"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~problem_25~~UsesGraph_node4" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-66 0,-66 0,-42 94,-42 94,-66"/>
+<text text-anchor="middle" x="47" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
+<g id="program~~problem_25~~UsesGraph_edge3" class="edge">
+<title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.36,-54C122.82,-54 113.55,-54 104.4,-54"/>
+<polygon fill="#000000" stroke="#000000" points="104.16,-50.5 94.16,-54 104.16,-57.5 104.16,-50.5"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~problem_25~~CallsGraph Pages: 1 -->
+<svg id="programproblem_25CallsGraph" width="641pt" height="248pt"
+ viewBox="0.00 0.00 641.00 247.95" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_25~~CallsGraph" class="graph" transform="scale(2.27 2.27) rotate(0) translate(4 559.98)">
+<title>program~~problem_25~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-559.98 1454,-559.98 1454,4 -4,4"/>
+<!-- program~problem_25 -->
+<g id="program~~problem_25~~CallsGraph_node1" class="node">
+<title>program~problem_25</title>
+<polygon fill="none" stroke="black" points="76,-292 0,-292 0,-268 76,-268 76,-292"/>
+<text text-anchor="middle" x="38" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_25</text>
+</g>
+<!-- interface~split -->
+<g id="program~~problem_25~~CallsGraph_node2" class="node">
+<title>interface~split</title>
+<g id="a_program~~problem_25~~CallsGraph_node2"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
+<polygon fill="#a7506f" stroke="#a7506f" points="271,-542 166,-542 166,-518 271,-518 271,-542"/>
+<text text-anchor="middle" x="218.5" y="-527.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;interface~split -->
+<g id="program~~problem_25~~CallsGraph_edge1" class="edge">
+<title>program~problem_25&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M38.88,-292.2C39.2,-330.57 45.73,-449.77 112,-509 123.99,-519.72 139.86,-525.6 155.63,-528.69"/>
+<polygon fill="#000000" stroke="#000000" points="155.52,-532.22 165.95,-530.34 156.62,-525.3 155.52,-532.22"/>
+</g>
+<!-- interface~unique~2 -->
+<g id="program~~problem_25~~CallsGraph_node3" class="node">
+<title>interface~unique~2</title>
+<g id="a_program~~problem_25~~CallsGraph_node3"><a xlink:href=".././interface/unique~2.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="278.5,-500 158.5,-500 158.5,-476 278.5,-476 278.5,-500"/>
+<text text-anchor="middle" x="218.5" y="-485.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;interface~unique~2 -->
+<g id="program~~problem_25~~CallsGraph_edge2" class="edge">
+<title>program~problem_25&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M39.88,-292.35C42.97,-326.09 56.44,-420.44 112,-467 122.32,-475.65 135.2,-481.09 148.38,-484.45"/>
+<polygon fill="#000000" stroke="#000000" points="147.96,-487.94 158.47,-486.63 149.44,-481.1 147.96,-487.94"/>
+</g>
+<!-- proc~clock_end -->
+<g id="program~~problem_25~~CallsGraph_node4" class="node">
+<title>proc~clock_end</title>
+<g id="a_program~~problem_25~~CallsGraph_node4"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="305.5,-458 131.5,-458 131.5,-434 305.5,-434 305.5,-458"/>
+<text text-anchor="middle" x="218.5" y="-443.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~clock_end -->
+<g id="program~~problem_25~~CallsGraph_edge3" class="edge">
+<title>program~problem_25&#45;&gt;proc~clock_end</title>
+<path fill="none" stroke="#000000" d="M41.33,-292.03C47.43,-320.18 66.69,-390.53 112,-425 115.21,-427.44 118.63,-429.62 122.2,-431.57"/>
+<polygon fill="#000000" stroke="#000000" points="120.82,-434.79 131.36,-435.93 123.83,-428.47 120.82,-434.79"/>
+</g>
+<!-- proc~clock_start -->
+<g id="program~~problem_25~~CallsGraph_node5" class="node">
+<title>proc~clock_start</title>
+<g id="a_program~~problem_25~~CallsGraph_node5"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="307.5,-416 129.5,-416 129.5,-392 307.5,-392 307.5,-416"/>
+<text text-anchor="middle" x="218.5" y="-401.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~clock_start -->
+<g id="program~~problem_25~~CallsGraph_edge4" class="edge">
+<title>program~problem_25&#45;&gt;proc~clock_start</title>
+<path fill="none" stroke="#000000" d="M43.94,-292.14C53.53,-314.1 76.88,-360.22 112,-383 114.62,-384.7 117.34,-386.26 120.15,-387.71"/>
+<polygon fill="#000000" stroke="#000000" points="118.82,-390.95 129.37,-391.92 121.73,-384.58 118.82,-390.95"/>
+</g>
+<!-- proc~dag_destroy -->
+<g id="program~~problem_25~~CallsGraph_node6" class="node">
+<title>proc~dag_destroy</title>
+<g id="a_program~~problem_25~~CallsGraph_node6"><a xlink:href=".././proc/dag_destroy.html" xlink:title="dag_module::dag%dag_destroy">
+<polygon fill="#d9534f" stroke="#d9534f" points="309,-374 128,-374 128,-350 309,-350 309,-374"/>
+<text text-anchor="middle" x="218.5" y="-359.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_destroy</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~dag_destroy -->
+<g id="program~~problem_25~~CallsGraph_edge5" class="edge">
+<title>program~problem_25&#45;&gt;proc~dag_destroy</title>
+<path fill="none" stroke="#000000" d="M50.07,-292.42C63.35,-306.5 86.97,-329.02 112,-341 116.4,-343.11 121,-345 125.72,-346.71"/>
+<polygon fill="#000000" stroke="#000000" points="124.94,-350.13 135.53,-349.94 127.13,-343.49 124.94,-350.13"/>
+</g>
+<!-- proc~dag_save_digraph -->
+<g id="program~~problem_25~~CallsGraph_node7" class="node">
+<title>proc~dag_save_digraph</title>
+<g id="a_program~~problem_25~~CallsGraph_node7"><a xlink:href=".././proc/dag_save_digraph.html" xlink:title="dag_module::dag%dag_save_digraph">
+<polygon fill="#d9534f" stroke="#d9534f" points="325,-332 112,-332 112,-308 325,-308 325,-332"/>
+<text text-anchor="middle" x="218.5" y="-317.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_save_digraph</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~dag_save_digraph -->
+<g id="program~~problem_25~~CallsGraph_edge6" class="edge">
+<title>program~problem_25&#45;&gt;proc~dag_save_digraph</title>
+<path fill="none" stroke="#000000" d="M76.42,-288.39C98.9,-293.42 128.1,-299.97 154.09,-305.79"/>
+<polygon fill="#000000" stroke="#000000" points="153.35,-309.21 163.88,-307.98 154.88,-302.38 153.35,-309.21"/>
+</g>
+<!-- proc~dag_set_edges -->
+<g id="program~~problem_25~~CallsGraph_node8" class="node">
+<title>proc~dag_set_edges</title>
+<g id="a_program~~problem_25~~CallsGraph_node8"><a xlink:href=".././proc/dag_set_edges.html" xlink:title="dag_module::dag%dag_set_edges">
+<polygon fill="#d9534f" stroke="#d9534f" points="316,-252 121,-252 121,-228 316,-228 316,-252"/>
+<text text-anchor="middle" x="218.5" y="-237.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_set_edges</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~dag_set_edges -->
+<g id="program~~problem_25~~CallsGraph_edge7" class="edge">
+<title>program~problem_25&#45;&gt;proc~dag_set_edges</title>
+<path fill="none" stroke="#000000" d="M76.42,-271.61C98.9,-266.58 128.1,-260.03 154.09,-254.21"/>
+<polygon fill="#000000" stroke="#000000" points="154.88,-257.62 163.88,-252.02 153.35,-250.79 154.88,-257.62"/>
+</g>
+<!-- proc~dag_set_vertex_info -->
+<g id="program~~problem_25~~CallsGraph_node9" class="node">
+<title>proc~dag_set_vertex_info</title>
+<g id="a_program~~problem_25~~CallsGraph_node9"><a xlink:href=".././proc/dag_set_vertex_info.html" xlink:title="dag_module::dag%dag_set_vertex_info">
+<polygon fill="#d9534f" stroke="#d9534f" points="590,-292 369,-292 369,-268 590,-268 590,-292"/>
+<text text-anchor="middle" x="479.5" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_set_vertex_info</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~dag_set_vertex_info -->
+<g id="program~~problem_25~~CallsGraph_edge8" class="edge">
+<title>program~problem_25&#45;&gt;proc~dag_set_vertex_info</title>
+<path fill="none" stroke="#000000" d="M76.09,-280C137.69,-280 263.67,-280 358.36,-280"/>
+<polygon fill="#000000" stroke="#000000" points="358.58,-283.5 368.58,-280 358.58,-276.5 358.58,-283.5"/>
+</g>
+<!-- proc~dag_set_vertices -->
+<g id="program~~problem_25~~CallsGraph_node10" class="node">
+<title>proc~dag_set_vertices</title>
+<g id="a_program~~problem_25~~CallsGraph_node10"><a xlink:href=".././proc/dag_set_vertices.html" xlink:title="dag_module::dag%dag_set_vertices">
+<polygon fill="#d9534f" stroke="#d9534f" points="321,-210 116,-210 116,-186 321,-186 321,-210"/>
+<text text-anchor="middle" x="218.5" y="-195.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_set_vertices</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~dag_set_vertices -->
+<g id="program~~problem_25~~CallsGraph_edge9" class="edge">
+<title>program~problem_25&#45;&gt;proc~dag_set_vertices</title>
+<path fill="none" stroke="#000000" d="M50.07,-267.58C63.35,-253.5 86.97,-230.98 112,-219 116.4,-216.89 121,-215 125.72,-213.29"/>
+<polygon fill="#000000" stroke="#000000" points="127.13,-216.51 135.53,-210.06 124.94,-209.87 127.13,-216.51"/>
+</g>
+<!-- proc~node_index -->
+<g id="program~~problem_25~~CallsGraph_node11" class="node">
+<title>proc~node_index</title>
+<g id="a_program~~problem_25~~CallsGraph_node11"><a xlink:href=".././proc/node_index.html" xlink:title="problem_25::node_index">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290.5,-168 146.5,-168 146.5,-144 290.5,-144 290.5,-168"/>
+<text text-anchor="middle" x="218.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_25::node_index</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~node_index -->
+<g id="program~~problem_25~~CallsGraph_edge10" class="edge">
+<title>program~problem_25&#45;&gt;proc~node_index</title>
+<path fill="none" stroke="#000000" d="M43.94,-267.86C53.53,-245.9 76.88,-199.78 112,-177 119.46,-172.16 127.79,-168.4 136.41,-165.48"/>
+<polygon fill="#000000" stroke="#000000" points="137.67,-168.75 146.23,-162.52 135.65,-162.05 137.67,-168.75"/>
+</g>
+<!-- proc~number_of_lines_in_file -->
+<g id="program~~problem_25~~CallsGraph_node12" class="node">
+<title>proc~number_of_lines_in_file</title>
+<g id="a_program~~problem_25~~CallsGraph_node12"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="322.5,-126 114.5,-126 114.5,-102 322.5,-102 322.5,-126"/>
+<text text-anchor="middle" x="218.5" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_25~~CallsGraph_edge11" class="edge">
+<title>program~problem_25&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M41.33,-267.97C47.43,-239.82 66.69,-169.47 112,-135 113.87,-133.58 115.81,-132.24 117.82,-130.99"/>
+<polygon fill="#000000" stroke="#000000" points="119.83,-133.88 126.94,-126.03 116.49,-127.73 119.83,-133.88"/>
+</g>
+<!-- proc~read_line -->
+<g id="program~~problem_25~~CallsGraph_node13" class="node">
+<title>proc~read_line</title>
+<g id="a_program~~problem_25~~CallsGraph_node13"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="284.5,-84 152.5,-84 152.5,-60 284.5,-60 284.5,-84"/>
+<text text-anchor="middle" x="218.5" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~read_line -->
+<g id="program~~problem_25~~CallsGraph_edge12" class="edge">
+<title>program~problem_25&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M39.88,-267.65C42.97,-233.91 56.44,-139.56 112,-93 120.8,-85.62 131.46,-80.58 142.58,-77.17"/>
+<polygon fill="#000000" stroke="#000000" points="143.65,-80.51 152.43,-74.58 141.87,-73.74 143.65,-80.51"/>
+</g>
+<!-- proc~traverse~2 -->
+<g id="program~~problem_25~~CallsGraph_node14" class="node">
+<title>proc~traverse~2</title>
+<g id="a_program~~problem_25~~CallsGraph_node14"><a xlink:href=".././proc/traverse~2.html" xlink:title="problem_25::traverse">
+<polygon fill="#d9534f" stroke="#d9534f" points="282,-24 155,-24 155,0 282,0 282,-24"/>
+<text text-anchor="middle" x="218.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_25::traverse</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;proc~traverse~2 -->
+<g id="program~~problem_25~~CallsGraph_edge13" class="edge">
+<title>program~problem_25&#45;&gt;proc~traverse~2</title>
+<path fill="none" stroke="#000000" d="M39.3,-267.96C40.88,-230.58 50.74,-115.11 112,-51 121.66,-40.89 134.17,-33.38 147.19,-27.82"/>
+<polygon fill="#000000" stroke="#000000" points="148.67,-30.99 156.72,-24.09 146.13,-24.47 148.67,-30.99"/>
+</g>
+<!-- proc~split1 -->
+<g id="program~~problem_25~~CallsGraph_node18" class="node">
+<title>proc~split1</title>
+<g id="a_program~~problem_25~~CallsGraph_node18"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="798,-551 686,-551 686,-527 798,-527 798,-551"/>
+<text text-anchor="middle" x="742" y="-536.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split1 -->
+<g id="program~~problem_25~~CallsGraph_edge14" class="edge">
+<title>interface~split&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.05,-539.52C297.78,-543.98 331.03,-548.79 361,-551 466.05,-558.75 492.76,-555.41 598,-551 623.37,-549.94 651.21,-547.82 675.53,-545.65"/>
+<polygon fill="#000000" stroke="#000000" points="676.08,-549.12 685.72,-544.72 675.45,-542.15 676.08,-549.12"/>
+</g>
+<!-- proc~split2 -->
+<g id="program~~problem_25~~CallsGraph_node19" class="node">
+<title>proc~split2</title>
+<g id="a_program~~problem_25~~CallsGraph_node19"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="535.5,-542 423.5,-542 423.5,-518 535.5,-518 535.5,-542"/>
+<text text-anchor="middle" x="479.5" y="-527.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
+</a>
+</g>
+</g>
+<!-- interface~split&#45;&gt;proc~split2 -->
+<g id="program~~problem_25~~CallsGraph_edge15" class="edge">
+<title>interface~split&#45;&gt;proc~split2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.29,-530C312.1,-530 369.26,-530 413.2,-530"/>
+<polygon fill="#000000" stroke="#000000" points="413.22,-533.5 423.22,-530 413.22,-526.5 413.22,-533.5"/>
+</g>
+<!-- proc~unique32 -->
+<g id="program~~problem_25~~CallsGraph_node20" class="node">
+<title>proc~unique32</title>
+<g id="a_program~~problem_25~~CallsGraph_node20"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="546,-500 413,-500 413,-476 546,-476 546,-500"/>
+<text text-anchor="middle" x="479.5" y="-485.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+</a>
+</g>
+</g>
+<!-- interface~unique~2&#45;&gt;proc~unique32 -->
+<g id="program~~problem_25~~CallsGraph_edge16" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M278.6,-488C315.4,-488 363.11,-488 402.69,-488"/>
+<polygon fill="#000000" stroke="#000000" points="402.83,-491.5 412.83,-488 402.83,-484.5 402.83,-491.5"/>
+</g>
+<!-- proc~unique64 -->
+<g id="program~~problem_25~~CallsGraph_node21" class="node">
+<title>proc~unique64</title>
+<g id="a_program~~problem_25~~CallsGraph_node21"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="546,-458 413,-458 413,-434 546,-434 546,-458"/>
+<text text-anchor="middle" x="479.5" y="-443.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+</a>
+</g>
+</g>
+<!-- interface~unique~2&#45;&gt;proc~unique64 -->
+<g id="program~~problem_25~~CallsGraph_edge17" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M278.6,-478.42C315.48,-472.44 363.32,-464.68 402.95,-458.25"/>
+<polygon fill="#000000" stroke="#000000" points="403.52,-461.7 412.83,-456.65 402.4,-454.79 403.52,-461.7"/>
+</g>
+<!-- proc~dag_generate_digraph -->
+<g id="program~~problem_25~~CallsGraph_node16" class="node">
+<title>proc~dag_generate_digraph</title>
+<g id="a_program~~problem_25~~CallsGraph_node16"><a xlink:href=".././proc/dag_generate_digraph.html" xlink:title="dag_module::dag%dag_generate_digraph">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="598,-334 361,-334 361,-310 598,-310 598,-334"/>
+<text text-anchor="middle" x="479.5" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::dag%dag_generate_digraph</text>
+</a>
+</g>
+</g>
+<!-- proc~dag_save_digraph&#45;&gt;proc~dag_generate_digraph -->
+<g id="program~~problem_25~~CallsGraph_edge18" class="edge">
+<title>proc~dag_save_digraph&#45;&gt;proc~dag_generate_digraph</title>
+<path fill="none" stroke="#000000" d="M325.22,-320.82C333.66,-320.88 342.25,-320.95 350.82,-321.01"/>
+<polygon fill="#000000" stroke="#000000" points="350.85,-324.51 360.87,-321.09 350.9,-317.51 350.85,-324.51"/>
+</g>
+<!-- none~set_edges -->
+<g id="program~~problem_25~~CallsGraph_node15" class="node">
+<title>none~set_edges</title>
+<g id="a_program~~problem_25~~CallsGraph_node15"><a xlink:href=".././type/vertex.html#boundprocedure-set_edges" xlink:title="dag_module::vertex%set_edges">
+<polygon fill="#a7506f" stroke="#a7506f" points="570.5,-250 388.5,-250 388.5,-226 570.5,-226 570.5,-250"/>
+<text text-anchor="middle" x="479.5" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::vertex%set_edges</text>
+</a>
+</g>
+</g>
+<!-- proc~dag_set_edges&#45;&gt;none~set_edges -->
+<g id="program~~problem_25~~CallsGraph_edge19" class="edge">
+<title>proc~dag_set_edges&#45;&gt;none~set_edges</title>
+<path fill="none" stroke="#000000" d="M316.31,-239.25C336.47,-239.1 357.76,-238.93 378.04,-238.78"/>
+<polygon fill="#000000" stroke="#000000" points="378.26,-242.27 388.23,-238.7 378.2,-235.27 378.26,-242.27"/>
+</g>
+<!-- proc~integer_to_string~2 -->
+<g id="program~~problem_25~~CallsGraph_node17" class="node">
+<title>proc~integer_to_string~2</title>
+<g id="a_program~~problem_25~~CallsGraph_node17"><a xlink:href=".././proc/integer_to_string~2.html" xlink:title="dag_module::integer_to_string">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="829.5,-322 654.5,-322 654.5,-298 829.5,-298 829.5,-322"/>
+<text text-anchor="middle" x="742" y="-307.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::integer_to_string</text>
+</a>
+</g>
+</g>
+<!-- proc~dag_set_vertex_info&#45;&gt;proc~integer_to_string~2 -->
+<g id="program~~problem_25~~CallsGraph_edge20" class="edge">
+<title>proc~dag_set_vertex_info&#45;&gt;proc~integer_to_string~2</title>
+<path fill="none" stroke="#000000" d="M584.95,-292.03C604.6,-294.29 625.07,-296.65 644.46,-298.88"/>
+<polygon fill="#000000" stroke="#000000" points="644.16,-302.37 654.49,-300.04 644.96,-295.42 644.16,-302.37"/>
+</g>
+<!-- proc~traverse~2&#45;&gt;proc~traverse~2 -->
+<g id="program~~problem_25~~CallsGraph_edge21" class="edge">
+<title>proc~traverse~2&#45;&gt;proc~traverse~2</title>
+<path fill="none" stroke="#000000" d="M188.74,-24.01C178.34,-32.97 188.27,-42 218.5,-42 237.4,-42 248.36,-38.47 251.38,-33.64"/>
+<polygon fill="#000000" stroke="#000000" points="254.68,-32.45 248.26,-24.01 248.02,-34.61 254.68,-32.45"/>
+</g>
+<!-- proc~add_edge -->
+<g id="program~~problem_25~~CallsGraph_node23" class="node">
+<title>proc~add_edge</title>
+<g id="a_program~~problem_25~~CallsGraph_node23"><a xlink:href=".././proc/add_edge.html" xlink:title="dag_module::vertex%add_edge">
+<polygon fill="#d9534f" stroke="#d9534f" points="1067,-250 886,-250 886,-226 1067,-226 1067,-250"/>
+<text text-anchor="middle" x="976.5" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::vertex%add_edge</text>
+</a>
+</g>
+</g>
+<!-- none~set_edges&#45;&gt;proc~add_edge -->
+<g id="program~~problem_25~~CallsGraph_edge22" class="edge">
+<title>none~set_edges&#45;&gt;proc~add_edge</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6,-238.68C591.42,-238.82 613.48,-238.93 634,-239 730,-239.31 754,-239.38 850,-239 858.3,-238.97 866.91,-238.92 875.55,-238.87"/>
+<polygon fill="#000000" stroke="#000000" points="875.72,-242.37 885.69,-238.8 875.67,-235.37 875.72,-242.37"/>
+</g>
+<!-- proc~set_edge_vector -->
+<g id="program~~problem_25~~CallsGraph_node25" class="node">
+<title>proc~set_edge_vector</title>
+<g id="a_program~~problem_25~~CallsGraph_node25"><a xlink:href=".././proc/set_edge_vector.html" xlink:title="dag_module::vertex%set_edge_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="850,-230 634,-230 634,-206 850,-206 850,-230"/>
+<text text-anchor="middle" x="742" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module::vertex%set_edge_vector</text>
+</a>
+</g>
+</g>
+<!-- none~set_edges&#45;&gt;proc~set_edge_vector -->
+<g id="program~~problem_25~~CallsGraph_edge23" class="edge">
+<title>none~set_edges&#45;&gt;proc~set_edge_vector</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.51,-231.09C587.6,-229.78 605.71,-228.39 623.51,-227.02"/>
+<polygon fill="#000000" stroke="#000000" points="624.23,-230.48 633.94,-226.22 623.7,-223.5 624.23,-230.48"/>
+</g>
+<!-- proc~dag_generate_digraph&#45;&gt;proc~integer_to_string~2 -->
+<g id="program~~problem_25~~CallsGraph_edge24" class="edge">
+<title>proc~dag_generate_digraph&#45;&gt;proc~integer_to_string~2</title>
+<path fill="none" stroke="#000000" d="M598.17,-316.58C613.51,-315.87 629.08,-315.16 644.03,-314.47"/>
+<polygon fill="#000000" stroke="#000000" points="644.44,-317.95 654.27,-314 644.12,-310.96 644.44,-317.95"/>
+</g>
+<!-- proc~expand_vector -->
+<g id="program~~problem_25~~CallsGraph_node24" class="node">
+<title>proc~expand_vector</title>
+<g id="a_program~~problem_25~~CallsGraph_node24"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1057,-551 896,-551 896,-527 1057,-527 1057,-551"/>
+<text text-anchor="middle" x="976.5" y="-536.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~split1&#45;&gt;proc~expand_vector -->
+<g id="program~~problem_25~~CallsGraph_edge25" class="edge">
+<title>proc~split1&#45;&gt;proc~expand_vector</title>
+<path fill="none" stroke="#000000" d="M798.1,-539C824.17,-539 855.97,-539 885.41,-539"/>
+<polygon fill="#000000" stroke="#000000" points="885.71,-542.5 895.71,-539 885.71,-535.5 885.71,-542.5"/>
+</g>
+<!-- proc~split2&#45;&gt;proc~split1 -->
+<g id="program~~problem_25~~CallsGraph_edge26" class="edge">
+<title>proc~split2&#45;&gt;proc~split1</title>
+<path fill="none" stroke="#000000" d="M535.75,-531.91C576.67,-533.32 632.59,-535.25 675.72,-536.74"/>
+<polygon fill="#000000" stroke="#000000" points="675.72,-540.25 685.83,-537.09 675.96,-533.25 675.72,-540.25"/>
+</g>
+<!-- interface~sort -->
+<g id="program~~problem_25~~CallsGraph_node22" class="node">
+<title>interface~sort</title>
+<g id="a_program~~problem_25~~CallsGraph_node22"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
+<polygon fill="#a7506f" stroke="#a7506f" points="793.5,-490 690.5,-490 690.5,-466 793.5,-466 793.5,-490"/>
+<text text-anchor="middle" x="742" y="-475.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+</a>
+</g>
+</g>
+<!-- proc~unique32&#45;&gt;interface~sort -->
+<g id="program~~problem_25~~CallsGraph_edge27" class="edge">
+<title>proc~unique32&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M546.24,-485.48C587.42,-483.9 640.11,-481.87 680.3,-480.33"/>
+<polygon fill="#000000" stroke="#000000" points="680.63,-483.82 690.49,-479.94 680.37,-476.83 680.63,-483.82"/>
+</g>
+<!-- proc~unique64&#45;&gt;interface~sort -->
+<g id="program~~problem_25~~CallsGraph_edge28" class="edge">
+<title>proc~unique64&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M546.24,-454.07C587.5,-459.14 640.33,-465.63 680.55,-470.57"/>
+<polygon fill="#000000" stroke="#000000" points="680.14,-474.05 690.49,-471.8 680.99,-467.1 680.14,-474.05"/>
+</g>
+<!-- proc~sort_ascending -->
+<g id="program~~problem_25~~CallsGraph_node26" class="node">
+<title>proc~sort_ascending</title>
+<g id="a_program~~problem_25~~CallsGraph_node26"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
+<polygon fill="#d9534f" stroke="#d9534f" points="1058,-460 895,-460 895,-436 1058,-436 1058,-460"/>
+<text text-anchor="middle" x="976.5" y="-445.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending -->
+<g id="program~~problem_25~~CallsGraph_edge29" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M793.74,-471.45C820.38,-468.02 853.84,-463.7 884.77,-459.71"/>
+<polygon fill="#000000" stroke="#000000" points="885.24,-463.18 894.71,-458.42 884.35,-456.23 885.24,-463.18"/>
+</g>
+<!-- proc~sort_ascending_64 -->
+<g id="program~~problem_25~~CallsGraph_node27" class="node">
+<title>proc~sort_ascending_64</title>
+<g id="a_program~~problem_25~~CallsGraph_node27"><a xlink:href=".././proc/sort_ascending_64.html" xlink:title="aoc_utilities::sort_ascending_64">
+<polygon fill="#d9534f" stroke="#d9534f" points="1285,-501 1103,-501 1103,-477 1285,-477 1285,-501"/>
+<text text-anchor="middle" x="1194" y="-486.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending_64</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending_64 -->
+<g id="program~~problem_25~~CallsGraph_edge30" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending_64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M793.75,-479.24C865.97,-481.01 999.92,-484.28 1092.63,-486.55"/>
+<polygon fill="#000000" stroke="#000000" points="1092.8,-490.05 1102.88,-486.8 1092.97,-483.05 1092.8,-490.05"/>
+</g>
+<!-- proc~set_edge_vector&#45;&gt;proc~add_edge -->
+<g id="program~~problem_25~~CallsGraph_edge31" class="edge">
+<title>proc~set_edge_vector&#45;&gt;proc~add_edge</title>
+<path fill="none" stroke="#000000" d="M850.06,-227.21C858.54,-227.94 867.07,-228.67 875.5,-229.4"/>
+<polygon fill="#000000" stroke="#000000" points="875.44,-232.91 885.7,-230.28 876.04,-225.93 875.44,-232.91"/>
+</g>
+<!-- interface~swap~2 -->
+<g id="program~~problem_25~~CallsGraph_node28" class="node">
+<title>interface~swap~2</title>
+<g id="a_program~~problem_25~~CallsGraph_node28"><a xlink:href=".././interface/swap~2.html" xlink:title="aoc_utilities::swap">
+<polygon fill="#a7506f" stroke="#a7506f" points="1249,-459 1139,-459 1139,-435 1249,-435 1249,-459"/>
+<text text-anchor="middle" x="1194" y="-444.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending&#45;&gt;interface~swap~2 -->
+<g id="program~~problem_25~~CallsGraph_edge32" class="edge">
+<title>proc~sort_ascending&#45;&gt;interface~swap~2</title>
+<path fill="none" stroke="#000000" d="M1058.05,-447.63C1081.27,-447.52 1106.3,-447.4 1128.41,-447.3"/>
+<polygon fill="#000000" stroke="#000000" points="1128.7,-450.8 1138.68,-447.25 1128.67,-443.8 1128.7,-450.8"/>
+</g>
+<!-- proc~swap64 -->
+<g id="program~~problem_25~~CallsGraph_node29" class="node">
+<title>proc~swap64</title>
+<g id="a_program~~problem_25~~CallsGraph_node29"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
+<polygon fill="#d9534f" stroke="#d9534f" points="1447.5,-501 1323.5,-501 1323.5,-477 1447.5,-477 1447.5,-501"/>
+<text text-anchor="middle" x="1385.5" y="-486.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending_64&#45;&gt;proc~swap64 -->
+<g id="program~~problem_25~~CallsGraph_edge33" class="edge">
+<title>proc~sort_ascending_64&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" d="M1285.03,-489C1294.47,-489 1303.97,-489 1313.15,-489"/>
+<polygon fill="#000000" stroke="#000000" points="1313.37,-492.5 1323.37,-489 1313.37,-485.5 1313.37,-492.5"/>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap64 -->
+<g id="program~~problem_25~~CallsGraph_edge35" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1249.05,-458.98C1271.16,-463.88 1296.92,-469.59 1320,-474.7"/>
+<polygon fill="#000000" stroke="#000000" points="1319.53,-478.19 1330.05,-476.93 1321.04,-471.35 1319.53,-478.19"/>
+</g>
+<!-- proc~swap32 -->
+<g id="program~~problem_25~~CallsGraph_node30" class="node">
+<title>proc~swap32</title>
+<g id="a_program~~problem_25~~CallsGraph_node30"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
+<polygon fill="#d9534f" stroke="#d9534f" points="1447.5,-459 1323.5,-459 1323.5,-435 1447.5,-435 1447.5,-459"/>
+<text text-anchor="middle" x="1385.5" y="-444.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
+</a>
+</g>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap32 -->
+<g id="program~~problem_25~~CallsGraph_edge34" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1249.05,-447C1268.98,-447 1291.88,-447 1313.11,-447"/>
+<polygon fill="#000000" stroke="#000000" points="1313.37,-450.5 1323.37,-447 1313.37,-443.5 1313.37,-450.5"/>
+</g>
+<!-- proc~swap_str -->
+<g id="program~~problem_25~~CallsGraph_node31" class="node">
+<title>proc~swap_str</title>
+<g id="a_program~~problem_25~~CallsGraph_node31"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
+<polygon fill="#d9534f" stroke="#d9534f" points="1450,-417 1321,-417 1321,-393 1450,-393 1450,-417"/>
+<text text-anchor="middle" x="1385.5" y="-402.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
+</a>
+</g>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap_str -->
+<g id="program~~problem_25~~CallsGraph_edge36" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap_str</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1249.05,-435.02C1271.16,-430.12 1296.92,-424.41 1320,-419.3"/>
+<polygon fill="#000000" stroke="#000000" points="1321.04,-422.65 1330.05,-417.07 1319.53,-415.81 1321.04,-422.65"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramproblem_25CallsGraph = svgPanZoom('#programproblem_25CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iunit~19"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_lines~11"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_lines</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~85"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~41"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_nodes~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n_nodes</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inode~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inode</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inode2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inode2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~12"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vals~11"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vals2~3"></span>
+              type(<a href='../type/string.html'>string</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>vals2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-node1"></span>
+              character(len=3)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>node1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-node2"></span>
+              character(len=3)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>node2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nodes~3"></span>
+              character(len=3),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>nodes</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inodedep"></span>
+              integer,
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>inodedep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icounts~2"></span>
+              integer,
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>icounts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filetype~2"></span>
+              character(len=*),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>filetype</strong></td>
+<td> =</td>
+                <td>&#39;pdf&#39;</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~5"></span>
+              type(<a href='../type/dag.html'>dag</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-graph"></span>
+              type(<a href='../type/node_t.html'>node_t</a>),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>graph</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>index is the node number</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-visited~5"></span>
+              logical,
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>visited</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    <section>
+   <h2>Derived Types</h2>
+       <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-node_t"></span>
+      <h3>
+        type&nbsp;::&nbsp;
+        <a href='../type/node_t.html'>node_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-connections"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>connections</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>the ones connected to this one</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+    </section>
+   <br>
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-node_index"></span><h3>pure function <a href='../proc/node_index.html'>node_index</a>(node)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>find the node number for this name</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-node"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>node</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-traverse~2"></span><h3>recursive subroutine <a href='../proc/traverse~2.html'>traverse</a>(i)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>travere the graph and visit all the connected nodes</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~57"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_25</span>
+
+<span class="k">use </span><span class="n">aoc_utilities</span>
+<span class="k">use </span><span class="n">dag_module</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">n_nodes</span><span class="p">,</span><span class="w"> </span><span class="n">inode</span><span class="p">,</span><span class="w"> </span><span class="n">inode2</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span>
+<span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">vals</span><span class="p">,</span><span class="w"> </span><span class="n">vals2</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">node1</span><span class="p">,</span><span class="w"> </span><span class="n">node2</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nodes</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inodedep</span><span class="p">,</span><span class="w"> </span><span class="n">icounts</span>
+
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pdf&#39;</span>
+<span class="k">type</span><span class="p">(</span><span class="n">dag</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d</span>
+
+<span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">node_t</span>
+<span class="w">    </span><span class="c">!character(len=3) :: name = &#39;&#39;</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="c">!! the ones connected to this one</span>
+<span class="k">end type </span><span class="n">node_t</span>
+<span class="k">type</span><span class="p">(</span><span class="n">node_t</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">graph</span><span class="w"> </span><span class="c">!! index is the node number</span>
+<span class="kt">logical</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">visited</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
+
+<span class="c">! read the data:</span>
+<span class="c">! open(newunit=iunit, file=&#39;inputs/day25_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day25.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">nodes</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">    </span><span class="c">! for starters, get a list of all the nodes</span>
+<span class="w">    </span><span class="n">vals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">node1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">nodes</span><span class="o">==</span><span class="n">node1</span><span class="p">))</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">nodes</span><span class="p">,</span><span class="n">node1</span><span class="p">]</span>
+<span class="w">    </span><span class="n">vals2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">vals2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">node2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals2</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">nodes</span><span class="o">==</span><span class="n">node2</span><span class="p">))</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">nodes</span><span class="p">,</span><span class="n">node2</span><span class="p">]</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">end do</span>
+<span class="k">rewind</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="n">n_nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+
+<span class="c">! create a dag:</span>
+<span class="k">call </span><span class="n">d</span><span class="p">%</span><span class="n">set_vertices</span><span class="p">(</span><span class="n">n_nodes</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">graph</span><span class="p">(</span><span class="n">n_nodes</span><span class="p">))</span><span class="w"> </span><span class="c">!...</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_nodes</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">graph</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">connections</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c">! initialize</span>
+<span class="k">end do</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">    </span><span class="c">! for starters, get a list of all the nodes</span>
+<span class="w">    </span><span class="n">vals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">node1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span>
+<span class="w">    </span><span class="n">inode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node_index</span><span class="p">(</span><span class="n">node1</span><span class="p">)</span>
+<span class="w">    </span><span class="c">!inode = findloc(nodes,node1)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">nodes</span><span class="o">==</span><span class="n">node1</span><span class="p">))</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">nodes</span><span class="p">,</span><span class="n">node1</span><span class="p">]</span>
+<span class="w">    </span><span class="n">vals2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">vals</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">inodedep</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="n">inodedep</span><span class="p">)</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">inodedep</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">vals2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">node2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vals2</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span>
+<span class="w">        </span><span class="n">inode2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node_index</span><span class="p">(</span><span class="n">node2</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">!--------------------------------------------</span>
+<span class="w">        </span><span class="c">! prune the ones by inspection by looking at the graph, opening in Inkscape,</span>
+<span class="w">        </span><span class="c">! coloring the 3 lines and finding the nodes that connect them</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;ljm&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;sfd&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;ljm&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;sfd&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;gst&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;rph&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;gst&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;rph&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;jkn&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;cfn&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">node2</span><span class="o">==</span><span class="s1">&#39;jkn&#39;</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">node1</span><span class="o">==</span><span class="s1">&#39;cfn&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="w">        </span><span class="c">!--------------------------------------------</span>
+
+<span class="w">        </span><span class="c">! accumulate the graph:</span>
+<span class="w">        </span><span class="c">! connection between inode &lt;--&gt; inodedep</span>
+<span class="w">        </span><span class="n">graph</span><span class="p">(</span><span class="n">inode</span><span class="p">)%</span><span class="n">connections</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">graph</span><span class="p">(</span><span class="n">inode</span><span class="p">)%</span><span class="n">connections</span><span class="p">,</span><span class="w"> </span><span class="n">inode2</span><span class="p">]</span>
+<span class="w">        </span><span class="n">graph</span><span class="p">(</span><span class="n">inode2</span><span class="p">)%</span><span class="n">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">graph</span><span class="p">(</span><span class="n">inode2</span><span class="p">)%</span><span class="n">connections</span><span class="p">,</span><span class="w"> </span><span class="n">inode</span><span class="p">]</span>
+
+<span class="w">        </span><span class="c">! for the plot:</span>
+<span class="w">        </span><span class="n">inodedep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">inodedep</span><span class="p">,</span><span class="w"> </span><span class="n">inode2</span><span class="p">]</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">    call </span><span class="n">d</span><span class="p">%</span><span class="n">set_edges</span><span class="p">(</span><span class="n">inode</span><span class="p">,</span><span class="w"> </span><span class="n">inodedep</span><span class="p">)</span>
+<span class="k">end do</span>
+
+<span class="c">! define some styles for the GraphViz output:</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_nodes</span>
+<span class="w">    </span><span class="k">call </span><span class="n">d</span><span class="p">%</span><span class="n">set_vertex_info</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="k">end do</span>
+
+<span class="c">! generate the GraphViz output:</span>
+<span class="k">call </span><span class="n">d</span><span class="p">%</span><span class="n">save_digraph</span><span class="p">(</span><span class="s1">&#39;problem25.dot&#39;</span><span class="p">,</span><span class="n">rankdir</span><span class="o">=</span><span class="s1">&#39;TB&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="k">call </span><span class="n">d</span><span class="p">%</span><span class="n">destroy</span><span class="p">()</span>
+<span class="k">call </span><span class="nb">execute_command_line</span><span class="p">(</span><span class="s1">&#39;dot -Tpdf -o problem25.pdf problem25.dot&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c">! add to dot file:  !todo add this to daglib ...</span>
+<span class="w">    </span><span class="c">! mindist=10</span>
+<span class="w">    </span><span class="c">! ranksep=20</span>
+
+<span class="c">! count the ones connected to each node and get the unique two we need</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">visited</span><span class="p">(</span><span class="n">n_nodes</span><span class="p">))</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">icounts</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">    </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">    </span><span class="k">call </span><span class="n">traverse</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="n">icounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">([</span><span class="n">icounts</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="n">visited</span><span class="p">)])</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">icounts</span>
+<span class="k">end do</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;25a:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">product</span><span class="p">(</span><span class="n">icounts</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;25&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    pure </span><span class="kt">integer </span><span class="k">function </span><span class="n">node_index</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! find the node number for this name</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">node</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">findloc</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">node</span><span class="p">)</span>
+<span class="w">        </span><span class="n">node_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">node_index</span>
+
+<span class="w">    </span><span class="k">recursive subroutine </span><span class="n">traverse</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! travere the graph and visit all the connected nodes</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">j</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">visited</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">return</span>
+<span class="k">        </span><span class="n">visited</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">graph</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">connections</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">traverse</span><span class="p">(</span><span class="n">graph</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">connections</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">    end subroutine </span><span class="n">traverse</span>
+
+<span class="k">end program </span><span class="n">problem_25</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

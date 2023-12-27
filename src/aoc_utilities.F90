@@ -7,17 +7,19 @@
 
     module aoc_utilities
 
-    use iso_fortran_env, wp => real64
+    use iso_fortran_env, ip => int64, wp => real64
 
     implicit none
 
     private
 
+    public :: ip, wp
+
     integer,parameter :: chunk_size = 100 !! for dynamic allocations
 
     type,public :: clock
         private
-        integer(int64) :: begin, end, rate
+        integer(ip) :: begin, end, rate
     contains
         procedure,public :: tic => clock_start
         procedure,public :: toc => clock_end
@@ -34,9 +36,9 @@
     end type string
 
     type,public :: int64_vec
-        !! an type that contains an allocatable int64 array.
+        !! an type that contains an allocatable ip array.
         !! so we can have an array of these.
-        integer(int64),dimension(:),allocatable :: vals
+        integer(ip),dimension(:),allocatable :: vals
     end type int64_vec
 
     public :: read_file_to_integer_array, &
@@ -56,6 +58,7 @@
     public :: int_array_to_char_array
     public :: hex2int
     public :: inverse
+    public :: cross
 
     interface sort
         procedure :: sort_ascending, sort_ascending_64
@@ -157,8 +160,8 @@ contains
 
     pure elemental function string_to_int_64(me) result(i)
         class(string),intent(in) :: me
-        integer(int64) :: i
-        i = int(me%str, int64)
+        integer(ip) :: i
+        i = int(me%str, ip)
     end function string_to_int_64
 !****************************************************************
 
@@ -170,8 +173,8 @@ contains
     pure function char_to_int64(str, kind) result(i)
         character(len=*),intent(in) :: str
         integer,intent(in) :: kind
-        integer(int64) :: i
-        if (kind/=int64) error stop 'error'
+        integer(ip) :: i
+        if (kind/=ip) error stop 'error'
         read(str,*) i
     end function char_to_int64
 !****************************************************************
@@ -299,12 +302,12 @@ contains
 
 !****************************************************************
 !>
-!  Read a file into an int64 integer array (one element per line)
+!  Read a file into an ip integer array (one element per line)
 
     function read_file_to_integer64_array(filename) result(iarray)
 
     character(len=*),intent(in) :: filename
-    integer(int64),dimension(:),allocatable :: iarray
+    integer(ip),dimension(:),allocatable :: iarray
 
     integer :: i, iunit, n_lines, istat
 
@@ -431,11 +434,11 @@ contains
 !>
     subroutine sort_ascending_64(ivec)
 
-    integer(int64),dimension(:),intent(inout) :: ivec
+    integer(ip),dimension(:),intent(inout) :: ivec
 
-    integer(int64),parameter :: max_size_for_insertion_sort = 20 !! max size for using insertion sort.
+    integer(ip),parameter :: max_size_for_insertion_sort = 20 !! max size for using insertion sort.
 
-    call quicksort(1_int64,size(ivec,kind=int64))
+    call quicksort(1_ip,size(ivec,kind=ip))
 
     contains
 
@@ -443,12 +446,12 @@ contains
 
         !! Sort the array
 
-        integer(int64),intent(in) :: ilow
-        integer(int64),intent(in) :: ihigh
+        integer(ip),intent(in) :: ilow
+        integer(ip),intent(in) :: ihigh
 
-        integer(int64) :: ipivot !! pivot element
-        integer(int64) :: i      !! counter
-        integer(int64) :: j      !! counter
+        integer(ip) :: ipivot !! pivot element
+        integer(ip) :: i      !! counter
+        integer(ip) :: j      !! counter
 
         if ( ihigh-ilow<=max_size_for_insertion_sort .and. ihigh>ilow ) then
 
@@ -481,11 +484,11 @@ contains
 
         implicit none
 
-        integer(int64),intent(in)  :: ilow
-        integer(int64),intent(in)  :: ihigh
-        integer(int64),intent(out) :: ipivot
+        integer(ip),intent(in)  :: ilow
+        integer(ip),intent(in)  :: ihigh
+        integer(ip),intent(out) :: ipivot
 
-        integer(int64) :: i,ip
+        integer(ip) :: i,ip
 
         call swap64(ivec(ilow),ivec((ilow+ihigh)/2))
         ip = ilow
@@ -527,10 +530,10 @@ contains
 
     pure elemental subroutine swap64(i1,i2)
 
-    integer(int64),intent(inout) :: i1
-    integer(int64),intent(inout) :: i2
+    integer(ip),intent(inout) :: i1
+    integer(ip),intent(inout) :: i2
 
-    integer(int64) :: tmp
+    integer(ip) :: tmp
 
     tmp = i1
     i1  = i2
@@ -816,10 +819,10 @@ contains
 
     function unique64(vec) result(vec_unique)
 
-        integer(int64),dimension(:),intent(in) :: vec
-        integer(int64),dimension(:),allocatable :: vec_unique
+        integer(ip),dimension(:),intent(in) :: vec
+        integer(ip),dimension(:),allocatable :: vec_unique
 
-        integer(int64) :: i,num
+        integer(ip) :: i,num
         logical,dimension(size(vec)) :: mask
 
         mask = .false.
@@ -883,9 +886,9 @@ contains
 
     function parse_ints64(line) result(ints)
         character(len=*),intent(in) :: line
-        integer(int64),dimension(:),allocatable :: ints ! array of integers
-        integer(int64) :: i, j, n
-        integer(int64) :: istart
+        integer(ip),dimension(:),allocatable :: ints ! array of integers
+        integer(ip) :: i, j, n
+        integer(ip) :: istart
         character(len=*),parameter :: tokens = '0123456789'
 
         n = len(line)
@@ -896,22 +899,22 @@ contains
             if (index(tokens,line(i:i))>0) then
                 if (istart==0) istart = i
             else
-                if (istart/=0) ints = [ints, int(line(istart:i-1), kind=int64)] ! get previous int
+                if (istart/=0) ints = [ints, int(line(istart:i-1), kind=ip)] ! get previous int
                 istart = 0
             end if
         end do
-        if (istart/=0) ints = [ints, int(line(istart:n), kind=int64)] ! get last int
+        if (istart/=0) ints = [ints, int(line(istart:n), kind=ip)] ! get last int
 
     end function parse_ints64
 !****************************************************************
 
 !****************************************************************
 !>
-!  parse space-deliminated int64 sequence (positive or negative)
+!  parse space-deliminated ip sequence (positive or negative)
 
     function parse_nums64(line) result(ints)
         character(len=*),intent(in) :: line
-        integer(int64),dimension(:),allocatable :: ints ! array of integers
+        integer(ip),dimension(:),allocatable :: ints ! array of integers
         ints = int(split(line, ' '))
     end function parse_nums64
 
@@ -975,9 +978,9 @@ contains
 !>
 !  LCM. based on code from NCAR Command Language
 
-    pure integer(int64) function lcm(i,j)
-        integer(int64),intent(in) :: i,j
-        integer(int64) :: rem,m,n
+    pure integer(ip) function lcm(i,j)
+        integer(ip),intent(in) :: i,j
+        integer(ip) :: rem,m,n
         m=abs(i)
         n=abs(j)
         lcm=0
@@ -994,11 +997,11 @@ contains
 
 !****************************************************************
 !>
-!  Reverse an int64 vector
+!  Reverse an ip vector
 
     pure function reverse(ivals) result(ireverse)
-        integer(int64),dimension(:),intent(in) :: ivals
-        integer(int64),dimension(size(ivals)) :: ireverse
+        integer(ip),dimension(:),intent(in) :: ivals
+        integer(ip),dimension(size(ivals)) :: ireverse
         integer :: i
         ireverse = [(ivals(i), i = size(ivals), 1, -1)]
     end function reverse
@@ -1006,10 +1009,10 @@ contains
 
 !****************************************************************
 !>
-!  Difference int64 vector
+!  Difference ip vector
     pure function diff(ivals) result(idiff)
-        integer(int64),dimension(:),intent(in) :: ivals
-        integer(int64),dimension(:),allocatable :: idiff
+        integer(ip),dimension(:),intent(in) :: ivals
+        integer(ip),dimension(:),allocatable :: idiff
         integer :: i !! counter
         idiff = [(ivals(i+1) - ivals(i), i = 1, size(ivals)-1)]
     end function diff
@@ -1174,10 +1177,10 @@ contains
 
 !*****************************************************************************************
 !>
-!  Manhattan distance between two `int64` points.
+!  Manhattan distance between two `ip` points.
 
-    pure integer(int64) function manhatten_distance_64(x1,y1,x2,y2)
-        integer(int64),intent(in) :: x1,y1,x2,y2
+    pure integer(ip) function manhatten_distance_64(x1,y1,x2,y2)
+        integer(ip),intent(in) :: x1,y1,x2,y2
         manhatten_distance_64 = abs(x1 - x2) + abs(y1 - y2)
     end function manhatten_distance_64
 !*****************************************************************************************
@@ -1213,8 +1216,8 @@ contains
     pure function str_to_int64_array_with_mapping(str, ichars, iints) result(array)
         character(len=*),intent(in) :: str
         character(len=1),dimension(:),intent(in) :: ichars !! characters to process
-        integer(int64),dimension(:),intent(in) :: iints !! int values of the chars
-        integer(int64),dimension(:),allocatable :: array
+        integer(ip),dimension(:),intent(in) :: iints !! int values of the chars
+        integer(ip),dimension(:),allocatable :: array
         integer :: i
         integer,dimension(1) :: iloc
         allocate(array(len(str)))
@@ -1289,6 +1292,25 @@ contains
         end associate
 
     end subroutine inverse
+!************************************************************************************************
+
+!************************************************************************************************
+!>
+!   Cross product of two real 3x1 vectors
+
+    pure function cross(r,v) result(c)
+
+    implicit none
+
+    real(wp),dimension(3),intent(in)  :: r
+    real(wp),dimension(3),intent(in)  :: v
+    real(wp),dimension(3)             :: c
+
+    c(1) = r(2)*v(3)-v(2)*r(3)
+    c(2) = r(3)*v(1)-v(3)*r(1)
+    c(3) = r(1)*v(2)-v(1)*r(2)
+
+    end function cross
 !************************************************************************************************
 
 !************************************************************************************************

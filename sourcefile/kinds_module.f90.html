@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>kinds_module.F90 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>kinds_module.F90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.1% of total for source files.">5 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/kinds_module.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">kinds_module.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/numdiff_kinds_module.html">numdiff_kinds_module</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/kinds_module.f90.html#src">kinds_module.F90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~kinds_module.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefilekinds_modulef90AfferentGraph" width="641pt" height="200pt"
+ viewBox="0.00 0.00 641.00 200.23" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph" class="graph" transform="scale(1.19 1.19) rotate(0) translate(4 233.72)">
+<title>sourcefile~~kinds_module.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-233.72 757,-233.72 757,4 -4,4"/>
+<!-- sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~kinds_module.f90</title>
+<polygon fill="none" stroke="black" points="109,-129.46 0,-129.46 0,-105.46 109,-105.46 109,-129.46"/>
+<text text-anchor="middle" x="54.5" y="-115.06" font-family="Helvetica,sans-Serif" font-size="10.50">kinds_module.F90</text>
+</g>
+<!-- sourcefile~cache_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~cache_module.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node2"><a xlink:href=".././sourcefile/cache_module.f90.html" xlink:title="cache_module.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="409,-109.46 298,-109.46 298,-85.46 409,-85.46 409,-109.46"/>
+<text text-anchor="middle" x="353.5" y="-95.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cache_module.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~cache_module.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~cache_module.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M309.58,-109.53C294.65,-113.16 277.7,-116.66 262,-118.46 214.39,-123.91 160.2,-123.4 119.28,-121.66"/>
+<polygon fill="#000000" stroke="#000000" points="119.32,-118.16 109.17,-121.2 119,-125.15 119.32,-118.16"/>
+</g>
+<!-- sourcefile~utilities_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~utilities_module.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node9"><a xlink:href=".././sourcefile/utilities_module.f90.html" xlink:title="utilities_module.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="262,-109.46 145,-109.46 145,-85.46 262,-85.46 262,-109.46"/>
+<text text-anchor="middle" x="203.5" y="-95.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">utilities_module.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~cache_module.f90&#45;&gt;sourcefile~utilities_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~cache_module.f90&#45;&gt;sourcefile~utilities_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M297.81,-97.46C289.62,-97.46 281.08,-97.46 272.65,-97.46"/>
+<polygon fill="#000000" stroke="#000000" points="272.44,-93.96 262.44,-97.46 272.44,-100.96 272.44,-93.96"/>
+</g>
+<!-- sourcefile~diff_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~diff_module.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node3"><a xlink:href=".././sourcefile/diff_module.f90.html" xlink:title="diff_module.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="251.5,-67.46 155.5,-67.46 155.5,-43.46 251.5,-43.46 251.5,-67.46"/>
+<text text-anchor="middle" x="203.5" y="-53.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diff_module.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~diff_module.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~diff_module.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M167.97,-67.57C160.36,-70.37 152.37,-73.43 145,-76.46 126.5,-84.06 106.21,-93.28 89.63,-101.05"/>
+<polygon fill="#000000" stroke="#000000" points="87.89,-98 80.34,-105.44 90.88,-104.33 87.89,-98"/>
+</g>
+<!-- sourcefile~dsm_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~dsm_module.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node4"><a xlink:href=".././sourcefile/dsm_module.f90.html" xlink:title="dsm_module.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="254,-189.46 153,-189.46 153,-165.46 254,-165.46 254,-189.46"/>
+<text text-anchor="middle" x="203.5" y="-175.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dsm_module.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~dsm_module.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M172.75,-165.32C150.24,-156.13 119.11,-143.42 94.59,-133.41"/>
+<polygon fill="#000000" stroke="#000000" points="95.78,-130.12 85.2,-129.58 93.14,-136.6 95.78,-130.12"/>
+</g>
+<!-- sourcefile~dsm_test.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~dsm_test.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node5"><a xlink:href=".././sourcefile/dsm_test.f90.html" xlink:title="dsm_test.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="393.5,-189.46 313.5,-189.46 313.5,-165.46 393.5,-165.46 393.5,-189.46"/>
+<text text-anchor="middle" x="353.5" y="-175.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_test.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dsm_test.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~dsm_test.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M321.72,-189.47C285.25,-203.05 226.66,-222.63 204.5,-217.46"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M202.5,-217.46C176.29,-211.34 168.26,-212 145,-198.46 116.73,-182 89.66,-155.5 72.84,-137.32"/>
+<polygon fill="#000000" stroke="#000000" points="75.17,-134.68 65.86,-129.62 69.98,-139.38 75.17,-134.68"/>
+</g>
+<!-- sourcefile~dsm_test.f90&#45;&gt;sourcefile~dsm_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~dsm_test.f90&#45;&gt;sourcefile~dsm_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M313.23,-177.46C298.19,-177.46 280.68,-177.46 264.17,-177.46"/>
+<polygon fill="#000000" stroke="#000000" points="264.04,-173.96 254.04,-177.46 264.04,-180.96 264.04,-173.96"/>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~numerical_differentiation_module.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node6"><a xlink:href=".././sourcefile/numerical_differentiation_module.f90.html" xlink:title="numerical_differentiation_module.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="658,-109.46 445,-109.46 445,-85.46 658,-85.46 658,-109.46"/>
+<text text-anchor="middle" x="551.5" y="-95.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.89,-85.42C469.52,-74.72 408.57,-59.96 354.5,-54.46"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-54.46C284.83,-47.58 270.65,0.41 204.5,-15.46"/>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~cache_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~cache_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M444.76,-97.46C436.11,-97.46 427.55,-97.46 419.33,-97.46"/>
+<polygon fill="#000000" stroke="#000000" points="419.14,-93.96 409.14,-97.46 419.14,-100.96 419.14,-93.96"/>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~diff_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~diff_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-54.46C322.69,-51.43 289.33,-51.37 261.84,-52.2"/>
+<polygon fill="#000000" stroke="#000000" points="261.49,-48.71 251.61,-52.55 261.73,-55.7 261.49,-48.71"/>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~dsm_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~dsm_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M498.33,-109.52C435.39,-124.08 329.83,-148.48 263.85,-163.74"/>
+<polygon fill="#000000" stroke="#000000" points="262.96,-160.35 254.01,-166.01 264.54,-167.17 262.96,-160.35"/>
+</g>
+<!-- sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~utilities_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~numerical_differentiation_module.f90&#45;&gt;sourcefile~utilities_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M352.5,-54.46C342.16,-53.41 289.88,-69.46 250.36,-82.25"/>
+<polygon fill="#000000" stroke="#000000" points="249.05,-79 240.62,-85.42 251.21,-85.66 249.05,-79"/>
+</g>
+<!-- sourcefile~test1.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~test1.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node7"><a xlink:href=".././sourcefile/test1.f90.html" xlink:title="test1.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="753,-140.46 694,-140.46 694,-116.46 753,-116.46 753,-140.46"/>
+<text text-anchor="middle" x="723.5" y="-126.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test1.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~test1.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M695.86,-140.5C619.04,-173.64 390.66,-260.91 204.5,-217.46"/>
+</g>
+<!-- sourcefile~test1.f90&#45;&gt;sourcefile~numerical_differentiation_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~test1.f90&#45;&gt;sourcefile~numerical_differentiation_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M693.66,-123.2C675.67,-119.92 651.62,-115.53 628.46,-111.31"/>
+<polygon fill="#000000" stroke="#000000" points="629.08,-107.87 618.61,-109.52 627.82,-114.75 629.08,-107.87"/>
+</g>
+<!-- sourcefile~test2.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~test2.f90</title>
+<g id="a_sourcefile~~kinds_module.f90~~AfferentGraph_node8"><a xlink:href=".././sourcefile/test2.f90.html" xlink:title="test2.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="753,-78.46 694,-78.46 694,-54.46 753,-54.46 753,-78.46"/>
+<text text-anchor="middle" x="723.5" y="-64.06" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test2.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~test2.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M693.97,-57.13C615,-32.68 387.27,28.4 204.5,-15.46"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M202.5,-15.46C176.48,-22.34 168.18,-20.77 145,-34.46 116.23,-51.45 88.95,-79 72.24,-97.65"/>
+<polygon fill="#000000" stroke="#000000" points="69.5,-95.46 65.54,-105.28 74.77,-100.07 69.5,-95.46"/>
+</g>
+<!-- sourcefile~test2.f90&#45;&gt;sourcefile~numerical_differentiation_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~test2.f90&#45;&gt;sourcefile~numerical_differentiation_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M693.66,-71.72C675.67,-75 651.62,-79.39 628.46,-83.61"/>
+<polygon fill="#000000" stroke="#000000" points="627.82,-80.17 618.61,-85.4 629.08,-87.05 627.82,-80.17"/>
+</g>
+<!-- sourcefile~utilities_module.f90&#45;&gt;sourcefile~kinds_module.f90 -->
+<g id="sourcefile~~kinds_module.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~utilities_module.f90&#45;&gt;sourcefile~kinds_module.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M144.82,-105.31C136.38,-106.46 127.65,-107.64 119.1,-108.81"/>
+<polygon fill="#000000" stroke="#000000" points="118.61,-105.34 109.17,-110.16 119.55,-112.28 118.61,-105.34"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefilekinds_modulef90AfferentGraph = svgPanZoom('#sourcefilekinds_modulef90AfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#AfferentGraph-help-text">Help</a></div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">!*******************************************************************************</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">!&gt;</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">!  Numeric kinds for NumDiff.</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">!</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="c">!@note The default real kind (`wp`) can be</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">!      changed using optional preprocessor flags.</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="c">!      This library was built with real kind:</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="cp">#ifdef REAL32</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="c">!      `real(kind=real32)` [4 bytes]</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="cp">#elif REAL64</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="c">!      `real(kind=real64)` [8 bytes]</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="cp">#elif REAL128</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="c">!      `real(kind=real128)` [16 bytes]</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="cp">#else</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="c">!      `real(kind=real64)` [8 bytes]</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="cp">#endif</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">    </span><span class="k">module </span><span class="n">numdiff_kinds_module</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="k">private</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="cp">#ifdef REAL32</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real32</span><span class="w">   </span><span class="c">!! default real kind [4 bytes]</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="cp">#elif REAL64</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real64</span><span class="w">   </span><span class="c">!! default real kind [8 bytes]</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="cp">#elif REAL128</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real128</span><span class="w">  </span><span class="c">!! default real kind [16 bytes]</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="cp">#else</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real64</span><span class="w">   </span><span class="c">!! default real kind [8 bytes]</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="cp">#endif</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">    </span><span class="k">end module </span><span class="n">numdiff_kinds_module</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="c">!*******************************************************************************</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

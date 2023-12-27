@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>swap &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>swap
+      <small>Interface</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="<p> 0.0% of total for procedures.</p>Including implementation: 27 statements,  0.4% of total for procedures.">3 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/aoc_utilities.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
+            <li class="breadcrumb-item active" aria-current="page">swap</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#modprocs-0"
+         aria-expanded="false" aria-controls="modprocs-0">
+         <h4 class="card-header bg-primary text-white">Module Procedures</h4>
+      </a>
+      <div id="modprocs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../interface/swap~2.html#moduleprocedure-swap32">swap32</a>
+            <a class="list-group-item" href="../interface/swap~2.html#moduleprocedure-swap64">swap64</a>
+            <a class="list-group-item" href="../interface/swap~2.html#moduleprocedure-swap_str">swap_str</a>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <h2>public interface swap</h2>
+      
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: interface~~swap~2~~CallsGraph Pages: 1 -->
+<svg id="interfaceswap2CallsGraph" width="283pt" height="116pt"
+ viewBox="0.00 0.00 283.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="interface~~swap~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>interface~~swap~2~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 279,-112 279,4 -4,4"/>
+<!-- interface~swap~2 -->
+<g id="interface~~swap~2~~CallsGraph_node1" class="node">
+<title>interface~swap~2</title>
+<polygon fill="none" stroke="black" points="110,-66 0,-66 0,-42 110,-42 110,-66"/>
+<text text-anchor="middle" x="55" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::swap</text>
+</g>
+<!-- proc~swap32 -->
+<g id="interface~~swap~2~~CallsGraph_node2" class="node">
+<title>proc~swap32</title>
+<g id="a_interface~~swap~2~~CallsGraph_node2"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
+<polygon fill="#d9534f" stroke="#d9534f" points="272.5,-108 148.5,-108 148.5,-84 272.5,-84 272.5,-108"/>
+<text text-anchor="middle" x="210.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
+</a>
+</g>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap32 -->
+<g id="interface~~swap~2~~CallsGraph_edge1" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M99.99,-66.04C117.33,-70.78 137.42,-76.28 155.62,-81.26"/>
+<polygon fill="#000000" stroke="#000000" points="154.94,-84.7 165.51,-83.96 156.78,-77.95 154.94,-84.7"/>
+</g>
+<!-- proc~swap64 -->
+<g id="interface~~swap~2~~CallsGraph_node3" class="node">
+<title>proc~swap64</title>
+<g id="a_interface~~swap~2~~CallsGraph_node3"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
+<polygon fill="#d9534f" stroke="#d9534f" points="272.5,-66 148.5,-66 148.5,-42 272.5,-42 272.5,-66"/>
+<text text-anchor="middle" x="210.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
+</a>
+</g>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap64 -->
+<g id="interface~~swap~2~~CallsGraph_edge2" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M110.12,-54C119.18,-54 128.71,-54 138.13,-54"/>
+<polygon fill="#000000" stroke="#000000" points="138.28,-57.5 148.28,-54 138.28,-50.5 138.28,-57.5"/>
+</g>
+<!-- proc~swap_str -->
+<g id="interface~~swap~2~~CallsGraph_node4" class="node">
+<title>proc~swap_str</title>
+<g id="a_interface~~swap~2~~CallsGraph_node4"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
+<polygon fill="#d9534f" stroke="#d9534f" points="275,-24 146,-24 146,0 275,0 275,-24"/>
+<text text-anchor="middle" x="210.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
+</a>
+</g>
+</g>
+<!-- interface~swap~2&#45;&gt;proc~swap_str -->
+<g id="interface~~swap~2~~CallsGraph_edge3" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap_str</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M99.99,-41.96C117.33,-37.22 137.42,-31.72 155.62,-26.74"/>
+<polygon fill="#000000" stroke="#000000" points="156.78,-30.05 165.51,-24.04 154.94,-23.3 156.78,-30.05"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: interface~~swap~2~~CalledByGraph Pages: 1 -->
+<svg id="interfaceswap2CalledByGraph" width="641pt" height="90pt"
+ viewBox="0.00 0.00 641.00 90.24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="interface~~swap~2~~CalledByGraph" class="graph" transform="scale(2.78 2.78) rotate(0) translate(4 247)">
+<title>interface~~swap~2~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-247 1779,-247 1779,4 -4,4"/>
+<!-- interface~swap~2 -->
+<g id="interface~~swap~2~~CalledByGraph_node1" class="node">
+<title>interface~swap~2</title>
+<polygon fill="none" stroke="black" points="1775,-128 1665,-128 1665,-104 1775,-104 1775,-128"/>
+<text text-anchor="middle" x="1720" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::swap</text>
+</g>
+<!-- proc~sort_ascending -->
+<g id="interface~~swap~2~~CalledByGraph_node2" class="node">
+<title>proc~sort_ascending</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node2"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
+<polygon fill="#d9534f" stroke="#d9534f" points="1629,-128 1466,-128 1466,-104 1629,-104 1629,-128"/>
+<text text-anchor="middle" x="1547.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
+</a>
+</g>
+</g>
+<!-- proc~sort_ascending&#45;&gt;interface~swap~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge1" class="edge">
+<title>proc~sort_ascending&#45;&gt;interface~swap~2</title>
+<path fill="none" stroke="#000000" d="M1629.26,-116C1637.82,-116 1646.45,-116 1654.79,-116"/>
+<polygon fill="#000000" stroke="#000000" points="1654.8,-119.5 1664.8,-116 1654.8,-112.5 1654.8,-119.5"/>
+</g>
+<!-- interface~sort -->
+<g id="interface~~swap~2~~CalledByGraph_node3" class="node">
+<title>interface~sort</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node3"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
+<polygon fill="#a7506f" stroke="#a7506f" points="1430,-128 1327,-128 1327,-104 1430,-104 1430,-128"/>
+<text text-anchor="middle" x="1378.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+</a>
+</g>
+</g>
+<!-- interface~sort&#45;&gt;proc~sort_ascending -->
+<g id="interface~~swap~2~~CalledByGraph_edge2" class="edge">
+<title>interface~sort&#45;&gt;proc~sort_ascending</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1430.06,-116C1438.29,-116 1447.03,-116 1455.87,-116"/>
+<polygon fill="#000000" stroke="#000000" points="1455.89,-119.5 1465.89,-116 1455.89,-112.5 1455.89,-119.5"/>
+</g>
+<!-- proc~unique32 -->
+<g id="interface~~swap~2~~CalledByGraph_node4" class="node">
+<title>proc~unique32</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node4"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1291,-149 1158,-149 1158,-125 1291,-125 1291,-149"/>
+<text text-anchor="middle" x="1224.5" y="-134.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+</a>
+</g>
+</g>
+<!-- proc~unique32&#45;&gt;interface~sort -->
+<g id="interface~~swap~2~~CalledByGraph_edge3" class="edge">
+<title>proc~unique32&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M1291.29,-127.91C1299.73,-126.74 1308.34,-125.55 1316.7,-124.4"/>
+<polygon fill="#000000" stroke="#000000" points="1317.31,-127.85 1326.74,-123.01 1316.35,-120.91 1317.31,-127.85"/>
+</g>
+<!-- proc~unique64 -->
+<g id="interface~~swap~2~~CalledByGraph_node5" class="node">
+<title>proc~unique64</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node5"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1291,-107 1158,-107 1158,-83 1291,-83 1291,-107"/>
+<text text-anchor="middle" x="1224.5" y="-92.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+</a>
+</g>
+</g>
+<!-- proc~unique64&#45;&gt;interface~sort -->
+<g id="interface~~swap~2~~CalledByGraph_edge4" class="edge">
+<title>proc~unique64&#45;&gt;interface~sort</title>
+<path fill="none" stroke="#000000" d="M1291.29,-104.09C1299.73,-105.26 1308.34,-106.45 1316.7,-107.6"/>
+<polygon fill="#000000" stroke="#000000" points="1316.35,-111.09 1326.74,-108.99 1317.31,-104.15 1316.35,-111.09"/>
+</g>
+<!-- interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_node6" class="node">
+<title>interface~unique~2</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node6"><a xlink:href=".././interface/unique~2.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="1122,-128 1002,-128 1002,-104 1122,-104 1122,-128"/>
+<text text-anchor="middle" x="1062" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+</a>
+</g>
+</g>
+<!-- interface~unique~2&#45;&gt;proc~unique32 -->
+<g id="interface~~swap~2~~CalledByGraph_edge5" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1122.31,-123.76C1130.65,-124.85 1139.32,-125.99 1147.92,-127.11"/>
+<polygon fill="#000000" stroke="#000000" points="1147.58,-130.6 1157.95,-128.42 1148.49,-123.66 1147.58,-130.6"/>
+</g>
+<!-- interface~unique~2&#45;&gt;proc~unique64 -->
+<g id="interface~~swap~2~~CalledByGraph_edge6" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1122.31,-108.24C1130.65,-107.15 1139.32,-106.01 1147.92,-104.89"/>
+<polygon fill="#000000" stroke="#000000" points="1148.49,-108.34 1157.95,-103.58 1147.58,-101.4 1148.49,-108.34"/>
+</g>
+<!-- proc~get_all_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_node7" class="node">
+<title>proc~get_all_pieces_above</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node7"><a xlink:href=".././proc/get_all_pieces_above.html" xlink:title="problem_22::get_all_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="308,-225 112,-225 112,-201 308,-201 308,-225"/>
+<text text-anchor="middle" x="210" y="-210.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge7" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M308.01,-222.46C454.54,-233.39 739.29,-241.49 966,-168 990.9,-159.93 1016.81,-145.26 1035.27,-133.55"/>
+<polygon fill="#000000" stroke="#000000" points="1037.22,-136.46 1043.7,-128.09 1033.41,-130.59 1037.22,-136.46"/>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_edge13" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M181.56,-225.01C171.63,-233.97 181.11,-243 210,-243 228.06,-243 238.53,-239.47 241.42,-234.64"/>
+<polygon fill="#000000" stroke="#000000" points="244.74,-233.53 238.44,-225.01 238.06,-235.6 244.74,-233.53"/>
+</g>
+<!-- proc~get_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_node9" class="node">
+<title>proc~get_pieces_above</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node9"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="522,-204 344,-204 344,-180 522,-180 522,-204"/>
+<text text-anchor="middle" x="433" y="-189.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_edge17" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above</title>
+<path fill="none" stroke="#000000" d="M308.26,-203.76C316.65,-202.96 325.15,-202.15 333.56,-201.35"/>
+<polygon fill="#000000" stroke="#000000" points="334.13,-204.82 343.76,-200.39 333.47,-197.85 334.13,-204.82"/>
+</g>
+<!-- proc~get_all_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_node8" class="node">
+<title>proc~get_all_pieces_below</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node8"><a xlink:href=".././proc/get_all_pieces_below.html" xlink:title="problem_22::get_all_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="753,-148 558,-148 558,-124 753,-124 753,-148"/>
+<text text-anchor="middle" x="655.5" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge8" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M753.13,-131.22C826.56,-127.59 925.8,-122.68 991.53,-119.43"/>
+<polygon fill="#000000" stroke="#000000" points="991.96,-122.92 1001.78,-118.93 991.62,-115.93 991.96,-122.92"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_edge15" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M618.79,-148.01C605.98,-156.97 618.21,-166 655.5,-166 679.39,-166 692.99,-162.29 696.32,-157.28"/>
+<polygon fill="#000000" stroke="#000000" points="699.46,-155.73 692.21,-148.01 693.07,-158.57 699.46,-155.73"/>
+</g>
+<!-- proc~get_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_node10" class="node">
+<title>proc~get_pieces_below</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node10"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="966,-108 789,-108 789,-84 966,-84 966,-108"/>
+<text text-anchor="middle" x="877.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_edge19" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M722.51,-124C746.98,-119.55 774.92,-114.47 800.23,-109.87"/>
+<polygon fill="#000000" stroke="#000000" points="800.95,-113.29 810.16,-108.06 799.69,-106.41 800.95,-113.29"/>
+</g>
+<!-- proc~get_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge9" class="edge">
+<title>proc~get_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M522.24,-190.11C586.42,-188.05 675.3,-183.79 753,-175 848.48,-164.2 871.83,-157.07 966,-138 977.42,-135.69 989.57,-133.03 1001.23,-130.37"/>
+<polygon fill="#000000" stroke="#000000" points="1002.36,-133.71 1011.32,-128.05 1000.79,-126.89 1002.36,-133.71"/>
+</g>
+<!-- proc~get_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge10" class="edge">
+<title>proc~get_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M966.01,-105.59C974.66,-106.54 983.35,-107.49 991.78,-108.41"/>
+<polygon fill="#000000" stroke="#000000" points="991.59,-111.91 1001.91,-109.52 992.35,-104.96 991.59,-111.91"/>
+</g>
+<!-- proc~hand_type -->
+<g id="interface~~swap~2~~CalledByGraph_node11" class="node">
+<title>proc~hand_type</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node11"><a xlink:href=".././proc/hand_type.html" xlink:title="problem_7::hand_type">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="943.5,-66 811.5,-66 811.5,-42 943.5,-42 943.5,-66"/>
+<text text-anchor="middle" x="877.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::hand_type</text>
+</a>
+</g>
+</g>
+<!-- proc~hand_type&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge11" class="edge">
+<title>proc~hand_type&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M934.92,-66.03C945.34,-68.68 956.07,-71.69 966,-75 986.56,-81.85 1008.85,-91.35 1026.66,-99.48"/>
+<polygon fill="#000000" stroke="#000000" points="1025.51,-102.81 1036.06,-103.83 1028.45,-96.45 1025.51,-102.81"/>
+</g>
+<!-- program~problem_25 -->
+<g id="interface~~swap~2~~CalledByGraph_node12" class="node">
+<title>program~problem_25</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node12"><a xlink:href=".././program/problem_25.html" xlink:title="problem_25">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="915.5,-24 839.5,-24 839.5,0 915.5,0 915.5,-24"/>
+<text text-anchor="middle" x="877.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_25</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;interface~unique~2 -->
+<g id="interface~~swap~2~~CalledByGraph_edge12" class="edge">
+<title>program~problem_25&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M915.65,-16.84C931.76,-19.95 950.45,-24.97 966,-33 996.99,-49.01 1026.18,-77.22 1043.83,-96.25"/>
+<polygon fill="#000000" stroke="#000000" points="1041.35,-98.73 1050.65,-103.79 1046.53,-94.03 1041.35,-98.73"/>
+</g>
+<!-- proc~beats -->
+<g id="interface~~swap~2~~CalledByGraph_node13" class="node">
+<title>proc~beats</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node13"><a xlink:href=".././proc/beats.html" xlink:title="problem_7::beats">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="708.5,-26 602.5,-26 602.5,-2 708.5,-2 708.5,-26"/>
+<text text-anchor="middle" x="655.5" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::beats</text>
+</a>
+</g>
+</g>
+<!-- proc~beats&#45;&gt;proc~hand_type -->
+<g id="interface~~swap~2~~CalledByGraph_edge22" class="edge">
+<title>proc~beats&#45;&gt;proc~hand_type</title>
+<path fill="none" stroke="#000000" d="M708.64,-23.48C736.26,-28.5 770.7,-34.76 801.18,-40.3"/>
+<polygon fill="#000000" stroke="#000000" points="800.88,-43.81 811.34,-42.15 802.13,-36.92 800.88,-43.81"/>
+</g>
+<!-- proc~move_piece_down -->
+<g id="interface~~swap~2~~CalledByGraph_node14" class="node">
+<title>proc~move_piece_down</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node14"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
+<polygon fill="#d9534f" stroke="#d9534f" points="746,-68 565,-68 565,-44 746,-44 746,-68"/>
+<text text-anchor="middle" x="655.5" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
+</a>
+</g>
+</g>
+<!-- proc~move_piece_down&#45;&gt;proc~get_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_edge20" class="edge">
+<title>proc~move_piece_down&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M722.51,-68C746.98,-72.45 774.92,-77.53 800.23,-82.13"/>
+<polygon fill="#000000" stroke="#000000" points="799.69,-85.59 810.16,-83.94 800.95,-78.71 799.69,-85.59"/>
+</g>
+<!-- program~problem_22 -->
+<g id="interface~~swap~2~~CalledByGraph_node15" class="node">
+<title>program~problem_22</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node15"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-147 0,-147 0,-123 76,-123 76,-147"/>
+<text text-anchor="middle" x="38" y="-132.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_edge14" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M52.86,-147.2C66.88,-158.95 89.62,-176.45 112,-187 121.05,-191.26 130.91,-194.92 140.77,-198.03"/>
+<polygon fill="#000000" stroke="#000000" points="140.02,-201.46 150.6,-200.96 142.02,-194.75 140.02,-201.46"/>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_edge16" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M76.12,-135.06C167.65,-135.21 406.93,-135.6 547.38,-135.83"/>
+<polygon fill="#000000" stroke="#000000" points="547.73,-139.33 557.73,-135.84 547.74,-132.33 547.73,-139.33"/>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_pieces_above -->
+<g id="interface~~swap~2~~CalledByGraph_edge18" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_pieces_above</title>
+<path fill="none" stroke="#000000" d="M76.07,-142.52C87.56,-144.75 100.28,-147.09 112,-149 186.18,-161.09 270.43,-172.31 333.86,-180.26"/>
+<polygon fill="#000000" stroke="#000000" points="333.5,-183.74 343.86,-181.5 334.37,-176.79 333.5,-183.74"/>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_pieces_below -->
+<g id="interface~~swap~2~~CalledByGraph_edge21" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M76.13,-132.9C87.63,-132.27 100.34,-131.59 112,-131 351.41,-118.96 633.09,-106.51 778.54,-100.2"/>
+<polygon fill="#000000" stroke="#000000" points="778.94,-103.69 788.78,-99.76 778.63,-96.7 778.94,-103.69"/>
+</g>
+<!-- proc~initialize -->
+<g id="interface~~swap~2~~CalledByGraph_node18" class="node">
+<title>proc~initialize</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node18"><a xlink:href=".././proc/initialize.html" xlink:title="problem_22::initialize">
+<polygon fill="#d9534f" stroke="#d9534f" points="273.5,-68 146.5,-68 146.5,-44 273.5,-44 273.5,-68"/>
+<text text-anchor="middle" x="210" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::initialize</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~initialize -->
+<g id="interface~~swap~2~~CalledByGraph_edge26" class="edge">
+<title>program~problem_22&#45;&gt;proc~initialize</title>
+<path fill="none" stroke="#000000" d="M52.56,-122.78C66.52,-110.79 89.38,-92.79 112,-82 120.97,-77.72 130.75,-74.06 140.55,-70.95"/>
+<polygon fill="#000000" stroke="#000000" points="141.74,-74.25 150.31,-68.03 139.73,-67.55 141.74,-74.25"/>
+</g>
+<!-- proc~drop -->
+<g id="interface~~swap~2~~CalledByGraph_node16" class="node">
+<title>proc~drop</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node16"><a xlink:href=".././proc/drop.html" xlink:title="problem_22::drop">
+<polygon fill="#d9534f" stroke="#d9534f" points="486.5,-68 379.5,-68 379.5,-44 486.5,-44 486.5,-68"/>
+<text text-anchor="middle" x="433" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::drop</text>
+</a>
+</g>
+</g>
+<!-- proc~drop&#45;&gt;proc~move_piece_down -->
+<g id="interface~~swap~2~~CalledByGraph_edge24" class="edge">
+<title>proc~drop&#45;&gt;proc~move_piece_down</title>
+<path fill="none" stroke="#000000" d="M486.54,-56C507.04,-56 531.26,-56 554.83,-56"/>
+<polygon fill="#000000" stroke="#000000" points="554.88,-59.5 564.88,-56 554.88,-52.5 554.88,-59.5"/>
+</g>
+<!-- program~problem_7 -->
+<g id="interface~~swap~2~~CalledByGraph_node17" class="node">
+<title>program~problem_7</title>
+<g id="a_interface~~swap~2~~CalledByGraph_node17"><a xlink:href=".././program/problem_7.html" xlink:title="problem_7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="467.5,-26 398.5,-26 398.5,-2 467.5,-2 467.5,-26"/>
+<text text-anchor="middle" x="433" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7</text>
+</a>
+</g>
+</g>
+<!-- program~problem_7&#45;&gt;proc~beats -->
+<g id="interface~~swap~2~~CalledByGraph_edge23" class="edge">
+<title>program~problem_7&#45;&gt;proc~beats</title>
+<path fill="none" stroke="#000000" d="M467.97,-14C501.05,-14 552.09,-14 592.42,-14"/>
+<polygon fill="#000000" stroke="#000000" points="592.43,-17.5 602.43,-14 592.43,-10.5 592.43,-17.5"/>
+</g>
+<!-- proc~initialize&#45;&gt;proc~drop -->
+<g id="interface~~swap~2~~CalledByGraph_edge25" class="edge">
+<title>proc~initialize&#45;&gt;proc~drop</title>
+<path fill="none" stroke="#000000" d="M273.74,-56C303.53,-56 339.06,-56 368.9,-56"/>
+<polygon fill="#000000" stroke="#000000" points="369.2,-59.5 379.2,-56 369.2,-52.5 369.2,-59.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var paninterfaceswap2CalledByGraph = svgPanZoom('#interfaceswap2CalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+
+
+        <h2>Module Procedures</h2>
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-swap32"></span><h3>private pure elemental subroutine <a href='../proc/swap32.html'>swap32</a>(i1, i2)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Swap two integer values.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~5"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~5"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-swap64"></span><h3>private pure elemental subroutine <a href='../proc/swap64.html'>swap64</a>(i1, i2)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Swap two integer values.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~6"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~6"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-swap_str"></span><h3>private pure elemental subroutine <a href='../proc/swap_str.html'>swap_str</a>(i1, i2)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Swap two character string values</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~7"></span>
+              character(len=*),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~7"></span>
+              character(len=*),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+</div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

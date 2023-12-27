@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dsm_test &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>dsm_test      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 4.2% of total for programs.">137 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dsm_test.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dsm_test.f90.html'>dsm_test.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dsm_test</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/dsm_test.html#variable-nwrite">nwrite</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-i~79">i</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-info~10">info</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-ip">ip</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-j~37">j</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-jp">jp</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-l~4">l</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-m~20">m</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-maxgrp~5">maxgrp</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-maxrow">maxrow</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-mingrp~3">mingrp</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-minrow">minrow</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-n~34">n</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-nnz">nnz</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-numgrp">numgrp</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-indcol~3">indcol</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-indrow~3">indrow</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-ipntr~4">ipntr</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-jpntr~4">jpntr</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-ngrp~5">ngrp</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-col">col</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-dnsm">dnsm</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-errij">errij</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-errmax">errmax</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-fjact">fjact</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-fjactr">fjactr</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-sum">sum</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-d~4">d</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-fjac~7">fjac</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-fjacd">fjacd</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-fvec~8">fvec</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-x~58">x</a>
+            <a class="list-group-item" href="../program/dsm_test.html#variable-xd">xd</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/dsm_test.html#proc-fcn">fcn</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/dsm_test.html#src">dsm_test</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/dsm_module.html'>dsm_module</a></li>
+                  <li class="list-inline-item"><a href='../module/numdiff_kinds_module.html'>numdiff_kinds_module</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~dsm_test~~UsesGraph Pages: 1 -->
+<svg id="programdsm_testUsesGraph" width="484pt" height="64pt"
+ viewBox="0.00 0.00 484.00 64.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~dsm_test~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 60.03)">
+<title>program~~dsm_test~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-60.03 480,-60.03 480,4 -4,4"/>
+<!-- program~dsm_test -->
+<g id="program~~dsm_test~~UsesGraph_node1" class="node">
+<title>program~dsm_test</title>
+<polygon fill="none" stroke="black" points="476,-36.03 416,-36.03 416,-12.03 476,-12.03 476,-36.03"/>
+<text text-anchor="middle" x="446" y="-21.63" font-family="Helvetica,sans-Serif" font-size="10.50">dsm_test</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~dsm_test~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-56.03 0,-56.03 0,-32.03 94,-32.03 94,-56.03"/>
+<text text-anchor="middle" x="47" y="-41.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~dsm_test&#45;&gt;iso_fortran_env -->
+<g id="program~~dsm_test~~UsesGraph_edge1" class="edge">
+<title>program~dsm_test&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.71,-35.65C404.69,-39.44 391.95,-43.15 380,-45.03 284.2,-60.12 170.92,-54.95 104.52,-49.63"/>
+<polygon fill="#000000" stroke="#000000" points="104.53,-46.11 94.27,-48.77 103.95,-53.09 104.53,-46.11"/>
+</g>
+<!-- module~dsm_module -->
+<g id="program~~dsm_test~~UsesGraph_node3" class="node">
+<title>module~dsm_module</title>
+<g id="a_program~~dsm_test~~UsesGraph_node3"><a xlink:href=".././module/dsm_module.html" xlink:title="dsm_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="380,-36.03 299,-36.03 299,-12.03 380,-12.03 380,-36.03"/>
+<text text-anchor="middle" x="339.5" y="-21.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;module~dsm_module -->
+<g id="program~~dsm_test~~UsesGraph_edge2" class="edge">
+<title>program~dsm_test&#45;&gt;module~dsm_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.89,-24.03C407.99,-24.03 399.21,-24.03 390.51,-24.03"/>
+<polygon fill="#000000" stroke="#000000" points="390.39,-20.53 380.39,-24.03 390.39,-27.53 390.39,-20.53"/>
+</g>
+<!-- module~numdiff_kinds_module -->
+<g id="program~~dsm_test~~UsesGraph_node4" class="node">
+<title>module~numdiff_kinds_module</title>
+<g id="a_program~~dsm_test~~UsesGraph_node4"><a xlink:href=".././module/numdiff_kinds_module.html" xlink:title="numdiff_kinds_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="263,-36.03 130,-36.03 130,-12.03 263,-12.03 263,-36.03"/>
+<text text-anchor="middle" x="196.5" y="-21.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_kinds_module</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~dsm_test~~UsesGraph_edge3" class="edge">
+<title>program~dsm_test&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.71,-12.42C404.69,-8.63 391.95,-4.92 380,-3.03 337.52,3.66 289.17,-2.52 252.91,-9.88"/>
+<polygon fill="#000000" stroke="#000000" points="252.08,-6.47 243.02,-11.97 253.53,-13.32 252.08,-6.47"/>
+</g>
+<!-- module~dsm_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~dsm_test~~UsesGraph_edge4" class="edge">
+<title>module~dsm_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.85,-24.03C290.74,-24.03 281.95,-24.03 273.06,-24.03"/>
+<polygon fill="#000000" stroke="#000000" points="273,-20.53 263,-24.03 273,-27.53 273,-20.53"/>
+</g>
+<!-- module~numdiff_kinds_module&#45;&gt;iso_fortran_env -->
+<g id="program~~dsm_test~~UsesGraph_edge5" class="edge">
+<title>module~numdiff_kinds_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.95,-32.92C121.41,-34.08 112.73,-35.26 104.37,-36.39"/>
+<polygon fill="#000000" stroke="#000000" points="103.79,-32.94 94.35,-37.75 104.73,-39.87 103.79,-32.94"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>This is a test program for subroutines <a href="../proc/dsm.html">dsm</a> and <a href="../proc/fdjs.html">fdjs</a>.
+ the test data represents a neutron kinetics problem.</p>
+<h3>Reference</h3>
+<ul>
+<li>Argonne National Laboratory. MINPACK Project. July 1983.
+    Thomas F. Coleman, Burton S. Garbow, Jorge J. More</li>
+<li>Thomas F. Coleman, Burton S. Garbow, Jorge J. More, "Algorithm 618:
+    FORTRAN subroutines for estimating sparse Jacobian Matrices",
+    ACM Transactions on Mathematical Software (TOMS),
+    Volume 10 Issue 3, Sept. 1984, Pages 346-347</li>
+</ul>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~dsm_test~~CallsGraph Pages: 1 -->
+<svg id="programdsm_testCallsGraph" width="532pt" height="280pt"
+ viewBox="0.00 0.00 532.00 280.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~dsm_test~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 276)">
+<title>program~~dsm_test~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 528,-276 528,4 -4,4"/>
+<!-- program~dsm_test -->
+<g id="program~~dsm_test~~CallsGraph_node1" class="node">
+<title>program~dsm_test</title>
+<polygon fill="none" stroke="black" points="60,-108 0,-108 0,-84 60,-84 60,-108"/>
+<text text-anchor="middle" x="30" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">dsm_test</text>
+</g>
+<!-- proc~dsm -->
+<g id="program~~dsm_test~~CallsGraph_node2" class="node">
+<title>proc~dsm</title>
+<g id="a_program~~dsm_test~~CallsGraph_node2"><a xlink:href=".././proc/dsm.html" xlink:title="dsm_module::dsm">
+<polygon fill="#d9534f" stroke="#d9534f" points="207,-150 96,-150 96,-126 207,-126 207,-150"/>
+<text text-anchor="middle" x="151.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::dsm</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;proc~dsm -->
+<g id="program~~dsm_test~~CallsGraph_edge1" class="edge">
+<title>program~dsm_test&#45;&gt;proc~dsm</title>
+<path fill="none" stroke="#000000" d="M60.23,-106.27C74.06,-111.14 90.88,-117.04 106.22,-122.44"/>
+<polygon fill="#000000" stroke="#000000" points="105.46,-125.88 116.05,-125.89 107.78,-119.28 105.46,-125.88"/>
+</g>
+<!-- proc~fcn -->
+<g id="program~~dsm_test~~CallsGraph_node3" class="node">
+<title>proc~fcn</title>
+<g id="a_program~~dsm_test~~CallsGraph_node3"><a xlink:href=".././proc/fcn.html" xlink:title="dsm_test::fcn">
+<polygon fill="#d9534f" stroke="#d9534f" points="193.5,-108 109.5,-108 109.5,-84 193.5,-84 193.5,-108"/>
+<text text-anchor="middle" x="151.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_test::fcn</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;proc~fcn -->
+<g id="program~~dsm_test~~CallsGraph_edge2" class="edge">
+<title>program~dsm_test&#45;&gt;proc~fcn</title>
+<path fill="none" stroke="#000000" d="M60.23,-96C72.02,-96 85.96,-96 99.33,-96"/>
+<polygon fill="#000000" stroke="#000000" points="99.39,-99.5 109.39,-96 99.39,-92.5 99.39,-99.5"/>
+</g>
+<!-- proc~fdjs -->
+<g id="program~~dsm_test~~CallsGraph_node4" class="node">
+<title>proc~fdjs</title>
+<g id="a_program~~dsm_test~~CallsGraph_node4"><a xlink:href=".././proc/fdjs.html" xlink:title="dsm_module::fdjs">
+<polygon fill="#d9534f" stroke="#d9534f" points="205,-66 98,-66 98,-42 205,-42 205,-66"/>
+<text text-anchor="middle" x="151.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::fdjs</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;proc~fdjs -->
+<g id="program~~dsm_test~~CallsGraph_edge3" class="edge">
+<title>program~dsm_test&#45;&gt;proc~fdjs</title>
+<path fill="none" stroke="#000000" d="M60.23,-85.73C74.06,-80.86 90.88,-74.96 106.22,-69.56"/>
+<polygon fill="#000000" stroke="#000000" points="107.78,-72.72 116.05,-66.11 105.46,-66.12 107.78,-72.72"/>
+</g>
+<!-- proc~degr -->
+<g id="program~~dsm_test~~CallsGraph_node5" class="node">
+<title>proc~degr</title>
+<g id="a_program~~dsm_test~~CallsGraph_node5"><a xlink:href=".././proc/degr.html" xlink:title="dsm_module::degr">
+<polygon fill="#d9534f" stroke="#d9534f" points="359,-272 246,-272 246,-248 359,-248 359,-272"/>
+<text text-anchor="middle" x="302.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::degr</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~degr -->
+<g id="program~~dsm_test~~CallsGraph_edge4" class="edge">
+<title>proc~dsm&#45;&gt;proc~degr</title>
+<path fill="none" stroke="#000000" d="M160.27,-150.03C174.35,-170.94 206.08,-214.15 243,-239 245.39,-240.61 247.92,-242.11 250.53,-243.51"/>
+<polygon fill="#000000" stroke="#000000" points="249.13,-246.72 259.66,-247.89 252.15,-240.41 249.13,-246.72"/>
+</g>
+<!-- proc~ido -->
+<g id="program~~dsm_test~~CallsGraph_node6" class="node">
+<title>proc~ido</title>
+<g id="a_program~~dsm_test~~CallsGraph_node6"><a xlink:href=".././proc/ido.html" xlink:title="dsm_module::ido">
+<polygon fill="#d9534f" stroke="#d9534f" points="355,-230 250,-230 250,-206 355,-206 355,-230"/>
+<text text-anchor="middle" x="302.5" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::ido</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~ido -->
+<g id="program~~dsm_test~~CallsGraph_edge5" class="edge">
+<title>proc~dsm&#45;&gt;proc~ido</title>
+<path fill="none" stroke="#000000" d="M171.19,-150.05C189.24,-161.47 217.5,-178.78 243,-192 249.51,-195.37 256.56,-198.74 263.42,-201.87"/>
+<polygon fill="#000000" stroke="#000000" points="262.05,-205.09 272.61,-205.98 264.91,-198.7 262.05,-205.09"/>
+</g>
+<!-- proc~numsrt -->
+<g id="program~~dsm_test~~CallsGraph_node7" class="node">
+<title>proc~numsrt</title>
+<g id="a_program~~dsm_test~~CallsGraph_node7"><a xlink:href=".././proc/numsrt.html" xlink:title="dsm_module::numsrt">
+<polygon fill="#d9534f" stroke="#d9534f" points="524,-210 398,-210 398,-186 524,-186 524,-210"/>
+<text text-anchor="middle" x="461" y="-195.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::numsrt</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~numsrt -->
+<g id="program~~dsm_test~~CallsGraph_edge6" class="edge">
+<title>proc~dsm&#45;&gt;proc~numsrt</title>
+<path fill="none" stroke="#000000" d="M202.19,-150C215.42,-153.07 229.73,-156.27 243,-159 291.07,-168.89 345.43,-178.66 387.71,-185.94"/>
+<polygon fill="#000000" stroke="#000000" points="387.19,-189.4 397.64,-187.65 388.37,-182.51 387.19,-189.4"/>
+</g>
+<!-- proc~seq -->
+<g id="program~~dsm_test~~CallsGraph_node8" class="node">
+<title>proc~seq</title>
+<g id="a_program~~dsm_test~~CallsGraph_node8"><a xlink:href=".././proc/seq.html" xlink:title="dsm_module::seq">
+<polygon fill="#d9534f" stroke="#d9534f" points="356,-150 249,-150 249,-126 356,-126 356,-150"/>
+<text text-anchor="middle" x="302.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::seq</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~seq -->
+<g id="program~~dsm_test~~CallsGraph_edge7" class="edge">
+<title>proc~dsm&#45;&gt;proc~seq</title>
+<path fill="none" stroke="#000000" d="M207.14,-138C217.35,-138 228.11,-138 238.55,-138"/>
+<polygon fill="#000000" stroke="#000000" points="238.86,-141.5 248.86,-138 238.86,-134.5 238.86,-141.5"/>
+</g>
+<!-- proc~setr -->
+<g id="program~~dsm_test~~CallsGraph_node9" class="node">
+<title>proc~setr</title>
+<g id="a_program~~dsm_test~~CallsGraph_node9"><a xlink:href=".././proc/setr.html" xlink:title="dsm_module::setr">
+<polygon fill="#d9534f" stroke="#d9534f" points="357,-108 248,-108 248,-84 357,-84 357,-108"/>
+<text text-anchor="middle" x="302.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::setr</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~setr -->
+<g id="program~~dsm_test~~CallsGraph_edge8" class="edge">
+<title>proc~dsm&#45;&gt;proc~setr</title>
+<path fill="none" stroke="#000000" d="M195.2,-125.96C211.87,-121.26 231.17,-115.82 248.71,-110.88"/>
+<polygon fill="#000000" stroke="#000000" points="250.12,-114.12 258.8,-108.04 248.22,-107.38 250.12,-114.12"/>
+</g>
+<!-- proc~slo -->
+<g id="program~~dsm_test~~CallsGraph_node10" class="node">
+<title>proc~slo</title>
+<g id="a_program~~dsm_test~~CallsGraph_node10"><a xlink:href=".././proc/slo.html" xlink:title="dsm_module::slo">
+<polygon fill="#d9534f" stroke="#d9534f" points="354,-66 251,-66 251,-42 354,-42 354,-66"/>
+<text text-anchor="middle" x="302.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::slo</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~slo -->
+<g id="program~~dsm_test~~CallsGraph_edge9" class="edge">
+<title>proc~dsm&#45;&gt;proc~slo</title>
+<path fill="none" stroke="#000000" d="M190.97,-125.96C196.58,-123.43 202.11,-120.45 207,-117 227.08,-102.82 222.76,-88.95 243,-75 245.37,-73.36 247.89,-71.84 250.49,-70.42"/>
+<polygon fill="#000000" stroke="#000000" points="252.12,-73.53 259.59,-66.01 249.06,-67.23 252.12,-73.53"/>
+</g>
+<!-- proc~srtdat -->
+<g id="program~~dsm_test~~CallsGraph_node11" class="node">
+<title>proc~srtdat</title>
+<g id="a_program~~dsm_test~~CallsGraph_node11"><a xlink:href=".././proc/srtdat.html" xlink:title="dsm_module::srtdat">
+<polygon fill="#d9534f" stroke="#d9534f" points="362,-24 243,-24 243,0 362,0 362,-24"/>
+<text text-anchor="middle" x="302.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module::srtdat</text>
+</a>
+</g>
+</g>
+<!-- proc~dsm&#45;&gt;proc~srtdat -->
+<g id="program~~dsm_test~~CallsGraph_edge10" class="edge">
+<title>proc~dsm&#45;&gt;proc~srtdat</title>
+<path fill="none" stroke="#000000" d="M194.48,-125.92C199.05,-123.46 203.35,-120.52 207,-117 236.25,-88.82 213.43,-60.84 243,-33 244.3,-31.78 245.67,-30.63 247.1,-29.54"/>
+<polygon fill="#000000" stroke="#000000" points="249.27,-32.32 255.87,-24.03 245.54,-26.39 249.27,-32.32"/>
+</g>
+<!-- proc~ido&#45;&gt;proc~numsrt -->
+<g id="program~~dsm_test~~CallsGraph_edge11" class="edge">
+<title>proc~ido&#45;&gt;proc~numsrt</title>
+<path fill="none" stroke="#000000" d="M355.18,-211.4C365.61,-210.06 376.75,-208.64 387.74,-207.23"/>
+<polygon fill="#000000" stroke="#000000" points="388.28,-210.69 397.76,-205.95 387.39,-203.75 388.28,-210.69"/>
+</g>
+</g>
+</svg>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nwrite"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>nwrite</strong></td>
+<td> =</td>
+                <td>output_unit</td>
+            <td>
+                <p>unit for printing</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~79"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~10"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>info</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ip"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ip</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~37"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jp"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~20"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxgrp~5"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>maxgrp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxrow"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>maxrow</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mingrp~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mingrp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-minrow"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>minrow</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~34"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nnz"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nnz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-numgrp"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>numgrp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indcol~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indcol</strong>(6000)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indrow~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indrow</strong>(6000)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipntr~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipntr</strong>(1201)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jpntr~4"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jpntr</strong>(1201)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ngrp~5"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ngrp</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-col"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>col</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dnsm"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dnsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-errij"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>errij</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-errmax"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>errmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fjact"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fjact</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fjactr"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fjactr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sum"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~4"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fjac~7"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fjac</strong>(6000)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fjacd"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fjacd</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fvec~8"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fvec</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~58"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xd"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xd</strong>(1200)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-fcn"></span><h3> subroutine <a href='../proc/fcn.html'>fcn</a>(n, x, Indcol, Ipntr, Fvec)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Function subroutine for testing <a href="../proc/fdjs.html">fdjs</a>.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~31"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~48"></span>
+              real(kind=wp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong>(n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indcol~6"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Indcol</strong>(*)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipntr~5"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipntr</strong>(n+1)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fvec"></span>
+              real(kind=wp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Fvec</strong>(n)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">program </span><span class="n">dsm_test</span>
+
+<span class="w">    </span><span class="c">!! This is a test program for subroutines [[dsm]] and [[fdjs]].</span>
+<span class="w">    </span><span class="c">!! the test data represents a neutron kinetics problem.</span>
+<span class="w">    </span><span class="c">!!</span>
+<span class="w">    </span><span class="c">!!### Reference</span>
+<span class="w">    </span><span class="c">!!  * Argonne National Laboratory. MINPACK Project. July 1983.</span>
+<span class="w">    </span><span class="c">!!    Thomas F. Coleman, Burton S. Garbow, Jorge J. More</span>
+<span class="w">    </span><span class="c">!!  * Thomas F. Coleman, Burton S. Garbow, Jorge J. More, &quot;Algorithm 618:</span>
+<span class="w">    </span><span class="c">!!    FORTRAN subroutines for estimating sparse Jacobian Matrices&quot;,</span>
+<span class="w">    </span><span class="c">!!    ACM Transactions on Mathematical Software (TOMS),</span>
+<span class="w">    </span><span class="c">!!    Volume 10 Issue 3, Sept. 1984, Pages 346-347</span>
+
+<span class="w">    </span><span class="k">use </span><span class="n">dsm_module</span>
+<span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">output_unit</span>
+<span class="w">    </span><span class="k">use </span><span class="n">numdiff_kinds_module</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output_unit</span><span class="w">  </span><span class="c">!! unit for printing</span>
+
+<span class="w">      </span><span class="kt">integer </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxgrp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxrow</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="n">mingrp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">minrow</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">numgrp</span>
+<span class="w">      </span><span class="kt">integer </span><span class="n">indcol</span><span class="p">(</span><span class="mi">6000</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">indrow</span><span class="p">(</span><span class="mi">6000</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="mi">1201</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jpntr</span><span class="p">(</span><span class="mi">1201</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">              </span><span class="n">ngrp</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">logical </span><span class="n">col</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dnsm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">errij</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">errmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fjact</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fjactr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">sum</span>
+<span class="nb">      </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fjac</span><span class="p">(</span><span class="mi">6000</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fjacd</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fvec</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span>
+<span class="w">                  </span><span class="n">xd</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+
+<span class="w">      </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="c">!</span>
+<span class="c">!     TEST FOR DSM AND FDJS.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">nwrite</span><span class="p">,</span><span class="mi">99001</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="c">!     FORMAT STATEMENTS.</span>
+<span class="c">!</span>
+<span class="mi">99001</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">//</span><span class="s1">&#39; TESTS FOR DSM AND FDJS - NEUTRON KINETICS PROBLEM&#39;</span><span class="o">//</span><span class="w">  </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39; STATISTICS GENERATED &#39;</span><span class="o">//</span><span class="s1">&#39;       N - NUMBER OF COLUMNS &#39;</span><span class="o">/</span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;     NNZ - NUMBER OF NON-ZERO ELEMENTS&#39;</span><span class="o">/</span><span class="w">                 </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;    DNSM - MATRIX DENSITY (PERCENTAGE)&#39;</span><span class="o">/</span><span class="w">                 </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;  MINROW - MINIMUM NUMBER OF NON-ZEROS IN ANY ROW&#39;</span><span class="o">/</span><span class="w">      </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;  MAXROW - MAXIMUM NUMBER OF NON-ZEROS IN ANY ROW&#39;</span><span class="o">/</span><span class="w">      </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;  MINGRP - LOWER BOUND ON NUMBER OF GROUPS&#39;</span><span class="o">/</span><span class="w">             </span><span class="p">&amp;</span>
+<span class="w">             </span><span class="p">&amp;</span><span class="s1">&#39;  MAXGRP - NUMBER OF GROUPS DETERMINED BY DSM&#39;</span><span class="o">//</span><span class="p">)</span>
+<span class="w">      </span><span class="k">do </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">300</span>
+<span class="w">         </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">nwrite</span><span class="p">,</span><span class="mi">99002</span><span class="p">)</span>
+<span class="mi">99002</span><span class="w">    </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">//</span><span class="mi">3</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="mi">6</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;NNZ&#39;</span><span class="p">,</span><span class="mi">5</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;DNSM&#39;</span><span class="p">,</span><span class="mi">5</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;MINROW&#39;</span><span class="p">,</span><span class="mi">4</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;MAXROW&#39;</span><span class="p">,</span><span class="mi">4</span><span class="n">x</span><span class="p">,&amp;</span>
+<span class="w">                </span><span class="p">&amp;</span><span class="s1">&#39;MINGRP&#39;</span><span class="p">,</span><span class="mi">4</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;MAXGRP&#39;</span><span class="o">//</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="c">!        DEFINITION OF SPARSITY PATTERN.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<span class="w">         </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">/</span><span class="mi">3</span>
+<span class="w">         </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">            </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">            </span><span class="n">indcol</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">l</span><span class="p">)</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="n">indcol</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l</span>
+<span class="w">               </span><span class="n">indcol</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">l</span><span class="p">)</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                  </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="n">indcol</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">               </span><span class="k">endif</span>
+<span class="k">            endif</span>
+<span class="k">            </span><span class="n">nnz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&gt;</span><span class="n">l</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="k">               </span><span class="n">indrow</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">l</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">            </span><span class="n">indcol</span><span class="p">(</span><span class="n">nnz</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="c">!</span>
+<span class="c">!        CALL DSM.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">call </span><span class="n">dsm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">nnz</span><span class="p">,</span><span class="n">indrow</span><span class="p">,</span><span class="n">indcol</span><span class="p">,</span><span class="n">ngrp</span><span class="p">,</span><span class="n">maxgrp</span><span class="p">,</span><span class="n">mingrp</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">ipntr</span><span class="p">,</span><span class="n">jpntr</span><span class="p">)</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">info</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">nwrite</span><span class="p">,</span><span class="mi">99003</span><span class="p">)</span><span class="w"> </span><span class="n">info</span>
+<span class="mi">99003</span><span class="w">    </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">//</span><span class="s1">&#39; *** MISTAKE IN INPUT DATA, INFO IS ***&#39;</span><span class="p">,</span><span class="n">i6</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="c">!        STATISTICS FOR THE MATRIX.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">maxrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">         </span><span class="n">minrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="w">            </span><span class="n">maxrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">maxrow</span><span class="p">,</span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">            </span><span class="n">minrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">minrow</span><span class="p">,</span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         </span><span class="n">dnsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">nnz</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span><span class="o">/</span><span class="kt">real</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">         </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">nwrite</span><span class="p">,</span><span class="mi">99004</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nnz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dnsm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">minrow</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxrow</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="p">&amp;</span><span class="w"> </span><span class="n">mingrp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxgrp</span>
+<span class="mi">99004</span><span class="w">    </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">(</span><span class="n">i5</span><span class="p">,</span><span class="mi">3</span><span class="n">x</span><span class="p">),</span><span class="n">f6</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">(</span><span class="n">i5</span><span class="p">,</span><span class="mi">5</span><span class="n">x</span><span class="p">))</span>
+<span class="c">!</span>
+<span class="c">!        TEST FOR FDJS.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">            </span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span><span class="o">/</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         call </span><span class="n">fcn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">indcol</span><span class="p">,</span><span class="n">ipntr</span><span class="p">,</span><span class="n">fvec</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="c">!        APPROXIMATE THE JACOBIAN MATRIX.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">do </span><span class="n">numgrp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxgrp</span>
+<span class="w">            </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">               </span><span class="n">d</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ngrp</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">numgrp</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0e-6_wp</span><span class="w"> </span><span class="c">!d(j) = 0.001_wp</span>
+<span class="w">               </span><span class="n">xd</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            call </span><span class="n">fcn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">xd</span><span class="p">,</span><span class="n">indcol</span><span class="p">,</span><span class="n">ipntr</span><span class="p">,</span><span class="n">fjacd</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="w">               </span><span class="n">fjacd</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fjacd</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fvec</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               call </span><span class="n">fdjs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="n">indrow</span><span class="p">,</span><span class="n">jpntr</span><span class="p">,</span><span class="n">ngrp</span><span class="p">,</span><span class="n">numgrp</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">fjacd</span><span class="p">,</span><span class="n">fjac</span><span class="p">)</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="k">               call </span><span class="n">fdjs</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="n">indcol</span><span class="p">,</span><span class="n">ipntr</span><span class="p">,</span><span class="n">ngrp</span><span class="p">,</span><span class="n">numgrp</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">fjacd</span><span class="p">,</span><span class="n">fjac</span><span class="p">)</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         enddo</span>
+<span class="c">!</span>
+<span class="c">!        TEST THE APPROXIMATION TO THE JACOBIAN.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">errmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!</span>
+<span class="c">!           TEST FOR THE COLUMN-ORIENTED DEFINITION OF</span>
+<span class="c">!           THE SPARSITY PATTERN.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">               </span><span class="k">do </span><span class="n">jp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jpntr</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jpntr</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indrow</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span>
+<span class="w">                  </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">                  </span><span class="k">do </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                     </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">indcol</span><span class="p">(</span><span class="n">ip</span><span class="p">))</span>
+<span class="w">                  </span><span class="k">enddo</span>
+<span class="k">                  </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">fjact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="nb">sum</span>
+<span class="nb">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">fjact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="n">fjact</span>
+<span class="w">                  </span><span class="n">errij</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fjac</span><span class="p">(</span><span class="n">jp</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fjact</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fjact</span><span class="o">/=</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">errij</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errij</span><span class="o">/</span><span class="n">fjact</span>
+<span class="w">                  </span><span class="n">errmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">errmax</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">errij</span><span class="p">))</span>
+<span class="w">               </span><span class="k">enddo</span>
+<span class="k">            enddo</span>
+<span class="k">         else</span>
+<span class="c">!</span>
+<span class="c">!           TEST FOR THE ROW-ORIENTED DEFINITION OF</span>
+<span class="c">!           THE SPARSITY PATTERN.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="w">               </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">               </span><span class="k">do </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">indcol</span><span class="p">(</span><span class="n">ip</span><span class="p">))</span>
+<span class="w">               </span><span class="k">enddo</span>
+<span class="k">               </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">               </span><span class="n">fjactr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="nb">sum</span>
+<span class="nb">               </span><span class="k">do </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indcol</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">fjact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fjactr</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">fjact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0_wp</span><span class="o">*</span><span class="n">fjact</span>
+<span class="w">                  </span><span class="n">errij</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fjac</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fjact</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">fjact</span><span class="o">/=</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">errij</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errij</span><span class="o">/</span><span class="n">fjact</span>
+<span class="w">                  </span><span class="n">errmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">errmax</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">errij</span><span class="p">))</span>
+<span class="w">               </span><span class="k">enddo</span>
+<span class="k">            enddo</span>
+<span class="k">         endif</span>
+<span class="k">         write</span><span class="w"> </span><span class="p">(</span><span class="n">nwrite</span><span class="p">,</span><span class="mi">99005</span><span class="p">)</span><span class="w"> </span><span class="n">errmax</span>
+<span class="mi">99005</span><span class="w">    </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">//</span><span class="s1">&#39; LARGEST RELATIVE ERROR OF APPROXIMATION IS&#39;</span><span class="p">,</span><span class="n">e10</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">         </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">col</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      stop</span>
+
+
+<span class="k">  contains</span>
+
+<span class="k">      subroutine </span><span class="n">fcn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Indcol</span><span class="p">,</span><span class="n">Ipntr</span><span class="p">,</span><span class="n">Fvec</span><span class="p">)</span>
+
+<span class="w">      </span><span class="c">!! Function subroutine for testing [[fdjs]].</span>
+
+<span class="w">      </span><span class="k">implicit none</span>
+
+<span class="k">      </span><span class="kt">integer </span><span class="n">n</span>
+<span class="w">      </span><span class="kt">integer </span><span class="n">Indcol</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ipntr</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Fvec</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kt">integer </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ip</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">sum</span>
+
+<span class="nb">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">         </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">         </span><span class="k">do </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ipntr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ipntr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">Indcol</span><span class="p">(</span><span class="n">ip</span><span class="p">))</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="n">Fvec</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="o">+</span><span class="nb">sum</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0_wp</span>
+<span class="w">      </span><span class="k">enddo</span>
+
+<span class="k">      end subroutine </span><span class="n">fcn</span>
+
+<span class="w">    </span><span class="k">end program </span><span class="n">dsm_test</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

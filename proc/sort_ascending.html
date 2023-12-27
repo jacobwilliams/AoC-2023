@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -74,19 +77,19 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 2.0% of total for procedures.">45 statements</a>
+                 title=" 0.7% of total for procedures.">45 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/aoc_utilities.f90"> Source File</a>
+              <a href="../src/aoc_utilities.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
             <li class="breadcrumb-item active" aria-current="page">sort_ascending</li>
           </ol>
@@ -161,7 +164,7 @@ Uses a basic recursive quicksort
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-ivec"></span>
+              <span class="anchor" id="variable-ivec~5"></span>
               integer,
             </td>
 <td>intent(inout),</td>
@@ -200,18 +203,18 @@ Uses a basic recursive quicksort
 <polygon fill="none" stroke="black" points="163,-66 0,-66 0,-42 163,-42 163,-66"/>
 <text text-anchor="middle" x="81.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::sort_ascending</text>
 </g>
-<!-- interface~swap -->
+<!-- interface~swap~2 -->
 <g id="proc~~sort_ascending~~CallsGraph_node2" class="node">
-<title>interface~swap</title>
-<g id="a_proc~~sort_ascending~~CallsGraph_node2"><a xlink:href=".././interface/swap.html" xlink:title="aoc_utilities::swap">
+<title>interface~swap~2</title>
+<g id="a_proc~~sort_ascending~~CallsGraph_node2"><a xlink:href=".././interface/swap~2.html" xlink:title="aoc_utilities::swap">
 <polygon fill="#a7506f" stroke="#a7506f" points="309,-66 199,-66 199,-42 309,-42 309,-66"/>
 <text text-anchor="middle" x="254" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
 </a>
 </g>
 </g>
-<!-- proc~sort_ascending&#45;&gt;interface~swap -->
+<!-- proc~sort_ascending&#45;&gt;interface~swap~2 -->
 <g id="proc~~sort_ascending~~CallsGraph_edge1" class="edge">
-<title>proc~sort_ascending&#45;&gt;interface~swap</title>
+<title>proc~sort_ascending&#45;&gt;interface~swap~2</title>
 <path fill="none" stroke="#000000" d="M163.26,-54C171.82,-54 180.45,-54 188.79,-54"/>
 <polygon fill="#000000" stroke="#000000" points="188.8,-57.5 198.8,-54 188.8,-50.5 188.8,-57.5"/>
 </g>
@@ -224,9 +227,9 @@ Uses a basic recursive quicksort
 </a>
 </g>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap32 -->
+<!-- interface~swap~2&#45;&gt;proc~swap32 -->
 <g id="proc~~sort_ascending~~CallsGraph_edge2" class="edge">
-<title>interface~swap&#45;&gt;proc~swap32</title>
+<title>interface~swap~2&#45;&gt;proc~swap32</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.99,-66.04C316.33,-70.78 336.42,-76.28 354.62,-81.26"/>
 <polygon fill="#000000" stroke="#000000" points="353.94,-84.7 364.51,-83.96 355.78,-77.95 353.94,-84.7"/>
 </g>
@@ -239,9 +242,9 @@ Uses a basic recursive quicksort
 </a>
 </g>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap64 -->
+<!-- interface~swap~2&#45;&gt;proc~swap64 -->
 <g id="proc~~sort_ascending~~CallsGraph_edge3" class="edge">
-<title>interface~swap&#45;&gt;proc~swap64</title>
+<title>interface~swap~2&#45;&gt;proc~swap64</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M309.12,-54C318.18,-54 327.71,-54 337.13,-54"/>
 <polygon fill="#000000" stroke="#000000" points="337.28,-57.5 347.28,-54 337.28,-50.5 337.28,-57.5"/>
 </g>
@@ -254,9 +257,9 @@ Uses a basic recursive quicksort
 </a>
 </g>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap_str -->
+<!-- interface~swap~2&#45;&gt;proc~swap_str -->
 <g id="proc~~sort_ascending~~CallsGraph_edge4" class="edge">
-<title>interface~swap&#45;&gt;proc~swap_str</title>
+<title>interface~swap~2&#45;&gt;proc~swap_str</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.99,-41.96C316.33,-37.22 336.42,-31.72 354.62,-26.74"/>
 <polygon fill="#000000" stroke="#000000" points="355.78,-30.05 364.51,-24.04 353.94,-23.3 355.78,-30.05"/>
 </g>
@@ -352,199 +355,310 @@ implementation in a submodule of an interface in a parent module.
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~sort_ascending~~CalledByGraph Pages: 1 -->
-<svg id="procsort_ascendingCalledByGraph" width="641pt" height="78pt"
- viewBox="0.00 0.00 641.00 77.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~sort_ascending~~CalledByGraph" class="graph" transform="scale(1.84 1.84) rotate(0) translate(4 139)">
+<svg id="procsort_ascendingCalledByGraph" width="641pt" height="98pt"
+ viewBox="0.00 0.00 641.00 98.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~sort_ascending~~CalledByGraph" class="graph" transform="scale(2.55 2.55) rotate(0) translate(4 247)">
 <title>proc~~sort_ascending~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-139 1174,-139 1174,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-247 1633,-247 1633,4 -4,4"/>
 <!-- proc~sort_ascending -->
 <g id="proc~~sort_ascending~~CalledByGraph_node1" class="node">
 <title>proc~sort_ascending</title>
-<polygon fill="none" stroke="black" points="1170,-84 1007,-84 1007,-60 1170,-60 1170,-84"/>
-<text text-anchor="middle" x="1088.5" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::sort_ascending</text>
+<polygon fill="none" stroke="black" points="1629,-128 1466,-128 1466,-104 1629,-104 1629,-128"/>
+<text text-anchor="middle" x="1547.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_utilities::sort_ascending</text>
 </g>
 <!-- interface~sort -->
 <g id="proc~~sort_ascending~~CalledByGraph_node2" class="node">
 <title>interface~sort</title>
 <g id="a_proc~~sort_ascending~~CalledByGraph_node2"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
-<polygon fill="#a7506f" stroke="#a7506f" points="971,-84 868,-84 868,-60 971,-60 971,-84"/>
-<text text-anchor="middle" x="919.5" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="1430,-128 1327,-128 1327,-104 1430,-104 1430,-128"/>
+<text text-anchor="middle" x="1378.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
 </a>
 </g>
 </g>
 <!-- interface~sort&#45;&gt;proc~sort_ascending -->
 <g id="proc~~sort_ascending~~CalledByGraph_edge1" class="edge">
 <title>interface~sort&#45;&gt;proc~sort_ascending</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M971.06,-72C979.29,-72 988.03,-72 996.87,-72"/>
-<polygon fill="#000000" stroke="#000000" points="996.89,-75.5 1006.89,-72 996.89,-68.5 996.89,-75.5"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1430.06,-116C1438.29,-116 1447.03,-116 1455.87,-116"/>
+<polygon fill="#000000" stroke="#000000" points="1455.89,-119.5 1465.89,-116 1455.89,-112.5 1455.89,-119.5"/>
 </g>
 <!-- proc~unique32 -->
 <g id="proc~~sort_ascending~~CalledByGraph_node3" class="node">
 <title>proc~unique32</title>
 <g id="a_proc~~sort_ascending~~CalledByGraph_node3"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="832,-105 699,-105 699,-81 832,-81 832,-105"/>
-<text text-anchor="middle" x="765.5" y="-90.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1291,-149 1158,-149 1158,-125 1291,-125 1291,-149"/>
+<text text-anchor="middle" x="1224.5" y="-134.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
 </a>
 </g>
 </g>
 <!-- proc~unique32&#45;&gt;interface~sort -->
 <g id="proc~~sort_ascending~~CalledByGraph_edge2" class="edge">
 <title>proc~unique32&#45;&gt;interface~sort</title>
-<path fill="none" stroke="#000000" d="M832.29,-83.91C840.73,-82.74 849.34,-81.55 857.7,-80.4"/>
-<polygon fill="#000000" stroke="#000000" points="858.31,-83.85 867.74,-79.01 857.35,-76.91 858.31,-83.85"/>
+<path fill="none" stroke="#000000" d="M1291.29,-127.91C1299.73,-126.74 1308.34,-125.55 1316.7,-124.4"/>
+<polygon fill="#000000" stroke="#000000" points="1317.31,-127.85 1326.74,-123.01 1316.35,-120.91 1317.31,-127.85"/>
 </g>
 <!-- proc~unique64 -->
 <g id="proc~~sort_ascending~~CalledByGraph_node4" class="node">
 <title>proc~unique64</title>
 <g id="a_proc~~sort_ascending~~CalledByGraph_node4"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="832,-63 699,-63 699,-39 832,-39 832,-63"/>
-<text text-anchor="middle" x="765.5" y="-48.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1291,-107 1158,-107 1158,-83 1291,-83 1291,-107"/>
+<text text-anchor="middle" x="1224.5" y="-92.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
 </a>
 </g>
 </g>
 <!-- proc~unique64&#45;&gt;interface~sort -->
 <g id="proc~~sort_ascending~~CalledByGraph_edge3" class="edge">
 <title>proc~unique64&#45;&gt;interface~sort</title>
-<path fill="none" stroke="#000000" d="M832.29,-60.09C840.73,-61.26 849.34,-62.45 857.7,-63.6"/>
-<polygon fill="#000000" stroke="#000000" points="857.35,-67.09 867.74,-64.99 858.31,-60.15 857.35,-67.09"/>
+<path fill="none" stroke="#000000" d="M1291.29,-104.09C1299.73,-105.26 1308.34,-106.45 1316.7,-107.6"/>
+<polygon fill="#000000" stroke="#000000" points="1316.35,-111.09 1326.74,-108.99 1317.31,-104.15 1316.35,-111.09"/>
 </g>
-<!-- interface~unique -->
+<!-- interface~unique~2 -->
 <g id="proc~~sort_ascending~~CalledByGraph_node5" class="node">
-<title>interface~unique</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node5"><a xlink:href=".././interface/unique.html" xlink:title="aoc_utilities::unique">
-<polygon fill="#a7506f" stroke="#a7506f" points="663,-84 543,-84 543,-60 663,-60 663,-84"/>
-<text text-anchor="middle" x="603" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+<title>interface~unique~2</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node5"><a xlink:href=".././interface/unique~2.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="1122,-128 1002,-128 1002,-104 1122,-104 1122,-128"/>
+<text text-anchor="middle" x="1062" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
 </a>
 </g>
 </g>
-<!-- interface~unique&#45;&gt;proc~unique32 -->
+<!-- interface~unique~2&#45;&gt;proc~unique32 -->
 <g id="proc~~sort_ascending~~CalledByGraph_edge4" class="edge">
-<title>interface~unique&#45;&gt;proc~unique32</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M663.31,-79.76C671.65,-80.85 680.32,-81.99 688.92,-83.11"/>
-<polygon fill="#000000" stroke="#000000" points="688.58,-86.6 698.95,-84.42 689.49,-79.66 688.58,-86.6"/>
+<title>interface~unique~2&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1122.31,-123.76C1130.65,-124.85 1139.32,-125.99 1147.92,-127.11"/>
+<polygon fill="#000000" stroke="#000000" points="1147.58,-130.6 1157.95,-128.42 1148.49,-123.66 1147.58,-130.6"/>
 </g>
-<!-- interface~unique&#45;&gt;proc~unique64 -->
+<!-- interface~unique~2&#45;&gt;proc~unique64 -->
 <g id="proc~~sort_ascending~~CalledByGraph_edge5" class="edge">
-<title>interface~unique&#45;&gt;proc~unique64</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M663.31,-64.24C671.65,-63.15 680.32,-62.01 688.92,-60.89"/>
-<polygon fill="#000000" stroke="#000000" points="689.49,-64.34 698.95,-59.58 688.58,-57.4 689.49,-64.34"/>
+<title>interface~unique~2&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1122.31,-108.24C1130.65,-107.15 1139.32,-106.01 1147.92,-104.89"/>
+<polygon fill="#000000" stroke="#000000" points="1148.49,-108.34 1157.95,-103.58 1147.58,-101.4 1148.49,-108.34"/>
+</g>
+<!-- proc~get_all_pieces_above -->
+<g id="proc~~sort_ascending~~CalledByGraph_node6" class="node">
+<title>proc~get_all_pieces_above</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node6"><a xlink:href=".././proc/get_all_pieces_above.html" xlink:title="problem_22::get_all_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="308,-225 112,-225 112,-201 308,-201 308,-225"/>
+<text text-anchor="middle" x="210" y="-210.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge6" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M308.01,-222.46C454.54,-233.39 739.29,-241.49 966,-168 990.9,-159.93 1016.81,-145.26 1035.27,-133.55"/>
+<polygon fill="#000000" stroke="#000000" points="1037.22,-136.46 1043.7,-128.09 1033.41,-130.59 1037.22,-136.46"/>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge12" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M181.56,-225.01C171.63,-233.97 181.11,-243 210,-243 228.06,-243 238.53,-239.47 241.42,-234.64"/>
+<polygon fill="#000000" stroke="#000000" points="244.74,-233.53 238.44,-225.01 238.06,-235.6 244.74,-233.53"/>
 </g>
 <!-- proc~get_pieces_above -->
-<g id="proc~~sort_ascending~~CalledByGraph_node6" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node8" class="node">
 <title>proc~get_pieces_above</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node6"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="507,-135 329,-135 329,-111 507,-111 507,-135"/>
-<text text-anchor="middle" x="418" y="-120.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node8"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="522,-204 344,-204 344,-180 522,-180 522,-204"/>
+<text text-anchor="middle" x="433" y="-189.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
 </a>
 </g>
 </g>
-<!-- proc~get_pieces_above&#45;&gt;interface~unique -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge6" class="edge">
-<title>proc~get_pieces_above&#45;&gt;interface~unique</title>
-<path fill="none" stroke="#000000" d="M462.37,-110.91C488.26,-103.7 521.33,-94.48 548.79,-86.83"/>
-<polygon fill="#000000" stroke="#000000" points="549.93,-90.14 558.63,-84.09 548.05,-83.4 549.93,-90.14"/>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge16" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above</title>
+<path fill="none" stroke="#000000" d="M308.26,-203.76C316.65,-202.96 325.15,-202.15 333.56,-201.35"/>
+<polygon fill="#000000" stroke="#000000" points="334.13,-204.82 343.76,-200.39 333.47,-197.85 334.13,-204.82"/>
+</g>
+<!-- proc~get_all_pieces_below -->
+<g id="proc~~sort_ascending~~CalledByGraph_node7" class="node">
+<title>proc~get_all_pieces_below</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node7"><a xlink:href=".././proc/get_all_pieces_below.html" xlink:title="problem_22::get_all_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="753,-148 558,-148 558,-124 753,-124 753,-148"/>
+<text text-anchor="middle" x="655.5" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge7" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M753.13,-131.22C826.56,-127.59 925.8,-122.68 991.53,-119.43"/>
+<polygon fill="#000000" stroke="#000000" points="991.96,-122.92 1001.78,-118.93 991.62,-115.93 991.96,-122.92"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge14" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M618.79,-148.01C605.98,-156.97 618.21,-166 655.5,-166 679.39,-166 692.99,-162.29 696.32,-157.28"/>
+<polygon fill="#000000" stroke="#000000" points="699.46,-155.73 692.21,-148.01 693.07,-158.57 699.46,-155.73"/>
 </g>
 <!-- proc~get_pieces_below -->
-<g id="proc~~sort_ascending~~CalledByGraph_node7" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node9" class="node">
 <title>proc~get_pieces_below</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node7"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="506.5,-84 329.5,-84 329.5,-60 506.5,-60 506.5,-84"/>
-<text text-anchor="middle" x="418" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node9"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="966,-108 789,-108 789,-84 966,-84 966,-108"/>
+<text text-anchor="middle" x="877.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
 </a>
 </g>
 </g>
-<!-- proc~get_pieces_below&#45;&gt;interface~unique -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge7" class="edge">
-<title>proc~get_pieces_below&#45;&gt;interface~unique</title>
-<path fill="none" stroke="#000000" d="M506.75,-72C515.42,-72 524.14,-72 532.59,-72"/>
-<polygon fill="#000000" stroke="#000000" points="532.75,-75.5 542.75,-72 532.75,-68.5 532.75,-75.5"/>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge18" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M722.51,-124C746.98,-119.55 774.92,-114.47 800.23,-109.87"/>
+<polygon fill="#000000" stroke="#000000" points="800.95,-113.29 810.16,-108.06 799.69,-106.41 800.95,-113.29"/>
+</g>
+<!-- proc~get_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge8" class="edge">
+<title>proc~get_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M522.24,-190.11C586.42,-188.05 675.3,-183.79 753,-175 848.48,-164.2 871.83,-157.07 966,-138 977.42,-135.69 989.57,-133.03 1001.23,-130.37"/>
+<polygon fill="#000000" stroke="#000000" points="1002.36,-133.71 1011.32,-128.05 1000.79,-126.89 1002.36,-133.71"/>
+</g>
+<!-- proc~get_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge9" class="edge">
+<title>proc~get_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M966.01,-105.59C974.66,-106.54 983.35,-107.49 991.78,-108.41"/>
+<polygon fill="#000000" stroke="#000000" points="991.59,-111.91 1001.91,-109.52 992.35,-104.96 991.59,-111.91"/>
 </g>
 <!-- proc~hand_type -->
-<g id="proc~~sort_ascending~~CalledByGraph_node8" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node10" class="node">
 <title>proc~hand_type</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node8"><a xlink:href=".././proc/hand_type.html" xlink:title="problem_7::hand_type">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="484,-42 352,-42 352,-18 484,-18 484,-42"/>
-<text text-anchor="middle" x="418" y="-27.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::hand_type</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node10"><a xlink:href=".././proc/hand_type.html" xlink:title="problem_7::hand_type">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="943.5,-66 811.5,-66 811.5,-42 943.5,-42 943.5,-66"/>
+<text text-anchor="middle" x="877.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::hand_type</text>
 </a>
 </g>
 </g>
-<!-- proc~hand_type&#45;&gt;interface~unique -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge8" class="edge">
-<title>proc~hand_type&#45;&gt;interface~unique</title>
-<path fill="none" stroke="#000000" d="M471.44,-42.04C492.69,-46.91 517.4,-52.58 539.57,-57.67"/>
-<polygon fill="#000000" stroke="#000000" points="539.02,-61.14 549.55,-59.96 540.59,-54.31 539.02,-61.14"/>
+<!-- proc~hand_type&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge10" class="edge">
+<title>proc~hand_type&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M934.92,-66.03C945.34,-68.68 956.07,-71.69 966,-75 986.56,-81.85 1008.85,-91.35 1026.66,-99.48"/>
+<polygon fill="#000000" stroke="#000000" points="1025.51,-102.81 1036.06,-103.83 1028.45,-96.45 1025.51,-102.81"/>
+</g>
+<!-- program~problem_25 -->
+<g id="proc~~sort_ascending~~CalledByGraph_node11" class="node">
+<title>program~problem_25</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node11"><a xlink:href=".././program/problem_25.html" xlink:title="problem_25">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="915.5,-24 839.5,-24 839.5,0 915.5,0 915.5,-24"/>
+<text text-anchor="middle" x="877.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_25</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;interface~unique~2 -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge11" class="edge">
+<title>program~problem_25&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M915.65,-16.84C931.76,-19.95 950.45,-24.97 966,-33 996.99,-49.01 1026.18,-77.22 1043.83,-96.25"/>
+<polygon fill="#000000" stroke="#000000" points="1041.35,-98.73 1050.65,-103.79 1046.53,-94.03 1041.35,-98.73"/>
 </g>
 <!-- proc~beats -->
-<g id="proc~~sort_ascending~~CalledByGraph_node9" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node12" class="node">
 <title>proc~beats</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node9"><a xlink:href=".././proc/beats.html" xlink:title="problem_7::beats">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255.5,-24 149.5,-24 149.5,0 255.5,0 255.5,-24"/>
-<text text-anchor="middle" x="202.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::beats</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node12"><a xlink:href=".././proc/beats.html" xlink:title="problem_7::beats">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="708.5,-26 602.5,-26 602.5,-2 708.5,-2 708.5,-26"/>
+<text text-anchor="middle" x="655.5" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7::beats</text>
 </a>
 </g>
 </g>
 <!-- proc~beats&#45;&gt;proc~hand_type -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge12" class="edge">
+<g id="proc~~sort_ascending~~CalledByGraph_edge21" class="edge">
 <title>proc~beats&#45;&gt;proc~hand_type</title>
-<path fill="none" stroke="#000000" d="M255.73,-16.4C281.57,-18.58 313.23,-21.25 341.64,-23.65"/>
-<polygon fill="#000000" stroke="#000000" points="341.68,-27.16 351.94,-24.51 342.27,-20.19 341.68,-27.16"/>
+<path fill="none" stroke="#000000" d="M708.64,-23.48C736.26,-28.5 770.7,-34.76 801.18,-40.3"/>
+<polygon fill="#000000" stroke="#000000" points="800.88,-43.81 811.34,-42.15 802.13,-36.92 800.88,-43.81"/>
 </g>
 <!-- proc~move_piece_down -->
-<g id="proc~~sort_ascending~~CalledByGraph_node10" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node13" class="node">
 <title>proc~move_piece_down</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node10"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
-<polygon fill="#d9534f" stroke="#d9534f" points="293,-66 112,-66 112,-42 293,-42 293,-66"/>
-<text text-anchor="middle" x="202.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node13"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
+<polygon fill="#d9534f" stroke="#d9534f" points="746,-68 565,-68 565,-44 746,-44 746,-68"/>
+<text text-anchor="middle" x="655.5" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
 </a>
 </g>
 </g>
 <!-- proc~move_piece_down&#45;&gt;proc~get_pieces_below -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge10" class="edge">
+<g id="proc~~sort_ascending~~CalledByGraph_edge19" class="edge">
 <title>proc~move_piece_down&#45;&gt;proc~get_pieces_below</title>
-<path fill="none" stroke="#000000" d="M293.12,-61.56C301.73,-62.28 310.49,-63.02 319.18,-63.75"/>
-<polygon fill="#000000" stroke="#000000" points="319.06,-67.26 329.32,-64.61 319.65,-60.28 319.06,-67.26"/>
+<path fill="none" stroke="#000000" d="M722.51,-68C746.98,-72.45 774.92,-77.53 800.23,-82.13"/>
+<polygon fill="#000000" stroke="#000000" points="799.69,-85.59 810.16,-83.94 800.95,-78.71 799.69,-85.59"/>
 </g>
 <!-- program~problem_22 -->
-<g id="proc~~sort_ascending~~CalledByGraph_node11" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node14" class="node">
 <title>program~problem_22</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node11"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-106 0,-106 0,-82 76,-82 76,-106"/>
-<text text-anchor="middle" x="38" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node14"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-147 0,-147 0,-123 76,-123 76,-147"/>
+<text text-anchor="middle" x="38" y="-132.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
 </a>
 </g>
 </g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_above -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge13" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M52.86,-147.2C66.88,-158.95 89.62,-176.45 112,-187 121.05,-191.26 130.91,-194.92 140.77,-198.03"/>
+<polygon fill="#000000" stroke="#000000" points="140.02,-201.46 150.6,-200.96 142.02,-194.75 140.02,-201.46"/>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_below -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge15" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M76.12,-135.06C167.65,-135.21 406.93,-135.6 547.38,-135.83"/>
+<polygon fill="#000000" stroke="#000000" points="547.73,-139.33 557.73,-135.84 547.74,-132.33 547.73,-139.33"/>
+</g>
 <!-- program~problem_22&#45;&gt;proc~get_pieces_above -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge9" class="edge">
+<g id="proc~~sort_ascending~~CalledByGraph_edge17" class="edge">
 <title>program~problem_22&#45;&gt;proc~get_pieces_above</title>
-<path fill="none" stroke="#000000" d="M76.28,-96.86C132.1,-101.14 239.3,-109.37 318.62,-115.45"/>
-<polygon fill="#000000" stroke="#000000" points="318.4,-118.95 328.63,-116.22 318.93,-111.97 318.4,-118.95"/>
+<path fill="none" stroke="#000000" d="M76.07,-142.52C87.56,-144.75 100.28,-147.09 112,-149 186.18,-161.09 270.43,-172.31 333.86,-180.26"/>
+<polygon fill="#000000" stroke="#000000" points="333.5,-183.74 343.86,-181.5 334.37,-176.79 333.5,-183.74"/>
 </g>
 <!-- program~problem_22&#45;&gt;proc~get_pieces_below -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge11" class="edge">
+<g id="proc~~sort_ascending~~CalledByGraph_edge20" class="edge">
 <title>program~problem_22&#45;&gt;proc~get_pieces_below</title>
-<path fill="none" stroke="#000000" d="M76.28,-91.83C132.28,-88.57 239.99,-82.3 319.38,-77.68"/>
-<polygon fill="#000000" stroke="#000000" points="319.62,-81.17 329.4,-77.1 319.21,-74.19 319.62,-81.17"/>
+<path fill="none" stroke="#000000" d="M76.13,-132.9C87.63,-132.27 100.34,-131.59 112,-131 351.41,-118.96 633.09,-106.51 778.54,-100.2"/>
+<polygon fill="#000000" stroke="#000000" points="778.94,-103.69 788.78,-99.76 778.63,-96.7 778.94,-103.69"/>
 </g>
-<!-- program~problem_22&#45;&gt;proc~move_piece_down -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge14" class="edge">
-<title>program~problem_22&#45;&gt;proc~move_piece_down</title>
-<path fill="none" stroke="#000000" d="M76.28,-84.82C95.95,-79.98 120.53,-73.93 142.69,-68.48"/>
-<polygon fill="#000000" stroke="#000000" points="143.8,-71.81 152.68,-66.02 142.13,-65.01 143.8,-71.81"/>
+<!-- proc~initialize -->
+<g id="proc~~sort_ascending~~CalledByGraph_node17" class="node">
+<title>proc~initialize</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node17"><a xlink:href=".././proc/initialize.html" xlink:title="problem_22::initialize">
+<polygon fill="#d9534f" stroke="#d9534f" points="273.5,-68 146.5,-68 146.5,-44 273.5,-44 273.5,-68"/>
+<text text-anchor="middle" x="210" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::initialize</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~initialize -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge25" class="edge">
+<title>program~problem_22&#45;&gt;proc~initialize</title>
+<path fill="none" stroke="#000000" d="M52.56,-122.78C66.52,-110.79 89.38,-92.79 112,-82 120.97,-77.72 130.75,-74.06 140.55,-70.95"/>
+<polygon fill="#000000" stroke="#000000" points="141.74,-74.25 150.31,-68.03 139.73,-67.55 141.74,-74.25"/>
+</g>
+<!-- proc~drop -->
+<g id="proc~~sort_ascending~~CalledByGraph_node15" class="node">
+<title>proc~drop</title>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node15"><a xlink:href=".././proc/drop.html" xlink:title="problem_22::drop">
+<polygon fill="#d9534f" stroke="#d9534f" points="486.5,-68 379.5,-68 379.5,-44 486.5,-44 486.5,-68"/>
+<text text-anchor="middle" x="433" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::drop</text>
+</a>
+</g>
+</g>
+<!-- proc~drop&#45;&gt;proc~move_piece_down -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge23" class="edge">
+<title>proc~drop&#45;&gt;proc~move_piece_down</title>
+<path fill="none" stroke="#000000" d="M486.54,-56C507.04,-56 531.26,-56 554.83,-56"/>
+<polygon fill="#000000" stroke="#000000" points="554.88,-59.5 564.88,-56 554.88,-52.5 554.88,-59.5"/>
 </g>
 <!-- program~problem_7 -->
-<g id="proc~~sort_ascending~~CalledByGraph_node12" class="node">
+<g id="proc~~sort_ascending~~CalledByGraph_node16" class="node">
 <title>program~problem_7</title>
-<g id="a_proc~~sort_ascending~~CalledByGraph_node12"><a xlink:href=".././program/problem_7.html" xlink:title="problem_7">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="72.5,-24 3.5,-24 3.5,0 72.5,0 72.5,-24"/>
-<text text-anchor="middle" x="38" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7</text>
+<g id="a_proc~~sort_ascending~~CalledByGraph_node16"><a xlink:href=".././program/problem_7.html" xlink:title="problem_7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="467.5,-26 398.5,-26 398.5,-2 467.5,-2 467.5,-26"/>
+<text text-anchor="middle" x="433" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7</text>
 </a>
 </g>
 </g>
 <!-- program~problem_7&#45;&gt;proc~beats -->
-<g id="proc~~sort_ascending~~CalledByGraph_edge13" class="edge">
+<g id="proc~~sort_ascending~~CalledByGraph_edge22" class="edge">
 <title>program~problem_7&#45;&gt;proc~beats</title>
-<path fill="none" stroke="#000000" d="M72.67,-12C91.86,-12 116.51,-12 139.1,-12"/>
-<polygon fill="#000000" stroke="#000000" points="139.31,-15.5 149.31,-12 139.31,-8.5 139.31,-15.5"/>
+<path fill="none" stroke="#000000" d="M467.97,-14C501.05,-14 552.09,-14 592.42,-14"/>
+<polygon fill="#000000" stroke="#000000" points="592.43,-17.5 602.43,-14 592.43,-10.5 592.43,-17.5"/>
+</g>
+<!-- proc~initialize&#45;&gt;proc~drop -->
+<g id="proc~~sort_ascending~~CalledByGraph_edge24" class="edge">
+<title>proc~initialize&#45;&gt;proc~drop</title>
+<path fill="none" stroke="#000000" d="M273.74,-56C303.53,-56 339.06,-56 368.9,-56"/>
+<polygon fill="#000000" stroke="#000000" points="369.2,-59.5 379.2,-56 369.2,-52.5 369.2,-59.5"/>
 </g>
 </g>
 </svg>

@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -74,7 +77,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="<p> 4.8% of total for derived types.</p>Including implementation: 5 statements,  2.3% of total for derived types.">5 statements</a>
+                 title="<p> 1.6% of total for derived types.</p>Including implementation: 5 statements,  0.2% of total for derived types.">5 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -86,7 +89,7 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/cache_module.f90.html'>cache_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/cache_module.f90~2.html'>cache_module.f90</a></li>
                 <li class="breadcrumb-item"><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></li>
             <li class="breadcrumb-item active" aria-current="page">fx</li>
           </ol>
@@ -114,8 +117,8 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/fx.html#variable-x">x</a>
-            <a class="list-group-item" href="../type/fx.html#variable-f">f</a>
+            <a class="list-group-item" href="../type/fx.html#variable-x~38">x</a>
+            <a class="list-group-item" href="../type/fx.html#variable-f~17">f</a>
         </div>
       </div>
     </div>
@@ -153,7 +156,7 @@
     <div class="col-md-9" id='text'>
       <h2>type, private :: fx</h2>
     <p>an [x,f(x)] cached pair.
-x is a vector and f is a scalar value.</p>
+x is a vector and f is a vector.</p>
 <br>    <div class="card">
       <div class="card-header">
   <h3 class="card-title">Inherited by</h3>
@@ -259,7 +262,7 @@ said component(s).
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-x"></span>
+              <span class="anchor" id="variable-x~38"></span>
               integer(kind=ip),
             </td>
               <td>private,</td>
@@ -276,19 +279,19 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f"></span>
+              <span class="anchor" id="variable-f~17"></span>
               integer(kind=ip),
             </td>
-              <td>private</td>
+              <td>private,</td>
             <td>
-              
+              dimension(:), allocatable
             </td>
             <td>::</td>
             <td><strong>f</strong></td>
                 <td></td>
                 <td></td>
             <td>
-                <p>scalar output function</p>
+                <p>output functions</p>
             </td>
         </tr>
     </tbody>
@@ -304,10 +307,10 @@ said component(s).
     <h3><span class="anchor" id="src"></span>Source Code</h3>
     <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fx</span>
 <span class="w">        </span><span class="c">!! an [x,f(x)] cached pair.</span>
-<span class="w">        </span><span class="c">!! x is a vector and f is a scalar value.</span>
+<span class="w">        </span><span class="c">!! x is a vector and f is a vector.</span>
 <span class="w">        </span><span class="k">private</span>
 <span class="k">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">    </span><span class="c">!! vector of input values</span>
-<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w">    </span><span class="c">!! scalar output function</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w">    </span><span class="c">!! output functions</span>
 <span class="w">    </span><span class="k">end type </span><span class="n">fx</span>
 </pre></div>
 

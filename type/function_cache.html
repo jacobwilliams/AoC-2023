@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -74,7 +77,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="<p>10.6% of total for derived types.</p>Including implementation: 69 statements, 32.1% of total for derived types.">11 statements</a>
+                 title="<p> 3.5% of total for derived types.</p>Including implementation: 69 statements,  2.6% of total for derived types.">11 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -86,7 +89,7 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/cache_module.f90.html'>cache_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/cache_module.f90~2.html'>cache_module.f90</a></li>
                 <li class="breadcrumb-item"><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></li>
             <li class="breadcrumb-item active" aria-current="page">function_cache</li>
           </ol>
@@ -114,8 +117,8 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/function_cache.html#variable-c">c</a>
-            <a class="list-group-item" href="../type/function_cache.html#variable-chunk_size">chunk_size</a>
+            <a class="list-group-item" href="../type/function_cache.html#variable-c~6">c</a>
+            <a class="list-group-item" href="../type/function_cache.html#variable-chunk_size~11">chunk_size</a>
         </div>
       </div>
     </div>
@@ -142,10 +145,10 @@
       </a>
       <div id="boundprocs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-initialize">initialize</a>
-            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-get">get</a>
-            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-put">put</a>
-            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-destroy">destroy</a>
+            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-initialize~4">initialize</a>
+            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-get~2">get</a>
+            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-put~2">put</a>
+            <a class="list-group-item" href="../type/function_cache.html#boundprocedure-destroy~6">destroy</a>
         </div>
       </div>
     </div>
@@ -272,7 +275,7 @@ said component(s).
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-c"></span>
+              <span class="anchor" id="variable-c~6"></span>
               type(<a href='../type/fx.html'>fx</a>),
             </td>
               <td>private,</td>
@@ -289,7 +292,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-chunk_size"></span>
+              <span class="anchor" id="variable-chunk_size~11"></span>
               integer,
             </td>
               <td>private</td>
@@ -318,17 +321,17 @@ in the <a href="../interface/unique.html">unique</a> function</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-initialize"></span>
+      <span class="anchor" id="boundprocedure-initialize~4"></span>
       <h3>
           procedure, public ::
-  <strong>initialize</strong> => <a href='../proc/initialize_cache.html'>initialize_cache</a>
+  <strong>initialize</strong> => <a href='../proc/initialize_cache~2.html'>initialize_cache</a>
         
       </h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
                   <h3>
-    private  subroutine <a href='../proc/initialize_cache.html'>initialize_cache</a>(me, isize, chunk_size)  
+    private  subroutine <a href='../proc/initialize_cache~2.html'>initialize_cache</a>(me, isize, chunk_size)  
 </h3>
     
 
@@ -405,17 +408,17 @@ will be saved per value of <code>x</code> [default is 100]</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-get"></span>
+      <span class="anchor" id="boundprocedure-get~2"></span>
       <h3>
           procedure, public ::
-  <strong>get</strong> => <a href='../proc/get_from_cache.html'>get_from_cache</a>
+  <strong>get</strong> => <a href='../proc/get_from_cache~2.html'>get_from_cache</a>
         
       </h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
                   <h3>
-    private  subroutine <a href='../proc/get_from_cache.html'>get_from_cache</a>(me, x, i, f, found)  
+    private  subroutine <a href='../proc/get_from_cache~2.html'>get_from_cache</a>(me, x, i, f, found)  
 </h3>
     
 
@@ -484,9 +487,9 @@ the ones there are there, and indicate which ones were found.</p>
               <span class="anchor" ></span>
               integer(kind=ip),
             </td>
-<td>intent(out)</td>
+<td>intent(out),</td>
               <td></td>            <td>
-              
+              dimension(:), allocatable
             </td>
             <td>::</td>
             <td><strong>f</strong></td>
@@ -521,17 +524,17 @@ the ones there are there, and indicate which ones were found.</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-put"></span>
+      <span class="anchor" id="boundprocedure-put~2"></span>
       <h3>
           procedure, public ::
-  <strong>put</strong> => <a href='../proc/put_in_cache.html'>put_in_cache</a>
+  <strong>put</strong> => <a href='../proc/put_in_cache~2.html'>put_in_cache</a>
         
       </h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
                   <h3>
-    private  subroutine <a href='../proc/put_in_cache.html'>put_in_cache</a>(me, i, x, f)  
+    private  subroutine <a href='../proc/put_in_cache~2.html'>put_in_cache</a>(me, i, x, f)  
 </h3>
     
 
@@ -598,9 +601,9 @@ the ones there are there, and indicate which ones were found.</p>
               <span class="anchor" ></span>
               integer(kind=ip),
             </td>
-<td>intent(in)</td>
+<td>intent(in),</td>
               <td></td>            <td>
-              
+              dimension(:)
             </td>
             <td>::</td>
             <td><strong>f</strong></td>
@@ -620,17 +623,17 @@ the ones there are there, and indicate which ones were found.</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-destroy"></span>
+      <span class="anchor" id="boundprocedure-destroy~6"></span>
       <h3>
           procedure, public ::
-  <strong>destroy</strong> => <a href='../proc/destroy_cache.html'>destroy_cache</a>
+  <strong>destroy</strong> => <a href='../proc/destroy_cache~2.html'>destroy_cache</a>
         
       </h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
                   <h3>
-    private  subroutine <a href='../proc/destroy_cache.html'>destroy_cache</a>(me)  
+    private  subroutine <a href='../proc/destroy_cache~2.html'>destroy_cache</a>(me)  
 </h3>
     
 

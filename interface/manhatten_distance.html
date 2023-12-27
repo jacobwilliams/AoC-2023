@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -74,19 +77,19 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="<p> 0.1% of total for procedures.</p>Including implementation: 7 statements,  0.3% of total for procedures.">3 statements</a>
+                 title="<p> 0.0% of total for procedures.</p>Including implementation: 7 statements,  0.1% of total for procedures.">3 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/aoc_utilities.f90"> Source File</a>
+              <a href="../src/aoc_utilities.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
             <li class="breadcrumb-item active" aria-current="page">manhatten_distance</li>
           </ol>
@@ -406,7 +409,7 @@ implementation in a submodule of an interface in a parent module.
 </h3></div>
     <div class="card-body">
           
-  <p>Manhattan distance between two <code>int64</code> points.</p>
+  <p>Manhattan distance between two <code>ip</code> points.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -421,8 +424,8 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-x1"></span>
-              integer(kind=int64),
+              <span class="anchor" id="variable-x1~2"></span>
+              integer(kind=ip),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -437,7 +440,7 @@ implementation in a submodule of an interface in a parent module.
         <tr>
             <td>
               <span class="anchor" id="variable-y1"></span>
-              integer(kind=int64),
+              integer(kind=ip),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -451,8 +454,8 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x2"></span>
-              integer(kind=int64),
+              <span class="anchor" id="variable-x2~2"></span>
+              integer(kind=ip),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -467,7 +470,7 @@ implementation in a submodule of an interface in a parent module.
         <tr>
             <td>
               <span class="anchor" id="variable-y2"></span>
-              integer(kind=int64),
+              integer(kind=ip),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
@@ -484,7 +487,7 @@ implementation in a submodule of an interface in a parent module.
 
     <h4>
     Return Value
-    <small>integer(kind=int64)</small>
+    <small>integer(kind=ip)</small>
     </h4>
     
 

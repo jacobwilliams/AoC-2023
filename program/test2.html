@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>test2 &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>test2      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Jacob Williams</li>
+            <li class="list-inline-item" id="meta-date"><i class="fa fa-calendar-o"></i> October 1, 2022</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 3.4% of total for programs.">113 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/test2.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/test2.f90.html'>test2.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">test2</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/test2.html#variable-n~27">n</a>
+            <a class="list-group-item" href="../program/test2.html#variable-m~15">m</a>
+            <a class="list-group-item" href="../program/test2.html#variable-x~37">x</a>
+            <a class="list-group-item" href="../program/test2.html#variable-xlow~8">xlow</a>
+            <a class="list-group-item" href="../program/test2.html#variable-xhigh~9">xhigh</a>
+            <a class="list-group-item" href="../program/test2.html#variable-perturb_mode~3">perturb_mode</a>
+            <a class="list-group-item" href="../program/test2.html#variable-cache_size~4">cache_size</a>
+            <a class="list-group-item" href="../program/test2.html#variable-sparsity_mode~4">sparsity_mode</a>
+            <a class="list-group-item" href="../program/test2.html#variable-methods~2">methods</a>
+            <a class="list-group-item" href="../program/test2.html#variable-exp_star">exp_star</a>
+            <a class="list-group-item" href="../program/test2.html#variable-exp_stop">exp_stop</a>
+            <a class="list-group-item" href="../program/test2.html#variable-exp_step">exp_step</a>
+            <a class="list-group-item" href="../program/test2.html#variable-exp_scale">exp_scale</a>
+            <a class="list-group-item" href="../program/test2.html#variable-my_prob">my_prob</a>
+            <a class="list-group-item" href="../program/test2.html#variable-i~39">i</a>
+            <a class="list-group-item" href="../program/test2.html#variable-j~13">j</a>
+            <a class="list-group-item" href="../program/test2.html#variable-jac~10">jac</a>
+            <a class="list-group-item" href="../program/test2.html#variable-func_evals~2">func_evals</a>
+            <a class="list-group-item" href="../program/test2.html#variable-error_msg~5">error_msg</a>
+            <a class="list-group-item" href="../program/test2.html#variable-dpert~3">dpert</a>
+            <a class="list-group-item" href="../program/test2.html#variable-ipert">ipert</a>
+            <a class="list-group-item" href="../program/test2.html#variable-error~3">error</a>
+            <a class="list-group-item" href="../program/test2.html#variable-num_dperts">num_dperts</a>
+            <a class="list-group-item" href="../program/test2.html#variable-num_methods">num_methods</a>
+            <a class="list-group-item" href="../program/test2.html#variable-results_dpert">results_dpert</a>
+            <a class="list-group-item" href="../program/test2.html#variable-results_errors">results_errors</a>
+            <a class="list-group-item" href="../program/test2.html#variable-plt">plt</a>
+            <a class="list-group-item" href="../program/test2.html#variable-formula~2">formula</a>
+            <a class="list-group-item" href="../program/test2.html#variable-name~3">name</a>
+            <a class="list-group-item" href="../program/test2.html#variable-idx~6">idx</a>
+            <a class="list-group-item" href="../program/test2.html#variable-real_kind_str">real_kind_str</a>
+            <a class="list-group-item" href="../program/test2.html#variable-color">color</a>
+            <a class="list-group-item" href="../program/test2.html#variable-ylim">ylim</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/test2.html#proc-func~2">func</a>
+            <a class="list-group-item" href="../program/test2.html#proc-deriv">deriv</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/test2.html#proc-my_func~2">my_func</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/test2.html#src">test2</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></li>
+                  <li class="list-inline-item"><a href='../module/numdiff_kinds_module.html'>numdiff_kinds_module</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
+                  <li class="list-inline-item">pyplot_module</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~test2~~UsesGraph Pages: 1 -->
+<svg id="programtest2UsesGraph" width="641pt" height="148pt"
+ viewBox="0.00 0.00 641.00 147.61" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test2~~UsesGraph" class="graph" transform="scale(1.47 1.47) rotate(0) translate(4 212.93)">
+<title>program~~test2~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-212.93 938,-212.93 938,4 -4,4"/>
+<!-- program~test2 -->
+<g id="program~~test2~~UsesGraph_node1" class="node">
+<title>program~test2</title>
+<polygon fill="none" stroke="black" points="934,-132.65 880,-132.65 880,-108.65 934,-108.65 934,-132.65"/>
+<text text-anchor="middle" x="907" y="-118.25" font-family="Helvetica,sans-Serif" font-size="10.50">test2</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~test2~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-72.65 0,-72.65 0,-48.65 94,-48.65 94,-72.65"/>
+<text text-anchor="middle" x="47" y="-58.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</g>
+<!-- program~test2&#45;&gt;iso_fortran_env -->
+<g id="program~~test2~~UsesGraph_edge1" class="edge">
+<title>program~test2&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-198.65C294.62,-183.24 269.58,-224.13 197.5,-198.65"/>
+</g>
+<!-- module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_node3" class="node">
+<title>module~numdiff_kinds_module</title>
+<g id="a_program~~test2~~UsesGraph_node3"><a xlink:href=".././module/numdiff_kinds_module.html" xlink:title="numdiff_kinds_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="263,-72.65 130,-72.65 130,-48.65 263,-48.65 263,-72.65"/>
+<text text-anchor="middle" x="196.5" y="-58.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_kinds_module</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge2" class="edge">
+<title>program~test2&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.72,-130.68C801.81,-159.08 565.4,-235.7 371.5,-198.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-198.65C298.63,-184.07 238.66,-115.81 212.12,-81.08"/>
+<polygon fill="#000000" stroke="#000000" points="214.89,-78.94 206.11,-73.02 209.28,-83.13 214.89,-78.94"/>
+</g>
+<!-- module~numerical_differentiation_module -->
+<g id="program~~test2~~UsesGraph_node4" class="node">
+<title>module~numerical_differentiation_module</title>
+<g id="a_program~~test2~~UsesGraph_node4"><a xlink:href=".././module/numerical_differentiation_module.html" xlink:title="numerical_differentiation_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="844,-132.65 651,-132.65 651,-108.65 844,-108.65 844,-132.65"/>
+<text text-anchor="middle" x="747.5" y="-118.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;module~numerical_differentiation_module -->
+<g id="program~~test2~~UsesGraph_edge3" class="edge">
+<title>program~test2&#45;&gt;module~numerical_differentiation_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.99,-120.65C872.48,-120.65 863.79,-120.65 854.53,-120.65"/>
+<polygon fill="#000000" stroke="#000000" points="854.28,-117.15 844.28,-120.65 854.28,-124.15 854.28,-117.15"/>
+</g>
+<!-- pyplot_module -->
+<g id="program~~test2~~UsesGraph_node5" class="node">
+<title>pyplot_module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="793,-90.65 702,-90.65 702,-66.65 793,-66.65 793,-90.65"/>
+<text text-anchor="middle" x="747.5" y="-76.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pyplot_module</text>
+</g>
+<!-- program~test2&#45;&gt;pyplot_module -->
+<g id="program~~test2~~UsesGraph_edge4" class="edge">
+<title>program~test2&#45;&gt;pyplot_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.95,-111.12C868.94,-107.28 855.93,-102.98 844,-99.65 830.97,-96.03 816.8,-92.62 803.46,-89.65"/>
+<polygon fill="#000000" stroke="#000000" points="803.97,-86.18 793.45,-87.47 802.47,-93.02 803.97,-86.18"/>
+</g>
+<!-- module~numdiff_kinds_module&#45;&gt;iso_fortran_env -->
+<g id="program~~test2~~UsesGraph_edge5" class="edge">
+<title>module~numdiff_kinds_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.95,-60.65C121.41,-60.65 112.73,-60.65 104.37,-60.65"/>
+<polygon fill="#000000" stroke="#000000" points="104.35,-57.15 94.35,-60.65 104.35,-64.15 104.35,-57.15"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;iso_fortran_env -->
+<g id="program~~test2~~UsesGraph_edge6" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-160.65C435.52,-165.24 408.32,-171.8 299,-184.65 253.77,-189.97 240.75,-212.91 197.5,-198.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.5,-198.65C134.15,-176.97 84.24,-114.22 61.42,-81.33"/>
+<polygon fill="#000000" stroke="#000000" points="64.22,-79.22 55.72,-72.9 58.43,-83.14 64.22,-79.22"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge10" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-80.65C469.09,-68.73 448.33,-89.44 371.5,-80.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-80.65C337.97,-77.05 303.2,-73.02 273.21,-69.52"/>
+<polygon fill="#000000" stroke="#000000" points="273.58,-66.04 263.24,-68.36 272.77,-72.99 273.58,-66.04"/>
+</g>
+<!-- module~diff_module -->
+<g id="program~~test2~~UsesGraph_node6" class="node">
+<title>module~diff_module</title>
+<g id="a_program~~test2~~UsesGraph_node6"><a xlink:href=".././module/diff_module.html" xlink:title="diff_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="408.5,-132.65 332.5,-132.65 332.5,-108.65 408.5,-108.65 408.5,-132.65"/>
+<text text-anchor="middle" x="370.5" y="-118.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diff_module</text>
+</a>
+</g>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~diff_module -->
+<g id="program~~test2~~UsesGraph_edge7" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~diff_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M705.8,-132.73C665.9,-143.64 603.13,-158.34 547.5,-160.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-160.65C498.57,-162.61 446.23,-148.23 411.33,-136.18"/>
+<polygon fill="#000000" stroke="#000000" points="412.12,-132.74 401.52,-132.69 409.77,-139.34 412.12,-132.74"/>
+</g>
+<!-- module~dsm_module -->
+<g id="program~~test2~~UsesGraph_node7" class="node">
+<title>module~dsm_module</title>
+<g id="a_program~~test2~~UsesGraph_node7"><a xlink:href=".././module/dsm_module.html" xlink:title="dsm_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="587,-132.65 506,-132.65 506,-108.65 587,-108.65 587,-132.65"/>
+<text text-anchor="middle" x="546.5" y="-118.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module</text>
+</a>
+</g>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~dsm_module -->
+<g id="program~~test2~~UsesGraph_edge8" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~dsm_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M650.79,-120.65C632.33,-120.65 613.7,-120.65 597.43,-120.65"/>
+<polygon fill="#000000" stroke="#000000" points="597.12,-117.15 587.12,-120.65 597.12,-124.15 597.12,-117.15"/>
+</g>
+<!-- module~numdiff_cache_module -->
+<g id="program~~test2~~UsesGraph_node8" class="node">
+<title>module~numdiff_cache_module</title>
+<g id="a_program~~test2~~UsesGraph_node8"><a xlink:href=".././module/numdiff_cache_module.html" xlink:title="numdiff_cache_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="615,-52.65 478,-52.65 478,-28.65 615,-28.65 615,-52.65"/>
+<text text-anchor="middle" x="546.5" y="-38.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_cache_module</text>
+</a>
+</g>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_cache_module -->
+<g id="program~~test2~~UsesGraph_edge9" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_cache_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M672.88,-108.63C665.29,-106.17 657.85,-103.22 651,-99.65 631.74,-89.65 633.45,-78.09 615,-66.65 609.05,-62.97 602.49,-59.65 595.86,-56.72"/>
+<polygon fill="#000000" stroke="#000000" points="596.75,-53.3 586.18,-52.7 594.07,-59.77 596.75,-53.3"/>
+</g>
+<!-- module~numdiff_utilities_module -->
+<g id="program~~test2~~UsesGraph_node9" class="node">
+<title>module~numdiff_utilities_module</title>
+<g id="a_program~~test2~~UsesGraph_node9"><a xlink:href=".././module/numdiff_utilities_module.html" xlink:title="numdiff_utilities_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="442,-52.65 299,-52.65 299,-28.65 442,-28.65 442,-52.65"/>
+<text text-anchor="middle" x="370.5" y="-38.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_utilities_module</text>
+</a>
+</g>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_utilities_module -->
+<g id="program~~test2~~UsesGraph_edge11" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_utilities_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M693.09,-108.6C653.16,-99.91 597.12,-88.4 547.5,-80.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-80.65C504.94,-74.33 459.78,-63.84 425.64,-55.19"/>
+<polygon fill="#000000" stroke="#000000" points="426.42,-51.78 415.86,-52.69 424.68,-58.56 426.42,-51.78"/>
+</g>
+<!-- module~diff_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge12" class="edge">
+<title>module~diff_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M334.69,-108.51C307.79,-99.13 270.39,-86.08 241.43,-75.98"/>
+<polygon fill="#000000" stroke="#000000" points="242.56,-72.66 231.96,-72.68 240.25,-79.27 242.56,-72.66"/>
+</g>
+<!-- module~dsm_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge13" class="edge">
+<title>module~dsm_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M505.86,-108.86C470.87,-99.1 418.31,-86 371.5,-80.65"/>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;iso_fortran_env -->
+<g id="program~~test2~~UsesGraph_edge14" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M511.36,-28.55C476.65,-17.26 421.08,-1.96 371.5,-0.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-0.65C270.3,1.96 156.7,-26.96 94.6,-45.57"/>
+<polygon fill="#000000" stroke="#000000" points="93.27,-42.32 84.72,-48.58 95.31,-49.02 93.27,-42.32"/>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge15" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-0.65C316.47,0.74 259.1,-25.45 225.83,-43.67"/>
+<polygon fill="#000000" stroke="#000000" points="224.12,-40.62 217.11,-48.57 227.55,-46.73 224.12,-40.62"/>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;module~numdiff_utilities_module -->
+<g id="program~~test2~~UsesGraph_edge16" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;module~numdiff_utilities_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.73,-40.65C469.45,-40.65 460.93,-40.65 452.49,-40.65"/>
+<polygon fill="#000000" stroke="#000000" points="452.25,-37.15 442.25,-40.65 452.24,-44.15 452.25,-37.15"/>
+</g>
+<!-- module~numdiff_utilities_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="program~~test2~~UsesGraph_edge17" class="edge">
+<title>module~numdiff_utilities_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.55,-48.9C290.19,-49.88 281.64,-50.87 273.22,-51.85"/>
+<polygon fill="#000000" stroke="#000000" points="272.57,-48.4 263.05,-53.03 273.38,-55.35 272.57,-48.4"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramtest2UsesGraph = svgPanZoom('#programtest2UsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Test2 for the numerical differentiation module.
+Makes a plot of the errors using different methods and step sizes.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~test2~~CallsGraph Pages: 1 -->
+<svg id="programtest2CallsGraph" width="641pt" height="130pt"
+ viewBox="0.00 0.00 641.00 130.18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test2~~CallsGraph" class="graph" transform="scale(2.83 2.83) rotate(0) translate(4 364)">
+<title>program~~test2~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-364 1808,-364 1808,4 -4,4"/>
+<!-- program~test2 -->
+<g id="program~~test2~~CallsGraph_node1" class="node">
+<title>program~test2</title>
+<polygon fill="none" stroke="black" points="54,-192 0,-192 0,-168 54,-168 54,-192"/>
+<text text-anchor="middle" x="27" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50">test2</text>
+</g>
+<!-- add_plot -->
+<g id="program~~test2~~CallsGraph_node2" class="node">
+<title>add_plot</title>
+<polygon fill="#777777" stroke="#777777" points="316,-360 258,-360 258,-336 316,-336 316,-360"/>
+<text text-anchor="middle" x="287" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_plot</text>
+</g>
+<!-- program~test2&#45;&gt;add_plot -->
+<g id="program~~test2~~CallsGraph_edge1" class="edge">
+<title>program~test2&#45;&gt;add_plot</title>
+<path fill="none" stroke="#000000" d="M29.12,-192.41C32.45,-221.39 45.1,-293.62 90,-327 135.8,-361.04 205.09,-359.65 247.84,-354.54"/>
+<polygon fill="#000000" stroke="#000000" points="248.39,-357.99 257.85,-353.21 247.48,-351.05 248.39,-357.99"/>
+</g>
+<!-- initialize -->
+<g id="program~~test2~~CallsGraph_node3" class="node">
+<title>initialize</title>
+<polygon fill="#777777" stroke="#777777" points="315.5,-318 258.5,-318 258.5,-294 315.5,-294 315.5,-318"/>
+<text text-anchor="middle" x="287" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">initialize</text>
+</g>
+<!-- program~test2&#45;&gt;initialize -->
+<g id="program~~test2~~CallsGraph_edge2" class="edge">
+<title>program~test2&#45;&gt;initialize</title>
+<path fill="none" stroke="#000000" d="M31.28,-192.28C38.04,-214.94 55.83,-263 90,-285 137.88,-315.83 206.32,-315.45 248.37,-311.41"/>
+<polygon fill="#000000" stroke="#000000" points="248.9,-314.88 258.46,-310.32 248.15,-307.92 248.9,-314.88"/>
+</g>
+<!-- proc~compute_jacobian -->
+<g id="program~~test2~~CallsGraph_node4" class="node">
+<title>proc~compute_jacobian</title>
+<g id="a_program~~test2~~CallsGraph_node4"><a xlink:href=".././proc/compute_jacobian.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian">
+<polygon fill="#d9534f" stroke="#d9534f" points="476,-276 98,-276 98,-252 476,-252 476,-276"/>
+<text text-anchor="middle" x="287" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~compute_jacobian -->
+<g id="program~~test2~~CallsGraph_edge3" class="edge">
+<title>program~test2&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M35.97,-192.19C46.42,-207.03 66.23,-231.52 90,-243 94.1,-244.98 98.3,-246.81 102.58,-248.5"/>
+<polygon fill="#000000" stroke="#000000" points="101.48,-251.83 112.08,-251.99 103.89,-245.26 101.48,-251.83"/>
+</g>
+<!-- proc~deriv -->
+<g id="program~~test2~~CallsGraph_node5" class="node">
+<title>proc~deriv</title>
+<g id="a_program~~test2~~CallsGraph_node5"><a xlink:href=".././proc/deriv.html" xlink:title="test2::deriv">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="323.5,-234 250.5,-234 250.5,-210 323.5,-210 323.5,-234"/>
+<text text-anchor="middle" x="287" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2::deriv</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~deriv -->
+<g id="program~~test2~~CallsGraph_edge4" class="edge">
+<title>program~test2&#45;&gt;proc~deriv</title>
+<path fill="none" stroke="#000000" d="M54.19,-190.3C65.11,-194.21 78.01,-198.36 90,-201 140.73,-212.17 200.21,-217.47 240.22,-219.94"/>
+<polygon fill="#000000" stroke="#000000" points="240.03,-223.44 250.21,-220.53 240.43,-216.45 240.03,-223.44"/>
+</g>
+<!-- proc~destroy_numdiff_type -->
+<g id="program~~test2~~CallsGraph_node6" class="node">
+<title>proc~destroy_numdiff_type</title>
+<g id="a_program~~test2~~CallsGraph_node6"><a xlink:href=".././proc/destroy_numdiff_type.html" xlink:title="numerical_differentiation_module::numdiff_type%destroy_numdiff_type">
+<polygon fill="#d9534f" stroke="#d9534f" points="484,-192 90,-192 90,-168 484,-168 484,-192"/>
+<text text-anchor="middle" x="287" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%destroy_numdiff_type</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~destroy_numdiff_type -->
+<g id="program~~test2~~CallsGraph_edge5" class="edge">
+<title>program~test2&#45;&gt;proc~destroy_numdiff_type</title>
+<path fill="none" stroke="#000000" d="M54.16,-180C61.53,-180 70.17,-180 79.7,-180"/>
+<polygon fill="#000000" stroke="#000000" points="79.94,-183.5 89.94,-180 79.94,-176.5 79.94,-183.5"/>
+</g>
+<!-- proc~failed -->
+<g id="program~~test2~~CallsGraph_node7" class="node">
+<title>proc~failed</title>
+<g id="a_program~~test2~~CallsGraph_node7"><a xlink:href=".././proc/failed.html" xlink:title="numerical_differentiation_module::numdiff_type%failed">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="442,-150 132,-150 132,-126 442,-126 442,-150"/>
+<text text-anchor="middle" x="287" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%failed</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~failed -->
+<g id="program~~test2~~CallsGraph_edge6" class="edge">
+<title>program~test2&#45;&gt;proc~failed</title>
+<path fill="none" stroke="#000000" d="M54.19,-169.7C65.11,-165.79 78.01,-161.64 90,-159 102.98,-156.14 116.53,-153.67 130.17,-151.53"/>
+<polygon fill="#000000" stroke="#000000" points="130.76,-154.98 140.12,-150.03 129.71,-148.06 130.76,-154.98"/>
+</g>
+<!-- proc~get_error_status -->
+<g id="program~~test2~~CallsGraph_node8" class="node">
+<title>proc~get_error_status</title>
+<g id="a_program~~test2~~CallsGraph_node8"><a xlink:href=".././proc/get_error_status.html" xlink:title="numerical_differentiation_module::numdiff_type%get_error_status">
+<polygon fill="#d9534f" stroke="#d9534f" points="469.5,-108 104.5,-108 104.5,-84 469.5,-84 469.5,-108"/>
+<text text-anchor="middle" x="287" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%get_error_status</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~get_error_status -->
+<g id="program~~test2~~CallsGraph_edge7" class="edge">
+<title>program~test2&#45;&gt;proc~get_error_status</title>
+<path fill="none" stroke="#000000" d="M35.97,-167.81C46.42,-152.97 66.23,-128.48 90,-117 94.1,-115.02 98.3,-113.19 102.58,-111.5"/>
+<polygon fill="#000000" stroke="#000000" points="103.89,-114.74 112.08,-108.01 101.48,-108.17 103.89,-114.74"/>
+</g>
+<!-- proc~get_finite_diff_formula -->
+<g id="program~~test2~~CallsGraph_node9" class="node">
+<title>proc~get_finite_diff_formula</title>
+<g id="a_program~~test2~~CallsGraph_node9"><a xlink:href=".././proc/get_finite_diff_formula.html" xlink:title="numerical_differentiation_module::get_finite_diff_formula">
+<polygon fill="#d9534f" stroke="#d9534f" points="446.5,-66 127.5,-66 127.5,-42 446.5,-42 446.5,-66"/>
+<text text-anchor="middle" x="287" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::get_finite_diff_formula</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~get_finite_diff_formula -->
+<g id="program~~test2~~CallsGraph_edge8" class="edge">
+<title>program~test2&#45;&gt;proc~get_finite_diff_formula</title>
+<path fill="none" stroke="#000000" d="M31.28,-167.72C38.04,-145.06 55.83,-97 90,-75 98.72,-69.38 108.13,-64.8 117.93,-61.09"/>
+<polygon fill="#000000" stroke="#000000" points="119.14,-64.38 127.44,-57.79 116.85,-57.76 119.14,-64.38"/>
+</g>
+<!-- savefig -->
+<g id="program~~test2~~CallsGraph_node10" class="node">
+<title>savefig</title>
+<polygon fill="#777777" stroke="#777777" points="314,-24 260,-24 260,0 314,0 314,-24"/>
+<text text-anchor="middle" x="287" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">savefig</text>
+</g>
+<!-- program~test2&#45;&gt;savefig -->
+<g id="program~~test2~~CallsGraph_edge9" class="edge">
+<title>program~test2&#45;&gt;savefig</title>
+<path fill="none" stroke="#000000" d="M29.12,-167.59C32.45,-138.61 45.1,-66.38 90,-33 136.56,1.61 207.4,-0.41 249.95,-5.72"/>
+<polygon fill="#000000" stroke="#000000" points="249.49,-9.19 259.87,-7.08 250.44,-2.26 249.49,-9.19"/>
+</g>
+<!-- proc~compute_perturbation_vector -->
+<g id="program~~test2~~CallsGraph_node11" class="node">
+<title>proc~compute_perturbation_vector</title>
+<g id="a_program~~test2~~CallsGraph_node11"><a xlink:href=".././proc/compute_perturbation_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_perturbation_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="958,-296 520,-296 520,-272 958,-272 958,-296"/>
+<text text-anchor="middle" x="739" y="-281.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_perturbation_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector -->
+<g id="program~~test2~~CallsGraph_edge10" class="edge">
+<title>proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector</title>
+<path fill="none" stroke="#000000" d="M476.23,-272.37C487.3,-272.86 498.48,-273.35 509.68,-273.85"/>
+<polygon fill="#000000" stroke="#000000" points="509.82,-277.36 519.96,-274.31 510.13,-270.37 509.82,-277.36"/>
+</g>
+<!-- proc~raise_exception -->
+<g id="program~~test2~~CallsGraph_node14" class="node">
+<title>proc~raise_exception</title>
+<g id="a_program~~test2~~CallsGraph_node14"><a xlink:href=".././proc/raise_exception.html" xlink:title="numerical_differentiation_module::numdiff_type%raise_exception">
+<polygon fill="#d9534f" stroke="#d9534f" points="1804,-276 1441,-276 1441,-252 1804,-252 1804,-276"/>
+<text text-anchor="middle" x="1622.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%raise_exception</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian&#45;&gt;proc~raise_exception -->
+<g id="program~~test2~~CallsGraph_edge11" class="edge">
+<title>proc~compute_jacobian&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M476.03,-263.12C490.91,-263.07 505.7,-263.03 520,-263 913.33,-262.15 1011.67,-262.09 1405,-263 1413.37,-263.02 1421.93,-263.04 1430.58,-263.07"/>
+<polygon fill="#000000" stroke="#000000" points="1430.75,-266.57 1440.76,-263.1 1430.77,-259.57 1430.75,-266.57"/>
+</g>
+<!-- proc~get_finite_difference_method -->
+<g id="program~~test2~~CallsGraph_node12" class="node">
+<title>proc~get_finite_difference_method</title>
+<g id="a_program~~test2~~CallsGraph_node12"><a xlink:href=".././proc/get_finite_difference_method.html" xlink:title="numerical_differentiation_module::get_finite_difference_method">
+<polygon fill="#d9534f" stroke="#d9534f" points="916.5,-87 561.5,-87 561.5,-63 916.5,-63 916.5,-87"/>
+<text text-anchor="middle" x="739" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::get_finite_difference_method</text>
+</a>
+</g>
+</g>
+<!-- proc~get_finite_diff_formula&#45;&gt;proc~get_finite_difference_method -->
+<g id="program~~test2~~CallsGraph_edge12" class="edge">
+<title>proc~get_finite_diff_formula&#45;&gt;proc~get_finite_difference_method</title>
+<path fill="none" stroke="#000000" d="M446.65,-61.4C480.39,-62.98 516.32,-64.65 551,-66.27"/>
+<polygon fill="#000000" stroke="#000000" points="551.08,-69.78 561.24,-66.75 551.41,-62.79 551.08,-69.78"/>
+</g>
+<!-- proc~get_formula -->
+<g id="program~~test2~~CallsGraph_node13" class="node">
+<title>proc~get_formula</title>
+<g id="a_program~~test2~~CallsGraph_node13"><a xlink:href=".././proc/get_formula.html" xlink:title="numerical_differentiation_module::finite_diff_method%get_formula">
+<polygon fill="#d9534f" stroke="#d9534f" points="924,-45 554,-45 554,-21 924,-21 924,-45"/>
+<text text-anchor="middle" x="739" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::finite_diff_method%get_formula</text>
+</a>
+</g>
+</g>
+<!-- proc~get_finite_diff_formula&#45;&gt;proc~get_formula -->
+<g id="program~~test2~~CallsGraph_edge13" class="edge">
+<title>proc~get_finite_diff_formula&#45;&gt;proc~get_formula</title>
+<path fill="none" stroke="#000000" d="M446.65,-46.6C478.07,-45.13 511.38,-43.58 543.82,-42.06"/>
+<polygon fill="#000000" stroke="#000000" points="544.03,-45.56 553.86,-41.59 543.71,-38.56 544.03,-45.56"/>
+</g>
+<!-- proc~compute_perturb_vector -->
+<g id="program~~test2~~CallsGraph_node15" class="node">
+<title>proc~compute_perturb_vector</title>
+<g id="a_program~~test2~~CallsGraph_node15"><a xlink:href=".././proc/compute_perturb_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_perturb_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1405,-296 994,-296 994,-272 1405,-272 1405,-296"/>
+<text text-anchor="middle" x="1199.5" y="-281.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_perturb_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector -->
+<g id="program~~test2~~CallsGraph_edge14" class="edge">
+<title>proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector</title>
+<path fill="none" stroke="#000000" d="M958.17,-284C966.72,-284 975.28,-284 983.82,-284"/>
+<polygon fill="#000000" stroke="#000000" points="983.83,-287.5 993.83,-284 983.83,-280.5 983.83,-287.5"/>
+</g>
+<!-- proc~integer_to_string -->
+<g id="program~~test2~~CallsGraph_node16" class="node">
+<title>proc~integer_to_string</title>
+<g id="a_program~~test2~~CallsGraph_node16"><a xlink:href=".././proc/integer_to_string.html" xlink:title="numerical_differentiation_module::integer_to_string">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1344,-45 1055,-45 1055,-21 1344,-21 1344,-45"/>
+<text text-anchor="middle" x="1199.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::integer_to_string</text>
+</a>
+</g>
+</g>
+<!-- proc~get_formula&#45;&gt;proc~integer_to_string -->
+<g id="program~~test2~~CallsGraph_edge15" class="edge">
+<title>proc~get_formula&#45;&gt;proc~integer_to_string</title>
+<path fill="none" stroke="#000000" d="M924.18,-33C964.06,-33 1005.84,-33 1044.43,-33"/>
+<polygon fill="#000000" stroke="#000000" points="1044.69,-36.5 1054.69,-33 1044.69,-29.5 1044.69,-36.5"/>
+</g>
+<!-- proc~compute_perturb_vector&#45;&gt;proc~raise_exception -->
+<g id="program~~test2~~CallsGraph_edge16" class="edge">
+<title>proc~compute_perturb_vector&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1405.14,-274.28C1413.72,-273.87 1422.31,-273.46 1430.85,-273.06"/>
+<polygon fill="#000000" stroke="#000000" points="1431.03,-276.55 1440.86,-272.58 1430.7,-269.56 1431.03,-276.55"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramtest2CallsGraph = svgPanZoom('#programtest2CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~27"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                <p>number of variables</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~15"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                <p>number of functions</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~37"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter,               dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+<td> =</td>
+                <td>1.0_wp</td>
+            <td>
+                <p>point at which to compute the derivative</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xlow~8"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter,               dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>xlow</strong></td>
+<td> =</td>
+                <td>-100000.0_wp</td>
+            <td>
+                <p>bounds not really needed</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xhigh~9"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter,               dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>xhigh</strong></td>
+<td> =</td>
+                <td>100000.0_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-perturb_mode~3"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>perturb_mode</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                <p>absolute step</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cache_size~4"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>cache_size</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                <p><code>0</code> indicates not to use cache</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sparsity_mode~4"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>sparsity_mode</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                <p>assume dense</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-methods~2"></span>
+              integer,
+            </td>
+            <td>
+parameter,               dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>methods</strong></td>
+<td> =</td>
+                <td>[1, 3, 10, 21, 36, 500, 600, 700, 800]</td>
+            <td>
+                <p>array of method IDs:
+[1,3,10,21,36,500,600,700,800]
+forward + all the central diff ones</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exp_star"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>exp_star</strong></td>
+<td> =</td>
+                <td>-ceiling(log10(epsilon(1.0_wp)))</td>
+            <td>
+                <p>exponent to start with</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exp_stop"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>exp_stop</strong></td>
+<td> =</td>
+                <td>-2</td>
+            <td>
+                <p>exponent to end with</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exp_step"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>exp_step</strong></td>
+<td> =</td>
+                <td>-1</td>
+            <td>
+                <p>ecponent step</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exp_scale"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>exp_scale</strong></td>
+<td> =</td>
+                <td>5</td>
+            <td>
+                <p>number of substeps from one to the next</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-my_prob"></span>
+              type(<a href='../type/numdiff_type.html'>numdiff_type</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>my_prob</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>main class to compute the derivatives</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~39"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>method counter</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~13"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>counter</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jac~10"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>jac</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>jacobian</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-func_evals~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>func_evals</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>function evaluation counter</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-error_msg~5"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>error_msg</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>error message string</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpert~3"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(n)
+            </td>
+            <td>::</td>
+            <td><strong>dpert</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>perturbation step size</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipert"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipert</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>perturbation step size counter</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-error~3"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>error</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>diff from true derivative</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-num_dperts"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num_dperts</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>number of dperts to test</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-num_methods"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num_methods</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>number of methods to test</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-results_dpert"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>results_dpert</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>results array - dpert</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-results_errors"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(:), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>results_errors</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>results array - errors</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-plt"></span>
+              type(pyplot)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>plt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>for plotting the results</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-formula~2"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>formula</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>finite diff formula for the plot legend</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name~3"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>finite diff name for the plot legend</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx~6"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>index in results arrays</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-real_kind_str"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>real_kind_str</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>real kind for the plot title</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-color"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(3)
+            </td>
+            <td>::</td>
+            <td><strong>color</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>line color array</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ylim"></span>
+              real(kind=wp),
+            </td>
+            <td>
+              dimension(2)
+            </td>
+            <td>::</td>
+            <td><strong>ylim</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>plot y limit array</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-func~2"></span><h3> function <a href='../proc/func~2.html'>func</a>(x)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Problem function</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~50"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=wp)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-deriv"></span><h3> function <a href='../proc/deriv.html'>deriv</a>(x)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Problem function true derivative</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~51"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=wp)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-my_func~2"></span><h3> subroutine <a href='../proc/my_func~2.html'>my_func</a>(me, x, f, funcs_to_compute)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Problem function interface for numdiff</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~98"></span>
+              class(<a href='../type/numdiff_type.html'>numdiff_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~52"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~26"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-funcs_to_compute~4"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>funcs_to_compute</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">program </span><span class="n">test2</span>
+
+<span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span>
+<span class="w">    </span><span class="k">use </span><span class="n">numerical_differentiation_module</span>
+<span class="w">    </span><span class="k">use </span><span class="n">numdiff_kinds_module</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span>
+<span class="w">    </span><span class="k">use </span><span class="n">pyplot_module</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">!! number of variables</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">!! number of functions</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="c">!! point at which to compute the derivative</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xlow</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10000</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="c">!! bounds not really needed</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">xhigh</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">10000</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="c">!!</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">perturb_mode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">!! absolute step</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cache_size</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c">!! `0` indicates not to use cache</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">sparsity_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">!! assume dense</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">800</span><span class="p">]</span>
+<span class="w">                                                </span><span class="c">!! array of method IDs:</span>
+<span class="w">                                                </span><span class="c">!! [1,3,10,21,36,500,600,700,800]</span>
+<span class="w">                                                </span><span class="c">!! forward + all the central diff ones</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">exp_star</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nb">ceiling</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)))</span><span class="w"> </span><span class="c">!! exponent to start with</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">exp_stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">!! exponent to end with</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">exp_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="c">!! ecponent step</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">exp_scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c">!! number of substeps from one to the next</span>
+
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">numdiff_type</span><span class="p">)</span><span class="w">                  </span><span class="kd">::</span><span class="w"> </span><span class="n">my_prob</span><span class="w">          </span><span class="c">!! main class to compute the derivatives</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w">                </span><span class="c">!! method counter</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">j</span><span class="w">                </span><span class="c">!! counter</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">jac</span><span class="w">              </span><span class="c">!! jacobian</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">func_evals</span><span class="w">       </span><span class="c">!! function evaluation counter</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">error_msg</span><span class="w">        </span><span class="c">!! error message string</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">dpert</span><span class="w">            </span><span class="c">!! perturbation step size</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">ipert</span><span class="w">            </span><span class="c">!! perturbation step size counter</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w">                            </span><span class="kd">::</span><span class="w"> </span><span class="n">error</span><span class="w">            </span><span class="c">!! diff from true derivative</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">num_dperts</span><span class="w">       </span><span class="c">!! number of dperts to test</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">num_methods</span><span class="w">      </span><span class="c">!! number of methods to test</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">results_dpert</span><span class="w">    </span><span class="c">!! results array - dpert</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">results_errors</span><span class="w">   </span><span class="c">!! results array - errors</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">pyplot</span><span class="p">)</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">plt</span><span class="w">              </span><span class="c">!! for plotting the results</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">formula</span><span class="w">          </span><span class="c">!! finite diff formula for the plot legend</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w">             </span><span class="c">!! finite diff name for the plot legend</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">                             </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span><span class="w">              </span><span class="c">!! index in results arrays</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">real_kind_str</span><span class="w">    </span><span class="c">!! real kind for the plot title</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">color</span><span class="w">            </span><span class="c">!! line color array</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">ylim</span><span class="w">             </span><span class="c">!! plot y limit array</span>
+
+<span class="w">    </span><span class="c">! size the arrays:</span>
+<span class="w">    </span><span class="n">num_methods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
+<span class="w">    </span><span class="n">num_dperts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">([(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp_star</span><span class="o">*</span><span class="n">exp_scale</span><span class="p">,</span><span class="w"> </span><span class="n">exp_stop</span><span class="o">*</span><span class="n">exp_scale</span><span class="p">,</span><span class="w"> </span><span class="n">exp_step</span><span class="p">)])</span>
+<span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">results_errors</span><span class="p">(</span><span class="n">num_dperts</span><span class="p">));</span><span class="w"> </span><span class="n">results_errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nb">huge</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! for plot title:</span>
+<span class="w">    </span><span class="k">select case</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="n">REAL32</span><span class="p">);</span><span class="w">  </span><span class="n">real_kind_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[Single Precision]&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="n">REAL64</span><span class="p">);</span><span class="w">  </span><span class="n">real_kind_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[Double Precision]&#39;</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="n">REAL128</span><span class="p">);</span><span class="w"> </span><span class="n">real_kind_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[Quad Precision]&#39;</span>
+<span class="w">        </span><span class="k">case </span><span class="n">default</span><span class="p">;</span><span class="w"> </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;Invalid real kind&#39;</span>
+<span class="w">    </span><span class="k">end select</span>
+
+<span class="w">    </span><span class="c">! initialize the plot:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">plt</span><span class="p">%</span><span class="n">initialize</span><span class="p">(</span><span class="n">grid</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.,&amp;</span>
+<span class="w">                        </span><span class="n">figsize</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">],&amp;</span>
+<span class="w">                        </span><span class="n">axes_labelsize</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="n">xtick_labelsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="n">ytick_labelsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="n">font_size</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="n">xlabel</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Finite Difference Perturbation Step Size $h$&#39;</span><span class="p">,&amp;</span>
+<span class="w">                        </span><span class="n">ylabel</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Finite Difference Derivative Error&#39;</span><span class="p">,&amp;</span>
+<span class="w">                        </span><span class="n">title</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Derivative of $x + \sin(x)$ at $x=1$ &#39;</span><span class="o">//</span><span class="n">real_kind_str</span><span class="p">,&amp;</span>
+<span class="w">                        </span><span class="n">legend</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="n">legend_fontsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,&amp;</span>
+<span class="w">                        </span><span class="n">usetex</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+
+<span class="w">    </span><span class="c">! try different finite diff methods</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">methods</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w">  </span><span class="c">! method id</span>
+<span class="w">        </span><span class="k">call </span><span class="n">get_finite_diff_formula</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">formula</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! cycle through perturbation step sizes:</span>
+<span class="w">        </span><span class="k">do </span><span class="n">ipert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp_star</span><span class="o">*</span><span class="n">exp_scale</span><span class="p">,</span><span class="w"> </span><span class="n">exp_stop</span><span class="o">*</span><span class="n">exp_scale</span><span class="p">,</span><span class="w"> </span><span class="n">exp_step</span>
+
+<span class="w">            </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! index for arrays</span>
+<span class="w">            </span><span class="n">dpert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">ipert</span><span class="o">/</span><span class="kt">real</span><span class="p">(</span><span class="n">exp_scale</span><span class="p">,</span><span class="n">wp</span><span class="p">))</span><span class="w"> </span><span class="c">! compute perturbation step size</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">results_dpert</span><span class="p">))</span><span class="w"> </span><span class="k">allocate</span><span class="p">(</span><span class="n">results_dpert</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">                </span><span class="n">results_dpert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">results_dpert</span><span class="p">,</span><span class="w"> </span><span class="n">dpert</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! save dpert</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">            </span><span class="n">func_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="k">call </span><span class="n">my_prob</span><span class="p">%</span><span class="n">destroy</span><span class="p">()</span>
+<span class="w">            </span><span class="k">call </span><span class="n">my_prob</span><span class="p">%</span><span class="n">initialize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">xlow</span><span class="p">,</span><span class="n">xhigh</span><span class="p">,</span><span class="n">perturb_mode</span><span class="p">,</span><span class="n">dpert</span><span class="p">,&amp;</span>
+<span class="w">                                    </span><span class="n">problem_func</span><span class="o">=</span><span class="n">my_func</span><span class="p">,&amp;</span>
+<span class="w">                                    </span><span class="n">sparsity_mode</span><span class="o">=</span><span class="n">sparsity_mode</span><span class="p">,&amp;</span>
+<span class="w">                                    </span><span class="n">jacobian_method</span><span class="o">=</span><span class="n">i</span><span class="p">,&amp;</span>
+<span class="w">                                    </span><span class="n">partition_sparsity_pattern</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,&amp;</span>
+<span class="w">                                    </span><span class="n">cache_size</span><span class="o">=</span><span class="n">cache_size</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">my_prob</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                call </span><span class="n">my_prob</span><span class="p">%</span><span class="n">get_error_status</span><span class="p">(</span><span class="n">error_msg</span><span class="o">=</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">error stop </span><span class="n">error_msg</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">            call </span><span class="n">my_prob</span><span class="p">%</span><span class="n">compute_jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">my_prob</span><span class="p">%</span><span class="n">failed</span><span class="p">())</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                call </span><span class="n">my_prob</span><span class="p">%</span><span class="n">get_error_status</span><span class="p">(</span><span class="n">error_msg</span><span class="o">=</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="w">                </span><span class="k">error stop </span><span class="n">error_msg</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">            </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">deriv</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jac</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">            </span><span class="c">!write(output_unit,&#39;(I5,1X,*(F27.16))&#39;) i , dpert, error</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="o">&lt;=</span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">))</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_wp</span>
+<span class="w">            </span><span class="n">results_errors</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="c">! save result</span>
+
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="w">        </span><span class="c">! line color for the plot:</span>
+<span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">]</span><span class="w"> </span><span class="c">! red</span>
+<span class="w">        </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_wp</span><span class="p">]</span><span class="w"> </span><span class="c">! green</span>
+<span class="w">        </span><span class="k">case </span><span class="n">default</span>
+<span class="w">            </span><span class="c">! blue gradient for the others</span>
+<span class="w">            </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span><span class="o">/</span><span class="n">num_methods</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="kt">real</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">wp</span><span class="p">)</span><span class="o">/</span><span class="n">num_methods</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="mf">0.9_wp</span><span class="p">]</span>
+<span class="w">        </span><span class="k">end select</span>
+<span class="k">        </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="mf">0.0_wp</span><span class="o">**</span><span class="p">(</span><span class="nb">ceiling</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)))),</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="p">]</span>
+
+<span class="w">        </span><span class="c">! plot for this method:</span>
+<span class="w">        </span><span class="k">call </span><span class="n">plt</span><span class="p">%</span><span class="n">add_plot</span><span class="p">(</span><span class="n">results_dpert</span><span class="p">,</span><span class="n">results_errors</span><span class="p">,&amp;</span>
+<span class="w">                          </span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,&amp;</span>
+<span class="w">                          </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">formula</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;.-&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                          </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">,&amp;</span>
+<span class="w">                          </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ylim</span><span class="p">,&amp;</span>
+<span class="w">                          </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ylim</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! save plot:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">plt</span><span class="p">%</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;results &#39;</span><span class="o">//</span><span class="n">real_kind_str</span><span class="o">//</span><span class="s1">&#39;.pdf&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">pyfile</span><span class="o">=</span><span class="s1">&#39;results.py&#39;</span><span class="p">)</span>
+
+<span class="k">contains</span>
+
+<span class="k">    function </span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! Problem function</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">func</span>
+<span class="w">        </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">func</span>
+<span class="w">    </span><span class="k">function </span><span class="n">deriv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! Problem function true derivative</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">deriv</span>
+<span class="w">        </span><span class="n">deriv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">deriv</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">my_func</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">funcs_to_compute</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! Problem function interface for numdiff</span>
+<span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">numdiff_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">funcs_to_compute</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">funcs_to_compute</span><span class="o">==</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">        </span><span class="n">func_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func_evals</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">my_func</span>
+
+<span class="c">!*******************************************************************************</span>
+<span class="w">    </span><span class="k">end program </span><span class="n">test2</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

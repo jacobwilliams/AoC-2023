@@ -1,6 +1,6 @@
 program problem_12
 
-use iso_fortran_env, ip => int64, wp => real64
+use iso_fortran_env
 use aoc_utilities
 
 implicit none

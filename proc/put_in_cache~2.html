@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>put_in_cache &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>put_in_cache
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.3% of total for procedures.">18 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/cache_module.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/cache_module.f90~2.html'>cache_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></li>
+            <li class="breadcrumb-item active" aria-current="page">put_in_cache</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/put_in_cache~2.html#src">put_in_cache</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private  subroutine put_in_cache(me, i, x, f)  
+</h2>
+    
+
+    <p>Put a value into the cache.</p>
+
+    <h3>Type Bound</h3>
+    <p><a href='../type/function_cache.html'>function_cache</a></p>
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~72"></span>
+              class(<a href='../type/function_cache.html'>function_cache</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~49"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+                <p>index in the hash table</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~40"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+                <p>independant variable vector</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~19"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                <p>function</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~put_in_cache~2~~CalledByGraph Pages: 1 -->
+<svg id="procput_in_cache2CalledByGraph" width="641pt" height="183pt"
+ viewBox="0.00 0.00 641.00 183.49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~put_in_cache~2~~CalledByGraph" class="graph" transform="scale(1.23 1.23) rotate(0) translate(4 221)">
+<title>proc~~put_in_cache~2~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-221 782,-221 782,4 -4,4"/>
+<!-- proc~put_in_cache~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node1" class="node">
+<title>proc~put_in_cache~2</title>
+<polygon fill="none" stroke="black" points="778,-129 495,-129 495,-105 778,-105 778,-129"/>
+<text text-anchor="middle" x="636.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">aoc_cache_module::function_cache%put_in_cache</text>
+</g>
+<!-- proc~get_all_pieces_above -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node2" class="node">
+<title>proc~get_all_pieces_above</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node2"><a xlink:href=".././proc/get_all_pieces_above.html" xlink:title="problem_22::get_all_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="459,-199 263,-199 263,-175 459,-175 459,-199"/>
+<text text-anchor="middle" x="361" y="-184.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~put_in_cache~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge1" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M420.09,-175C432.93,-172.18 446.45,-169.1 459,-166 501.57,-155.49 549.49,-142.09 584.64,-131.96"/>
+<polygon fill="#000000" stroke="#000000" points="586.03,-135.2 594.66,-129.06 584.08,-128.47 586.03,-135.2"/>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge5" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M329.58,-199.01C318.61,-207.97 329.09,-217 361,-217 380.95,-217 392.52,-213.47 395.71,-208.64"/>
+<polygon fill="#000000" stroke="#000000" points="398.97,-207.34 392.42,-199.01 392.34,-209.61 398.97,-207.34"/>
+</g>
+<!-- proc~get_all_pieces_below -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node3" class="node">
+<title>proc~get_all_pieces_below</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node3"><a xlink:href=".././proc/get_all_pieces_below.html" xlink:title="problem_22::get_all_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.5,-139 263.5,-139 263.5,-115 458.5,-115 458.5,-139"/>
+<text text-anchor="middle" x="361" y="-124.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~put_in_cache~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge2" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M458.81,-123.46C467.2,-123.15 475.82,-122.84 484.51,-122.52"/>
+<polygon fill="#000000" stroke="#000000" points="484.88,-126.01 494.74,-122.15 484.62,-119.01 484.88,-126.01"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge7" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M329.58,-139.01C318.61,-147.97 329.09,-157 361,-157 380.95,-157 392.52,-153.47 395.71,-148.64"/>
+<polygon fill="#000000" stroke="#000000" points="398.97,-147.34 392.42,-139.01 392.34,-149.61 398.97,-147.34"/>
+</g>
+<!-- proc~go -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node4" class="node">
+<title>proc~go</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node4"><a xlink:href=".././proc/go.html" xlink:title="problem_12b::go">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="412.5,-55 309.5,-55 309.5,-31 412.5,-31 412.5,-55"/>
+<text text-anchor="middle" x="361" y="-40.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b::go</text>
+</a>
+</g>
+</g>
+<!-- proc~go&#45;&gt;proc~put_in_cache~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge3" class="edge">
+<title>proc~go&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M412.53,-53.11C427.55,-56.33 443.99,-60.09 459,-64 475.19,-68.22 478.99,-70.16 495,-75 524.82,-84.01 558.23,-94.01 584.99,-101.98"/>
+<polygon fill="#000000" stroke="#000000" points="584.32,-105.43 594.9,-104.93 586.32,-98.72 584.32,-105.43"/>
+</g>
+<!-- proc~ipoint -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node7" class="node">
+<title>proc~ipoint</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node7"><a xlink:href=".././proc/ipoint.html" xlink:title="problem_12b::ipoint">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="696.5,-66 576.5,-66 576.5,-42 696.5,-42 696.5,-66"/>
+<text text-anchor="middle" x="636.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b::ipoint</text>
+</a>
+</g>
+</g>
+<!-- proc~go&#45;&gt;proc~ipoint -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge14" class="edge">
+<title>proc~go&#45;&gt;proc~ipoint</title>
+<path fill="none" stroke="#000000" d="M412.8,-39.66C455.98,-39.79 518.38,-42.11 566.15,-45.25"/>
+<polygon fill="#000000" stroke="#000000" points="566.2,-48.76 576.41,-45.95 566.68,-41.78 566.2,-48.76"/>
+</g>
+<!-- proc~ipound -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node8" class="node">
+<title>proc~ipound</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node8"><a xlink:href=".././proc/ipound.html" xlink:title="problem_12b::ipound">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="700,-24 573,-24 573,0 700,0 700,-24"/>
+<text text-anchor="middle" x="636.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b::ipound</text>
+</a>
+</g>
+</g>
+<!-- proc~go&#45;&gt;proc~ipound -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge15" class="edge">
+<title>proc~go&#45;&gt;proc~ipound</title>
+<path fill="none" stroke="#000000" d="M412.8,-31.85C454.97,-25.51 515.48,-18.44 562.78,-14.2"/>
+<polygon fill="#000000" stroke="#000000" points="563.31,-17.67 572.97,-13.31 562.7,-10.69 563.31,-17.67"/>
+</g>
+<!-- proc~index_in_queue~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node5" class="node">
+<title>proc~index_in_queue~2</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node5"><a xlink:href=".././proc/index_in_queue~2.html" xlink:title="problem_17::index_in_queue">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="444,-97 278,-97 278,-73 444,-73 444,-97"/>
+<text text-anchor="middle" x="361" y="-82.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17::index_in_queue</text>
+</a>
+</g>
+</g>
+<!-- proc~index_in_queue~2&#45;&gt;proc~put_in_cache~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge4" class="edge">
+<title>proc~index_in_queue~2&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M444.06,-94.6C468.75,-97.49 496.3,-100.71 522.62,-103.79"/>
+<polygon fill="#000000" stroke="#000000" points="522.31,-107.28 532.65,-104.97 523.12,-100.33 522.31,-107.28"/>
+</g>
+<!-- proc~check~3 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node6" class="node">
+<title>proc~check~3</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node6"><a xlink:href=".././proc/check~3.html" xlink:title="problem_17::check">
+<polygon fill="#d9534f" stroke="#d9534f" points="227,-97 112,-97 112,-73 227,-73 227,-97"/>
+<text text-anchor="middle" x="169.5" y="-82.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17::check</text>
+</a>
+</g>
+</g>
+<!-- proc~check~3&#45;&gt;proc~index_in_queue~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge12" class="edge">
+<title>proc~check~3&#45;&gt;proc~index_in_queue~2</title>
+<path fill="none" stroke="#000000" d="M227.1,-85C239.91,-85 253.84,-85 267.7,-85"/>
+<polygon fill="#000000" stroke="#000000" points="267.77,-88.5 277.77,-85 267.77,-81.5 267.77,-88.5"/>
+</g>
+<!-- proc~ipoint&#45;&gt;proc~go -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge9" class="edge">
+<title>proc~ipoint&#45;&gt;proc~go</title>
+<path fill="none" stroke="#000000" d="M576.41,-57.29C531.07,-56.89 468.68,-54.4 422.89,-51.17"/>
+<polygon fill="#000000" stroke="#000000" points="423.03,-47.68 412.8,-50.43 422.52,-54.66 423.03,-47.68"/>
+</g>
+<!-- proc~ipound&#45;&gt;proc~go -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge10" class="edge">
+<title>proc~ipound&#45;&gt;proc~go</title>
+<path fill="none" stroke="#000000" d="M578.83,-24.02C533.27,-30.68 469.39,-37.96 422.77,-41.83"/>
+<polygon fill="#000000" stroke="#000000" points="422.49,-38.35 412.8,-42.63 423.05,-45.32 422.49,-38.35"/>
+</g>
+<!-- program~problem_12b -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node9" class="node">
+<title>program~problem_12b</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node9"><a xlink:href=".././program/problem_12b.html" xlink:title="problem_12b">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="210.5,-55 128.5,-55 128.5,-31 210.5,-31 210.5,-55"/>
+<text text-anchor="middle" x="169.5" y="-40.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b</text>
+</a>
+</g>
+</g>
+<!-- program~problem_12b&#45;&gt;proc~go -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge11" class="edge">
+<title>program~problem_12b&#45;&gt;proc~go</title>
+<path fill="none" stroke="#000000" d="M210.69,-43C236.44,-43 270.36,-43 299.35,-43"/>
+<polygon fill="#000000" stroke="#000000" points="299.38,-46.5 309.38,-43 299.38,-39.5 299.38,-46.5"/>
+</g>
+<!-- program~problem_22 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node10" class="node">
+<title>program~problem_22</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node10"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="207.5,-169 131.5,-169 131.5,-145 207.5,-145 207.5,-169"/>
+<text text-anchor="middle" x="169.5" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_above -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge6" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M207.94,-162.93C226.82,-165.92 250.58,-169.68 273.66,-173.33"/>
+<polygon fill="#000000" stroke="#000000" points="273.42,-176.84 283.84,-174.94 274.51,-169.92 273.42,-176.84"/>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_below -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge8" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M207.94,-151.07C226.82,-148.08 250.58,-144.32 273.66,-140.67"/>
+<polygon fill="#000000" stroke="#000000" points="274.51,-144.08 283.84,-139.06 273.42,-137.16 274.51,-144.08"/>
+</g>
+<!-- program~problem_17~2 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_node11" class="node">
+<title>program~problem_17~2</title>
+<g id="a_proc~~put_in_cache~2~~CalledByGraph_node11"><a xlink:href=".././program/problem_17~2.html" xlink:title="problem_17">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-97 0,-97 0,-73 76,-73 76,-97"/>
+<text text-anchor="middle" x="38" y="-82.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17</text>
+</a>
+</g>
+</g>
+<!-- program~problem_17~2&#45;&gt;proc~check~3 -->
+<g id="proc~~put_in_cache~2~~CalledByGraph_edge13" class="edge">
+<title>program~problem_17~2&#45;&gt;proc~check~3</title>
+<path fill="none" stroke="#000000" d="M76.11,-85C84.06,-85 92.69,-85 101.39,-85"/>
+<polygon fill="#000000" stroke="#000000" points="101.58,-88.5 111.58,-85 101.58,-81.5 101.58,-88.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocput_in_cache2CalledByGraph = svgPanZoom('#procput_in_cache2CalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">put_in_cache</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    class</span><span class="p">(</span><span class="n">function_cache</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w">    </span><span class="c">!! index in the hash table</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">    </span><span class="c">!! independant variable vector</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w">    </span><span class="c">!! function</span>
+
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">huge</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c">!! an unusual value to initialize arrays</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">size</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">! add to the cache</span>
+<span class="w">            </span><span class="n">me</span><span class="p">%</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">            </span><span class="n">me</span><span class="p">%</span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="k">            error stop</span><span class="w"> </span><span class="s1">&#39;Error: invalid index in hash table.&#39;</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    else</span>
+<span class="k">        error stop</span><span class="w"> </span><span class="s1">&#39;Error: the cache has not been initialized.&#39;</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    end subroutine </span><span class="n">put_in_cache</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

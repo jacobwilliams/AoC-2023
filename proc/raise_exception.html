@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>raise_exception &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>raise_exception
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.2% of total for procedures.">10 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/numerical_differentiation_module.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/numerical_differentiation_module.f90.html'>numerical_differentiation_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></li>
+            <li class="breadcrumb-item active" aria-current="page">raise_exception</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/raise_exception.html#src">raise_exception</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private  subroutine raise_exception(me, istat, routine, error_msg)  
+</h2>
+    
+
+    <p>Raise an exception.</p>
+
+    <h3>Type Bound</h3>
+    <p><a href='../type/numdiff_type.html'>numdiff_type</a></p>
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~36"></span>
+              class(<a href='../type/numdiff_type.html'>numdiff_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istat~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>istat</strong></td>
+            <td>
+                <p>error code.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-routine"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>routine</strong></td>
+            <td>
+                <p>the routine where the error was raised.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-error_msg~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>error_msg</strong></td>
+            <td>
+                <p>error message string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~raise_exception~~CalledByGraph Pages: 1 -->
+<svg id="procraise_exceptionCalledByGraph" width="641pt" height="156pt"
+ viewBox="0.00 0.00 641.00 156.34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~raise_exception~~CalledByGraph" class="graph" transform="scale(3.63 3.63) rotate(0) translate(4 563.79)">
+<title>proc~~raise_exception~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-563.79 2324,-563.79 2324,4 -4,4"/>
+<!-- proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_node1" class="node">
+<title>proc~raise_exception</title>
+<polygon fill="none" stroke="black" points="2320,-270 1957,-270 1957,-246 2320,-246 2320,-270"/>
+<text text-anchor="middle" x="2138.5" y="-255.6" font-family="Helvetica,sans-Serif" font-size="10.50">numerical_differentiation_module::numdiff_type%raise_exception</text>
+</g>
+<!-- proc~compute_jacobian -->
+<g id="proc~~raise_exception~~CalledByGraph_node2" class="node">
+<title>proc~compute_jacobian</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node2"><a xlink:href=".././proc/compute_jacobian.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian">
+<polygon fill="#d9534f" stroke="#d9534f" points="898.5,-429 520.5,-429 520.5,-405 898.5,-405 898.5,-429"/>
+<text text-anchor="middle" x="709.5" y="-414.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge1" class="edge">
+<title>proc~compute_jacobian&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M898.53,-422.67C1189.45,-429.56 1734.57,-434.51 1921,-382 1998,-360.31 2076.59,-305.38 2114.39,-276.45"/>
+<polygon fill="#000000" stroke="#000000" points="2116.92,-278.92 2122.67,-270.03 2112.63,-273.39 2116.92,-278.92"/>
+</g>
+<!-- proc~compute_perturbation_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_node17" class="node">
+<title>proc~compute_perturbation_vector</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node17"><a xlink:href=".././proc/compute_perturbation_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_perturbation_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1429,-466 991,-466 991,-442 1429,-442 1429,-466"/>
+<text text-anchor="middle" x="1210" y="-451.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_perturbation_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_edge27" class="edge">
+<title>proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector</title>
+<path fill="none" stroke="#000000" d="M872.35,-429.01C924.96,-432.92 983.53,-437.26 1036.87,-441.22"/>
+<polygon fill="#000000" stroke="#000000" points="1036.88,-444.73 1047.11,-441.98 1037.4,-437.75 1036.88,-444.73"/>
+</g>
+<!-- proc~compute_jacobian_partitioned -->
+<g id="proc~~raise_exception~~CalledByGraph_node3" class="node">
+<title>proc~compute_jacobian_partitioned</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node3"><a xlink:href=".././proc/compute_jacobian_partitioned.html" xlink:title="numerical_differentiation_module::compute_jacobian_partitioned">
+<polygon fill="#d9534f" stroke="#d9534f" points="1885.5,-192 1523.5,-192 1523.5,-168 1885.5,-168 1885.5,-192"/>
+<text text-anchor="middle" x="1704.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_jacobian_partitioned</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_partitioned&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge2" class="edge">
+<title>proc~compute_jacobian_partitioned&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1825.84,-192.02C1856.94,-195.81 1890.31,-200.48 1921,-206 1977.12,-216.09 2040.45,-231.82 2084.05,-243.33"/>
+<polygon fill="#000000" stroke="#000000" points="2083.3,-246.76 2093.86,-245.95 2085.1,-239.99 2083.3,-246.76"/>
+</g>
+<!-- proc~compute_jacobian_standard -->
+<g id="proc~~raise_exception~~CalledByGraph_node4" class="node">
+<title>proc~compute_jacobian_standard</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node4"><a xlink:href=".././proc/compute_jacobian_standard.html" xlink:title="numerical_differentiation_module::compute_jacobian_standard">
+<polygon fill="#d9534f" stroke="#d9534f" points="1880,-150 1529,-150 1529,-126 1880,-126 1880,-150"/>
+<text text-anchor="middle" x="1704.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_jacobian_standard</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_standard&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge3" class="edge">
+<title>proc~compute_jacobian_standard&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1880.17,-150.02C1894.09,-152.5 1907.84,-155.46 1921,-159 1991.53,-177.99 2067.86,-217.94 2108.37,-240.87"/>
+<polygon fill="#000000" stroke="#000000" points="2106.75,-243.97 2117.16,-245.89 2110.22,-237.89 2106.75,-243.97"/>
+</g>
+<!-- proc~compute_jacobian_with_diff -->
+<g id="proc~~raise_exception~~CalledByGraph_node5" class="node">
+<title>proc~compute_jacobian_with_diff</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node5"><a xlink:href=".././proc/compute_jacobian_with_diff.html" xlink:title="numerical_differentiation_module::compute_jacobian_with_diff">
+<polygon fill="#d9534f" stroke="#d9534f" points="1878.5,-108 1530.5,-108 1530.5,-84 1878.5,-84 1878.5,-108"/>
+<text text-anchor="middle" x="1704.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_jacobian_with_diff</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_with_diff&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge4" class="edge">
+<title>proc~compute_jacobian_with_diff&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1878.55,-105.41C1893.11,-108.44 1907.43,-112.24 1921,-117 2000.49,-144.87 2079.86,-207.73 2116.51,-239.24"/>
+<polygon fill="#000000" stroke="#000000" points="2114.24,-241.9 2124.08,-245.83 2118.83,-236.62 2114.24,-241.9"/>
+</g>
+<!-- proc~compute_perturb_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_node6" class="node">
+<title>proc~compute_perturb_vector</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node6"><a xlink:href=".././proc/compute_perturb_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_perturb_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1910,-466 1499,-466 1499,-442 1910,-442 1910,-466"/>
+<text text-anchor="middle" x="1704.5" y="-451.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_perturb_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_perturb_vector&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge5" class="edge">
+<title>proc~compute_perturb_vector&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1877.4,-441.96C1892.43,-438.32 1907.16,-433.73 1921,-428 2005.96,-392.79 2085.53,-314.45 2119.8,-277.72"/>
+<polygon fill="#000000" stroke="#000000" points="2122.59,-279.87 2126.79,-270.14 2117.44,-275.12 2122.59,-279.87"/>
+</g>
+<!-- proc~compute_sparsity_random -->
+<g id="proc~~raise_exception~~CalledByGraph_node7" class="node">
+<title>proc~compute_sparsity_random</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node7"><a xlink:href=".././proc/compute_sparsity_random.html" xlink:title="numerical_differentiation_module::compute_sparsity_random">
+<polygon fill="#d9534f" stroke="#d9534f" points="1875,-66 1534,-66 1534,-42 1875,-42 1875,-66"/>
+<text text-anchor="middle" x="1704.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_sparsity_random</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_random&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge6" class="edge">
+<title>proc~compute_sparsity_random&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1875.01,-60.62C1890.88,-64.17 1906.45,-68.86 1921,-75 2009.1,-112.19 2088.19,-198.35 2121.19,-237.72"/>
+<polygon fill="#000000" stroke="#000000" points="2118.8,-240.32 2127.87,-245.81 2124.2,-235.87 2118.8,-240.32"/>
+</g>
+<!-- proc~compute_sparsity_random_2 -->
+<g id="proc~~raise_exception~~CalledByGraph_node8" class="node">
+<title>proc~compute_sparsity_random_2</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node8"><a xlink:href=".././proc/compute_sparsity_random_2.html" xlink:title="numerical_differentiation_module::compute_sparsity_random_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="402,-531 49,-531 49,-507 402,-507 402,-531"/>
+<text text-anchor="middle" x="225.5" y="-516.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_sparsity_random_2</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_random_2&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge7" class="edge">
+<title>proc~compute_sparsity_random_2&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M388.38,-531.01C757.97,-555.85 1652.66,-600.65 1921,-475 2016.84,-430.12 2094.42,-324.03 2124.28,-278.9"/>
+<polygon fill="#000000" stroke="#000000" points="2127.39,-280.53 2129.92,-270.24 2121.53,-276.71 2127.39,-280.53"/>
+</g>
+<!-- proc~compute_jacobian_for_sparsity -->
+<g id="proc~~raise_exception~~CalledByGraph_node21" class="node">
+<title>proc~compute_jacobian_for_sparsity</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node21"><a xlink:href=".././proc/compute_jacobian_for_sparsity.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_for_sparsity">
+<polygon fill="#d9534f" stroke="#d9534f" points="932,-508 487,-508 487,-484 932,-484 932,-508"/>
+<text text-anchor="middle" x="709.5" y="-493.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_for_sparsity</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_random_2&#45;&gt;proc~compute_jacobian_for_sparsity -->
+<g id="proc~~raise_exception~~CalledByGraph_edge29" class="edge">
+<title>proc~compute_sparsity_random_2&#45;&gt;proc~compute_jacobian_for_sparsity</title>
+<path fill="none" stroke="#000000" d="M402.22,-510.62C426.34,-509.46 451.4,-508.27 476.34,-507.08"/>
+<polygon fill="#000000" stroke="#000000" points="476.81,-510.56 486.64,-506.59 476.48,-503.57 476.81,-510.56"/>
+</g>
+<!-- proc~initialize_numdiff -->
+<g id="proc~~raise_exception~~CalledByGraph_node9" class="node">
+<title>proc~initialize_numdiff</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node9"><a xlink:href=".././proc/initialize_numdiff.html" xlink:title="numerical_differentiation_module::numdiff_type%initialize_numdiff">
+<polygon fill="#d9534f" stroke="#d9534f" points="894.5,-348 524.5,-348 524.5,-324 894.5,-324 894.5,-348"/>
+<text text-anchor="middle" x="709.5" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%initialize_numdiff</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_numdiff&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge8" class="edge">
+<title>proc~initialize_numdiff&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M789.16,-348.01C983.7,-375.28 1501.99,-433.01 1921,-346 1990.29,-331.61 2065.66,-295.98 2106.66,-274.73"/>
+<polygon fill="#000000" stroke="#000000" points="2108.37,-277.79 2115.6,-270.05 2105.12,-271.59 2108.37,-277.79"/>
+</g>
+<!-- proc~set_numdiff_bounds -->
+<g id="proc~~raise_exception~~CalledByGraph_node11" class="node">
+<title>proc~set_numdiff_bounds</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node11"><a xlink:href=".././proc/set_numdiff_bounds.html" xlink:title="numerical_differentiation_module::numdiff_type%set_numdiff_bounds">
+<polygon fill="#d9534f" stroke="#d9534f" points="1403,-348 1017,-348 1017,-324 1403,-324 1403,-348"/>
+<text text-anchor="middle" x="1210" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%set_numdiff_bounds</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_numdiff&#45;&gt;proc~set_numdiff_bounds -->
+<g id="proc~~raise_exception~~CalledByGraph_edge22" class="edge">
+<title>proc~initialize_numdiff&#45;&gt;proc~set_numdiff_bounds</title>
+<path fill="none" stroke="#000000" d="M894.71,-336C931.09,-336 969.45,-336 1006.4,-336"/>
+<polygon fill="#000000" stroke="#000000" points="1006.78,-339.5 1016.78,-336 1006.78,-332.5 1006.78,-339.5"/>
+</g>
+<!-- proc~set_sparsity_mode -->
+<g id="proc~~raise_exception~~CalledByGraph_node13" class="node">
+<title>proc~set_sparsity_mode</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node13"><a xlink:href=".././proc/set_sparsity_mode.html" xlink:title="numerical_differentiation_module::numdiff_type%set_sparsity_mode">
+<polygon fill="#d9534f" stroke="#d9534f" points="1399,-306 1021,-306 1021,-282 1399,-282 1399,-306"/>
+<text text-anchor="middle" x="1210" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%set_sparsity_mode</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_numdiff&#45;&gt;proc~set_sparsity_mode -->
+<g id="proc~~raise_exception~~CalledByGraph_edge25" class="edge">
+<title>proc~initialize_numdiff&#45;&gt;proc~set_sparsity_mode</title>
+<path fill="none" stroke="#000000" d="M853.02,-323.99C916.52,-318.64 991.42,-312.33 1056.09,-306.88"/>
+<polygon fill="#000000" stroke="#000000" points="1056.71,-310.34 1066.38,-306.02 1056.12,-303.37 1056.71,-310.34"/>
+</g>
+<!-- proc~initialize_numdiff_for_diff -->
+<g id="proc~~raise_exception~~CalledByGraph_node10" class="node">
+<title>proc~initialize_numdiff_for_diff</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node10"><a xlink:href=".././proc/initialize_numdiff_for_diff.html" xlink:title="numerical_differentiation_module::numdiff_type%initialize_numdiff_for_diff">
+<polygon fill="#d9534f" stroke="#d9534f" points="916,-306 503,-306 503,-282 916,-282 916,-306"/>
+<text text-anchor="middle" x="709.5" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%initialize_numdiff_for_diff</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_numdiff_for_diff&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge9" class="edge">
+<title>proc~initialize_numdiff_for_diff&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M841.41,-281.99C881.95,-278.62 926.8,-275.27 968,-273 1312.49,-254 1714.88,-253.61 1946.56,-255.5"/>
+<polygon fill="#000000" stroke="#000000" points="1946.75,-259 1956.78,-255.59 1946.81,-252 1946.75,-259"/>
+</g>
+<!-- proc~initialize_numdiff_for_diff&#45;&gt;proc~set_numdiff_bounds -->
+<g id="proc~~raise_exception~~CalledByGraph_edge23" class="edge">
+<title>proc~initialize_numdiff_for_diff&#45;&gt;proc~set_numdiff_bounds</title>
+<path fill="none" stroke="#000000" d="M853.02,-306.01C916.52,-311.36 991.42,-317.67 1056.09,-323.12"/>
+<polygon fill="#000000" stroke="#000000" points="1056.12,-326.63 1066.38,-323.98 1056.71,-319.66 1056.12,-326.63"/>
+</g>
+<!-- proc~initialize_numdiff_for_diff&#45;&gt;proc~set_sparsity_mode -->
+<g id="proc~~raise_exception~~CalledByGraph_edge26" class="edge">
+<title>proc~initialize_numdiff_for_diff&#45;&gt;proc~set_sparsity_mode</title>
+<path fill="none" stroke="#000000" d="M916.14,-294C947.36,-294 979.52,-294 1010.58,-294"/>
+<polygon fill="#000000" stroke="#000000" points="1010.62,-297.5 1020.62,-294 1010.62,-290.5 1010.62,-297.5"/>
+</g>
+<!-- proc~set_numdiff_bounds&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge10" class="edge">
+<title>proc~set_numdiff_bounds&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1403.1,-344.34C1546.59,-347.44 1747.1,-345.16 1921,-319 1982.8,-309.71 2051.94,-288.19 2095.09,-273.37"/>
+<polygon fill="#000000" stroke="#000000" points="2096.39,-276.63 2104.69,-270.04 2094.09,-270.01 2096.39,-276.63"/>
+</g>
+<!-- proc~set_numdiff_sparsity_bounds -->
+<g id="proc~~raise_exception~~CalledByGraph_node12" class="node">
+<title>proc~set_numdiff_sparsity_bounds</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node12"><a xlink:href=".././proc/set_numdiff_sparsity_bounds.html" xlink:title="numerical_differentiation_module::numdiff_type%set_numdiff_sparsity_bounds">
+<polygon fill="#d9534f" stroke="#d9534f" points="1921,-310 1488,-310 1488,-286 1921,-286 1921,-310"/>
+<text text-anchor="middle" x="1704.5" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%set_numdiff_sparsity_bounds</text>
+</a>
+</g>
+</g>
+<!-- proc~set_numdiff_sparsity_bounds&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge11" class="edge">
+<title>proc~set_numdiff_sparsity_bounds&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1835.11,-286C1886.36,-281.25 1945.38,-275.79 1997.6,-270.95"/>
+<polygon fill="#000000" stroke="#000000" points="1997.97,-274.43 2007.6,-270.03 1997.32,-267.46 1997.97,-274.43"/>
+</g>
+<!-- proc~set_sparsity_mode&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge12" class="edge">
+<title>proc~set_sparsity_mode&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1393.11,-281.99C1424.74,-280.14 1457.32,-278.39 1488,-277 1642.31,-270.01 1817.37,-265.06 1946.83,-261.97"/>
+<polygon fill="#000000" stroke="#000000" points="1946.94,-265.47 1956.86,-261.73 1946.78,-258.47 1946.94,-265.47"/>
+</g>
+<!-- proc~set_sparsity_mode&#45;&gt;proc~set_numdiff_sparsity_bounds -->
+<g id="proc~~raise_exception~~CalledByGraph_edge24" class="edge">
+<title>proc~set_sparsity_mode&#45;&gt;proc~set_numdiff_sparsity_bounds</title>
+<path fill="none" stroke="#000000" d="M1399.3,-295.53C1424.95,-295.74 1451.48,-295.95 1477.7,-296.17"/>
+<polygon fill="#000000" stroke="#000000" points="1477.7,-299.67 1487.73,-296.25 1477.76,-292.67 1477.7,-299.67"/>
+</g>
+<!-- proc~set_sparsity_pattern -->
+<g id="proc~~raise_exception~~CalledByGraph_node14" class="node">
+<title>proc~set_sparsity_pattern</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node14"><a xlink:href=".././proc/set_sparsity_pattern.html" xlink:title="numerical_differentiation_module::numdiff_type%set_sparsity_pattern">
+<polygon fill="#d9534f" stroke="#d9534f" points="1897.5,-24 1511.5,-24 1511.5,0 1897.5,0 1897.5,-24"/>
+<text text-anchor="middle" x="1704.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%set_sparsity_pattern</text>
+</a>
+</g>
+</g>
+<!-- proc~set_sparsity_pattern&#45;&gt;proc~raise_exception -->
+<g id="proc~~raise_exception~~CalledByGraph_edge13" class="edge">
+<title>proc~set_sparsity_pattern&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M1897.57,-23.44C1905.62,-26.19 1913.47,-29.36 1921,-33 2018.68,-80.29 2095.99,-191.23 2125.05,-237.34"/>
+<polygon fill="#000000" stroke="#000000" points="2122.12,-239.25 2130.36,-245.9 2128.07,-235.56 2122.12,-239.25"/>
+</g>
+<!-- proc~compute_jacobian_dense -->
+<g id="proc~~raise_exception~~CalledByGraph_node15" class="node">
+<title>proc~compute_jacobian_dense</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node15"><a xlink:href=".././proc/compute_jacobian_dense.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_dense">
+<polygon fill="#d9534f" stroke="#d9534f" points="433,-472 18,-472 18,-448 433,-448 433,-472"/>
+<text text-anchor="middle" x="225.5" y="-457.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_dense</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_dense&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~raise_exception~~CalledByGraph_edge14" class="edge">
+<title>proc~compute_jacobian_dense&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M361.08,-447.99C424.14,-442.37 499.36,-435.66 563.65,-429.92"/>
+<polygon fill="#000000" stroke="#000000" points="564.22,-433.39 573.87,-429.01 563.6,-426.41 564.22,-433.39"/>
+</g>
+<!-- proc~compute_jacobian_times_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_node16" class="node">
+<title>proc~compute_jacobian_times_vector</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node16"><a xlink:href=".././proc/compute_jacobian_times_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_times_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="451,-430 0,-430 0,-406 451,-406 451,-430"/>
+<text text-anchor="middle" x="225.5" y="-415.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_times_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_times_vector&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~raise_exception~~CalledByGraph_edge15" class="edge">
+<title>proc~compute_jacobian_times_vector&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M451.27,-417.53C470.92,-417.49 490.71,-417.45 510.12,-417.41"/>
+<polygon fill="#000000" stroke="#000000" points="510.24,-420.91 520.23,-417.39 510.22,-413.91 510.24,-420.91"/>
+</g>
+<!-- proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_edge18" class="edge">
+<title>proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector</title>
+<path fill="none" stroke="#000000" d="M1429.17,-454C1448.89,-454 1468.85,-454 1488.54,-454"/>
+<polygon fill="#000000" stroke="#000000" points="1488.81,-457.5 1498.81,-454 1488.81,-450.5 1488.81,-457.5"/>
+</g>
+<!-- proc~compute_sparsity_perturbation_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_node18" class="node">
+<title>proc~compute_sparsity_perturbation_vector</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node18"><a xlink:href=".././proc/compute_sparsity_perturbation_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_sparsity_perturbation_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1452,-508 968,-508 968,-484 1452,-484 1452,-508"/>
+<text text-anchor="middle" x="1210" y="-493.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_sparsity_perturbation_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_perturbation_vector&#45;&gt;proc~compute_perturb_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_edge19" class="edge">
+<title>proc~compute_sparsity_perturbation_vector&#45;&gt;proc~compute_perturb_vector</title>
+<path fill="none" stroke="#000000" d="M1351.8,-483.99C1414.54,-478.64 1488.54,-472.33 1552.43,-466.88"/>
+<polygon fill="#000000" stroke="#000000" points="1552.93,-470.35 1562.59,-466.02 1552.33,-463.38 1552.93,-470.35"/>
+</g>
+<!-- program~test1 -->
+<g id="proc~~raise_exception~~CalledByGraph_node19" class="node">
+<title>program~test1</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node19"><a xlink:href=".././program/test1.html" xlink:title="test1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="252.5,-346 198.5,-346 198.5,-322 252.5,-322 252.5,-346"/>
+<text text-anchor="middle" x="225.5" y="-331.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1</text>
+</a>
+</g>
+</g>
+<!-- program~test1&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~raise_exception~~CalledByGraph_edge16" class="edge">
+<title>program~test1&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M252.58,-335.23C294.59,-337.47 379.75,-343.15 451,-355 523.08,-366.99 604.89,-387.98 656.58,-402.18"/>
+<polygon fill="#000000" stroke="#000000" points="655.93,-405.63 666.5,-404.93 657.8,-398.89 655.93,-405.63"/>
+</g>
+<!-- program~test1&#45;&gt;proc~initialize_numdiff -->
+<g id="proc~~raise_exception~~CalledByGraph_edge20" class="edge">
+<title>program~test1&#45;&gt;proc~initialize_numdiff</title>
+<path fill="none" stroke="#000000" d="M252.76,-334.11C302.33,-334.31 413.73,-334.78 513.98,-335.19"/>
+<polygon fill="#000000" stroke="#000000" points="514.26,-338.69 524.27,-335.24 514.29,-331.69 514.26,-338.69"/>
+</g>
+<!-- program~test1&#45;&gt;proc~initialize_numdiff_for_diff -->
+<g id="proc~~raise_exception~~CalledByGraph_edge21" class="edge">
+<title>program~test1&#45;&gt;proc~initialize_numdiff_for_diff</title>
+<path fill="none" stroke="#000000" d="M252.76,-331.82C309,-327.15 444.86,-315.88 553.7,-306.85"/>
+<polygon fill="#000000" stroke="#000000" points="554.13,-310.32 563.81,-306.01 553.55,-303.35 554.13,-310.32"/>
+</g>
+<!-- program~test2 -->
+<g id="proc~~raise_exception~~CalledByGraph_node20" class="node">
+<title>program~test2</title>
+<g id="a_proc~~raise_exception~~CalledByGraph_node20"><a xlink:href=".././program/test2.html" xlink:title="test2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="252.5,-388 198.5,-388 198.5,-364 252.5,-364 252.5,-388"/>
+<text text-anchor="middle" x="225.5" y="-373.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~raise_exception~~CalledByGraph_edge17" class="edge">
+<title>program~test2&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M252.76,-378.23C309.57,-383.07 447.63,-394.81 557.01,-404.11"/>
+<polygon fill="#000000" stroke="#000000" points="556.9,-407.62 567.16,-404.98 557.5,-400.64 556.9,-407.62"/>
+</g>
+<!-- proc~compute_jacobian_for_sparsity&#45;&gt;proc~compute_sparsity_perturbation_vector -->
+<g id="proc~~raise_exception~~CalledByGraph_edge28" class="edge">
+<title>proc~compute_jacobian_for_sparsity&#45;&gt;proc~compute_sparsity_perturbation_vector</title>
+<path fill="none" stroke="#000000" d="M932.05,-496C940.56,-496 949.1,-496 957.65,-496"/>
+<polygon fill="#000000" stroke="#000000" points="957.69,-499.5 967.69,-496 957.69,-492.5 957.69,-499.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocraise_exceptionCalledByGraph = svgPanZoom('#procraise_exceptionCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">raise_exception</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">istat</span><span class="p">,</span><span class="n">routine</span><span class="p">,</span><span class="n">error_msg</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    class</span><span class="p">(</span><span class="n">numdiff_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">istat</span><span class="w">      </span><span class="c">!! error code.</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">routine</span><span class="w">    </span><span class="c">!! the routine where the error was raised.</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">error_msg</span><span class="w">  </span><span class="c">!! error message string.</span>
+
+<span class="w">    </span><span class="n">me</span><span class="p">%</span><span class="n">istat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istat</span>
+<span class="w">    </span><span class="n">me</span><span class="p">%</span><span class="n">error_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Error in &#39;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">routine</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; : &#39;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="w">    </span><span class="n">me</span><span class="p">%</span><span class="n">exception_raised</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">raise_exception</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

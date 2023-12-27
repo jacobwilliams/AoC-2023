@@ -1,6 +1,6 @@
 program problem_9
 
-use iso_fortran_env, ip => int64 ! use long ints
+use iso_fortran_env
 use aoc_utilities
 
 implicit none

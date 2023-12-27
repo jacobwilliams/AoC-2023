@@ -1,7 +1,7 @@
 program problem_21
 
     use aoc_utilities
-    use iso_fortran_env, only: wp => real64, ip => int64
+    use iso_fortran_env
 
     implicit none
 

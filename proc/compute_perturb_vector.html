@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Advent of Code 2023 with Modern Fortran">
+    <meta name="author" content="Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>compute_perturb_vector &ndash; AoC-2023</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">AoC-2023 </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>compute_perturb_vector
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.4% of total for procedures.">24 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/numerical_differentiation_module.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/numerical_differentiation_module.f90.html'>numerical_differentiation_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></li>
+            <li class="breadcrumb-item active" aria-current="page">compute_perturb_vector</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/compute_perturb_vector.html#src">compute_perturb_vector</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private  subroutine compute_perturb_vector(me, x, dpert, perturb_mode, dx)  
+</h2>
+    
+
+    <p>Compute <code>dx</code>, the perturbation vector for <code>x</code></p>
+
+    <h3>Type Bound</h3>
+    <p><a href='../type/numdiff_type.html'>numdiff_type</a></p>
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-me~26"></span>
+              class(<a href='../type/numdiff_type.html'>numdiff_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>me</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~23"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(me%n)
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+                <p>vector of variables (size <code>n</code>)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpert~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(me%n)
+            </td>
+            <td>::</td>
+            <td><strong>dpert</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-perturb_mode~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>perturb_mode</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dx~11"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              dimension(me%n)
+            </td>
+            <td>::</td>
+            <td><strong>dx</strong></td>
+            <td>
+                <p>absolute perturbation (&gt;0)
+for each variable</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~compute_perturb_vector~~CallsGraph Pages: 1 -->
+<svg id="proccompute_perturb_vectorCallsGraph" width="641pt" height="25pt"
+ viewBox="0.00 0.00 641.00 25.08" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~compute_perturb_vector~~CallsGraph" class="graph" transform="scale(1.28 1.28) rotate(0) translate(4 28)">
+<title>proc~~compute_perturb_vector~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 814,-28 814,4 -4,4"/>
+<!-- proc~compute_perturb_vector -->
+<g id="proc~~compute_perturb_vector~~CallsGraph_node1" class="node">
+<title>proc~compute_perturb_vector</title>
+<polygon fill="none" stroke="black" points="411,-24 0,-24 0,0 411,0 411,-24"/>
+<text text-anchor="middle" x="205.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">numerical_differentiation_module::numdiff_type%compute_perturb_vector</text>
+</g>
+<!-- proc~raise_exception -->
+<g id="proc~~compute_perturb_vector~~CallsGraph_node2" class="node">
+<title>proc~raise_exception</title>
+<g id="a_proc~~compute_perturb_vector~~CallsGraph_node2"><a xlink:href=".././proc/raise_exception.html" xlink:title="numerical_differentiation_module::numdiff_type%raise_exception">
+<polygon fill="#d9534f" stroke="#d9534f" points="810,-24 447,-24 447,0 810,0 810,-24"/>
+<text text-anchor="middle" x="628.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%raise_exception</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_perturb_vector&#45;&gt;proc~raise_exception -->
+<g id="proc~~compute_perturb_vector~~CallsGraph_edge1" class="edge">
+<title>proc~compute_perturb_vector&#45;&gt;proc~raise_exception</title>
+<path fill="none" stroke="#000000" d="M411.14,-12C419.72,-12 428.31,-12 436.85,-12"/>
+<polygon fill="#000000" stroke="#000000" points="436.86,-15.5 446.86,-12 436.86,-8.5 436.86,-15.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panproccompute_perturb_vectorCallsGraph = svgPanZoom('#proccompute_perturb_vectorCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~compute_perturb_vector~~CalledByGraph Pages: 1 -->
+<svg id="proccompute_perturb_vectorCalledByGraph" width="641pt" height="67pt"
+ viewBox="0.00 0.00 641.00 67.23" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~compute_perturb_vector~~CalledByGraph" class="graph" transform="scale(2.98 2.98) rotate(0) translate(4 196)">
+<title>proc~~compute_perturb_vector~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-196 1903,-196 1903,4 -4,4"/>
+<!-- proc~compute_perturb_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node1" class="node">
+<title>proc~compute_perturb_vector</title>
+<polygon fill="none" stroke="black" points="1899,-76 1488,-76 1488,-52 1899,-52 1899,-76"/>
+<text text-anchor="middle" x="1693.5" y="-61.6" font-family="Helvetica,sans-Serif" font-size="10.50">numerical_differentiation_module::numdiff_type%compute_perturb_vector</text>
+</g>
+<!-- proc~compute_perturbation_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node2" class="node">
+<title>proc~compute_perturbation_vector</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node2"><a xlink:href=".././proc/compute_perturbation_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_perturbation_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1429,-102 991,-102 991,-78 1429,-78 1429,-102"/>
+<text text-anchor="middle" x="1210" y="-87.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_perturbation_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge1" class="edge">
+<title>proc~compute_perturbation_vector&#45;&gt;proc~compute_perturb_vector</title>
+<path fill="none" stroke="#000000" d="M1429.21,-78.22C1445.38,-77.34 1461.7,-76.46 1477.85,-75.59"/>
+<polygon fill="#000000" stroke="#000000" points="1478.09,-79.08 1487.89,-75.05 1477.71,-72.09 1478.09,-79.08"/>
+</g>
+<!-- proc~compute_sparsity_perturbation_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node3" class="node">
+<title>proc~compute_sparsity_perturbation_vector</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node3"><a xlink:href=".././proc/compute_sparsity_perturbation_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_sparsity_perturbation_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1452,-55 968,-55 968,-31 1452,-31 1452,-55"/>
+<text text-anchor="middle" x="1210" y="-40.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_sparsity_perturbation_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_perturbation_vector&#45;&gt;proc~compute_perturb_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge2" class="edge">
+<title>proc~compute_sparsity_perturbation_vector&#45;&gt;proc~compute_perturb_vector</title>
+<path fill="none" stroke="#000000" d="M1452.1,-53.52C1460.71,-53.89 1469.32,-54.27 1477.89,-54.64"/>
+<polygon fill="#000000" stroke="#000000" points="1477.77,-58.14 1487.92,-55.08 1478.08,-51.14 1477.77,-58.14"/>
+</g>
+<!-- proc~compute_jacobian -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node4" class="node">
+<title>proc~compute_jacobian</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node4"><a xlink:href=".././proc/compute_jacobian.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian">
+<polygon fill="#d9534f" stroke="#d9534f" points="898.5,-108 520.5,-108 520.5,-84 898.5,-84 898.5,-108"/>
+<text text-anchor="middle" x="709.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge3" class="edge">
+<title>proc~compute_jacobian&#45;&gt;proc~compute_perturbation_vector</title>
+<path fill="none" stroke="#000000" d="M898.61,-93.74C925.39,-93.41 953.17,-93.08 980.61,-92.75"/>
+<polygon fill="#000000" stroke="#000000" points="980.75,-96.25 990.71,-92.63 980.66,-89.25 980.75,-96.25"/>
+</g>
+<!-- proc~compute_jacobian_for_sparsity -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node5" class="node">
+<title>proc~compute_jacobian_for_sparsity</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node5"><a xlink:href=".././proc/compute_jacobian_for_sparsity.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_for_sparsity">
+<polygon fill="#d9534f" stroke="#d9534f" points="932,-45 487,-45 487,-21 932,-21 932,-45"/>
+<text text-anchor="middle" x="709.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_for_sparsity</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_for_sparsity&#45;&gt;proc~compute_sparsity_perturbation_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge4" class="edge">
+<title>proc~compute_jacobian_for_sparsity&#45;&gt;proc~compute_sparsity_perturbation_vector</title>
+<path fill="none" stroke="#000000" d="M932.05,-37.44C940.56,-37.61 949.1,-37.79 957.65,-37.96"/>
+<polygon fill="#000000" stroke="#000000" points="957.62,-41.46 967.69,-38.16 957.76,-34.46 957.62,-41.46"/>
+</g>
+<!-- proc~compute_jacobian_dense -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node6" class="node">
+<title>proc~compute_jacobian_dense</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node6"><a xlink:href=".././proc/compute_jacobian_dense.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_dense">
+<polygon fill="#d9534f" stroke="#d9534f" points="433,-192 18,-192 18,-168 433,-168 433,-192"/>
+<text text-anchor="middle" x="225.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_dense</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_dense&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge5" class="edge">
+<title>proc~compute_jacobian_dense&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M386.01,-167.99C407.91,-165.49 430.06,-162.52 451,-159 523.55,-146.8 605.89,-125.27 657.51,-110.82"/>
+<polygon fill="#000000" stroke="#000000" points="658.74,-114.11 667.41,-108.03 656.84,-107.38 658.74,-114.11"/>
+</g>
+<!-- proc~compute_jacobian_times_vector -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node7" class="node">
+<title>proc~compute_jacobian_times_vector</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node7"><a xlink:href=".././proc/compute_jacobian_times_vector.html" xlink:title="numerical_differentiation_module::numdiff_type%compute_jacobian_times_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="451,-150 0,-150 0,-126 451,-126 451,-150"/>
+<text text-anchor="middle" x="225.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::numdiff_type%compute_jacobian_times_vector</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_jacobian_times_vector&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge6" class="edge">
+<title>proc~compute_jacobian_times_vector&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M364.3,-125.99C425.57,-120.65 497.82,-114.36 560.27,-108.92"/>
+<polygon fill="#000000" stroke="#000000" points="560.94,-112.37 570.6,-108.02 560.33,-105.4 560.94,-112.37"/>
+</g>
+<!-- proc~compute_sparsity_random_2 -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node8" class="node">
+<title>proc~compute_sparsity_random_2</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node8"><a xlink:href=".././proc/compute_sparsity_random_2.html" xlink:title="numerical_differentiation_module::compute_sparsity_random_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="402,-24 49,-24 49,0 402,0 402,-24"/>
+<text text-anchor="middle" x="225.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module::compute_sparsity_random_2</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_sparsity_random_2&#45;&gt;proc~compute_jacobian_for_sparsity -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge9" class="edge">
+<title>proc~compute_sparsity_random_2&#45;&gt;proc~compute_jacobian_for_sparsity</title>
+<path fill="none" stroke="#000000" d="M402.22,-19.66C426.34,-20.71 451.4,-21.8 476.34,-22.89"/>
+<polygon fill="#000000" stroke="#000000" points="476.49,-26.4 486.64,-23.33 476.8,-19.4 476.49,-26.4"/>
+</g>
+<!-- program~test1 -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node9" class="node">
+<title>program~test1</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node9"><a xlink:href=".././program/test1.html" xlink:title="test1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="252.5,-108 198.5,-108 198.5,-84 252.5,-84 252.5,-108"/>
+<text text-anchor="middle" x="225.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1</text>
+</a>
+</g>
+</g>
+<!-- program~test1&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge7" class="edge">
+<title>program~test1&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M252.76,-96C301.71,-96 410.97,-96 510.23,-96"/>
+<polygon fill="#000000" stroke="#000000" points="510.42,-99.5 520.42,-96 510.42,-92.5 510.42,-99.5"/>
+</g>
+<!-- program~test2 -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_node10" class="node">
+<title>program~test2</title>
+<g id="a_proc~~compute_perturb_vector~~CalledByGraph_node10"><a xlink:href=".././program/test2.html" xlink:title="test2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="252.5,-66 198.5,-66 198.5,-42 252.5,-42 252.5,-66"/>
+<text text-anchor="middle" x="225.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;proc~compute_jacobian -->
+<g id="proc~~compute_perturb_vector~~CalledByGraph_edge8" class="edge">
+<title>program~test2&#45;&gt;proc~compute_jacobian</title>
+<path fill="none" stroke="#000000" d="M252.76,-56.29C310.19,-61.29 450.64,-73.53 560.57,-83.11"/>
+<polygon fill="#000000" stroke="#000000" points="560.51,-86.62 570.77,-84 561.12,-79.64 560.51,-86.62"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panproccompute_perturb_vectorCalledByGraph = svgPanZoom('#proccompute_perturb_vectorCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">compute_perturb_vector</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dpert</span><span class="p">,</span><span class="n">perturb_mode</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+
+<span class="k">    class</span><span class="p">(</span><span class="n">numdiff_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">     </span><span class="c">!! vector of variables (size `n`)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">dpert</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                   </span><span class="kd">::</span><span class="w"> </span><span class="n">perturb_mode</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">n</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dx</span><span class="w">  </span><span class="c">!! absolute perturbation (&gt;0)</span>
+<span class="w">                                                </span><span class="c">!! for each variable</span>
+
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span><span class="w"> </span><span class="c">!! the smallest allowed absolute step</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">exception_raised</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="c">! check for exceptions</span>
+
+<span class="w">    </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">perturb_mode</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dpert</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dpert</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dpert</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="w">    </span><span class="k">case </span><span class="n">default</span>
+<span class="w">        </span><span class="k">call </span><span class="n">me</span><span class="p">%</span><span class="n">raise_exception</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="s1">&#39;compute_perturb_vector&#39;</span><span class="p">,&amp;</span>
+<span class="w">                                   </span><span class="s1">&#39;invalid value for perturb_mode (must be 1, 2, or 3)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="k">    end select</span>
+
+<span class="w">    </span><span class="c">! make sure none are too small:</span>
+<span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="n">dx</span><span class="o">&lt;</span><span class="n">eps</span><span class="p">)</span>
+<span class="w">        </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span>
+<span class="w">    </span><span class="k">end where</span>
+
+<span class="k">    end subroutine </span><span class="n">compute_perturb_vector</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>AoC-2023 was developed by Jacob Williams<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +76,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 4.3% of total for programs.">107 statements</a>
+                 title=" 5.8% of total for programs.">191 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -112,23 +115,26 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/problem_22.html#variable-iunit~6">iunit</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-n_lines~4">n_lines</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-i~34">i</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-j~20">j</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-line~7">line</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-iunit~22">iunit</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-n_lines~14">n_lines</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-i~90">i</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-j~45">j</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-k~3">k</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-line~15">line</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-start_end">start_end</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-starts">starts</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-ends">ends</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-istart_array">istart_array</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-iend_array">iend_array</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-array~8">array</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-array~11">array</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-ipieces_above">ipieces_above</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-ipieces_below">ipieces_below</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-ok_to_disintegrate">ok_to_disintegrate</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-moved~2">moved</a>
-            <a class="list-group-item" href="../program/problem_22.html#variable-tmp_moved">tmp_moved</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-isum~8">isum</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-isum_total">isum_total</a>
             <a class="list-group-item" href="../program/problem_22.html#variable-ok_tmp">ok_tmp</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-above_cache">above_cache</a>
+            <a class="list-group-item" href="../program/problem_22.html#variable-below_cache">below_cache</a>
         </div>
       </div>
     </div>
@@ -149,6 +155,8 @@
       </a>
       <div id="funcs-0" class="collapse">
         <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_22.html#proc-get_all_pieces_above">get_all_pieces_above</a>
+            <a class="list-group-item" href="../program/problem_22.html#proc-get_all_pieces_below">get_all_pieces_below</a>
             <a class="list-group-item" href="../program/problem_22.html#proc-get_pieces_above">get_pieces_above</a>
             <a class="list-group-item" href="../program/problem_22.html#proc-get_pieces_below">get_pieces_below</a>
         </div>
@@ -162,6 +170,8 @@
       </a>
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/problem_22.html#proc-initialize">initialize</a>
+            <a class="list-group-item" href="../program/problem_22.html#proc-drop">drop</a>
             <a class="list-group-item" href="../program/problem_22.html#proc-update_array">update_array</a>
             <a class="list-group-item" href="../program/problem_22.html#proc-move_piece_down">move_piece_down</a>
         </div>
@@ -194,6 +204,7 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></li>
                   <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_fortran_env'>iso_fortran_env</a></li>
                   <li class="list-inline-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
               </ul>
@@ -205,49 +216,70 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: program~~problem_22~~UsesGraph Pages: 1 -->
-<svg id="programproblem_22UsesGraph" width="326pt" height="52pt"
- viewBox="0.00 0.00 326.00 52.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~problem_22~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<svg id="programproblem_22UsesGraph" width="477pt" height="66pt"
+ viewBox="0.00 0.00 477.00 66.35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_22~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 62.35)">
 <title>program~~problem_22~~UsesGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-48 322,-48 322,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-62.35 473,-62.35 473,4 -4,4"/>
 <!-- program~problem_22 -->
 <g id="program~~problem_22~~UsesGraph_node1" class="node">
 <title>program~problem_22</title>
-<polygon fill="none" stroke="black" points="318,-44 242,-44 242,-20 318,-20 318,-44"/>
-<text text-anchor="middle" x="280" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
+<polygon fill="none" stroke="black" points="469,-38.35 393,-38.35 393,-14.35 469,-14.35 469,-38.35"/>
+<text text-anchor="middle" x="431" y="-23.95" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
 </g>
 <!-- iso_fortran_env -->
 <g id="program~~problem_22~~UsesGraph_node2" class="node">
 <title>iso_fortran_env</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
-<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-58.35 0,-58.35 0,-34.35 94,-34.35 94,-58.35"/>
+<text text-anchor="middle" x="47" y="-43.95" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
 </g>
 <!-- program~problem_22&#45;&gt;iso_fortran_env -->
 <g id="program~~problem_22~~UsesGraph_edge1" class="edge">
 <title>program~problem_22&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.86,-32.61C230.37,-32.77 217.66,-32.92 206,-33 172.22,-33.23 163.78,-33.21 130,-33 121.8,-32.95 113.14,-32.87 104.64,-32.78"/>
-<polygon fill="#000000" stroke="#000000" points="104.44,-29.28 94.4,-32.66 104.36,-36.28 104.44,-29.28"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.53,-38.41C383.49,-42.05 369.8,-45.55 357,-47.35 269.32,-59.71 166.25,-55.72 104.08,-51.32"/>
+<polygon fill="#000000" stroke="#000000" points="104.32,-47.83 94.09,-50.58 103.8,-54.81 104.32,-47.83"/>
+</g>
+<!-- module~aoc_cache_module -->
+<g id="program~~problem_22~~UsesGraph_node3" class="node">
+<title>module~aoc_cache_module</title>
+<g id="a_program~~problem_22~~UsesGraph_node3"><a xlink:href=".././module/aoc_cache_module.html" xlink:title="aoc_cache_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="357,-38.35 242,-38.35 242,-14.35 357,-14.35 357,-38.35"/>
+<text text-anchor="middle" x="299.5" y="-23.95" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;module~aoc_cache_module -->
+<g id="program~~problem_22~~UsesGraph_edge2" class="edge">
+<title>program~problem_22&#45;&gt;module~aoc_cache_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M392.89,-26.35C384.94,-26.35 376.31,-26.35 367.61,-26.35"/>
+<polygon fill="#000000" stroke="#000000" points="367.42,-22.85 357.42,-26.35 367.42,-29.85 367.42,-22.85"/>
 </g>
 <!-- module~aoc_utilities -->
-<g id="program~~problem_22~~UsesGraph_node3" class="node">
+<g id="program~~problem_22~~UsesGraph_node4" class="node">
 <title>module~aoc_utilities</title>
-<g id="a_program~~problem_22~~UsesGraph_node3"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
-<polygon fill="#337ab7" stroke="#337ab7" points="206,-24 130,-24 130,0 206,0 206,-24"/>
-<text text-anchor="middle" x="168" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+<g id="a_program~~problem_22~~UsesGraph_node4"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-38.35 130,-38.35 130,-14.35 206,-14.35 206,-38.35"/>
+<text text-anchor="middle" x="168" y="-23.95" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
 </a>
 </g>
 </g>
 <!-- program~problem_22&#45;&gt;module~aoc_utilities -->
-<g id="program~~problem_22~~UsesGraph_edge2" class="edge">
+<g id="program~~problem_22~~UsesGraph_edge3" class="edge">
 <title>program~problem_22&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.76,-25.23C233.52,-23.73 224.68,-22.12 216.1,-20.56"/>
-<polygon fill="#000000" stroke="#000000" points="216.67,-17.11 206.2,-18.76 215.42,-24 216.67,-17.11"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.53,-14.29C383.49,-10.66 369.8,-7.16 357,-5.35 306.39,1.78 292.61,1.78 242,-5.35 232.6,-6.68 222.72,-8.92 213.37,-11.45"/>
+<polygon fill="#000000" stroke="#000000" points="212.12,-8.17 203.47,-14.29 214.05,-14.9 212.12,-8.17"/>
+</g>
+<!-- module~aoc_cache_module&#45;&gt;module~aoc_utilities -->
+<g id="program~~problem_22~~UsesGraph_edge4" class="edge">
+<title>module~aoc_cache_module&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M241.7,-26.35C233.19,-26.35 224.5,-26.35 216.22,-26.35"/>
+<polygon fill="#000000" stroke="#000000" points="216.01,-22.85 206.01,-26.35 216.01,-29.85 216.01,-22.85"/>
 </g>
 <!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
-<g id="program~~problem_22~~UsesGraph_edge3" class="edge">
+<g id="program~~problem_22~~UsesGraph_edge5" class="edge">
 <title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-18.22C121.86,-19.59 113.06,-21.07 104.35,-22.53"/>
-<polygon fill="#000000" stroke="#000000" points="103.5,-19.12 94.21,-24.23 104.66,-26.03 103.5,-19.12"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M130,-32.57C121.86,-33.94 113.06,-35.42 104.35,-36.88"/>
+<polygon fill="#000000" stroke="#000000" points="103.5,-33.48 94.21,-38.58 104.66,-40.38 103.5,-33.48"/>
 </g>
 </g>
 </svg>
@@ -339,382 +371,535 @@ modules which it uses.
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: program~~problem_22~~CallsGraph Pages: 1 -->
-<svg id="programproblem_22CallsGraph" width="641pt" height="140pt"
- viewBox="0.00 0.00 641.00 140.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~problem_22~~CallsGraph" class="graph" transform="scale(2.52 2.52) rotate(0) translate(4 349.96)">
+<svg id="programproblem_22CallsGraph" width="641pt" height="136pt"
+ viewBox="0.00 0.00 641.00 136.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~problem_22~~CallsGraph" class="graph" transform="scale(3.5 3.5) rotate(0) translate(4 472)">
 <title>program~~problem_22~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-349.96 1612,-349.96 1612,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-472 2239,-472 2239,4 -4,4"/>
 <!-- program~problem_22 -->
 <g id="program~~problem_22~~CallsGraph_node1" class="node">
 <title>program~problem_22</title>
-<polygon fill="none" stroke="black" points="76,-183.96 0,-183.96 0,-159.96 76,-159.96 76,-183.96"/>
-<text text-anchor="middle" x="38" y="-169.56" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
-</g>
-<!-- interface~split -->
-<g id="program~~problem_22~~CallsGraph_node2" class="node">
-<title>interface~split</title>
-<g id="a_program~~problem_22~~CallsGraph_node2"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
-<polygon fill="#a7506f" stroke="#a7506f" points="268.5,-345.96 163.5,-345.96 163.5,-321.96 268.5,-321.96 268.5,-345.96"/>
-<text text-anchor="middle" x="216" y="-331.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
-</a>
-</g>
-</g>
-<!-- program~problem_22&#45;&gt;interface~split -->
-<g id="program~~problem_22~~CallsGraph_edge1" class="edge">
-<title>program~problem_22&#45;&gt;interface~split</title>
-<path fill="none" stroke="#000000" d="M41.54,-184.07C48,-211.69 67.79,-279.56 112,-312.96 123.89,-321.95 138.67,-327.34 153.3,-330.51"/>
-<polygon fill="#000000" stroke="#000000" points="152.89,-334 163.36,-332.37 154.16,-327.11 152.89,-334"/>
+<polygon fill="none" stroke="black" points="76,-328 0,-328 0,-304 76,-304 76,-328"/>
+<text text-anchor="middle" x="38" y="-313.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_22</text>
 </g>
 <!-- proc~clock_end -->
-<g id="program~~problem_22~~CallsGraph_node3" class="node">
+<g id="program~~problem_22~~CallsGraph_node2" class="node">
 <title>proc~clock_end</title>
-<g id="a_program~~problem_22~~CallsGraph_node3"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
-<polygon fill="#d9534f" stroke="#d9534f" points="303,-303.96 129,-303.96 129,-279.96 303,-279.96 303,-303.96"/>
-<text text-anchor="middle" x="216" y="-289.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
+<g id="a_program~~problem_22~~CallsGraph_node2"><a xlink:href=".././proc/clock_end.html" xlink:title="aoc_utilities::clock%clock_end">
+<polygon fill="#d9534f" stroke="#d9534f" points="288,-468 114,-468 114,-444 288,-444 288,-468"/>
+<text text-anchor="middle" x="201" y="-453.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_end</text>
 </a>
 </g>
 </g>
 <!-- program~problem_22&#45;&gt;proc~clock_end -->
-<g id="program~~problem_22~~CallsGraph_edge2" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge1" class="edge">
 <title>program~problem_22&#45;&gt;proc~clock_end</title>
-<path fill="none" stroke="#000000" d="M44.39,-184.29C54.4,-205.63 77.98,-249.24 112,-270.96 114.77,-272.73 117.66,-274.36 120.64,-275.85"/>
-<polygon fill="#000000" stroke="#000000" points="119.25,-279.06 129.81,-279.93 122.09,-272.66 119.25,-279.06"/>
+<path fill="none" stroke="#000000" d="M42.94,-328.32C51.41,-352.73 73.74,-407.25 112,-435 114.11,-436.53 116.32,-437.96 118.61,-439.28"/>
+<polygon fill="#000000" stroke="#000000" points="117.25,-442.51 127.75,-443.87 120.39,-436.25 117.25,-442.51"/>
 </g>
 <!-- proc~clock_start -->
-<g id="program~~problem_22~~CallsGraph_node4" class="node">
+<g id="program~~problem_22~~CallsGraph_node3" class="node">
 <title>proc~clock_start</title>
-<g id="a_program~~problem_22~~CallsGraph_node4"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
-<polygon fill="#d9534f" stroke="#d9534f" points="305,-261.96 127,-261.96 127,-237.96 305,-237.96 305,-261.96"/>
-<text text-anchor="middle" x="216" y="-247.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
+<g id="a_program~~problem_22~~CallsGraph_node3"><a xlink:href=".././proc/clock_start.html" xlink:title="aoc_utilities::clock%clock_start">
+<polygon fill="#d9534f" stroke="#d9534f" points="290,-426 112,-426 112,-402 290,-402 290,-426"/>
+<text text-anchor="middle" x="201" y="-411.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::clock%clock_start</text>
 </a>
 </g>
 </g>
 <!-- program~problem_22&#45;&gt;proc~clock_start -->
-<g id="program~~problem_22~~CallsGraph_edge3" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge2" class="edge">
 <title>program~problem_22&#45;&gt;proc~clock_start</title>
-<path fill="none" stroke="#000000" d="M52.56,-184.01C66.54,-195.82 89.4,-213.52 112,-223.96 121.39,-228.3 131.6,-231.99 141.84,-235.1"/>
-<polygon fill="#000000" stroke="#000000" points="141.05,-238.52 151.63,-237.91 142.98,-231.79 141.05,-238.52"/>
+<path fill="none" stroke="#000000" d="M48.03,-328.04C60.63,-344.02 85.01,-372.08 112,-388 118.93,-392.09 126.54,-395.57 134.31,-398.53"/>
+<polygon fill="#000000" stroke="#000000" points="133.22,-401.86 143.82,-401.89 135.55,-395.26 133.22,-401.86"/>
+</g>
+<!-- proc~get_all_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_node4" class="node">
+<title>proc~get_all_pieces_above</title>
+<g id="a_program~~problem_22~~CallsGraph_node4"><a xlink:href=".././proc/get_all_pieces_above.html" xlink:title="problem_22::get_all_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="766,-328 570,-328 570,-304 766,-304 766,-328"/>
+<text text-anchor="middle" x="668" y="-313.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_above</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_edge3" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M76.4,-316C169.88,-316 416.43,-316 559.69,-316"/>
+<polygon fill="#000000" stroke="#000000" points="559.83,-319.5 569.83,-316 559.83,-312.5 559.83,-319.5"/>
+</g>
+<!-- proc~get_all_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_node5" class="node">
+<title>proc~get_all_pieces_below</title>
+<g id="a_program~~problem_22~~CallsGraph_node5"><a xlink:href=".././proc/get_all_pieces_below.html" xlink:title="problem_22::get_all_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="765.5,-268 570.5,-268 570.5,-244 765.5,-244 765.5,-268"/>
+<text text-anchor="middle" x="668" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_all_pieces_below</text>
+</a>
+</g>
+</g>
+<!-- program~problem_22&#45;&gt;proc~get_all_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge4" class="edge">
+<title>program~problem_22&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M76.4,-312.43C170.01,-303.48 417.11,-279.87 560.29,-266.2"/>
+<polygon fill="#000000" stroke="#000000" points="560.79,-269.66 570.41,-265.23 560.12,-262.7 560.79,-269.66"/>
 </g>
 <!-- proc~get_pieces_above -->
-<g id="program~~problem_22~~CallsGraph_node5" class="node">
+<g id="program~~problem_22~~CallsGraph_node6" class="node">
 <title>proc~get_pieces_above</title>
-<g id="a_program~~problem_22~~CallsGraph_node5"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="534,-221.96 356,-221.96 356,-197.96 534,-197.96 534,-221.96"/>
-<text text-anchor="middle" x="445" y="-207.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
+<g id="a_program~~problem_22~~CallsGraph_node6"><a xlink:href=".././proc/get_pieces_above.html" xlink:title="problem_22::get_pieces_above">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1040,-392 862,-392 862,-368 1040,-368 1040,-392"/>
+<text text-anchor="middle" x="951" y="-377.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_above</text>
 </a>
 </g>
 </g>
 <!-- program~problem_22&#45;&gt;proc~get_pieces_above -->
-<g id="program~~problem_22~~CallsGraph_edge4" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge5" class="edge">
 <title>program~problem_22&#45;&gt;proc~get_pieces_above</title>
-<path fill="none" stroke="#000000" d="M76.05,-178.68C87.54,-180.59 100.27,-182.54 112,-183.96 190.34,-193.45 279.52,-200.22 345.72,-204.46"/>
-<polygon fill="#000000" stroke="#000000" points="345.52,-207.95 355.72,-205.09 345.96,-200.97 345.52,-207.95"/>
+<path fill="none" stroke="#000000" d="M76.36,-324.13C87.76,-326.35 100.35,-328.54 112,-330 378.21,-363.33 694.88,-374.58 851.78,-378.27"/>
+<polygon fill="#000000" stroke="#000000" points="851.81,-381.77 861.89,-378.5 851.97,-374.77 851.81,-381.77"/>
 </g>
 <!-- proc~get_pieces_below -->
-<g id="program~~problem_22~~CallsGraph_node6" class="node">
+<g id="program~~problem_22~~CallsGraph_node7" class="node">
 <title>proc~get_pieces_below</title>
-<g id="a_program~~problem_22~~CallsGraph_node6"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="533.5,-179.96 356.5,-179.96 356.5,-155.96 533.5,-155.96 533.5,-179.96"/>
-<text text-anchor="middle" x="445" y="-165.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
+<g id="a_program~~problem_22~~CallsGraph_node7"><a xlink:href=".././proc/get_pieces_below.html" xlink:title="problem_22::get_pieces_below">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1039.5,-190 862.5,-190 862.5,-166 1039.5,-166 1039.5,-190"/>
+<text text-anchor="middle" x="951" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::get_pieces_below</text>
 </a>
 </g>
 </g>
 <!-- program~problem_22&#45;&gt;proc~get_pieces_below -->
-<g id="program~~problem_22~~CallsGraph_edge5" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge6" class="edge">
 <title>program~problem_22&#45;&gt;proc~get_pieces_below</title>
-<path fill="none" stroke="#000000" d="M76.01,-171.6C136.69,-171 259.23,-169.79 346.21,-168.93"/>
-<polygon fill="#000000" stroke="#000000" points="346.41,-172.43 356.37,-168.83 346.34,-165.43 346.41,-172.43"/>
+<path fill="none" stroke="#000000" d="M65.89,-303.94C79.47,-298.3 96.34,-291.97 112,-288 250.42,-252.89 662.79,-207.58 852.51,-187.88"/>
+<polygon fill="#000000" stroke="#000000" points="852.89,-191.36 862.48,-186.84 852.17,-184.39 852.89,-191.36"/>
 </g>
-<!-- proc~move_piece_down -->
-<g id="program~~problem_22~~CallsGraph_node7" class="node">
-<title>proc~move_piece_down</title>
-<g id="a_program~~problem_22~~CallsGraph_node7"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
-<polygon fill="#d9534f" stroke="#d9534f" points="306.5,-143.96 125.5,-143.96 125.5,-119.96 306.5,-119.96 306.5,-143.96"/>
-<text text-anchor="middle" x="216" y="-129.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
+<!-- proc~initialize -->
+<g id="program~~problem_22~~CallsGraph_node8" class="node">
+<title>proc~initialize</title>
+<g id="a_program~~problem_22~~CallsGraph_node8"><a xlink:href=".././proc/initialize.html" xlink:title="problem_22::initialize">
+<polygon fill="#d9534f" stroke="#d9534f" points="264.5,-128 137.5,-128 137.5,-104 264.5,-104 264.5,-128"/>
+<text text-anchor="middle" x="201" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::initialize</text>
 </a>
 </g>
 </g>
-<!-- program~problem_22&#45;&gt;proc~move_piece_down -->
-<g id="program~~problem_22~~CallsGraph_edge6" class="edge">
-<title>program~problem_22&#45;&gt;proc~move_piece_down</title>
-<path fill="none" stroke="#000000" d="M76.33,-163.48C98.33,-158.48 126.74,-152.02 152.12,-146.26"/>
-<polygon fill="#000000" stroke="#000000" points="153.06,-149.63 162.04,-144 151.51,-142.8 153.06,-149.63"/>
+<!-- program~problem_22&#45;&gt;proc~initialize -->
+<g id="program~~problem_22~~CallsGraph_edge7" class="edge">
+<title>program~problem_22&#45;&gt;proc~initialize</title>
+<path fill="none" stroke="#000000" d="M45.62,-303.74C57.53,-282.17 83.96,-236.45 112,-202 132.32,-177.03 159.21,-151.66 177.9,-135.01"/>
+<polygon fill="#000000" stroke="#000000" points="180.41,-137.46 185.6,-128.22 175.79,-132.2 180.41,-137.46"/>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_edge9" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_all_pieces_above</title>
+<path fill="none" stroke="#000000" d="M628.65,-328.01C614.91,-336.97 628.02,-346 668,-346 694.23,-346 708.9,-342.11 712,-336.91"/>
+<polygon fill="#000000" stroke="#000000" points="715.09,-335.25 707.35,-328.01 708.88,-338.5 715.09,-335.25"/>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above -->
+<g id="program~~problem_22~~CallsGraph_edge11" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_pieces_above</title>
+<path fill="none" stroke="#000000" d="M707.14,-328.04C733.58,-336.11 769.7,-346.57 802,-354 821.47,-358.48 842.53,-362.6 862.49,-366.19"/>
+<polygon fill="#000000" stroke="#000000" points="862.04,-369.66 872.5,-367.95 863.26,-362.77 862.04,-369.66"/>
+</g>
+<!-- interface~unique~2 -->
+<g id="program~~problem_22~~CallsGraph_node10" class="node">
+<title>interface~unique~2</title>
+<g id="a_program~~problem_22~~CallsGraph_node10"><a xlink:href=".././interface/unique~2.html" xlink:title="aoc_utilities::unique">
+<polygon fill="#a7506f" stroke="#a7506f" points="1300.5,-313 1180.5,-313 1180.5,-289 1300.5,-289 1300.5,-313"/>
+<text text-anchor="middle" x="1240.5" y="-298.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="program~~problem_22~~CallsGraph_edge8" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M766.28,-321.71C853.72,-325.76 985.61,-329.16 1100,-321 1122.96,-319.36 1147.89,-316.23 1170.24,-312.92"/>
+<polygon fill="#000000" stroke="#000000" points="1170.94,-316.35 1180.31,-311.39 1169.89,-309.43 1170.94,-316.35"/>
+</g>
+<!-- proc~get_from_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_node12" class="node">
+<title>proc~get_from_cache~2</title>
+<g id="a_program~~problem_22~~CallsGraph_node12"><a xlink:href=".././proc/get_from_cache~2.html" xlink:title="aoc_cache_module::function_cache%get_from_cache">
+<polygon fill="#d9534f" stroke="#d9534f" points="1100,-232 802,-232 802,-208 1100,-208 1100,-232"/>
+<text text-anchor="middle" x="951" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module::function_cache%get_from_cache</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~get_from_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_edge10" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~get_from_cache~2</title>
+<path fill="none" stroke="#000000" d="M733.41,-304C744.39,-301.4 755.6,-298.4 766,-295 782.64,-289.56 785.86,-285.8 802,-279 837.96,-263.85 879.22,-247.48 909.03,-235.84"/>
+<polygon fill="#000000" stroke="#000000" points="910.63,-238.97 918.67,-232.08 908.08,-232.45 910.63,-238.97"/>
+</g>
+<!-- proc~put_in_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_node14" class="node">
+<title>proc~put_in_cache~2</title>
+<g id="a_program~~problem_22~~CallsGraph_node14"><a xlink:href=".././proc/put_in_cache~2.html" xlink:title="aoc_cache_module::function_cache%put_in_cache">
+<polygon fill="#d9534f" stroke="#d9534f" points="1092.5,-312 809.5,-312 809.5,-288 1092.5,-288 1092.5,-312"/>
+<text text-anchor="middle" x="951" y="-297.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module::function_cache%put_in_cache</text>
+</a>
+</g>
+</g>
+<!-- proc~get_all_pieces_above&#45;&gt;proc~put_in_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_edge12" class="edge">
+<title>proc~get_all_pieces_above&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M766.1,-310.47C776.79,-309.86 787.85,-309.23 798.99,-308.6"/>
+<polygon fill="#000000" stroke="#000000" points="799.46,-312.08 809.25,-308.01 799.07,-305.09 799.46,-312.08"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge14" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_all_pieces_below</title>
+<path fill="none" stroke="#000000" d="M628.65,-268.01C614.91,-276.97 628.02,-286 668,-286 694.23,-286 708.9,-282.11 712,-276.91"/>
+<polygon fill="#000000" stroke="#000000" points="715.09,-275.25 707.35,-268.01 708.88,-278.5 715.09,-275.25"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge16" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M730.61,-243.96C742.72,-240.36 755.06,-235.79 766,-230 784.67,-220.13 782.77,-207.72 802,-199 817.61,-191.92 835.01,-187.09 852.25,-183.83"/>
+<polygon fill="#000000" stroke="#000000" points="853.1,-187.24 862.36,-182.09 851.91,-180.34 853.1,-187.24"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="program~~problem_22~~CallsGraph_edge13" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M765.51,-258.31C853.01,-261.07 985.42,-266.94 1100,-279 1122.94,-281.41 1147.86,-285.03 1170.21,-288.63"/>
+<polygon fill="#000000" stroke="#000000" points="1169.85,-292.12 1180.28,-290.28 1170.98,-285.21 1169.85,-292.12"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~get_from_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_edge15" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~get_from_cache~2</title>
+<path fill="none" stroke="#000000" d="M762.96,-243.96C789.67,-240.54 818.92,-236.79 846.18,-233.3"/>
+<polygon fill="#000000" stroke="#000000" points="846.65,-236.77 856.13,-232.03 845.77,-229.83 846.65,-236.77"/>
+</g>
+<!-- proc~get_all_pieces_below&#45;&gt;proc~put_in_cache~2 -->
+<g id="program~~problem_22~~CallsGraph_edge17" class="edge">
+<title>proc~get_all_pieces_below&#45;&gt;proc~put_in_cache~2</title>
+<path fill="none" stroke="#000000" d="M745.78,-268.02C782.18,-273.72 825.82,-280.55 863.39,-286.44"/>
+<polygon fill="#000000" stroke="#000000" points="862.89,-289.9 873.31,-287.99 863.97,-282.99 862.89,-289.9"/>
+</g>
+<!-- proc~get_pieces_above&#45;&gt;interface~unique~2 -->
+<g id="program~~problem_22~~CallsGraph_edge18" class="edge">
+<title>proc~get_pieces_above&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M1036.75,-367.95C1057.6,-364.21 1079.75,-359.57 1100,-354 1135.86,-344.13 1175.38,-328.66 1203.17,-316.98"/>
+<polygon fill="#000000" stroke="#000000" points="1204.65,-320.15 1212.48,-313.02 1201.91,-313.71 1204.65,-320.15"/>
+</g>
+<!-- proc~get_pieces_below&#45;&gt;interface~unique~2 -->
+<g id="program~~problem_22~~CallsGraph_edge19" class="edge">
+<title>proc~get_pieces_below&#45;&gt;interface~unique~2</title>
+<path fill="none" stroke="#000000" d="M1039.86,-179.98C1060.52,-183.22 1081.8,-189.02 1100,-199 1121.56,-210.82 1117.1,-225.28 1136,-241 1156.77,-258.28 1183.16,-273.49 1204.09,-284.27"/>
+<polygon fill="#000000" stroke="#000000" points="1202.78,-287.53 1213.28,-288.9 1205.93,-281.28 1202.78,-287.53"/>
+</g>
+<!-- interface~split -->
+<g id="program~~problem_22~~CallsGraph_node9" class="node">
+<title>interface~split</title>
+<g id="a_program~~problem_22~~CallsGraph_node9"><a xlink:href=".././interface/split.html" xlink:title="aoc_utilities::split">
+<polygon fill="#a7506f" stroke="#a7506f" points="482.5,-108 377.5,-108 377.5,-84 482.5,-84 482.5,-108"/>
+<text text-anchor="middle" x="430" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize&#45;&gt;interface~split -->
+<g id="program~~problem_22~~CallsGraph_edge20" class="edge">
+<title>proc~initialize&#45;&gt;interface~split</title>
+<path fill="none" stroke="#000000" d="M264.63,-110.48C296.6,-107.67 335.36,-104.25 367.22,-101.44"/>
+<polygon fill="#000000" stroke="#000000" points="367.64,-104.92 377.3,-100.56 367.03,-97.95 367.64,-104.92"/>
+</g>
+<!-- proc~drop -->
+<g id="program~~problem_22~~CallsGraph_node11" class="node">
+<title>proc~drop</title>
+<g id="a_program~~problem_22~~CallsGraph_node11"><a xlink:href=".././proc/drop.html" xlink:title="problem_22::drop">
+<polygon fill="#d9534f" stroke="#d9534f" points="483.5,-188 376.5,-188 376.5,-164 483.5,-164 483.5,-188"/>
+<text text-anchor="middle" x="430" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::drop</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize&#45;&gt;proc~drop -->
+<g id="program~~problem_22~~CallsGraph_edge21" class="edge">
+<title>proc~initialize&#45;&gt;proc~drop</title>
+<path fill="none" stroke="#000000" d="M244.98,-128.02C268.82,-134.62 299.02,-142.9 326,-150 340.42,-153.8 356,-157.79 370.58,-161.47"/>
+<polygon fill="#000000" stroke="#000000" points="369.93,-164.92 380.48,-163.97 371.64,-158.13 369.93,-164.92"/>
 </g>
 <!-- proc~number_of_lines_in_file -->
-<g id="program~~problem_22~~CallsGraph_node8" class="node">
+<g id="program~~problem_22~~CallsGraph_node13" class="node">
 <title>proc~number_of_lines_in_file</title>
-<g id="a_program~~problem_22~~CallsGraph_node8"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="320,-101.96 112,-101.96 112,-77.96 320,-77.96 320,-101.96"/>
-<text text-anchor="middle" x="216" y="-87.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
+<g id="a_program~~problem_22~~CallsGraph_node13"><a xlink:href=".././proc/number_of_lines_in_file.html" xlink:title="aoc_utilities::number_of_lines_in_file">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="534,-66 326,-66 326,-42 534,-42 534,-66"/>
+<text text-anchor="middle" x="430" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::number_of_lines_in_file</text>
 </a>
 </g>
 </g>
-<!-- program~problem_22&#45;&gt;proc~number_of_lines_in_file -->
-<g id="program~~problem_22~~CallsGraph_edge7" class="edge">
-<title>program~problem_22&#45;&gt;proc~number_of_lines_in_file</title>
-<path fill="none" stroke="#000000" d="M50.08,-159.56C63.37,-145.51 87,-123 112,-110.96 116.39,-108.85 120.99,-106.95 125.7,-105.24"/>
-<polygon fill="#000000" stroke="#000000" points="127.12,-108.46 135.51,-101.99 124.92,-101.81 127.12,-108.46"/>
+<!-- proc~initialize&#45;&gt;proc~number_of_lines_in_file -->
+<g id="program~~problem_22~~CallsGraph_edge22" class="edge">
+<title>proc~initialize&#45;&gt;proc~number_of_lines_in_file</title>
+<path fill="none" stroke="#000000" d="M234.84,-103.96C259.65,-95.16 294.67,-83.34 326,-75 335.1,-72.58 344.71,-70.28 354.26,-68.15"/>
+<polygon fill="#000000" stroke="#000000" points="355.14,-71.54 364.17,-66 353.65,-64.7 355.14,-71.54"/>
 </g>
 <!-- proc~read_line -->
-<g id="program~~problem_22~~CallsGraph_node9" class="node">
+<g id="program~~problem_22~~CallsGraph_node15" class="node">
 <title>proc~read_line</title>
-<g id="a_program~~problem_22~~CallsGraph_node9"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="282,-59.96 150,-59.96 150,-35.96 282,-35.96 282,-59.96"/>
-<text text-anchor="middle" x="216" y="-45.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
+<g id="a_program~~problem_22~~CallsGraph_node15"><a xlink:href=".././proc/read_line.html" xlink:title="aoc_utilities::read_line">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="496,-24 364,-24 364,0 496,0 496,-24"/>
+<text text-anchor="middle" x="430" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::read_line</text>
 </a>
 </g>
 </g>
-<!-- program~problem_22&#45;&gt;proc~read_line -->
-<g id="program~~problem_22~~CallsGraph_edge8" class="edge">
-<title>program~problem_22&#45;&gt;proc~read_line</title>
-<path fill="none" stroke="#000000" d="M43.95,-159.84C53.56,-137.91 76.93,-91.82 112,-68.96 120.57,-63.38 130.33,-59.23 140.35,-56.16"/>
-<polygon fill="#000000" stroke="#000000" points="141.27,-59.53 150,-53.53 139.43,-52.78 141.27,-59.53"/>
+<!-- proc~initialize&#45;&gt;proc~read_line -->
+<g id="program~~problem_22~~CallsGraph_edge23" class="edge">
+<title>proc~initialize&#45;&gt;proc~read_line</title>
+<path fill="none" stroke="#000000" d="M216.19,-103.76C238.17,-85.45 282.49,-51.16 326,-33 334.81,-29.32 344.32,-26.27 353.88,-23.74"/>
+<polygon fill="#000000" stroke="#000000" points="354.96,-27.08 363.83,-21.29 353.29,-20.28 354.96,-27.08"/>
 </g>
 <!-- proc~update_array -->
-<g id="program~~problem_22~~CallsGraph_node10" class="node">
+<g id="program~~problem_22~~CallsGraph_node16" class="node">
 <title>proc~update_array</title>
-<g id="a_program~~problem_22~~CallsGraph_node10"><a xlink:href=".././proc/update_array.html" xlink:title="problem_22::update_array">
-<polygon fill="#d9534f" stroke="#d9534f" points="522,-78.96 368,-78.96 368,-54.96 522,-54.96 522,-78.96"/>
-<text text-anchor="middle" x="445" y="-64.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::update_array</text>
+<g id="a_program~~problem_22~~CallsGraph_node16"><a xlink:href=".././proc/update_array.html" xlink:title="problem_22::update_array">
+<polygon fill="#d9534f" stroke="#d9534f" points="1028,-148 874,-148 874,-124 1028,-124 1028,-148"/>
+<text text-anchor="middle" x="951" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::update_array</text>
 </a>
 </g>
 </g>
-<!-- program~problem_22&#45;&gt;proc~update_array -->
-<g id="program~~problem_22~~CallsGraph_edge9" class="edge">
-<title>program~problem_22&#45;&gt;proc~update_array</title>
-<path fill="none" stroke="#000000" d="M40.83,-159.75C45.93,-130.57 63.29,-56.98 112,-26.96 207.67,31.98 348.47,-21.08 411.46,-50.47"/>
-<polygon fill="#000000" stroke="#000000" points="410,-53.65 420.53,-54.79 413.01,-47.33 410,-53.65"/>
+<!-- proc~initialize&#45;&gt;proc~update_array -->
+<g id="program~~problem_22~~CallsGraph_edge24" class="edge">
+<title>proc~initialize&#45;&gt;proc~update_array</title>
+<path fill="none" stroke="#000000" d="M264.81,-117.68C398.45,-121.25 711.18,-129.61 863.52,-133.69"/>
+<polygon fill="#000000" stroke="#000000" points="863.68,-137.19 873.77,-133.96 863.86,-130.2 863.68,-137.19"/>
 </g>
 <!-- proc~split1 -->
-<g id="program~~problem_22~~CallsGraph_node12" class="node">
+<g id="program~~problem_22~~CallsGraph_node18" class="node">
 <title>proc~split1</title>
-<g id="a_program~~problem_22~~CallsGraph_node12"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="686,-315.96 574,-315.96 574,-291.96 686,-291.96 686,-315.96"/>
-<text text-anchor="middle" x="630" y="-301.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
+<g id="a_program~~problem_22~~CallsGraph_node18"><a xlink:href=".././proc/split1.html" xlink:title="aoc_utilities::split1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1007,-87 895,-87 895,-63 1007,-63 1007,-87"/>
+<text text-anchor="middle" x="951" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split1</text>
 </a>
 </g>
 </g>
 <!-- interface~split&#45;&gt;proc~split1 -->
-<g id="program~~problem_22~~CallsGraph_edge10" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge25" class="edge">
 <title>interface~split&#45;&gt;proc~split1</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M268.68,-331.75C331.48,-328.85 440.63,-323.16 534,-314.96 543.57,-314.12 553.68,-313.1 563.58,-312.02"/>
-<polygon fill="#000000" stroke="#000000" points="564.24,-315.47 573.79,-310.88 563.47,-308.51 564.24,-315.47"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M482.61,-86.32C508.7,-81.91 540.92,-77.18 570,-75 680.11,-66.73 808.68,-69.27 884.5,-72.03"/>
+<polygon fill="#000000" stroke="#000000" points="884.72,-75.54 894.84,-72.42 884.98,-68.54 884.72,-75.54"/>
 </g>
 <!-- proc~split2 -->
-<g id="program~~problem_22~~CallsGraph_node13" class="node">
+<g id="program~~problem_22~~CallsGraph_node19" class="node">
 <title>proc~split2</title>
-<g id="a_program~~problem_22~~CallsGraph_node13"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="501,-305.96 389,-305.96 389,-281.96 501,-281.96 501,-305.96"/>
-<text text-anchor="middle" x="445" y="-291.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
+<g id="a_program~~problem_22~~CallsGraph_node19"><a xlink:href=".././proc/split2.html" xlink:title="aoc_utilities::split2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="724,-108 612,-108 612,-84 724,-84 724,-108"/>
+<text text-anchor="middle" x="668" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::split2</text>
 </a>
 </g>
 </g>
 <!-- interface~split&#45;&gt;proc~split2 -->
-<g id="program~~problem_22~~CallsGraph_edge11" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge26" class="edge">
 <title>interface~split&#45;&gt;proc~split2</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M268.51,-324.89C301.13,-319.14 343.61,-311.65 378.6,-305.49"/>
-<polygon fill="#000000" stroke="#000000" points="379.49,-308.89 388.73,-303.7 378.27,-301.99 379.49,-308.89"/>
-</g>
-<!-- interface~unique -->
-<g id="program~~problem_22~~CallsGraph_node11" class="node">
-<title>interface~unique</title>
-<g id="a_program~~problem_22~~CallsGraph_node11"><a xlink:href=".././interface/unique.html" xlink:title="aoc_utilities::unique">
-<polygon fill="#a7506f" stroke="#a7506f" points="690,-210.96 570,-210.96 570,-186.96 690,-186.96 690,-210.96"/>
-<text text-anchor="middle" x="630" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique</text>
-</a>
-</g>
-</g>
-<!-- proc~get_pieces_above&#45;&gt;interface~unique -->
-<g id="program~~problem_22~~CallsGraph_edge12" class="edge">
-<title>proc~get_pieces_above&#45;&gt;interface~unique</title>
-<path fill="none" stroke="#000000" d="M534.02,-204.67C542.67,-204.15 551.37,-203.63 559.8,-203.12"/>
-<polygon fill="#000000" stroke="#000000" points="560.16,-206.61 569.93,-202.51 559.74,-199.62 560.16,-206.61"/>
-</g>
-<!-- proc~get_pieces_below&#45;&gt;interface~unique -->
-<g id="program~~problem_22~~CallsGraph_edge13" class="edge">
-<title>proc~get_pieces_below&#45;&gt;interface~unique</title>
-<path fill="none" stroke="#000000" d="M517.01,-179.99C531.08,-182.38 545.83,-184.88 559.83,-187.25"/>
-<polygon fill="#000000" stroke="#000000" points="559.44,-190.73 569.88,-188.95 560.61,-183.83 559.44,-190.73"/>
-</g>
-<!-- proc~move_piece_down&#45;&gt;proc~get_pieces_below -->
-<g id="program~~problem_22~~CallsGraph_edge14" class="edge">
-<title>proc~move_piece_down&#45;&gt;proc~get_pieces_below</title>
-<path fill="none" stroke="#000000" d="M292.9,-144C313.82,-147.32 336.66,-150.94 358.1,-154.34"/>
-<polygon fill="#000000" stroke="#000000" points="357.74,-157.83 368.17,-155.94 358.84,-150.91 357.74,-157.83"/>
-</g>
-<!-- proc~move_piece_down&#45;&gt;proc~update_array -->
-<g id="program~~problem_22~~CallsGraph_edge15" class="edge">
-<title>proc~move_piece_down&#45;&gt;proc~update_array</title>
-<path fill="none" stroke="#000000" d="M282.99,-119.94C295.36,-117.28 308.13,-114.26 320,-110.96 348.63,-103.01 380.18,-91.78 404.29,-82.65"/>
-<polygon fill="#000000" stroke="#000000" points="405.71,-85.86 413.8,-79.02 403.21,-79.32 405.71,-85.86"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M482.79,-96C517.64,-96 563.89,-96 601.32,-96"/>
+<polygon fill="#000000" stroke="#000000" points="601.63,-99.5 611.63,-96 601.63,-92.5 601.63,-99.5"/>
 </g>
 <!-- proc~unique32 -->
-<g id="program~~problem_22~~CallsGraph_node15" class="node">
+<g id="program~~problem_22~~CallsGraph_node20" class="node">
 <title>proc~unique32</title>
-<g id="a_program~~problem_22~~CallsGraph_node15"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="873,-252.96 740,-252.96 740,-228.96 873,-228.96 873,-252.96"/>
-<text text-anchor="middle" x="806.5" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
+<g id="a_program~~problem_22~~CallsGraph_node20"><a xlink:href=".././proc/unique32.html" xlink:title="aoc_utilities::unique32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1514,-334 1381,-334 1381,-310 1514,-310 1514,-334"/>
+<text text-anchor="middle" x="1447.5" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique32</text>
 </a>
 </g>
 </g>
-<!-- interface~unique&#45;&gt;proc~unique32 -->
-<g id="program~~problem_22~~CallsGraph_edge16" class="edge">
-<title>interface~unique&#45;&gt;proc~unique32</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M681,-211C701.18,-215.85 724.62,-221.5 745.68,-226.57"/>
-<polygon fill="#000000" stroke="#000000" points="744.95,-229.99 755.49,-228.93 746.58,-223.18 744.95,-229.99"/>
+<!-- interface~unique~2&#45;&gt;proc~unique32 -->
+<g id="program~~problem_22~~CallsGraph_edge27" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1300.52,-307.05C1322.36,-309.28 1347.44,-311.85 1370.58,-314.22"/>
+<polygon fill="#000000" stroke="#000000" points="1370.4,-317.72 1380.7,-315.26 1371.11,-310.76 1370.4,-317.72"/>
 </g>
 <!-- proc~unique64 -->
-<g id="program~~problem_22~~CallsGraph_node16" class="node">
+<g id="program~~problem_22~~CallsGraph_node21" class="node">
 <title>proc~unique64</title>
-<g id="a_program~~problem_22~~CallsGraph_node16"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="873,-210.96 740,-210.96 740,-186.96 873,-186.96 873,-210.96"/>
-<text text-anchor="middle" x="806.5" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
+<g id="a_program~~problem_22~~CallsGraph_node21"><a xlink:href=".././proc/unique64.html" xlink:title="aoc_utilities::unique64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1514,-292 1381,-292 1381,-268 1514,-268 1514,-292"/>
+<text text-anchor="middle" x="1447.5" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::unique64</text>
 </a>
 </g>
 </g>
-<!-- interface~unique&#45;&gt;proc~unique64 -->
-<g id="program~~problem_22~~CallsGraph_edge17" class="edge">
-<title>interface~unique&#45;&gt;proc~unique64</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M690.08,-198.96C702.84,-198.96 716.51,-198.96 729.81,-198.96"/>
-<polygon fill="#000000" stroke="#000000" points="729.89,-202.46 739.89,-198.96 729.89,-195.46 729.89,-202.46"/>
+<!-- interface~unique~2&#45;&gt;proc~unique64 -->
+<g id="program~~problem_22~~CallsGraph_edge28" class="edge">
+<title>interface~unique~2&#45;&gt;proc~unique64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1300.52,-294.95C1322.36,-292.72 1347.44,-290.15 1370.58,-287.78"/>
+<polygon fill="#000000" stroke="#000000" points="1371.11,-291.24 1380.7,-286.74 1370.4,-284.28 1371.11,-291.24"/>
+</g>
+<!-- proc~move_piece_down -->
+<g id="program~~problem_22~~CallsGraph_node17" class="node">
+<title>proc~move_piece_down</title>
+<g id="a_program~~problem_22~~CallsGraph_node17"><a xlink:href=".././proc/move_piece_down.html" xlink:title="problem_22::move_piece_down">
+<polygon fill="#d9534f" stroke="#d9534f" points="758.5,-188 577.5,-188 577.5,-164 758.5,-164 758.5,-188"/>
+<text text-anchor="middle" x="668" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22::move_piece_down</text>
+</a>
+</g>
+</g>
+<!-- proc~drop&#45;&gt;proc~move_piece_down -->
+<g id="program~~problem_22~~CallsGraph_edge29" class="edge">
+<title>proc~drop&#45;&gt;proc~move_piece_down</title>
+<path fill="none" stroke="#000000" d="M483.67,-176C508.34,-176 538.57,-176 567.31,-176"/>
+<polygon fill="#000000" stroke="#000000" points="567.41,-179.5 577.41,-176 567.41,-172.5 567.41,-179.5"/>
+</g>
+<!-- proc~vector_djb_hash~2 -->
+<g id="program~~problem_22~~CallsGraph_node22" class="node">
+<title>proc~vector_djb_hash~2</title>
+<g id="a_program~~problem_22~~CallsGraph_node22"><a xlink:href=".././proc/vector_djb_hash~2.html" xlink:title="aoc_cache_module::vector_djb_hash">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1345,-232 1136,-232 1136,-208 1345,-208 1345,-232"/>
+<text text-anchor="middle" x="1240.5" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module::vector_djb_hash</text>
+</a>
+</g>
+</g>
+<!-- proc~get_from_cache~2&#45;&gt;proc~vector_djb_hash~2 -->
+<g id="program~~problem_22~~CallsGraph_edge30" class="edge">
+<title>proc~get_from_cache~2&#45;&gt;proc~vector_djb_hash~2</title>
+<path fill="none" stroke="#000000" d="M1100.38,-220C1108.87,-220 1117.34,-220 1125.68,-220"/>
+<polygon fill="#000000" stroke="#000000" points="1125.76,-223.5 1135.76,-220 1125.76,-216.5 1125.76,-223.5"/>
+</g>
+<!-- proc~move_piece_down&#45;&gt;proc~get_pieces_below -->
+<g id="program~~problem_22~~CallsGraph_edge31" class="edge">
+<title>proc~move_piece_down&#45;&gt;proc~get_pieces_below</title>
+<path fill="none" stroke="#000000" d="M758.68,-176.64C788.41,-176.85 821.64,-177.09 851.97,-177.3"/>
+<polygon fill="#000000" stroke="#000000" points="852.1,-180.8 862.13,-177.37 852.15,-173.8 852.1,-180.8"/>
+</g>
+<!-- proc~move_piece_down&#45;&gt;proc~update_array -->
+<g id="program~~problem_22~~CallsGraph_edge32" class="edge">
+<title>proc~move_piece_down&#45;&gt;proc~update_array</title>
+<path fill="none" stroke="#000000" d="M753.07,-163.98C769.31,-161.66 786.18,-159.25 802,-157 822,-154.15 843.52,-151.09 863.79,-148.22"/>
+<polygon fill="#000000" stroke="#000000" points="864.54,-151.65 873.95,-146.78 863.55,-144.72 864.54,-151.65"/>
 </g>
 <!-- proc~expand_vector -->
-<g id="program~~problem_22~~CallsGraph_node14" class="node">
+<g id="program~~problem_22~~CallsGraph_node24" class="node">
 <title>proc~expand_vector</title>
-<g id="a_program~~problem_22~~CallsGraph_node14"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
-<polygon fill="#d9534f" stroke="#d9534f" points="887,-315.96 726,-315.96 726,-291.96 887,-291.96 887,-315.96"/>
-<text text-anchor="middle" x="806.5" y="-301.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
+<g id="a_program~~problem_22~~CallsGraph_node24"><a xlink:href=".././proc/expand_vector.html" xlink:title="aoc_utilities::expand_vector">
+<polygon fill="#d9534f" stroke="#d9534f" points="1321,-87 1160,-87 1160,-63 1321,-63 1321,-87"/>
+<text text-anchor="middle" x="1240.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::expand_vector</text>
 </a>
 </g>
 </g>
 <!-- proc~split1&#45;&gt;proc~expand_vector -->
-<g id="program~~problem_22~~CallsGraph_edge18" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge33" class="edge">
 <title>proc~split1&#45;&gt;proc~expand_vector</title>
-<path fill="none" stroke="#000000" d="M686.21,-303.96C695.65,-303.96 705.67,-303.96 715.73,-303.96"/>
-<polygon fill="#000000" stroke="#000000" points="715.78,-307.46 725.78,-303.96 715.78,-300.46 715.78,-307.46"/>
+<path fill="none" stroke="#000000" d="M1007.09,-75C1047.42,-75 1103.03,-75 1149.74,-75"/>
+<polygon fill="#000000" stroke="#000000" points="1149.86,-78.5 1159.86,-75 1149.86,-71.5 1149.86,-78.5"/>
 </g>
 <!-- proc~split2&#45;&gt;proc~split1 -->
-<g id="program~~problem_22~~CallsGraph_edge19" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge34" class="edge">
 <title>proc~split2&#45;&gt;proc~split1</title>
-<path fill="none" stroke="#000000" d="M501.4,-296.99C521.02,-298.06 543.28,-299.28 563.65,-300.39"/>
-<polygon fill="#000000" stroke="#000000" points="563.61,-303.9 573.79,-300.95 563.99,-296.91 563.61,-303.9"/>
+<path fill="none" stroke="#000000" d="M724.18,-91.88C770.29,-88.43 836.13,-83.51 884.83,-79.87"/>
+<polygon fill="#000000" stroke="#000000" points="885.23,-83.35 894.94,-79.11 884.71,-76.37 885.23,-83.35"/>
 </g>
 <!-- interface~sort -->
-<g id="program~~problem_22~~CallsGraph_node17" class="node">
+<g id="program~~problem_22~~CallsGraph_node23" class="node">
 <title>interface~sort</title>
-<g id="a_program~~problem_22~~CallsGraph_node17"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
-<polygon fill="#a7506f" stroke="#a7506f" points="1026,-231.96 923,-231.96 923,-207.96 1026,-207.96 1026,-231.96"/>
-<text text-anchor="middle" x="974.5" y="-217.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
+<g id="a_program~~problem_22~~CallsGraph_node23"><a xlink:href=".././interface/sort.html" xlink:title="aoc_utilities::sort">
+<polygon fill="#a7506f" stroke="#a7506f" points="1653,-313 1550,-313 1550,-289 1653,-289 1653,-313"/>
+<text text-anchor="middle" x="1601.5" y="-298.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort</text>
 </a>
 </g>
 </g>
 <!-- proc~unique32&#45;&gt;interface~sort -->
-<g id="program~~problem_22~~CallsGraph_edge20" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge35" class="edge">
 <title>proc~unique32&#45;&gt;interface~sort</title>
-<path fill="none" stroke="#000000" d="M873.11,-232.66C886.19,-231.01 899.88,-229.28 912.8,-227.64"/>
-<polygon fill="#000000" stroke="#000000" points="913.48,-231.09 922.96,-226.36 912.6,-224.14 913.48,-231.09"/>
+<path fill="none" stroke="#000000" d="M1514.29,-312.91C1522.73,-311.74 1531.34,-310.55 1539.7,-309.4"/>
+<polygon fill="#000000" stroke="#000000" points="1540.31,-312.85 1549.74,-308.01 1539.35,-305.91 1540.31,-312.85"/>
 </g>
 <!-- proc~unique64&#45;&gt;interface~sort -->
-<g id="program~~problem_22~~CallsGraph_edge21" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge36" class="edge">
 <title>proc~unique64&#45;&gt;interface~sort</title>
-<path fill="none" stroke="#000000" d="M873.11,-207.26C886.19,-208.92 899.88,-210.65 912.8,-212.28"/>
-<polygon fill="#000000" stroke="#000000" points="912.6,-215.79 922.96,-213.57 913.48,-208.84 912.6,-215.79"/>
+<path fill="none" stroke="#000000" d="M1514.29,-289.09C1522.73,-290.26 1531.34,-291.45 1539.7,-292.6"/>
+<polygon fill="#000000" stroke="#000000" points="1539.35,-296.09 1549.74,-293.99 1540.31,-289.15 1539.35,-296.09"/>
 </g>
 <!-- proc~sort_ascending -->
-<g id="program~~problem_22~~CallsGraph_node18" class="node">
+<g id="program~~problem_22~~CallsGraph_node25" class="node">
 <title>proc~sort_ascending</title>
-<g id="a_program~~problem_22~~CallsGraph_node18"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
-<polygon fill="#d9534f" stroke="#d9534f" points="1225,-211.96 1062,-211.96 1062,-187.96 1225,-187.96 1225,-211.96"/>
-<text text-anchor="middle" x="1143.5" y="-197.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
+<g id="a_program~~problem_22~~CallsGraph_node25"><a xlink:href=".././proc/sort_ascending.html" xlink:title="aoc_utilities::sort_ascending">
+<polygon fill="#d9534f" stroke="#d9534f" points="1852,-293 1689,-293 1689,-269 1852,-269 1852,-293"/>
+<text text-anchor="middle" x="1770.5" y="-278.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending</text>
 </a>
 </g>
 </g>
 <!-- interface~sort&#45;&gt;proc~sort_ascending -->
-<g id="program~~problem_22~~CallsGraph_edge22" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge37" class="edge">
 <title>interface~sort&#45;&gt;proc~sort_ascending</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1026.06,-213.91C1034.29,-212.92 1043.03,-211.88 1051.87,-210.82"/>
-<polygon fill="#000000" stroke="#000000" points="1052.37,-214.28 1061.89,-209.62 1051.54,-207.33 1052.37,-214.28"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1653.06,-294.95C1661.29,-293.96 1670.03,-292.91 1678.87,-291.85"/>
+<polygon fill="#000000" stroke="#000000" points="1679.37,-295.32 1688.89,-290.65 1678.54,-288.37 1679.37,-295.32"/>
 </g>
 <!-- proc~sort_ascending_64 -->
-<g id="program~~problem_22~~CallsGraph_node19" class="node">
+<g id="program~~problem_22~~CallsGraph_node26" class="node">
 <title>proc~sort_ascending_64</title>
-<g id="a_program~~problem_22~~CallsGraph_node19"><a xlink:href=".././proc/sort_ascending_64.html" xlink:title="aoc_utilities::sort_ascending_64">
-<polygon fill="#d9534f" stroke="#d9534f" points="1443,-252.96 1261,-252.96 1261,-228.96 1443,-228.96 1443,-252.96"/>
-<text text-anchor="middle" x="1352" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending_64</text>
+<g id="a_program~~problem_22~~CallsGraph_node26"><a xlink:href=".././proc/sort_ascending_64.html" xlink:title="aoc_utilities::sort_ascending_64">
+<polygon fill="#d9534f" stroke="#d9534f" points="2070,-334 1888,-334 1888,-310 2070,-310 2070,-334"/>
+<text text-anchor="middle" x="1979" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::sort_ascending_64</text>
 </a>
 </g>
 </g>
 <!-- interface~sort&#45;&gt;proc~sort_ascending_64 -->
-<g id="program~~problem_22~~CallsGraph_edge23" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge38" class="edge">
 <title>interface~sort&#45;&gt;proc~sort_ascending_64</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1026.14,-222.8C1083.5,-226 1178.4,-231.31 1250.86,-235.36"/>
-<polygon fill="#000000" stroke="#000000" points="1250.74,-238.86 1260.92,-235.93 1251.14,-231.87 1250.74,-238.86"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1653.14,-303.83C1710.5,-307.04 1805.4,-312.35 1877.86,-316.4"/>
+<polygon fill="#000000" stroke="#000000" points="1877.74,-319.9 1887.92,-316.96 1878.14,-312.91 1877.74,-319.9"/>
 </g>
-<!-- interface~swap -->
-<g id="program~~problem_22~~CallsGraph_node20" class="node">
-<title>interface~swap</title>
-<g id="a_program~~problem_22~~CallsGraph_node20"><a xlink:href=".././interface/swap.html" xlink:title="aoc_utilities::swap">
-<polygon fill="#a7506f" stroke="#a7506f" points="1407,-210.96 1297,-210.96 1297,-186.96 1407,-186.96 1407,-210.96"/>
-<text text-anchor="middle" x="1352" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
+<!-- interface~swap~2 -->
+<g id="program~~problem_22~~CallsGraph_node27" class="node">
+<title>interface~swap~2</title>
+<g id="a_program~~problem_22~~CallsGraph_node27"><a xlink:href=".././interface/swap~2.html" xlink:title="aoc_utilities::swap">
+<polygon fill="#a7506f" stroke="#a7506f" points="2034,-292 1924,-292 1924,-268 2034,-268 2034,-292"/>
+<text text-anchor="middle" x="1979" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap</text>
 </a>
 </g>
 </g>
-<!-- proc~sort_ascending&#45;&gt;interface~swap -->
-<g id="program~~problem_22~~CallsGraph_edge24" class="edge">
-<title>proc~sort_ascending&#45;&gt;interface~swap</title>
-<path fill="none" stroke="#000000" d="M1225.23,-199.57C1245.55,-199.47 1267.11,-199.37 1286.52,-199.28"/>
-<polygon fill="#000000" stroke="#000000" points="1286.78,-202.78 1296.76,-199.23 1286.74,-195.78 1286.78,-202.78"/>
+<!-- proc~sort_ascending&#45;&gt;interface~swap~2 -->
+<g id="program~~problem_22~~CallsGraph_edge39" class="edge">
+<title>proc~sort_ascending&#45;&gt;interface~swap~2</title>
+<path fill="none" stroke="#000000" d="M1852.23,-280.61C1872.55,-280.51 1894.11,-280.41 1913.52,-280.31"/>
+<polygon fill="#000000" stroke="#000000" points="1913.78,-283.81 1923.76,-280.26 1913.74,-276.81 1913.78,-283.81"/>
 </g>
 <!-- proc~swap64 -->
-<g id="program~~problem_22~~CallsGraph_node21" class="node">
+<g id="program~~problem_22~~CallsGraph_node28" class="node">
 <title>proc~swap64</title>
-<g id="a_program~~problem_22~~CallsGraph_node21"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
-<polygon fill="#d9534f" stroke="#d9534f" points="1605.5,-252.96 1481.5,-252.96 1481.5,-228.96 1605.5,-228.96 1605.5,-252.96"/>
-<text text-anchor="middle" x="1543.5" y="-238.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
+<g id="a_program~~problem_22~~CallsGraph_node28"><a xlink:href=".././proc/swap64.html" xlink:title="aoc_utilities::swap64">
+<polygon fill="#d9534f" stroke="#d9534f" points="2232.5,-334 2108.5,-334 2108.5,-310 2232.5,-310 2232.5,-334"/>
+<text text-anchor="middle" x="2170.5" y="-319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap64</text>
 </a>
 </g>
 </g>
 <!-- proc~sort_ascending_64&#45;&gt;proc~swap64 -->
-<g id="program~~problem_22~~CallsGraph_edge25" class="edge">
+<g id="program~~problem_22~~CallsGraph_edge40" class="edge">
 <title>proc~sort_ascending_64&#45;&gt;proc~swap64</title>
-<path fill="none" stroke="#000000" d="M1443.03,-240.96C1452.47,-240.96 1461.97,-240.96 1471.15,-240.96"/>
-<polygon fill="#000000" stroke="#000000" points="1471.37,-244.46 1481.37,-240.96 1471.37,-237.46 1471.37,-244.46"/>
+<path fill="none" stroke="#000000" d="M2070.03,-322C2079.47,-322 2088.97,-322 2098.15,-322"/>
+<polygon fill="#000000" stroke="#000000" points="2098.37,-325.5 2108.37,-322 2098.37,-318.5 2098.37,-325.5"/>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap64 -->
-<g id="program~~problem_22~~CallsGraph_edge27" class="edge">
-<title>interface~swap&#45;&gt;proc~swap64</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-210.94C1429.16,-215.84 1454.92,-221.55 1478,-226.67"/>
-<polygon fill="#000000" stroke="#000000" points="1477.53,-230.15 1488.05,-228.9 1479.04,-223.32 1477.53,-230.15"/>
+<!-- interface~swap~2&#45;&gt;proc~swap64 -->
+<g id="program~~problem_22~~CallsGraph_edge42" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M2034.05,-291.98C2056.16,-296.88 2081.92,-302.59 2105,-307.7"/>
+<polygon fill="#000000" stroke="#000000" points="2104.53,-311.19 2115.05,-309.93 2106.04,-304.35 2104.53,-311.19"/>
 </g>
 <!-- proc~swap32 -->
-<g id="program~~problem_22~~CallsGraph_node22" class="node">
+<g id="program~~problem_22~~CallsGraph_node29" class="node">
 <title>proc~swap32</title>
-<g id="a_program~~problem_22~~CallsGraph_node22"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
-<polygon fill="#d9534f" stroke="#d9534f" points="1605.5,-210.96 1481.5,-210.96 1481.5,-186.96 1605.5,-186.96 1605.5,-210.96"/>
-<text text-anchor="middle" x="1543.5" y="-196.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
+<g id="a_program~~problem_22~~CallsGraph_node29"><a xlink:href=".././proc/swap32.html" xlink:title="aoc_utilities::swap32">
+<polygon fill="#d9534f" stroke="#d9534f" points="2232.5,-250 2108.5,-250 2108.5,-226 2232.5,-226 2232.5,-250"/>
+<text text-anchor="middle" x="2170.5" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap32</text>
 </a>
 </g>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap32 -->
-<g id="program~~problem_22~~CallsGraph_edge26" class="edge">
-<title>interface~swap&#45;&gt;proc~swap32</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-198.96C1426.98,-198.96 1449.88,-198.96 1471.11,-198.96"/>
-<polygon fill="#000000" stroke="#000000" points="1471.37,-202.46 1481.37,-198.96 1471.37,-195.46 1471.37,-202.46"/>
+<!-- interface~swap~2&#45;&gt;proc~swap32 -->
+<g id="program~~problem_22~~CallsGraph_edge41" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M2034.05,-268.02C2056.16,-263.12 2081.92,-257.41 2105,-252.3"/>
+<polygon fill="#000000" stroke="#000000" points="2106.04,-255.65 2115.05,-250.07 2104.53,-248.81 2106.04,-255.65"/>
 </g>
 <!-- proc~swap_str -->
-<g id="program~~problem_22~~CallsGraph_node23" class="node">
+<g id="program~~problem_22~~CallsGraph_node30" class="node">
 <title>proc~swap_str</title>
-<g id="a_program~~problem_22~~CallsGraph_node23"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
-<polygon fill="#d9534f" stroke="#d9534f" points="1608,-168.96 1479,-168.96 1479,-144.96 1608,-144.96 1608,-168.96"/>
-<text text-anchor="middle" x="1543.5" y="-154.56" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
+<g id="a_program~~problem_22~~CallsGraph_node30"><a xlink:href=".././proc/swap_str.html" xlink:title="aoc_utilities::swap_str">
+<polygon fill="#d9534f" stroke="#d9534f" points="2235,-292 2106,-292 2106,-268 2235,-268 2235,-292"/>
+<text text-anchor="middle" x="2170.5" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities::swap_str</text>
 </a>
 </g>
 </g>
-<!-- interface~swap&#45;&gt;proc~swap_str -->
-<g id="program~~problem_22~~CallsGraph_edge28" class="edge">
-<title>interface~swap&#45;&gt;proc~swap_str</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1407.05,-186.99C1429.16,-182.09 1454.92,-176.38 1478,-171.26"/>
-<polygon fill="#000000" stroke="#000000" points="1479.04,-174.61 1488.05,-169.03 1477.53,-167.78 1479.04,-174.61"/>
+<!-- interface~swap~2&#45;&gt;proc~swap_str -->
+<g id="program~~problem_22~~CallsGraph_edge43" class="edge">
+<title>interface~swap~2&#45;&gt;proc~swap_str</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M2034.05,-280C2053.23,-280 2075.17,-280 2095.72,-280"/>
+<polygon fill="#000000" stroke="#000000" points="2095.99,-283.5 2105.99,-280 2095.99,-276.5 2095.99,-283.5"/>
 </g>
 </g>
 </svg>
@@ -817,7 +1002,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-iunit~6"></span>
+              <span class="anchor" id="variable-iunit~22"></span>
               integer
             </td>
             <td>
@@ -833,7 +1018,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n_lines~4"></span>
+              <span class="anchor" id="variable-n_lines~14"></span>
               integer
             </td>
             <td>
@@ -849,7 +1034,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~34"></span>
+              <span class="anchor" id="variable-i~90"></span>
               integer(kind=ip)
             </td>
             <td>
@@ -865,7 +1050,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~20"></span>
+              <span class="anchor" id="variable-j~45"></span>
               integer(kind=ip)
             </td>
             <td>
@@ -881,7 +1066,23 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-line~7"></span>
+              <span class="anchor" id="variable-k~3"></span>
+              integer(kind=ip)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-line~15"></span>
               character(len=:),
             </td>
             <td>
@@ -977,7 +1178,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~8"></span>
+              <span class="anchor" id="variable-array~11"></span>
               integer(kind=ip),
             </td>
             <td>
@@ -1041,14 +1242,14 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-moved~2"></span>
-              logical
+              <span class="anchor" id="variable-isum~8"></span>
+              integer(kind=ip)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>moved</strong></td>
+            <td><strong>isum</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1057,14 +1258,14 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tmp_moved"></span>
-              logical
+              <span class="anchor" id="variable-isum_total"></span>
+              integer(kind=ip)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>tmp_moved</strong></td>
+            <td><strong>isum_total</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1087,6 +1288,38 @@ implementation in a submodule of an interface in a parent module.
                 
             </td>
         </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-above_cache"></span>
+              type(<a href='../type/function_cache.html'>function_cache</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>above_cache</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-below_cache"></span>
+              type(<a href='../type/function_cache.html'>function_cache</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>below_cache</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
     </tbody>
   </table>
 
@@ -1101,11 +1334,11 @@ implementation in a submodule of an interface in a parent module.
     <section>
     <h2>Functions</h2>
       <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-get_pieces_above"></span><h3> function <a href='../proc/get_pieces_above.html'>get_pieces_above</a>(i) result(ipieces)  
+    <div class="card-header codesum"><span class="anchor" id="proc-get_all_pieces_above"></span><h3>recursive function <a href='../proc/get_all_pieces_above.html'>get_all_pieces_above</a>(i) result(ipieces)  
 </h3></div>
     <div class="card-body">
           
-  <p>get set of pieces above piece i</p>
+  <p>reursively get a list of all pieces above piece i</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1120,7 +1353,112 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~18"></span>
+              <span class="anchor" id="variable-i~67"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip), dimension(:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_all_pieces_below"></span><h3>recursive function <a href='../proc/get_all_pieces_below.html'>get_all_pieces_below</a>(i, iskip) result(ipieces)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>reursively get a list of all pieces below piece i</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~68"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iskip~2"></span>
+              integer(kind=ip),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iskip</strong></td>
+            <td>
+<p>skip this one and it's children</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=ip), dimension(:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_pieces_above"></span><h3> function <a href='../proc/get_pieces_above.html'>get_pieces_above</a>(i) result(ipieces)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>get set of pieces directly above piece i</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~69"></span>
               integer(kind=ip),
             </td>
 <td>intent(in)</td>
@@ -1150,7 +1488,7 @@ implementation in a submodule of an interface in a parent module.
 </h3></div>
     <div class="card-body">
           
-  <p>get set of pieces below piece i</p>
+  <p>get set of pieces directly below piece i</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1165,7 +1503,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~19"></span>
+              <span class="anchor" id="variable-i~70"></span>
               integer(kind=ip),
             </td>
 <td>intent(in)</td>
@@ -1196,6 +1534,32 @@ implementation in a submodule of an interface in a parent module.
 
     <section>
     <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-initialize"></span><h3> subroutine <a href='../proc/initialize.html'>initialize</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>read the data</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-drop"></span><h3> subroutine <a href='../proc/drop.html'>drop</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>continue forward in time until all the bricks settle.</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
       <div class="card">
     <div class="card-header codesum"><span class="anchor" id="proc-update_array"></span><h3> subroutine <a href='../proc/update_array.html'>update_array</a>()  
 </h3></div>
@@ -1229,7 +1593,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~8"></span>
+              <span class="anchor" id="variable-i~51"></span>
               integer(kind=ip),
             </td>
 <td>intent(in)</td>
@@ -1271,55 +1635,29 @@ implementation in a submodule of an interface in a parent module.
     <h2 id="src">Source Code</h2>
     <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_22</span>
 
-<span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span><span class="w"> </span><span class="c">! use long ints</span>
+<span class="k">use </span><span class="n">iso_fortran_env</span>
 <span class="k">use </span><span class="n">aoc_utilities</span>
+<span class="k">use </span><span class="n">aoc_cache_module</span>
 
 <span class="k">implicit none</span>
 
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
-<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span>
 <span class="k">type</span><span class="p">(</span><span class="n">string</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">start_end</span><span class="p">,</span><span class="w"> </span><span class="n">starts</span><span class="p">,</span><span class="w"> </span><span class="n">ends</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">istart_array</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iend_array</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:,:,:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces_above</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces_below</span>
-<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ok_to_disintegrate</span>
-<span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">moved</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span><span class="p">,</span><span class="w"> </span><span class="n">ok_tmp</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ok_to_disintegrate</span><span class="p">,</span><span class="w"> </span><span class="n">isum</span><span class="p">,</span><span class="w"> </span><span class="n">isum_total</span>
+<span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ok_tmp</span>
+<span class="k">type</span><span class="p">(</span><span class="n">function_cache</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">above_cache</span><span class="p">,</span><span class="w"> </span><span class="n">below_cache</span>
 
 <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">tic</span><span class="p">()</span>
 
-<span class="c">! read the data:</span>
-<span class="c">! open(newunit=iunit, file=&#39;inputs/day22_test.txt&#39;, status=&#39;OLD&#39;)</span>
-<span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day22.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
-<span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
-<span class="k">allocate</span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">allocate</span><span class="p">(</span><span class="n">iend_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
-<span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">);</span><span class="w"> </span><span class="n">start_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">starts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">starts</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
-<span class="w">    </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">ends</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
-<span class="k">end do</span>
-<span class="k">close</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
-<span class="c">! create the array to hold all the pieces:</span>
-<span class="k">allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)]),&amp;</span>
-<span class="w">               </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)]),&amp;</span>
-<span class="w">               </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)])))</span>
-<span class="k">call </span><span class="n">update_array</span><span class="p">()</span>
-
-<span class="c">!continue forward in time until all the bricks settle.</span>
-<span class="k">do</span>
-<span class="k">    </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
-<span class="w">        </span><span class="k">call </span><span class="n">move_piece_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp_moved</span><span class="p">)</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"> </span><span class="c">! at least one was moved</span>
-<span class="w">    </span><span class="k">end do</span>
-<span class="k">    if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="c">! done moving all the pieces</span>
-<span class="k">end do</span>
-
 <span class="c">!find the ones we can remove without any other falling:</span>
 <span class="c">!  to do that, look to see if any above it are not otherwise held up by another piece</span>
+<span class="k">call </span><span class="n">initialize</span><span class="p">()</span>
 <span class="n">ok_to_disintegrate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
 <span class="w">    </span><span class="n">ipieces_above</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -1340,11 +1678,133 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">end do</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;22a: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ok_to_disintegrate</span>
 
+<span class="c">! for part 2, we need to find all the nodes in the tree</span>
+<span class="c">! that are only supportd by ones below that in the tree</span>
+<span class="c">!</span>
+<span class="c">!  777  44444</span>
+<span class="c">! 66111222  9</span>
+<span class="c">!88 333333333   &lt;--- deleting 3 will cause 1, 2, 4, 9 to fall, but not 6,7,8</span>
+
+<span class="c">! just use a cache to save the ones above/below a given piece</span>
+<span class="c">! since there is a lot of duplication in that calculation</span>
+<span class="k">call </span><span class="n">above_cache</span><span class="p">%</span><span class="n">initialize</span><span class="p">(</span><span class="n">isize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">call </span><span class="n">below_cache</span><span class="p">%</span><span class="n">initialize</span><span class="p">(</span><span class="n">isize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">initialize</span><span class="p">()</span>
+<span class="n">isum_total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span><span class="w"> </span><span class="c">! try remove piece i</span>
+<span class="w">    </span><span class="n">ipieces_above</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_all_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="n">isum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">)</span><span class="w"> </span><span class="c">! start out assuming they will all fall</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isum</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">main</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">)</span>
+<span class="w">            </span><span class="c">! for all the ones, see if there are any below that are not in the above set.</span>
+<span class="w">            </span><span class="c">! is so, then it will not fall.</span>
+<span class="w">            </span><span class="n">ipieces_below</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_all_pieces_below</span><span class="p">(</span><span class="n">ipieces_above</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">iskip</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="n">ipieces_below</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces_below</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces_below</span><span class="o">/=</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="c">! remove i if present (the one being removed)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">ipieces_below</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="n">ipieces_below</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">==</span><span class="p">[</span><span class="n">ipieces_above</span><span class="p">]))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">isum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isum</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! this one will not fall, so remove it from total</span>
+<span class="w">                    </span><span class="k">cycle </span><span class="n">main</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end do</span>
+<span class="k">        end do </span><span class="n">main</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    </span><span class="n">isum_total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isum_total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isum</span>
+<span class="k">end do</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;22b: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">isum_total</span>
+
 <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">toc</span><span class="p">(</span><span class="s1">&#39;22&#39;</span><span class="p">)</span>
 
 <span class="k">contains</span>
 
-<span class="k">    subroutine </span><span class="n">update_array</span><span class="p">()</span>
+<span class="k">    subroutine </span><span class="n">initialize</span><span class="p">()</span>
+<span class="w">        </span><span class="c">!! read the data</span>
+<span class="w">        </span><span class="c">! open(newunit=iunit, file=&#39;inputs/day22_test.txt&#39;, status=&#39;OLD&#39;)</span>
+<span class="w">        </span><span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">iunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;inputs/day22.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;OLD&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">n_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_lines_in_file</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">istart_array</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="n">istart_array</span><span class="p">);</span><span class="w"> </span><span class="k">allocate</span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">iend_array</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="n">iend_array</span><span class="p">);</span><span class="w"> </span><span class="k">allocate</span><span class="p">(</span><span class="n">iend_array</span><span class="p">(</span><span class="n">n_lines</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">            </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_line</span><span class="p">(</span><span class="n">iunit</span><span class="p">);</span><span class="w"> </span><span class="n">start_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">starts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">1</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">ends</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">split</span><span class="p">(</span><span class="n">start_end</span><span class="p">(</span><span class="mi">2</span><span class="p">)%</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">starts</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
+<span class="w">            </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,:)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">ends</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">str</span><span class="p">),</span><span class="w">   </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">        close</span><span class="p">(</span><span class="n">iunit</span><span class="p">)</span>
+<span class="w">        </span><span class="c">! create the array to hold all the pieces:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="k">array</span><span class="p">))</span><span class="w"> </span><span class="k">deallocate</span><span class="p">(</span><span class="k">array</span><span class="p">)</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)]),&amp;</span>
+<span class="w">                       </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)]),&amp;</span>
+<span class="w">                       </span><span class="mi">0</span><span class="p">:</span><span class="nb">maxval</span><span class="p">([</span><span class="n">istart_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)])))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">update_array</span><span class="p">()</span><span class="w">  </span><span class="c">! set array values from the start/end arrays</span>
+<span class="w">        </span><span class="k">call </span><span class="n">drop</span><span class="p">()</span><span class="w"> </span><span class="c">! continue forward in time until all the bricks settle.</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">initialize</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">drop</span><span class="p">()</span>
+<span class="w">        </span><span class="c">!! continue forward in time until all the bricks settle.</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">moved</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="k">            </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n_lines</span>
+<span class="w">                </span><span class="k">call </span><span class="n">move_piece_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">tmp_moved</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp_moved</span><span class="p">)</span><span class="w"> </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"> </span><span class="c">! at least one was moved</span>
+<span class="w">            </span><span class="k">end do</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="c">! done moving all the pieces</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">    end subroutine </span><span class="n">drop</span>
+
+<span class="w">    </span><span class="k">recursive function </span><span class="n">get_all_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! reursively get a list of all pieces above piece i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="c">!! counter</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">found</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+<span class="w">        </span><span class="k">call </span><span class="n">above_cache</span><span class="p">%</span><span class="n">get</span><span class="p">([</span><span class="n">i</span><span class="p">],</span><span class="n">idx</span><span class="p">,</span><span class="n">ipieces</span><span class="p">,</span><span class="n">found</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            allocate</span><span class="p">(</span><span class="n">ipieces</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">            </span><span class="k">associate</span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">get_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">]</span><span class="w"> </span><span class="c">! ones directly above</span>
+<span class="w">                    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="c">! go up the tree</span>
+<span class="w">                        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">get_all_pieces_above</span><span class="p">(</span><span class="n">tmp</span><span class="p">(</span><span class="n">j</span><span class="p">))]</span>
+<span class="w">                    </span><span class="k">end do</span>
+<span class="k">                    </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end associate</span>
+<span class="k">           call </span><span class="n">above_cache</span><span class="p">%</span><span class="n">put</span><span class="p">(</span><span class="n">idx</span><span class="p">,[</span><span class="n">i</span><span class="p">],</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end function </span><span class="n">get_all_pieces_above</span>
+
+<span class="w">    </span><span class="k">recursive function </span><span class="n">get_all_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">iskip</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="c">!! reursively get a list of all pieces below piece i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iskip</span><span class="w"> </span><span class="c">!! skip this one and it&#39;s children</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="c">!! counter</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">found</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tmp</span>
+<span class="w">        </span><span class="k">call </span><span class="n">below_cache</span><span class="p">%</span><span class="n">get</span><span class="p">([</span><span class="n">i</span><span class="p">,</span><span class="n">iskip</span><span class="p">],</span><span class="n">idx</span><span class="p">,</span><span class="n">ipieces</span><span class="p">,</span><span class="n">found</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            allocate</span><span class="p">(</span><span class="n">ipieces</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">iskip</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="o">/=</span><span class="n">iskip</span><span class="p">)</span><span class="w"> </span><span class="c">! remove the skipped one</span>
+<span class="w">                </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">]</span><span class="w"> </span><span class="c">! ones directly below</span>
+<span class="w">                </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="c">! go down the tree</span>
+<span class="w">                    </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">get_all_pieces_below</span><span class="p">(</span><span class="n">tmp</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">iskip</span><span class="o">=</span><span class="n">iskip</span><span class="p">)]</span>
+<span class="w">                </span><span class="k">end do</span>
+<span class="k">                </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">           call </span><span class="n">below_cache</span><span class="p">%</span><span class="n">put</span><span class="p">(</span><span class="n">idx</span><span class="p">,[</span><span class="n">i</span><span class="p">,</span><span class="n">iskip</span><span class="p">],</span><span class="n">ipieces</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end function </span><span class="n">get_all_pieces_below</span>
+
+<span class="w">    </span><span class="k">subroutine </span><span class="n">update_array</span><span class="p">()</span>
 <span class="w">        </span><span class="c">!! populate the array using the start/end indices</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 <span class="w">        </span><span class="k">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
@@ -1356,7 +1816,7 @@ implementation in a submodule of an interface in a parent module.
 <span class="k">    end subroutine </span><span class="n">update_array</span>
 
 <span class="w">    </span><span class="k">function </span><span class="n">get_pieces_above</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
-<span class="w">        </span><span class="c">!! get set of pieces above piece i</span>
+<span class="w">        </span><span class="c">!! get set of pieces directly above piece i</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="w"> </span><span class="c">!! counter</span>
@@ -1364,15 +1824,17 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">        </span><span class="k">do </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">            </span><span class="k">do </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">                </span><span class="k">do </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;=</span><span class="nb">ubound</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! above this one</span>
-<span class="w">                </span><span class="k">end do</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;=</span><span class="nb">ubound</span><span class="p">(</span><span class="k">array</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! above this one</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end do</span>
 <span class="k">            end do</span>
 <span class="k">        end do</span>
-<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
+<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
 <span class="w">    </span><span class="k">end function </span><span class="n">get_pieces_above</span>
 
 <span class="w">    </span><span class="k">function </span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">ipieces</span><span class="p">)</span>
-<span class="w">        </span><span class="c">!! get set of pieces below piece i</span>
+<span class="w">        </span><span class="c">!! get set of pieces directly below piece i</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ipieces</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="w"> </span><span class="c">!! counter</span>
@@ -1380,11 +1842,13 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">        </span><span class="k">do </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">            </span><span class="k">do </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">                </span><span class="k">do </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! below this one</span>
-<span class="w">                </span><span class="k">end do</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! 0 is the floor</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">ipieces</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="c">! below this one</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end do</span>
 <span class="k">            end do</span>
 <span class="k">        end do</span>
-<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
+<span class="k">        </span><span class="n">ipieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="nb">pack</span><span class="p">(</span><span class="n">ipieces</span><span class="p">,</span><span class="w"> </span><span class="n">ipieces</span><span class="o">/=</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="c">! exclude the ones in this piece</span>
 <span class="w">    </span><span class="k">end function </span><span class="n">get_pieces_below</span>
 
 <span class="w">    </span><span class="k">subroutine </span><span class="n">move_piece_down</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">moved</span><span class="p">)</span>
@@ -1395,7 +1859,7 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">get_pieces_below</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c">! can only move if nothing below</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">iend_array</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">                </span><span class="n">moved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">                </span><span class="k">call </span><span class="n">update_array</span><span class="p">()</span>
 <span class="w">            </span><span class="k">end if</span>

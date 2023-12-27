@@ -45,6 +45,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -68,603 +71,963 @@
 			 <table class="table">
 			 <thead><tr><th>Module</th><th>Source File</th><th>Description</th></tr></thead>
 			 <tbody>
-			   <tr class="active"><td><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></td><td><a href='../sourcefile/cache_module.f90.html'>cache_module.f90</a></td><td><p>For caching function evaluations.</p><a href="../module/aoc_cache_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
-<!--active-->			   <tr class=""><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></td><td><p>Helper classes and routines for Advent of Code</p><a href="../module/aoc_utilities.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
-<!---->			   <tr class="active"><td><a href='../module/problem_15_module.html'>problem_15_module</a></td><td><a href='../sourcefile/problem_15.f90.html'>problem_15.f90</a></td><td><p>A module for problem 15, part 2.</p></td></tr>
-<!--active-->			 </tbody></table>
+			   <tr class="active"><td><a href='../module/aoc_cache_module.html'>aoc_cache_module</a></td><td><a href='../sourcefile/cache_module.f90~2.html'>cache_module.f90</a></td><td><p>For caching function evaluations.</p><a href="../module/aoc_cache_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/aoc_utilities.html'>aoc_utilities</a></td><td><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.F90</a></td><td><p>Helper classes and routines for Advent of Code</p><a href="../module/aoc_utilities.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!---->			   <tr class="active"><td><a href='../module/dag_module.html'>dag_module</a></td><td><a href='../sourcefile/dag_module.f90.html'>dag_module.f90</a></td><td><p>DAG Module.</p></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/diff_module.html'>diff_module</a></td><td><a href='../sourcefile/diff_module.f90.html'>diff_module.f90</a></td><td><p>Numerical differentiation of a 1D function <code>f(x)</code> using Neville's process.</p><a href="../module/diff_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!---->			   <tr class="active"><td><a href='../module/dsm_module.html'>dsm_module</a></td><td><a href='../sourcefile/dsm_module.f90.html'>dsm_module.f90</a></td><td><p>Jacobian partitioning using the DSM algorithm.</p><a href="../module/dsm_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/fmin_module.html'>fmin_module</a></td><td><a href='../sourcefile/fmin_module.f90.html'>fmin_module.F90</a></td><td><p>Module for <a href="../proc/fmin.html">fmin</a> 1D derative-free function minimizer.</p><a href="../module/fmin_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!---->			   <tr class="active"><td><a href='../module/nlesolver_module.html'>nlesolver_module</a></td><td><a href='../sourcefile/nlesolver_module.f90.html'>nlesolver_module.F90</a></td><td><p>A basic multidimensional nonlinear equation solver, using a Newton-Raphson type direct method.</p><a href="../module/nlesolver_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/numdiff_cache_module.html'>numdiff_cache_module</a></td><td><a href='../sourcefile/cache_module.f90.html'>cache_module.f90</a></td><td><p>For caching function evaluations.</p></td></tr>
+<!---->			   <tr class="active"><td><a href='../module/numdiff_kinds_module.html'>numdiff_kinds_module</a></td><td><a href='../sourcefile/kinds_module.f90.html'>kinds_module.F90</a></td><td><p>Numeric kinds for NumDiff.</p><a href="../module/numdiff_kinds_module.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/numdiff_utilities_module.html'>numdiff_utilities_module</a></td><td><a href='../sourcefile/utilities_module.f90.html'>utilities_module.f90</a></td><td><p>Utility routines.</p></td></tr>
+<!---->			   <tr class="active"><td><a href='../module/numerical_differentiation_module.html'>numerical_differentiation_module</a></td><td><a href='../sourcefile/numerical_differentiation_module.f90.html'>numerical_differentiation_module.f90</a></td><td><p>Numerical differentiation module for computing the Jacobian matrix
+(the derivative matrix of <code>m</code> functions w.r.t. <code>n</code> variables) using
+finite differences.</p></td></tr>
+<!--active-->			   <tr class=""><td><a href='../module/problem_15_module.html'>problem_15_module</a></td><td><a href='../sourcefile/problem_15.f90.html'>problem_15.f90</a></td><td><p>A module for problem 15, part 2.</p></td></tr>
+<!---->			 </tbody></table>
              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: module~~graph~~ModuleGraph Pages: 1 -->
-<svg id="modulegraphModuleGraph" width="522pt" height="1132pt"
- viewBox="0.00 0.00 522.00 1131.65" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1127.65)">
+<svg id="modulegraphModuleGraph" width="855pt" height="1464pt"
+ viewBox="0.00 0.00 855.00 1464.33" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(1.1 1.1) rotate(0) translate(4 1609.33)">
 <title>module~~graph~~ModuleGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-1127.65 518,-1127.65 518,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1609.33 938,-1609.33 938,4 -4,4"/>
 <!-- module~aoc_cache_module -->
 <g id="module~~graph~~ModuleGraph_node1" class="node">
 <title>module~aoc_cache_module</title>
 <g id="a_module~~graph~~ModuleGraph_node1"><a xlink:href=".././module/aoc_cache_module.html" xlink:title="aoc_cache_module">
-<polygon fill="#337ab7" stroke="#337ab7" points="245,-1081.65 130,-1081.65 130,-1057.65 245,-1057.65 245,-1081.65"/>
-<text text-anchor="middle" x="187.5" y="-1067.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="428,-995.98 313,-995.98 313,-971.98 428,-971.98 428,-995.98"/>
+<text text-anchor="middle" x="370.5" y="-981.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_cache_module</text>
 </a>
 </g>
-</g>
-<!-- iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_node29" class="node">
-<title>iso_fortran_env</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="94,-871.65 0,-871.65 0,-847.65 94,-847.65 94,-871.65"/>
-<text text-anchor="middle" x="47" y="-857.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
-</g>
-<!-- module~aoc_cache_module&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge1" class="edge">
-<title>module~aoc_cache_module&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.46,-1057.45C155.65,-1022.87 90.38,-923.91 61.75,-880.49"/>
-<polygon fill="#000000" stroke="#000000" points="64.49,-878.3 56.07,-871.88 58.65,-882.15 64.49,-878.3"/>
 </g>
 <!-- module~aoc_utilities -->
 <g id="module~~graph~~ModuleGraph_node2" class="node">
 <title>module~aoc_utilities</title>
 <g id="a_module~~graph~~ModuleGraph_node2"><a xlink:href=".././module/aoc_utilities.html" xlink:title="aoc_utilities">
-<polygon fill="#337ab7" stroke="#337ab7" points="225.5,-621.65 149.5,-621.65 149.5,-597.65 225.5,-597.65 225.5,-621.65"/>
-<text text-anchor="middle" x="187.5" y="-607.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="234.5,-995.98 158.5,-995.98 158.5,-971.98 234.5,-971.98 234.5,-995.98"/>
+<text text-anchor="middle" x="196.5" y="-981.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aoc_utilities</text>
 </a>
 </g>
+</g>
+<!-- module~aoc_cache_module&#45;&gt;module~aoc_utilities -->
+<g id="module~~graph~~ModuleGraph_edge1" class="edge">
+<title>module~aoc_cache_module&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M312.7,-983.98C290.77,-983.98 265.97,-983.98 245,-983.98"/>
+<polygon fill="#000000" stroke="#000000" points="244.74,-980.48 234.74,-983.98 244.74,-987.48 244.74,-980.48"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_node45" class="node">
+<title>iso_fortran_env</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-393.98 0,-393.98 0,-369.98 94,-369.98 94,-393.98"/>
+<text text-anchor="middle" x="47" y="-379.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
 </g>
 <!-- module~aoc_utilities&#45;&gt;iso_fortran_env -->
 <g id="module~~graph~~ModuleGraph_edge2" class="edge">
 <title>module~aoc_utilities&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M179.82,-621.7C157.84,-661.38 87.58,-788.21 59.63,-838.66"/>
-<polygon fill="#000000" stroke="#000000" points="56.56,-836.97 54.78,-847.42 62.68,-840.36 56.56,-836.97"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M192.28,-971.79C182.61,-935.13 153.09,-822.62 130,-728.98 99.78,-606.4 65.66,-458.89 53.04,-403.98"/>
+<polygon fill="#000000" stroke="#000000" points="56.4,-402.95 50.75,-393.98 49.58,-404.51 56.4,-402.95"/>
+</g>
+<!-- module~dag_module -->
+<g id="module~~graph~~ModuleGraph_node3" class="node">
+<title>module~dag_module</title>
+<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href=".././module/dag_module.html" xlink:title="dag_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="236,-474.98 157,-474.98 157,-450.98 236,-450.98 236,-474.98"/>
+<text text-anchor="middle" x="196.5" y="-460.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_module</text>
+</a>
+</g>
+</g>
+<!-- module~diff_module -->
+<g id="module~~graph~~ModuleGraph_node4" class="node">
+<title>module~diff_module</title>
+<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href=".././module/diff_module.html" xlink:title="diff_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="584.5,-173.98 508.5,-173.98 508.5,-149.98 584.5,-149.98 584.5,-173.98"/>
+<text text-anchor="middle" x="546.5" y="-159.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diff_module</text>
+</a>
+</g>
+</g>
+<!-- module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_node9" class="node">
+<title>module~numdiff_kinds_module</title>
+<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href=".././module/numdiff_kinds_module.html" xlink:title="numdiff_kinds_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="263,-193.98 130,-193.98 130,-169.98 263,-169.98 263,-193.98"/>
+<text text-anchor="middle" x="196.5" y="-179.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_kinds_module</text>
+</a>
+</g>
+</g>
+<!-- module~diff_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<title>module~diff_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.36,-159.55C473.04,-157.8 418.47,-156.61 371.5,-161.98"/>
+</g>
+<!-- module~dsm_module -->
+<g id="module~~graph~~ModuleGraph_node5" class="node">
+<title>module~dsm_module</title>
+<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href=".././module/dsm_module.html" xlink:title="dsm_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="411,-133.98 330,-133.98 330,-109.98 411,-109.98 411,-133.98"/>
+<text text-anchor="middle" x="370.5" y="-119.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_module</text>
+</a>
+</g>
+</g>
+<!-- module~dsm_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<title>module~dsm_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M334.69,-134.12C307.79,-143.5 270.39,-156.55 241.43,-166.65"/>
+<polygon fill="#000000" stroke="#000000" points="240.25,-163.36 231.96,-169.96 242.56,-169.97 240.25,-163.36"/>
+</g>
+<!-- module~fmin_module -->
+<g id="module~~graph~~ModuleGraph_node6" class="node">
+<title>module~fmin_module</title>
+<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href=".././module/fmin_module.html" xlink:title="fmin_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="237.5,-373.98 155.5,-373.98 155.5,-349.98 237.5,-349.98 237.5,-373.98"/>
+<text text-anchor="middle" x="196.5" y="-359.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fmin_module</text>
+</a>
+</g>
+</g>
+<!-- module~fmin_module&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<title>module~fmin_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.19,-367.44C139.58,-369.56 121.44,-372.02 104.56,-374.31"/>
+<polygon fill="#000000" stroke="#000000" points="103.69,-370.89 94.25,-375.71 104.63,-377.83 103.69,-370.89"/>
+</g>
+<!-- module~nlesolver_module -->
+<g id="module~~graph~~ModuleGraph_node7" class="node">
+<title>module~nlesolver_module</title>
+<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href=".././module/nlesolver_module.html" xlink:title="nlesolver_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="424,-331.98 317,-331.98 317,-307.98 424,-307.98 424,-331.98"/>
+<text text-anchor="middle" x="370.5" y="-317.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_module</text>
+</a>
+</g>
+</g>
+<!-- module~nlesolver_module&#45;&gt;module~fmin_module -->
+<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<title>module~nlesolver_module&#45;&gt;module~fmin_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M320.21,-332.01C297.38,-337.59 270.31,-344.2 247.4,-349.79"/>
+<polygon fill="#000000" stroke="#000000" points="246.42,-346.43 237.53,-352.2 248.08,-353.23 246.42,-346.43"/>
+</g>
+<!-- module~nlesolver_module&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<title>module~nlesolver_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M334.73,-307.96C292.34,-294 223.17,-273.64 197.5,-279.98"/>
+</g>
+<!-- module~numdiff_cache_module -->
+<g id="module~~graph~~ModuleGraph_node8" class="node">
+<title>module~numdiff_cache_module</title>
+<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href=".././module/numdiff_cache_module.html" xlink:title="numdiff_cache_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="615,-253.98 478,-253.98 478,-229.98 615,-229.98 615,-253.98"/>
+<text text-anchor="middle" x="546.5" y="-239.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_cache_module</text>
+</a>
+</g>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.8,-248.88C445.28,-250.45 405.97,-249.78 371.5,-241.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-241.98C337.85,-234.81 329.77,-233.3 299,-222.98 277.11,-215.64 253.14,-206.03 233.99,-197.96"/>
+<polygon fill="#000000" stroke="#000000" points="235.31,-194.72 224.74,-194.02 232.57,-201.16 235.31,-194.72"/>
+</g>
+<!-- module~numdiff_utilities_module -->
+<g id="module~~graph~~ModuleGraph_node10" class="node">
+<title>module~numdiff_utilities_module</title>
+<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href=".././module/numdiff_utilities_module.html" xlink:title="numdiff_utilities_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="442,-213.98 299,-213.98 299,-189.98 442,-189.98 442,-213.98"/>
+<text text-anchor="middle" x="370.5" y="-199.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numdiff_utilities_module</text>
+</a>
+</g>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;module~numdiff_utilities_module -->
+<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;module~numdiff_utilities_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M493.29,-229.98C474.63,-225.68 453.4,-220.81 433.95,-216.33"/>
+<polygon fill="#000000" stroke="#000000" points="434.5,-212.87 423.97,-214.04 432.93,-219.69 434.5,-212.87"/>
+</g>
+<!-- module~numdiff_cache_module&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<title>module~numdiff_cache_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.9,-251.48C465.95,-253.06 453.62,-254.62 442,-255.98 333.55,-268.63 303.5,-253.8 197.5,-279.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.5,-279.98C142.78,-294.69 92.9,-337.3 66.83,-362.55"/>
+<polygon fill="#000000" stroke="#000000" points="64.17,-360.26 59.53,-369.78 69.1,-365.24 64.17,-360.26"/>
+</g>
+<!-- module~numdiff_kinds_module&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<title>module~numdiff_kinds_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M185.77,-194.08C172.82,-210.28 149.3,-240 130,-265.98 105.59,-298.84 78.37,-337.85 62.24,-361.22"/>
+<polygon fill="#000000" stroke="#000000" points="59.22,-359.43 56.43,-369.65 64.99,-363.4 59.22,-359.43"/>
+</g>
+<!-- module~numdiff_utilities_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<title>module~numdiff_utilities_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.55,-193.73C290.19,-192.76 281.64,-191.76 273.22,-190.78"/>
+<polygon fill="#000000" stroke="#000000" points="273.38,-187.28 263.05,-189.6 272.57,-194.23 273.38,-187.28"/>
+</g>
+<!-- module~numerical_differentiation_module -->
+<g id="module~~graph~~ModuleGraph_node11" class="node">
+<title>module~numerical_differentiation_module</title>
+<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href=".././module/numerical_differentiation_module.html" xlink:title="numerical_differentiation_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="844,-55.98 651,-55.98 651,-31.98 844,-31.98 844,-55.98"/>
+<text text-anchor="middle" x="747.5" y="-41.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">numerical_differentiation_module</text>
+</a>
+</g>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~diff_module -->
+<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~diff_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M686.58,-56.11C673.95,-60.59 661.34,-66.69 651,-74.98 626.44,-94.67 639.02,-115.63 615,-135.98 608.87,-141.17 601.58,-145.39 594.11,-148.8"/>
+<polygon fill="#000000" stroke="#000000" points="592.53,-145.67 584.61,-152.7 595.19,-152.14 592.53,-145.67"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~dsm_module -->
+<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~dsm_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.54,-55.98C682.91,-60.82 665.79,-67.14 651,-74.98 633.09,-84.47 633.09,-93.84 615,-102.98 587.18,-117.03 577.76,-114.52 547.5,-121.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-121.98C504.52,-132.08 456.45,-131.15 421.23,-128.23"/>
+<polygon fill="#000000" stroke="#000000" points="421.47,-124.74 411.19,-127.31 420.83,-131.71 421.47,-124.74"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_cache_module -->
+<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_cache_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M679.78,-55.99C669.03,-60.46 658.87,-66.59 651,-74.98 606.75,-122.15 657.96,-167.63 615,-215.98 612.09,-219.25 608.72,-222.12 605.07,-224.62"/>
+<polygon fill="#000000" stroke="#000000" points="603,-221.78 596.13,-229.84 606.53,-227.82 603,-221.78"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-121.98C468.46,-140.97 450.34,-152.97 371.5,-161.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-161.98C337.97,-165.58 303.2,-169.61 273.21,-173.11"/>
+<polygon fill="#000000" stroke="#000000" points="272.77,-169.64 263.24,-174.27 273.58,-176.59 272.77,-169.64"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;module~numdiff_utilities_module -->
+<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;module~numdiff_utilities_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M681.25,-56.07C670.1,-60.53 659.41,-66.63 651,-74.98 615.08,-110.61 654.86,-151.82 615,-182.98 565.65,-221.56 492.17,-221.94 438.84,-215.36"/>
+<polygon fill="#000000" stroke="#000000" points="439.17,-211.87 428.79,-214.01 438.24,-218.81 439.17,-211.87"/>
+</g>
+<!-- module~numerical_differentiation_module&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<title>module~numerical_differentiation_module&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M700.83,-31.95C651.7,-19.52 576.69,-2.16 547.5,-3.98"/>
 </g>
 <!-- module~problem_15_module -->
-<g id="module~~graph~~ModuleGraph_node3" class="node">
+<g id="module~~graph~~ModuleGraph_node12" class="node">
 <title>module~problem_15_module</title>
-<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href=".././module/problem_15_module.html" xlink:title="problem_15_module">
-<polygon fill="#337ab7" stroke="#337ab7" points="402,-1039.65 281,-1039.65 281,-1015.65 402,-1015.65 402,-1039.65"/>
-<text text-anchor="middle" x="341.5" y="-1025.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_15_module</text>
+<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href=".././module/problem_15_module.html" xlink:title="problem_15_module">
+<polygon fill="#337ab7" stroke="#337ab7" points="431,-1575.98 310,-1575.98 310,-1551.98 431,-1551.98 431,-1575.98"/>
+<text text-anchor="middle" x="370.5" y="-1561.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_15_module</text>
 </a>
 </g>
 </g>
 <!-- module~problem_15_module&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<g id="module~~graph~~ModuleGraph_edge20" class="edge">
 <title>module~problem_15_module&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M291.96,-1015.54C287.88,-1013.1 284.13,-1010.17 281,-1006.65 232.34,-951.8 261.54,-917.08 245,-845.65 226.77,-766.9 204.13,-673.63 193.93,-631.84"/>
-<polygon fill="#000000" stroke="#000000" points="197.28,-630.8 191.51,-621.92 190.48,-632.46 197.28,-630.8"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M348.2,-1551.77C332.11,-1541.41 310.84,-1525.05 299,-1504.98 272.95,-1460.84 215.53,-1100 200.93,-1006.19"/>
+<polygon fill="#000000" stroke="#000000" points="204.36,-1005.46 199.37,-996.12 197.44,-1006.54 204.36,-1005.46"/>
 </g>
 <!-- module~problem_15_module&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<g id="module~~graph~~ModuleGraph_edge19" class="edge">
 <title>module~problem_15_module&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M295.54,-1015.52C290.35,-1013.07 285.36,-1010.13 281,-1006.65 220.7,-958.46 265.69,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M324.59,-1551.89C315.61,-1548.28 306.61,-1543.7 299,-1537.98 238.16,-1492.21 262.93,-1438.9 197.5,-1399.98"/>
+</g>
+<!-- program~dag_example -->
+<g id="module~~graph~~ModuleGraph_node13" class="node">
+<title>program~dag_example</title>
+<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href=".././program/dag_example.html" xlink:title="dag_example">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="412.5,-453.98 328.5,-453.98 328.5,-429.98 412.5,-429.98 412.5,-453.98"/>
+<text text-anchor="middle" x="370.5" y="-439.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dag_example</text>
+</a>
+</g>
+</g>
+<!-- program~dag_example&#45;&gt;module~dag_module -->
+<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<title>program~dag_example&#45;&gt;module~dag_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M328.3,-447.01C303.56,-450.03 271.95,-453.89 246.01,-457.06"/>
+<polygon fill="#000000" stroke="#000000" points="245.51,-453.59 236,-458.28 246.36,-460.54 245.51,-453.59"/>
+</g>
+<!-- program~dsm_test -->
+<g id="module~~graph~~ModuleGraph_node14" class="node">
+<title>program~dsm_test</title>
+<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href=".././program/dsm_test.html" xlink:title="dsm_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="576.5,-93.98 516.5,-93.98 516.5,-69.98 576.5,-69.98 576.5,-93.98"/>
+<text text-anchor="middle" x="546.5" y="-79.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsm_test</text>
+</a>
+</g>
+</g>
+<!-- program~dsm_test&#45;&gt;module~dsm_module -->
+<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<title>program~dsm_test&#45;&gt;module~dsm_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.38,-88.67C490.47,-94.63 452.05,-103.46 421.27,-110.54"/>
+<polygon fill="#000000" stroke="#000000" points="420.12,-107.21 411.16,-112.86 421.69,-114.03 420.12,-107.21"/>
+</g>
+<!-- program~dsm_test&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge24" class="edge">
+<title>program~dsm_test&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.3,-76.55C481.01,-71.21 420.29,-65.95 371.5,-81.98"/>
+</g>
+<!-- program~dsm_test&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<title>program~dsm_test&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.37,-71.54C482.15,-60.24 423.45,-43.83 371.5,-43.98"/>
+</g>
+<!-- program~nlesolver_test_1 -->
+<g id="module~~graph~~ModuleGraph_node15" class="node">
+<title>program~nlesolver_test_1</title>
+<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href=".././program/nlesolver_test_1.html" xlink:title="nlesolver_test_1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="595.5,-333.98 497.5,-333.98 497.5,-309.98 595.5,-309.98 595.5,-333.98"/>
+<text text-anchor="middle" x="546.5" y="-319.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nlesolver_test_1</text>
+</a>
+</g>
+</g>
+<!-- program~nlesolver_test_1&#45;&gt;module~nlesolver_module -->
+<g id="module~~graph~~ModuleGraph_edge25" class="edge">
+<title>program~nlesolver_test_1&#45;&gt;module~nlesolver_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M497.49,-321.43C477.96,-321.2 455.11,-320.94 434.28,-320.7"/>
+<polygon fill="#000000" stroke="#000000" points="434.28,-317.2 424.24,-320.58 434.2,-324.2 434.28,-317.2"/>
 </g>
 <!-- program~problem_1 -->
-<g id="module~~graph~~ModuleGraph_node4" class="node">
+<g id="module~~graph~~ModuleGraph_node16" class="node">
 <title>program~problem_1</title>
-<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href=".././program/problem_1.html" xlink:title="problem_1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-997.65 307,-997.65 307,-973.65 376,-973.65 376,-997.65"/>
-<text text-anchor="middle" x="341.5" y="-983.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_1</text>
+<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href=".././program/problem_1.html" xlink:title="problem_1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-1495.98 336,-1495.98 336,-1471.98 405,-1471.98 405,-1495.98"/>
+<text text-anchor="middle" x="370.5" y="-1481.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_1</text>
 </a>
 </g>
 </g>
 <!-- program~problem_1&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<g id="module~~graph~~ModuleGraph_edge27" class="edge">
 <title>program~problem_1&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.93,-979.97C297.42,-976.87 287.82,-972.07 281,-964.65 269.34,-951.96 211.32,-707.15 193.63,-631.63"/>
-<polygon fill="#000000" stroke="#000000" points="197.01,-630.71 191.32,-621.77 190.19,-632.3 197.01,-630.71"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.8,-1481.28C322.62,-1478.54 308.44,-1473.21 299,-1462.98 267.12,-1428.41 214.52,-1095.75 200.84,-1006.12"/>
+<polygon fill="#000000" stroke="#000000" points="204.29,-1005.58 199.33,-996.22 197.37,-1006.63 204.29,-1005.58"/>
 </g>
 <!-- program~problem_1&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<g id="module~~graph~~ModuleGraph_edge26" class="edge">
 <title>program~problem_1&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.96,-977.14C298.08,-974.02 288.81,-969.92 281,-964.65 229.46,-929.84 250.69,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.84,-1475.92C323.95,-1472.56 310.65,-1468.21 299,-1462.98 250.57,-1441.21 243.13,-1427.12 197.5,-1399.98"/>
 </g>
 <!-- program~problem_10 -->
-<g id="module~~graph~~ModuleGraph_node5" class="node">
+<g id="module~~graph~~ModuleGraph_node17" class="node">
 <title>program~problem_10</title>
-<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href=".././program/problem_10.html" xlink:title="problem_10">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-955.65 303.5,-955.65 303.5,-931.65 379.5,-931.65 379.5,-955.65"/>
-<text text-anchor="middle" x="341.5" y="-941.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10</text>
+<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href=".././program/problem_10.html" xlink:title="problem_10">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1453.98 332.5,-1453.98 332.5,-1429.98 408.5,-1429.98 408.5,-1453.98"/>
+<text text-anchor="middle" x="370.5" y="-1439.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_10</text>
 </a>
 </g>
 </g>
 <!-- program~problem_10&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<g id="module~~graph~~ModuleGraph_edge29" class="edge">
 <title>program~problem_10&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.36,-936.53C295.11,-933.44 287.03,-929 281,-922.65 260.26,-900.8 210.15,-699.26 193.77,-631.64"/>
-<polygon fill="#000000" stroke="#000000" points="197.11,-630.55 191.36,-621.65 190.3,-632.19 197.11,-630.55"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.25,-1438.36C320.17,-1435.41 307.66,-1430.19 299,-1420.98 240.9,-1359.2 208.2,-1086.33 199.73,-1006.18"/>
+<polygon fill="#000000" stroke="#000000" points="203.21,-1005.78 198.69,-996.2 196.24,-1006.5 203.21,-1005.78"/>
 </g>
 <!-- program~problem_10&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<g id="module~~graph~~ModuleGraph_edge28" class="edge">
 <title>program~problem_10&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.38,-932.22C295.82,-929.43 288.04,-926.21 281,-922.65 236.62,-900.18 238.24,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.22,-1439.22C295.68,-1435.11 239.5,-1424.96 197.5,-1399.98"/>
 </g>
 <!-- program~problem_11 -->
-<g id="module~~graph~~ModuleGraph_node6" class="node">
+<g id="module~~graph~~ModuleGraph_node18" class="node">
 <title>program~problem_11</title>
-<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href=".././program/problem_11.html" xlink:title="problem_11">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-913.65 303.5,-913.65 303.5,-889.65 379.5,-889.65 379.5,-913.65"/>
-<text text-anchor="middle" x="341.5" y="-899.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_11</text>
+<g id="a_module~~graph~~ModuleGraph_node18"><a xlink:href=".././program/problem_11.html" xlink:title="problem_11">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1411.98 332.5,-1411.98 332.5,-1387.98 408.5,-1387.98 408.5,-1411.98"/>
+<text text-anchor="middle" x="370.5" y="-1397.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_11</text>
 </a>
 </g>
 </g>
 <!-- program~problem_11&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<g id="module~~graph~~ModuleGraph_edge31" class="edge">
 <title>program~problem_11&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.23,-894.23C295.08,-891.15 287.09,-886.8 281,-880.65 210.78,-809.69 193.81,-683.3 189.75,-632.11"/>
-<polygon fill="#000000" stroke="#000000" points="193.22,-631.57 189.04,-621.84 186.24,-632.06 193.22,-631.57"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.37,-1396.25C320.3,-1393.29 307.77,-1388.09 299,-1378.98 246.1,-1324.03 210.35,-1081.82 200.35,-1006.44"/>
+<polygon fill="#000000" stroke="#000000" points="203.78,-1005.67 199.02,-996.2 196.84,-1006.57 203.78,-1005.67"/>
 </g>
 <!-- program~problem_11&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<g id="module~~graph~~ModuleGraph_edge30" class="edge">
 <title>program~problem_11&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.44,-889.61C268.05,-877.2 211.16,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.4,-1410.28C295.48,-1418.3 238.56,-1424.4 197.5,-1399.98"/>
 </g>
 <!-- program~problem_12 -->
-<g id="module~~graph~~ModuleGraph_node7" class="node">
+<g id="module~~graph~~ModuleGraph_node19" class="node">
 <title>program~problem_12</title>
-<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href=".././program/problem_12.html" xlink:title="problem_12">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-871.65 303.5,-871.65 303.5,-847.65 379.5,-847.65 379.5,-871.65"/>
-<text text-anchor="middle" x="341.5" y="-857.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12</text>
+<g id="a_module~~graph~~ModuleGraph_node19"><a xlink:href=".././program/problem_12.html" xlink:title="problem_12">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1369.98 332.5,-1369.98 332.5,-1345.98 408.5,-1345.98 408.5,-1369.98"/>
+<text text-anchor="middle" x="370.5" y="-1355.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12</text>
 </a>
 </g>
 </g>
 <!-- program~problem_12&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<g id="module~~graph~~ModuleGraph_edge33" class="edge">
 <title>program~problem_12&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.47,-851.99C295.31,-848.92 287.25,-844.63 281,-838.65 220.17,-780.47 198.24,-676.85 191.32,-631.7"/>
-<polygon fill="#000000" stroke="#000000" points="194.78,-631.18 189.9,-621.78 187.85,-632.17 194.78,-631.18"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.15,-1354.02C320.2,-1351.03 307.81,-1345.87 299,-1336.98 205.42,-1242.51 196.95,-1067.73 197.02,-1006.15"/>
+<polygon fill="#000000" stroke="#000000" points="200.52,-1006.05 197.12,-996.02 193.52,-1005.98 200.52,-1006.05"/>
 </g>
 <!-- program~problem_12&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<g id="module~~graph~~ModuleGraph_edge32" class="edge">
 <title>program~problem_12&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.33,-859.65C272.56,-859.65 227.69,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.14,-1368.5C283.33,-1382.05 203.34,-1403.45 197.5,-1399.98"/>
 </g>
 <!-- program~problem_12b -->
-<g id="module~~graph~~ModuleGraph_node8" class="node">
+<g id="module~~graph~~ModuleGraph_node20" class="node">
 <title>program~problem_12b</title>
-<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href=".././program/problem_12b.html" xlink:title="problem_12b">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="382.5,-1123.65 300.5,-1123.65 300.5,-1099.65 382.5,-1099.65 382.5,-1123.65"/>
-<text text-anchor="middle" x="341.5" y="-1109.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b</text>
+<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href=".././program/problem_12b.html" xlink:title="problem_12b">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="587.5,-1035.98 505.5,-1035.98 505.5,-1011.98 587.5,-1011.98 587.5,-1035.98"/>
+<text text-anchor="middle" x="546.5" y="-1021.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12b</text>
 </a>
 </g>
 </g>
 <!-- program~problem_12b&#45;&gt;module~aoc_cache_module -->
-<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<g id="module~~graph~~ModuleGraph_edge35" class="edge">
 <title>program~problem_12b&#45;&gt;module~aoc_cache_module</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M300.17,-1100.5C282.27,-1095.56 260.95,-1089.67 241.77,-1084.36"/>
-<polygon fill="#000000" stroke="#000000" points="242.53,-1080.94 231.96,-1081.65 240.66,-1087.69 242.53,-1080.94"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M505.14,-1014.7C483.97,-1009.83 457.57,-1003.76 433.84,-998.31"/>
+<polygon fill="#000000" stroke="#000000" points="434.38,-994.84 423.85,-996.01 432.81,-1001.66 434.38,-994.84"/>
 </g>
 <!-- program~problem_12b&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<g id="module~~graph~~ModuleGraph_edge36" class="edge">
 <title>program~problem_12b&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M300.24,-1104.13C292.91,-1101.06 286.01,-1096.74 281,-1090.65 246.03,-1048.16 255.42,-899.68 245,-845.65 229.7,-766.28 205.6,-673.32 194.48,-631.72"/>
-<polygon fill="#000000" stroke="#000000" points="197.8,-630.6 191.83,-621.85 191.04,-632.41 197.8,-630.6"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M505.46,-1020.28C469.99,-1017.89 416.95,-1016.44 371.5,-1023.98"/>
 </g>
 <!-- program~problem_12b&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<g id="module~~graph~~ModuleGraph_edge34" class="edge">
 <title>program~problem_12b&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M300.2,-1119.4C254.05,-1125.85 178.57,-1128.7 130,-1090.65 63.63,-1038.65 50.88,-928.78 48.5,-881.76"/>
-<polygon fill="#000000" stroke="#000000" points="52,-881.58 48.11,-871.72 45,-881.85 52,-881.58"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M542.14,-1036.01C531.68,-1073.79 499.1,-1193.49 478,-1293.98 468.22,-1340.53 478.35,-1474.3 442,-1504.98 393.43,-1545.97 357.51,-1529.8 299,-1504.98 239.25,-1479.63 253.28,-1433.16 197.5,-1399.98"/>
 </g>
 <!-- program~problem_13 -->
-<g id="module~~graph~~ModuleGraph_node9" class="node">
+<g id="module~~graph~~ModuleGraph_node21" class="node">
 <title>program~problem_13</title>
-<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href=".././program/problem_13.html" xlink:title="problem_13">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-829.65 303.5,-829.65 303.5,-805.65 379.5,-805.65 379.5,-829.65"/>
-<text text-anchor="middle" x="341.5" y="-815.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_13</text>
+<g id="a_module~~graph~~ModuleGraph_node21"><a xlink:href=".././program/problem_13.html" xlink:title="problem_13">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1327.98 332.5,-1327.98 332.5,-1303.98 408.5,-1303.98 408.5,-1327.98"/>
+<text text-anchor="middle" x="370.5" y="-1313.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_13</text>
 </a>
 </g>
 </g>
 <!-- program~problem_13&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<g id="module~~graph~~ModuleGraph_edge38" class="edge">
 <title>program~problem_13&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.48,-809.53C295.41,-806.48 287.39,-802.31 281,-796.65 229.72,-751.18 203.71,-670.77 193.63,-631.91"/>
-<polygon fill="#000000" stroke="#000000" points="197.01,-630.97 191.2,-622.11 190.21,-632.66 197.01,-630.97"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.33,-1311.84C320.4,-1308.84 307.96,-1303.71 299,-1294.98 215.48,-1213.6 200.64,-1062.72 198.04,-1006.16"/>
+<polygon fill="#000000" stroke="#000000" points="201.54,-1006.01 197.67,-996.15 194.54,-1006.27 201.54,-1006.01"/>
 </g>
 <!-- program~problem_13&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<g id="module~~graph~~ModuleGraph_edge37" class="edge">
 <title>program~problem_13&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.44,-829.68C268.05,-842.09 211.16,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.24,-1325.07C321.31,-1328.27 309.48,-1332.26 299,-1336.98 250.57,-1358.75 243.13,-1427.12 197.5,-1399.98"/>
 </g>
 <!-- program~problem_15 -->
-<g id="module~~graph~~ModuleGraph_node10" class="node">
+<g id="module~~graph~~ModuleGraph_node22" class="node">
 <title>program~problem_15</title>
-<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href=".././program/problem_15.html" xlink:title="problem_15">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="514,-621.65 438,-621.65 438,-597.65 514,-597.65 514,-621.65"/>
-<text text-anchor="middle" x="476" y="-607.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_15</text>
+<g id="a_module~~graph~~ModuleGraph_node22"><a xlink:href=".././program/problem_15.html" xlink:title="problem_15">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="584.5,-1326.98 508.5,-1326.98 508.5,-1302.98 584.5,-1302.98 584.5,-1326.98"/>
+<text text-anchor="middle" x="546.5" y="-1312.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_15</text>
 </a>
 </g>
 </g>
 <!-- program~problem_15&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge19" class="edge">
+<g id="module~~graph~~ModuleGraph_edge40" class="edge">
 <title>program~problem_15&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.84,-609.65C386.1,-609.65 292.35,-609.65 235.72,-609.65"/>
-<polygon fill="#000000" stroke="#000000" points="235.6,-606.15 225.6,-609.65 235.6,-613.15 235.6,-606.15"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M544.26,-1302.65C537.71,-1244.6 502.45,-1002.27 371.5,-1023.98"/>
 </g>
 <!-- program~problem_15&#45;&gt;module~problem_15_module -->
-<g id="module~~graph~~ModuleGraph_edge20" class="edge">
+<g id="module~~graph~~ModuleGraph_edge41" class="edge">
 <title>program~problem_15&#45;&gt;module~problem_15_module</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M474.37,-621.84C471.02,-681.96 453.53,-946.29 402,-1006.65 401.25,-1007.52 400.47,-1008.36 399.65,-1009.16"/>
-<polygon fill="#000000" stroke="#000000" points="397.23,-1006.61 391.46,-1015.49 401.51,-1012.15 397.23,-1006.61"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M543.27,-1327.04C535.85,-1363.96 508.53,-1476.65 442,-1537.98 438.14,-1541.53 433.76,-1544.61 429.1,-1547.28"/>
+<polygon fill="#000000" stroke="#000000" points="427.26,-1544.29 419.9,-1551.92 430.4,-1550.55 427.26,-1544.29"/>
 </g>
 <!-- program~problem_15&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<g id="module~~graph~~ModuleGraph_edge39" class="edge">
 <title>program~problem_15&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M474.37,-597.45C470.19,-518.58 445.22,-82.64 402,-44.65 202.16,131.03 193.42,-272.29 188.5,-275.65"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-275.65C90.22,-341.49 56.42,-738.79 49.45,-837.47"/>
-<polygon fill="#000000" stroke="#000000" points="45.95,-837.3 48.76,-847.51 52.93,-837.78 45.95,-837.3"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M544.63,-1327.08C540.93,-1369.4 522.7,-1512.18 442,-1584.98 417.9,-1606.72 403.82,-1606.85 371.5,-1603.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-1603.98C337.18,-1601.11 324.51,-1605.03 299,-1584.98 225.26,-1527.02 278.16,-1447.82 197.5,-1399.98"/>
 </g>
 <!-- program~problem_16 -->
-<g id="module~~graph~~ModuleGraph_node11" class="node">
+<g id="module~~graph~~ModuleGraph_node23" class="node">
 <title>program~problem_16</title>
-<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href=".././program/problem_16.html" xlink:title="problem_16">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-787.65 303.5,-787.65 303.5,-763.65 379.5,-763.65 379.5,-787.65"/>
-<text text-anchor="middle" x="341.5" y="-773.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_16</text>
+<g id="a_module~~graph~~ModuleGraph_node23"><a xlink:href=".././program/problem_16.html" xlink:title="problem_16">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1285.98 332.5,-1285.98 332.5,-1261.98 408.5,-1261.98 408.5,-1285.98"/>
+<text text-anchor="middle" x="370.5" y="-1271.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_16</text>
 </a>
 </g>
 </g>
 <!-- program~problem_16&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<g id="module~~graph~~ModuleGraph_edge43" class="edge">
 <title>program~problem_16&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.29,-766.78C295.41,-763.78 287.52,-759.82 281,-754.65 238.77,-721.11 210.09,-662.74 196.86,-631.25"/>
-<polygon fill="#000000" stroke="#000000" points="199.98,-629.63 192.97,-621.68 193.49,-632.26 199.98,-629.63"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.19,-1269.51C320.38,-1266.48 308.07,-1261.42 299,-1252.98 225.49,-1184.53 204.83,-1057.47 199.36,-1006.25"/>
+<polygon fill="#000000" stroke="#000000" points="202.83,-1005.86 198.38,-996.25 195.87,-1006.54 202.83,-1005.86"/>
 </g>
 <!-- program~problem_16&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<g id="module~~graph~~ModuleGraph_edge42" class="edge">
 <title>program~problem_16&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.38,-787.08C295.82,-789.86 288.04,-793.08 281,-796.65 236.62,-819.11 238.24,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.5,-1281.18C321.23,-1284.35 309.15,-1288.81 299,-1294.98 243.53,-1328.68 253.28,-1433.16 197.5,-1399.98"/>
 </g>
 <!-- program~problem_17 -->
-<g id="module~~graph~~ModuleGraph_node12" class="node">
+<g id="module~~graph~~ModuleGraph_node24" class="node">
 <title>program~problem_17</title>
-<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href=".././program/problem_17.html" xlink:title="problem_17">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-1081.65 303.5,-1081.65 303.5,-1057.65 379.5,-1057.65 379.5,-1081.65"/>
-<text text-anchor="middle" x="341.5" y="-1067.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17</text>
+<g id="a_module~~graph~~ModuleGraph_node24"><a xlink:href=".././program/problem_17.html" xlink:title="problem_17">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1243.98 332.5,-1243.98 332.5,-1219.98 408.5,-1219.98 408.5,-1243.98"/>
+<text text-anchor="middle" x="370.5" y="-1229.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17</text>
 </a>
 </g>
-</g>
-<!-- program~problem_17&#45;&gt;module~aoc_cache_module -->
-<g id="module~~graph~~ModuleGraph_edge24" class="edge">
-<title>program~problem_17&#45;&gt;module~aoc_cache_module</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.32,-1069.65C288.83,-1069.65 271.78,-1069.65 255.31,-1069.65"/>
-<polygon fill="#000000" stroke="#000000" points="255.16,-1066.15 245.16,-1069.65 255.16,-1073.15 255.16,-1066.15"/>
 </g>
 <!-- program~problem_17&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge25" class="edge">
+<g id="module~~graph~~ModuleGraph_edge45" class="edge">
 <title>program~problem_17&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.46,-1063.22C295,-1060.11 286.81,-1055.5 281,-1048.65 221.72,-978.77 263.68,-935.35 245,-845.65 228.53,-766.51 205.01,-673.44 194.26,-631.77"/>
-<polygon fill="#000000" stroke="#000000" points="197.59,-630.68 191.7,-621.87 190.82,-632.43 197.59,-630.68"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.47,-1227.19C320.69,-1224.14 308.31,-1219.15 299,-1210.98 235.28,-1155.1 209.6,-1051.43 201.09,-1006.13"/>
+<polygon fill="#000000" stroke="#000000" points="204.52,-1005.41 199.32,-996.17 197.62,-1006.63 204.52,-1005.41"/>
 </g>
 <!-- program~problem_17&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<g id="module~~graph~~ModuleGraph_edge44" class="edge">
 <title>program~problem_17&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.46,-1061.55C295.4,-1058.5 287.38,-1054.33 281,-1048.65 211.15,-986.46 282.02,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.21,-1238.09C320.8,-1241.22 308.71,-1245.92 299,-1252.98 234.75,-1299.62 265.73,-1440.57 197.5,-1399.98"/>
 </g>
 <!-- program~problem_17~2 -->
-<g id="module~~graph~~ModuleGraph_node13" class="node">
+<g id="module~~graph~~ModuleGraph_node25" class="node">
 <title>program~problem_17~2</title>
-<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href=".././program/problem_17~2.html" xlink:title="problem_17">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-745.65 303.5,-745.65 303.5,-721.65 379.5,-721.65 379.5,-745.65"/>
-<text text-anchor="middle" x="341.5" y="-731.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17</text>
+<g id="a_module~~graph~~ModuleGraph_node25"><a xlink:href=".././program/problem_17~2.html" xlink:title="problem_17">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="584.5,-417.98 508.5,-417.98 508.5,-393.98 584.5,-393.98 584.5,-417.98"/>
+<text text-anchor="middle" x="546.5" y="-403.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_17</text>
 </a>
 </g>
 </g>
+<!-- program~problem_17~2&#45;&gt;module~aoc_cache_module -->
+<g id="module~~graph~~ModuleGraph_edge47" class="edge">
+<title>program~problem_17~2&#45;&gt;module~aoc_cache_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M544.81,-418.28C540.47,-491.72 514.67,-871.95 442,-957.98 439.21,-961.29 435.95,-964.17 432.4,-966.69"/>
+<polygon fill="#000000" stroke="#000000" points="430.44,-963.79 423.67,-971.93 434.04,-969.79 430.44,-963.79"/>
+</g>
 <!-- program~problem_17~2&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge27" class="edge">
+<g id="module~~graph~~ModuleGraph_edge48" class="edge">
 <title>program~problem_17~2&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.26,-723.73C295.55,-720.81 287.74,-717.15 281,-712.65 247.66,-690.36 218.49,-653.37 202.21,-630.31"/>
-<polygon fill="#000000" stroke="#000000" points="204.99,-628.18 196.43,-621.93 199.23,-632.15 204.99,-628.18"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.12,-418.4C542.47,-496.06 524.48,-914.52 442,-1004.98 420.13,-1028.96 403.51,-1018.67 371.5,-1023.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-1023.98C321.33,-1031.96 266.52,-1014.53 231.98,-1000.21"/>
+<polygon fill="#000000" stroke="#000000" points="232.93,-996.82 222.36,-996.09 230.18,-1003.25 232.93,-996.82"/>
 </g>
 <!-- program~problem_17~2&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge26" class="edge">
+<g id="module~~graph~~ModuleGraph_edge46" class="edge">
 <title>program~problem_17~2&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.23,-743.52C295.52,-746.44 287.72,-750.11 281,-754.65 229.46,-789.45 250.69,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.5,-403.91C473.27,-402.23 418.76,-400.38 371.5,-401.98"/>
 </g>
 <!-- program~problem_18 -->
-<g id="module~~graph~~ModuleGraph_node14" class="node">
+<g id="module~~graph~~ModuleGraph_node26" class="node">
 <title>program~problem_18</title>
-<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href=".././program/problem_18.html" xlink:title="problem_18">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-703.65 303.5,-703.65 303.5,-679.65 379.5,-679.65 379.5,-703.65"/>
-<text text-anchor="middle" x="341.5" y="-689.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_18</text>
+<g id="a_module~~graph~~ModuleGraph_node26"><a xlink:href=".././program/problem_18.html" xlink:title="problem_18">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1201.98 332.5,-1201.98 332.5,-1177.98 408.5,-1177.98 408.5,-1201.98"/>
+<text text-anchor="middle" x="370.5" y="-1187.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_18</text>
 </a>
 </g>
 </g>
 <!-- program~problem_18&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge29" class="edge">
+<g id="module~~graph~~ModuleGraph_edge50" class="edge">
 <title>program~problem_18&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.42,-680.13C295.86,-677.35 288.06,-674.16 281,-670.65 256.42,-658.44 230.51,-640.89 212.39,-627.75"/>
-<polygon fill="#000000" stroke="#000000" points="214.29,-624.8 204.16,-621.69 210.14,-630.44 214.29,-624.8"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.49,-1184.65C320.84,-1181.56 308.54,-1176.68 299,-1168.98 244.81,-1125.22 215.13,-1044.42 203.44,-1005.73"/>
+<polygon fill="#000000" stroke="#000000" points="206.76,-1004.63 200.61,-996 200.04,-1006.58 206.76,-1004.63"/>
 </g>
 <!-- program~problem_18&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge28" class="edge">
+<g id="module~~graph~~ModuleGraph_edge49" class="edge">
 <title>program~problem_18&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.26,-700.48C295.39,-703.49 287.5,-707.45 281,-712.65 220.7,-760.84 265.69,-859.65 188.5,-859.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.44,-1195.26C320.79,-1198.34 308.5,-1203.23 299,-1210.98 225.09,-1271.21 279.44,-1448.72 197.5,-1399.98"/>
 </g>
 <!-- program~problem_19 -->
-<g id="module~~graph~~ModuleGraph_node15" class="node">
+<g id="module~~graph~~ModuleGraph_node27" class="node">
 <title>program~problem_19</title>
-<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href=".././program/problem_19.html" xlink:title="problem_19">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-661.65 303.5,-661.65 303.5,-637.65 379.5,-637.65 379.5,-661.65"/>
-<text text-anchor="middle" x="341.5" y="-647.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19</text>
+<g id="a_module~~graph~~ModuleGraph_node27"><a xlink:href=".././program/problem_19.html" xlink:title="problem_19">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-1159.98 332.5,-1159.98 332.5,-1135.98 408.5,-1135.98 408.5,-1159.98"/>
+<text text-anchor="middle" x="370.5" y="-1145.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19</text>
 </a>
 </g>
 </g>
 <!-- program~problem_19&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge31" class="edge">
+<g id="module~~graph~~ModuleGraph_edge52" class="edge">
 <title>program~problem_19&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.32,-639.86C282.81,-634.47 257.16,-627.71 235.3,-621.96"/>
-<polygon fill="#000000" stroke="#000000" points="236.12,-618.56 225.56,-619.4 234.34,-625.33 236.12,-618.56"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.26,-1141.79C320.86,-1138.66 308.76,-1133.97 299,-1126.98 254.11,-1094.83 221.88,-1036.45 206.9,-1005.15"/>
+<polygon fill="#000000" stroke="#000000" points="210.04,-1003.6 202.65,-996.01 203.69,-1006.55 210.04,-1003.6"/>
 </g>
 <!-- program~problem_19&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge30" class="edge">
+<g id="module~~graph~~ModuleGraph_edge51" class="edge">
 <title>program~problem_19&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.46,-657.74C295.4,-660.8 287.38,-664.96 281,-670.65 211.15,-732.84 282.02,-859.65 188.5,-859.65"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.5,-859.65C159.45,-859.65 129.43,-859.65 104.27,-859.65"/>
-<polygon fill="#000000" stroke="#000000" points="104.17,-856.15 94.17,-859.65 104.17,-863.15 104.17,-856.15"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.44,-1152.73C320.66,-1155.78 308.29,-1160.78 299,-1168.98 214.93,-1243.19 293.88,-1457.31 197.5,-1399.98"/>
 </g>
 <!-- program~problem_19b -->
-<g id="module~~graph~~ModuleGraph_node16" class="node">
+<g id="module~~graph~~ModuleGraph_node28" class="node">
 <title>program~problem_19b</title>
-<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href=".././program/problem_19b.html" xlink:title="problem_19b">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="382.5,-581.65 300.5,-581.65 300.5,-557.65 382.5,-557.65 382.5,-581.65"/>
-<text text-anchor="middle" x="341.5" y="-567.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19b</text>
+<g id="a_module~~graph~~ModuleGraph_node28"><a xlink:href=".././program/problem_19b.html" xlink:title="problem_19b">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="411.5,-1117.98 329.5,-1117.98 329.5,-1093.98 411.5,-1093.98 411.5,-1117.98"/>
+<text text-anchor="middle" x="370.5" y="-1103.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_19b</text>
 </a>
 </g>
 </g>
 <!-- program~problem_19b&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge33" class="edge">
+<g id="module~~graph~~ModuleGraph_edge54" class="edge">
 <title>program~problem_19b&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M300.17,-580.26C280.29,-585.49 256.2,-591.83 235.49,-597.28"/>
-<polygon fill="#000000" stroke="#000000" points="234.41,-593.95 225.63,-599.87 236.19,-600.71 234.41,-593.95"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M329.28,-1097.7C318.98,-1094.6 308.22,-1090.46 299,-1084.98 263.19,-1063.69 230.76,-1026.99 212.64,-1004.18"/>
+<polygon fill="#000000" stroke="#000000" points="215.32,-1001.92 206.42,-996.18 209.79,-1006.22 215.32,-1001.92"/>
 </g>
 <!-- program~problem_19b&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge32" class="edge">
+<g id="module~~graph~~ModuleGraph_edge53" class="edge">
 <title>program~problem_19b&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M300.45,-561.14C293.28,-558.14 286.39,-554.1 281,-548.65 190.99,-457.49 294.3,-203.4 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M329.23,-1111.21C318.35,-1114.31 307.3,-1119.21 299,-1126.98 204.48,-1215.42 308.75,-1466.16 197.5,-1399.98"/>
 </g>
 <!-- program~problem_2 -->
-<g id="module~~graph~~ModuleGraph_node17" class="node">
+<g id="module~~graph~~ModuleGraph_node29" class="node">
 <title>program~problem_2</title>
-<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href=".././program/problem_2.html" xlink:title="problem_2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-539.65 307,-539.65 307,-515.65 376,-515.65 376,-539.65"/>
-<text text-anchor="middle" x="341.5" y="-525.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_2</text>
+<g id="a_module~~graph~~ModuleGraph_node29"><a xlink:href=".././program/problem_2.html" xlink:title="problem_2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-1075.98 336,-1075.98 336,-1051.98 405,-1051.98 405,-1075.98"/>
+<text text-anchor="middle" x="370.5" y="-1061.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_2</text>
 </a>
 </g>
 </g>
 <!-- program~problem_2&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge35" class="edge">
+<g id="module~~graph~~ModuleGraph_edge56" class="edge">
 <title>program~problem_2&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.86,-537.91C298.26,-540.97 289.14,-544.6 281,-548.65 256.42,-560.86 230.51,-578.4 212.39,-591.54"/>
-<polygon fill="#000000" stroke="#000000" points="210.14,-588.85 204.16,-597.6 214.29,-594.49 210.14,-588.85"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.77,-1052.59C324,-1048.34 310.79,-1043.26 299,-1037.98 274.15,-1026.85 246.97,-1012.25 226.99,-1001.04"/>
+<polygon fill="#000000" stroke="#000000" points="228.51,-997.87 218.08,-995.99 225.06,-1003.96 228.51,-997.87"/>
 </g>
 <!-- program~problem_2&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge34" class="edge">
+<g id="module~~graph~~ModuleGraph_edge55" class="edge">
 <title>program~problem_2&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.87,-521.22C297.58,-518.09 288.11,-513.47 281,-506.65 201.19,-430.09 279.83,-213.28 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.94,-1067.25C322.95,-1070.09 308.86,-1075.33 299,-1084.98 193.84,-1187.82 323.91,-1475.18 197.5,-1399.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.5,-1399.98C106.21,-1346.87 57.38,-549.2 49.22,-404.43"/>
+<polygon fill="#000000" stroke="#000000" points="52.7,-403.92 48.65,-394.13 45.71,-404.31 52.7,-403.92"/>
 </g>
 <!-- program~problem_21 -->
-<g id="module~~graph~~ModuleGraph_node18" class="node">
+<g id="module~~graph~~ModuleGraph_node30" class="node">
 <title>program~problem_21</title>
-<g id="a_module~~graph~~ModuleGraph_node18"><a xlink:href=".././program/problem_21.html" xlink:title="problem_21">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-497.65 303.5,-497.65 303.5,-473.65 379.5,-473.65 379.5,-497.65"/>
-<text text-anchor="middle" x="341.5" y="-483.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_21</text>
+<g id="a_module~~graph~~ModuleGraph_node30"><a xlink:href=".././program/problem_21.html" xlink:title="problem_21">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-915.98 332.5,-915.98 332.5,-891.98 408.5,-891.98 408.5,-915.98"/>
+<text text-anchor="middle" x="370.5" y="-901.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_21</text>
 </a>
 </g>
 </g>
 <!-- program~problem_21&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge37" class="edge">
+<g id="module~~graph~~ModuleGraph_edge58" class="edge">
 <title>program~problem_21&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.26,-495.57C295.55,-498.49 287.74,-502.14 281,-506.65 247.66,-528.93 218.49,-565.92 202.21,-588.98"/>
-<polygon fill="#000000" stroke="#000000" points="199.23,-587.14 196.43,-597.36 204.99,-591.12 199.23,-587.14"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M333.98,-916.01C322.67,-920.13 310.19,-924.97 299,-929.98 274.15,-941.11 246.97,-955.71 226.99,-966.92"/>
+<polygon fill="#000000" stroke="#000000" points="225.06,-963.99 218.08,-971.96 228.51,-970.08 225.06,-963.99"/>
 </g>
 <!-- program~problem_21&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge36" class="edge">
+<g id="module~~graph~~ModuleGraph_edge57" class="edge">
 <title>program~problem_21&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.46,-477.55C295.4,-474.5 287.38,-470.33 281,-464.65 211.15,-402.46 265.73,-222.91 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.31,-898.32C320.78,-895.21 308.6,-890.4 299,-882.98 230,-829.6 270.74,-762.38 197.5,-714.98"/>
 </g>
 <!-- program~problem_22 -->
-<g id="module~~graph~~ModuleGraph_node19" class="node">
+<g id="module~~graph~~ModuleGraph_node31" class="node">
 <title>program~problem_22</title>
-<g id="a_module~~graph~~ModuleGraph_node19"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-455.65 303.5,-455.65 303.5,-431.65 379.5,-431.65 379.5,-455.65"/>
-<text text-anchor="middle" x="341.5" y="-441.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
+<g id="a_module~~graph~~ModuleGraph_node31"><a xlink:href=".././program/problem_22.html" xlink:title="problem_22">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="584.5,-375.98 508.5,-375.98 508.5,-351.98 584.5,-351.98 584.5,-375.98"/>
+<text text-anchor="middle" x="546.5" y="-361.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_22</text>
 </a>
 </g>
 </g>
+<!-- program~problem_22&#45;&gt;module~aoc_cache_module -->
+<g id="module~~graph~~ModuleGraph_edge60" class="edge">
+<title>program~problem_22&#45;&gt;module~aoc_cache_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.24,-367.38C496.83,-370.33 485.35,-375.62 478,-384.98 399.18,-485.3 518.2,-855.65 442,-957.98 439.68,-961.09 436.95,-963.83 433.93,-966.24"/>
+<polygon fill="#000000" stroke="#000000" points="431.79,-963.47 425.37,-971.89 435.64,-969.31 431.79,-963.47"/>
+</g>
 <!-- program~problem_22&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge39" class="edge">
+<g id="module~~graph~~ModuleGraph_edge61" class="edge">
 <title>program~problem_22&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.29,-452.51C295.41,-455.51 287.52,-459.47 281,-464.65 238.77,-498.18 210.09,-556.56 196.86,-588.04"/>
-<polygon fill="#000000" stroke="#000000" points="193.49,-587.03 192.97,-597.61 199.98,-589.67 193.49,-587.03"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.26,-367.4C496.85,-370.35 485.37,-375.63 478,-384.98 403.52,-479.4 519.5,-833.02 442,-924.98 435.57,-932.61 313.71,-959.41 244.51,-974.13"/>
+<polygon fill="#000000" stroke="#000000" points="243.75,-970.71 234.7,-976.21 245.21,-977.56 243.75,-970.71"/>
 </g>
 <!-- program~problem_22&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge38" class="edge">
+<g id="module~~graph~~ModuleGraph_edge59" class="edge">
 <title>program~problem_22&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.26,-434.81C295.39,-431.81 287.5,-427.84 281,-422.65 220.7,-374.46 252.25,-232.12 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.31,-375.88C473.41,-386.14 419.53,-399.66 371.5,-401.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-401.98C276.5,-406.46 168.5,-396.65 104.33,-389.25"/>
+<polygon fill="#000000" stroke="#000000" points="104.37,-385.73 94.03,-388.04 103.55,-392.68 104.37,-385.73"/>
 </g>
 <!-- program~problem_23 -->
-<g id="module~~graph~~ModuleGraph_node20" class="node">
+<g id="module~~graph~~ModuleGraph_node32" class="node">
 <title>program~problem_23</title>
-<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href=".././program/problem_23.html" xlink:title="problem_23">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-413.65 303.5,-413.65 303.5,-389.65 379.5,-389.65 379.5,-413.65"/>
-<text text-anchor="middle" x="341.5" y="-399.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_23</text>
+<g id="a_module~~graph~~ModuleGraph_node32"><a xlink:href=".././program/problem_23.html" xlink:title="problem_23">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-873.98 332.5,-873.98 332.5,-849.98 408.5,-849.98 408.5,-873.98"/>
+<text text-anchor="middle" x="370.5" y="-859.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_23</text>
 </a>
 </g>
 </g>
 <!-- program~problem_23&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge41" class="edge">
+<g id="module~~graph~~ModuleGraph_edge63" class="edge">
 <title>program~problem_23&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.48,-409.76C295.41,-412.81 287.39,-416.98 281,-422.65 229.72,-468.11 203.71,-548.52 193.63,-587.39"/>
-<polygon fill="#000000" stroke="#000000" points="190.21,-586.63 191.2,-597.18 197.01,-588.32 190.21,-586.63"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.21,-869.4C321.05,-872.57 309.1,-876.98 299,-882.98 263.19,-904.26 230.76,-940.96 212.64,-963.78"/>
+<polygon fill="#000000" stroke="#000000" points="209.79,-961.73 206.42,-971.78 215.32,-966.03 209.79,-961.73"/>
 </g>
 <!-- program~problem_23&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge40" class="edge">
+<g id="module~~graph~~ModuleGraph_edge62" class="edge">
 <title>program~problem_23&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.23,-391.77C295.52,-388.85 287.72,-385.18 281,-380.65 229.46,-345.84 239.86,-240.57 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.15,-855.33C320.86,-852.18 308.86,-847.6 299,-840.98 239.29,-800.9 257.87,-754.05 197.5,-714.98"/>
 </g>
 <!-- program~problem_24 -->
-<g id="module~~graph~~ModuleGraph_node21" class="node">
+<g id="module~~graph~~ModuleGraph_node33" class="node">
 <title>program~problem_24</title>
-<g id="a_module~~graph~~ModuleGraph_node21"><a xlink:href=".././program/problem_24.html" xlink:title="problem_24">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="379.5,-371.65 303.5,-371.65 303.5,-347.65 379.5,-347.65 379.5,-371.65"/>
-<text text-anchor="middle" x="341.5" y="-357.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_24</text>
+<g id="a_module~~graph~~ModuleGraph_node33"><a xlink:href=".././program/problem_24.html" xlink:title="problem_24">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-831.98 332.5,-831.98 332.5,-807.98 408.5,-807.98 408.5,-831.98"/>
+<text text-anchor="middle" x="370.5" y="-817.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_24</text>
 </a>
 </g>
 </g>
 <!-- program~problem_24&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge43" class="edge">
+<g id="module~~graph~~ModuleGraph_edge65" class="edge">
 <title>program~problem_24&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.47,-367.3C295.31,-370.38 287.25,-374.66 281,-380.65 220.17,-438.82 198.24,-542.44 191.32,-587.59"/>
-<polygon fill="#000000" stroke="#000000" points="187.85,-587.12 189.9,-597.51 194.78,-588.11 187.85,-587.12"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.26,-826.17C320.86,-829.3 308.76,-833.99 299,-840.98 254.11,-873.13 221.88,-931.5 206.9,-962.8"/>
+<polygon fill="#000000" stroke="#000000" points="203.69,-961.4 202.65,-971.95 210.04,-964.35 203.69,-961.4"/>
 </g>
 <!-- program~problem_24&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge42" class="edge">
+<g id="module~~graph~~ModuleGraph_edge64" class="edge">
 <title>program~problem_24&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M303.38,-348.22C295.82,-345.43 288.04,-342.21 281,-338.65 236.62,-316.18 229.58,-247.6 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.17,-811.87C321.12,-808.69 309.25,-804.45 299,-798.98 247.35,-771.4 246.66,-746.79 197.5,-714.98"/>
+</g>
+<!-- program~problem_25 -->
+<g id="module~~graph~~ModuleGraph_node34" class="node">
+<title>program~problem_25</title>
+<g id="a_module~~graph~~ModuleGraph_node34"><a xlink:href=".././program/problem_25.html" xlink:title="problem_25">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="408.5,-495.98 332.5,-495.98 332.5,-471.98 408.5,-471.98 408.5,-495.98"/>
+<text text-anchor="middle" x="370.5" y="-481.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_25</text>
+</a>
+</g>
+</g>
+<!-- program~problem_25&#45;&gt;module~aoc_utilities -->
+<g id="module~~graph~~ModuleGraph_edge66" class="edge">
+<title>program~problem_25&#45;&gt;module~aoc_utilities</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.25,-487.18C320.02,-490.08 307.42,-495.38 299,-504.98 232.49,-580.76 283.56,-630.26 263,-728.98 244.87,-816.02 216.47,-918.01 203.88,-961.98"/>
+<polygon fill="#000000" stroke="#000000" points="200.44,-961.28 201.04,-971.86 207.17,-963.22 200.44,-961.28"/>
+</g>
+<!-- program~problem_25&#45;&gt;module~dag_module -->
+<g id="module~~graph~~ModuleGraph_edge67" class="edge">
+<title>program~problem_25&#45;&gt;module~dag_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332.18,-479.42C307.03,-476.35 273.61,-472.27 246.35,-468.94"/>
+<polygon fill="#000000" stroke="#000000" points="246.59,-465.45 236.24,-467.71 245.74,-472.39 246.59,-465.45"/>
 </g>
 <!-- program~problem_3 -->
-<g id="module~~graph~~ModuleGraph_node22" class="node">
+<g id="module~~graph~~ModuleGraph_node35" class="node">
 <title>program~problem_3</title>
-<g id="a_module~~graph~~ModuleGraph_node22"><a xlink:href=".././program/problem_3.html" xlink:title="problem_3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-329.65 307,-329.65 307,-305.65 376,-305.65 376,-329.65"/>
-<text text-anchor="middle" x="341.5" y="-315.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3</text>
+<g id="a_module~~graph~~ModuleGraph_node35"><a xlink:href=".././program/problem_3.html" xlink:title="problem_3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-789.98 336,-789.98 336,-765.98 405,-765.98 405,-789.98"/>
+<text text-anchor="middle" x="370.5" y="-775.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_3</text>
 </a>
 </g>
 </g>
 <!-- program~problem_3&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge45" class="edge">
+<g id="module~~graph~~ModuleGraph_edge69" class="edge">
 <title>program~problem_3&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.95,-323.74C297.56,-326.86 288.01,-331.56 281,-338.65 210.78,-409.6 193.81,-535.99 189.75,-587.19"/>
-<polygon fill="#000000" stroke="#000000" points="186.24,-587.24 189.04,-597.46 193.22,-587.72 186.24,-587.24"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.74,-782.48C323.17,-785.51 309.43,-790.55 299,-798.98 244.81,-842.73 215.13,-923.54 203.44,-962.22"/>
+<polygon fill="#000000" stroke="#000000" points="200.04,-961.37 200.61,-971.95 206.76,-963.33 200.04,-961.37"/>
 </g>
 <!-- program~problem_3&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge44" class="edge">
+<g id="module~~graph~~ModuleGraph_edge68" class="edge">
 <title>program~problem_3&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.7,-306.91C263.45,-293.37 193.47,-272.25 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.79,-770.4C299.56,-761.2 241.28,-743.32 197.5,-714.98"/>
 </g>
 <!-- program~problem_4 -->
-<g id="module~~graph~~ModuleGraph_node23" class="node">
+<g id="module~~graph~~ModuleGraph_node36" class="node">
 <title>program~problem_4</title>
-<g id="a_module~~graph~~ModuleGraph_node23"><a xlink:href=".././program/problem_4.html" xlink:title="problem_4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-287.65 307,-287.65 307,-263.65 376,-263.65 376,-287.65"/>
-<text text-anchor="middle" x="341.5" y="-273.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_4</text>
+<g id="a_module~~graph~~ModuleGraph_node36"><a xlink:href=".././program/problem_4.html" xlink:title="problem_4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-747.98 336,-747.98 336,-723.98 405,-723.98 405,-747.98"/>
+<text text-anchor="middle" x="370.5" y="-733.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_4</text>
 </a>
 </g>
 </g>
 <!-- program~problem_4&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge47" class="edge">
+<g id="module~~graph~~ModuleGraph_edge71" class="edge">
 <title>program~problem_4&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.76,-281.56C297.37,-284.67 287.86,-289.42 281,-296.65 201.07,-380.84 189.83,-530.75 188.53,-587.26"/>
-<polygon fill="#000000" stroke="#000000" points="185.03,-587.51 188.38,-597.56 192.03,-587.61 185.03,-587.51"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.73,-739.97C323.01,-742.92 309.18,-748.05 299,-756.98 235.28,-812.85 209.6,-916.52 201.09,-961.83"/>
+<polygon fill="#000000" stroke="#000000" points="197.62,-961.32 199.32,-971.78 204.52,-962.55 197.62,-961.32"/>
 </g>
 <!-- program~problem_4&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge46" class="edge">
+<g id="module~~graph~~ModuleGraph_edge70" class="edge">
 <title>program~problem_4&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.81,-265.53C273.71,-257.75 223.26,-251.91 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.88,-740.1C298.94,-742.88 239.3,-742.03 197.5,-714.98"/>
 </g>
 <!-- program~problem_5 -->
-<g id="module~~graph~~ModuleGraph_node24" class="node">
+<g id="module~~graph~~ModuleGraph_node37" class="node">
 <title>program~problem_5</title>
-<g id="a_module~~graph~~ModuleGraph_node24"><a xlink:href=".././program/problem_5.html" xlink:title="problem_5">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-245.65 307,-245.65 307,-221.65 376,-221.65 376,-245.65"/>
-<text text-anchor="middle" x="341.5" y="-231.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5</text>
+<g id="a_module~~graph~~ModuleGraph_node37"><a xlink:href=".././program/problem_5.html" xlink:title="problem_5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-705.98 336,-705.98 336,-681.98 405,-681.98 405,-705.98"/>
+<text text-anchor="middle" x="370.5" y="-691.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_5</text>
 </a>
 </g>
 </g>
 <!-- program~problem_5&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge49" class="edge">
+<g id="module~~graph~~ModuleGraph_edge73" class="edge">
 <title>program~problem_5&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.93,-239.32C297.42,-242.43 287.82,-247.23 281,-254.65 235.07,-304.62 201.5,-517.45 191.55,-587.32"/>
-<polygon fill="#000000" stroke="#000000" points="188.03,-587.22 190.11,-597.61 194.96,-588.19 188.03,-587.22"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.82,-697.58C322.96,-700.47 309,-705.67 299,-714.98 225.49,-783.43 204.83,-910.48 199.36,-961.71"/>
+<polygon fill="#000000" stroke="#000000" points="195.87,-961.42 198.38,-971.71 202.83,-962.1 195.87,-961.42"/>
 </g>
 <!-- program~problem_5&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge48" class="edge">
+<g id="module~~graph~~ModuleGraph_edge72" class="edge">
 <title>program~problem_5&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.74,-236.63C274.06,-240.91 224.34,-251.18 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.75,-703.16C292.27,-714.13 219.66,-729.32 197.5,-714.98"/>
 </g>
 <!-- program~problem_6 -->
-<g id="module~~graph~~ModuleGraph_node25" class="node">
+<g id="module~~graph~~ModuleGraph_node38" class="node">
 <title>program~problem_6</title>
-<g id="a_module~~graph~~ModuleGraph_node25"><a xlink:href=".././program/problem_6.html" xlink:title="problem_6">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-203.65 307,-203.65 307,-179.65 376,-179.65 376,-203.65"/>
-<text text-anchor="middle" x="341.5" y="-189.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6</text>
+<g id="a_module~~graph~~ModuleGraph_node38"><a xlink:href=".././program/problem_6.html" xlink:title="problem_6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-663.98 336,-663.98 336,-639.98 405,-639.98 405,-663.98"/>
+<text text-anchor="middle" x="370.5" y="-649.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_6</text>
 </a>
 </g>
 </g>
 <!-- program~problem_6&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge51" class="edge">
+<g id="module~~graph~~ModuleGraph_edge75" class="edge">
 <title>program~problem_6&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.81,-197.21C297.3,-200.31 287.72,-205.14 281,-212.65 230.15,-269.44 199.38,-511.81 190.9,-587.18"/>
-<polygon fill="#000000" stroke="#000000" points="187.39,-587.1 189.77,-597.42 194.35,-587.87 187.39,-587.1"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.96,-655.27C322.97,-658.11 308.88,-663.35 299,-672.98 256.22,-714.66 215.22,-897.79 201.95,-961.8"/>
+<polygon fill="#000000" stroke="#000000" points="198.51,-961.16 199.93,-971.66 205.37,-962.57 198.51,-961.16"/>
 </g>
 <!-- program~problem_6&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge50" class="edge">
+<g id="module~~graph~~ModuleGraph_edge74" class="edge">
 <title>program~problem_6&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.82,-201.83C298.22,-204.89 289.11,-208.54 281,-212.65 236.62,-235.11 229.58,-247.6 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.92,-661.22C324.16,-664.65 310.92,-668.75 299,-672.98 252.99,-689.3 238.49,-741.5 197.5,-714.98"/>
 </g>
 <!-- program~problem_7 -->
-<g id="module~~graph~~ModuleGraph_node26" class="node">
+<g id="module~~graph~~ModuleGraph_node39" class="node">
 <title>program~problem_7</title>
-<g id="a_module~~graph~~ModuleGraph_node26"><a xlink:href=".././program/problem_7.html" xlink:title="problem_7">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-161.65 307,-161.65 307,-137.65 376,-137.65 376,-161.65"/>
-<text text-anchor="middle" x="341.5" y="-147.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7</text>
+<g id="a_module~~graph~~ModuleGraph_node39"><a xlink:href=".././program/problem_7.html" xlink:title="problem_7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-621.98 336,-621.98 336,-597.98 405,-597.98 405,-621.98"/>
+<text text-anchor="middle" x="370.5" y="-607.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_7</text>
 </a>
 </g>
 </g>
 <!-- program~problem_7&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge53" class="edge">
+<g id="module~~graph~~ModuleGraph_edge77" class="edge">
 <title>program~problem_7&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.71,-155.13C297.19,-158.22 287.64,-163.07 281,-170.65 266.86,-186.78 208.54,-500.36 192.56,-587.41"/>
-<polygon fill="#000000" stroke="#000000" points="189.07,-587.04 190.71,-597.5 195.96,-588.3 189.07,-587.04"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.79,-613.09C322.77,-615.91 308.71,-621.18 299,-630.98 286.86,-643.23 222.74,-886.92 203.17,-962.09"/>
+<polygon fill="#000000" stroke="#000000" points="199.75,-961.35 200.62,-971.91 206.52,-963.11 199.75,-961.35"/>
 </g>
 <!-- program~problem_7&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge52" class="edge">
+<g id="module~~graph~~ModuleGraph_edge76" class="edge">
 <title>program~problem_7&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.96,-158.15C298.08,-161.27 288.81,-165.37 281,-170.65 229.46,-205.45 239.86,-240.57 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.78,-617.07C323.75,-620.35 310.38,-624.9 299,-630.98 247.35,-658.56 246.66,-746.79 197.5,-714.98"/>
 </g>
 <!-- program~problem_8 -->
-<g id="module~~graph~~ModuleGraph_node27" class="node">
+<g id="module~~graph~~ModuleGraph_node40" class="node">
 <title>program~problem_8</title>
-<g id="a_module~~graph~~ModuleGraph_node27"><a xlink:href=".././program/problem_8.html" xlink:title="problem_8">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-119.65 307,-119.65 307,-95.65 376,-95.65 376,-119.65"/>
-<text text-anchor="middle" x="341.5" y="-105.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8</text>
+<g id="a_module~~graph~~ModuleGraph_node40"><a xlink:href=".././program/problem_8.html" xlink:title="problem_8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-579.98 336,-579.98 336,-555.98 405,-555.98 405,-579.98"/>
+<text text-anchor="middle" x="370.5" y="-565.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_8</text>
 </a>
 </g>
 </g>
 <!-- program~problem_8&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge55" class="edge">
+<g id="module~~graph~~ModuleGraph_edge79" class="edge">
 <title>program~problem_8&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.94,-112.96C297.32,-116.04 287.65,-120.93 281,-128.65 273.29,-137.61 209.13,-494.2 192.45,-587.5"/>
-<polygon fill="#000000" stroke="#000000" points="188.97,-587.07 190.66,-597.53 195.86,-588.3 188.97,-587.07"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.65,-570.96C322.61,-573.75 308.57,-579.04 299,-588.98 299,-588.98 224.61,-878.47 203.2,-961.79"/>
+<polygon fill="#000000" stroke="#000000" points="199.75,-961.17 200.65,-971.72 206.53,-962.91 199.75,-961.17"/>
 </g>
 <!-- program~problem_8&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge54" class="edge">
+<g id="module~~graph~~ModuleGraph_edge78" class="edge">
 <title>program~problem_8&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.99,-115.13C297.91,-118.27 288.53,-122.63 281,-128.65 220.7,-176.84 252.25,-232.12 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.76,-573.66C323.47,-576.82 309.92,-581.65 299,-588.98 239.29,-629.05 257.87,-754.05 197.5,-714.98"/>
 </g>
 <!-- program~problem_9 -->
-<g id="module~~graph~~ModuleGraph_node28" class="node">
+<g id="module~~graph~~ModuleGraph_node41" class="node">
 <title>program~problem_9</title>
-<g id="a_module~~graph~~ModuleGraph_node28"><a xlink:href=".././program/problem_9.html" xlink:title="problem_9">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="376,-77.65 307,-77.65 307,-53.65 376,-53.65 376,-77.65"/>
-<text text-anchor="middle" x="341.5" y="-63.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_9</text>
+<g id="a_module~~graph~~ModuleGraph_node41"><a xlink:href=".././program/problem_9.html" xlink:title="problem_9">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="405,-537.98 336,-537.98 336,-513.98 405,-513.98 405,-537.98"/>
+<text text-anchor="middle" x="370.5" y="-523.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_9</text>
 </a>
 </g>
 </g>
 <!-- program~problem_9&#45;&gt;module~aoc_utilities -->
-<g id="module~~graph~~ModuleGraph_edge57" class="edge">
+<g id="module~~graph~~ModuleGraph_edge81" class="edge">
 <title>program~problem_9&#45;&gt;module~aoc_utilities</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.87,-70.89C297.24,-73.98 287.59,-78.88 281,-86.65 280.74,-86.95 209.9,-488.36 192.38,-587.64"/>
-<polygon fill="#000000" stroke="#000000" points="188.93,-587.04 190.64,-597.5 195.83,-588.26 188.93,-587.04"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.73,-528.61C322.54,-531.35 308.37,-536.68 299,-546.98 243.51,-607.96 281.26,-648.57 263,-728.98 243.31,-815.68 215.72,-917.85 203.61,-961.92"/>
+<polygon fill="#000000" stroke="#000000" points="200.16,-961.26 200.88,-971.83 206.91,-963.12 200.16,-961.26"/>
 </g>
 <!-- program~problem_9&#45;&gt;iso_fortran_env -->
-<g id="module~~graph~~ModuleGraph_edge56" class="edge">
+<g id="module~~graph~~ModuleGraph_edge80" class="edge">
 <title>program~problem_9&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M306.87,-72.52C297.69,-75.65 288.28,-80.16 281,-86.65 211.15,-148.84 265.73,-222.91 188.5,-275.65"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M335.92,-530.71C323.37,-533.77 309.61,-538.77 299,-546.98 230,-600.35 270.74,-762.38 197.5,-714.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.5,-714.98C84.56,-643.18 56.45,-466.68 49.87,-404.28"/>
+<polygon fill="#000000" stroke="#000000" points="53.32,-403.62 48.88,-394 46.36,-404.29 53.32,-403.62"/>
+</g>
+<!-- program~test -->
+<g id="module~~graph~~ModuleGraph_node42" class="node">
+<title>program~test</title>
+<g id="a_module~~graph~~ModuleGraph_node42"><a xlink:href=".././program/test.html" xlink:title="test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="397.5,-373.98 343.5,-373.98 343.5,-349.98 397.5,-349.98 397.5,-373.98"/>
+<text text-anchor="middle" x="370.5" y="-359.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test</text>
+</a>
+</g>
+</g>
+<!-- program~test&#45;&gt;module~fmin_module -->
+<g id="module~~graph~~ModuleGraph_edge82" class="edge">
+<title>program~test&#45;&gt;module~fmin_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M343.38,-361.98C318.13,-361.98 279.22,-361.98 247.93,-361.98"/>
+<polygon fill="#000000" stroke="#000000" points="247.64,-358.48 237.64,-361.98 247.64,-365.48 247.64,-358.48"/>
+</g>
+<!-- program~test1 -->
+<g id="module~~graph~~ModuleGraph_node43" class="node">
+<title>program~test1</title>
+<g id="a_module~~graph~~ModuleGraph_node43"><a xlink:href=".././program/test1.html" xlink:title="test1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="934,-45.98 880,-45.98 880,-21.98 934,-21.98 934,-45.98"/>
+<text text-anchor="middle" x="907" y="-31.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1</text>
+</a>
+</g>
+</g>
+<!-- program~test1&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge84" class="edge">
+<title>program~test1&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M746.5,-3.98C703.72,-2.02 569.83,-16.83 371.5,-81.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-81.98C338.78,-92.45 327.96,-86.33 299,-100.98 267,-117.17 235.57,-144.52 216.37,-162.9"/>
+<polygon fill="#000000" stroke="#000000" points="213.87,-160.45 209.16,-169.94 218.76,-165.46 213.87,-160.45"/>
+</g>
+<!-- program~test1&#45;&gt;module~numerical_differentiation_module -->
+<g id="module~~graph~~ModuleGraph_edge85" class="edge">
+<title>program~test1&#45;&gt;module~numerical_differentiation_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.99,-35.63C872.48,-36.11 863.79,-36.66 854.53,-37.25"/>
+<polygon fill="#000000" stroke="#000000" points="854.04,-33.77 844.28,-37.9 854.48,-40.76 854.04,-33.77"/>
+</g>
+<!-- program~test1&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge83" class="edge">
+<title>program~test1&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.79,-26.77C848.75,-18.76 795.33,-6.59 748.5,-3.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M746.5,-3.98C658.19,0.95 635.77,1.52 547.5,-3.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M545.5,-3.98C514.92,-5.88 507.89,-11.23 478,-17.98 430.47,-28.7 420.22,-43.84 371.5,-43.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.5,-43.98C297.18,-44.18 142.03,-147.02 130,-160.98 78.13,-221.14 57.78,-317.12 50.97,-360.02"/>
+<polygon fill="#000000" stroke="#000000" points="47.5,-359.55 49.48,-369.95 54.42,-360.58 47.5,-359.55"/>
+</g>
+<!-- program~test2 -->
+<g id="module~~graph~~ModuleGraph_node44" class="node">
+<title>program~test2</title>
+<g id="a_module~~graph~~ModuleGraph_node44"><a xlink:href=".././program/test2.html" xlink:title="test2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="934,-107.98 880,-107.98 880,-83.98 934,-83.98 934,-107.98"/>
+<text text-anchor="middle" x="907" y="-93.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2</text>
+</a>
+</g>
+</g>
+<!-- program~test2&#45;&gt;module~numdiff_kinds_module -->
+<g id="module~~graph~~ModuleGraph_edge87" class="edge">
+<title>program~test2&#45;&gt;module~numdiff_kinds_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M905.77,-108.01C903.66,-202.9 884.64,-830.08 748.5,-942.98"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M746.5,-942.98C522.3,-1128.9 817.24,-510.57 615,-300.98 605.33,-290.96 385.08,-245.05 371.5,-241.98"/>
+</g>
+<!-- program~test2&#45;&gt;module~numerical_differentiation_module -->
+<g id="module~~graph~~ModuleGraph_edge88" class="edge">
+<title>program~test2&#45;&gt;module~numerical_differentiation_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.78,-87.01C868.74,-83.26 855.76,-78.88 844,-74.98 828.39,-69.8 811.32,-64.23 795.98,-59.26"/>
+<polygon fill="#000000" stroke="#000000" points="796.78,-55.84 786.18,-56.09 794.62,-62.5 796.78,-55.84"/>
+</g>
+<!-- program~test2&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge86" class="edge">
+<title>program~test2&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M746.5,-942.98C604.87,-1060.73 697.6,-1171.35 615,-1335.98 542.83,-1479.82 531.8,-1618.22 371.5,-1603.98"/>
+</g>
+<!-- pyplot_module -->
+<g id="module~~graph~~ModuleGraph_node46" class="node">
+<title>pyplot_module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="793,-107.98 702,-107.98 702,-83.98 793,-83.98 793,-107.98"/>
+<text text-anchor="middle" x="747.5" y="-93.58" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pyplot_module</text>
+</g>
+<!-- program~test2&#45;&gt;pyplot_module -->
+<g id="module~~graph~~ModuleGraph_edge89" class="edge">
+<title>program~test2&#45;&gt;pyplot_module</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M879.99,-95.98C859.17,-95.98 829.23,-95.98 803.18,-95.98"/>
+<polygon fill="#000000" stroke="#000000" points="803.05,-92.48 793.05,-95.98 803.05,-99.48 803.05,-92.48"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#ModuleGraph-help-text">Help</a></div>
+</div>                <script>
+                  var panmodulegraphModuleGraph = svgPanZoom('#modulegraphModuleGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#ModuleGraph-help-text">Help</a></div>
           <div class="modal fade" id="ModuleGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">

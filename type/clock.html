@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -74,19 +77,19 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="<p> 6.7% of total for derived types.</p>Including implementation: 21 statements,  9.8% of total for derived types.">7 statements</a>
+                 title="<p> 2.2% of total for derived types.</p>Including implementation: 21 statements,  0.8% of total for derived types.">7 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/aoc_utilities.f90"> Source File</a>
+              <a href="../src/aoc_utilities.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.f90</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/aoc_utilities.f90.html'>aoc_utilities.F90</a></li>
                 <li class="breadcrumb-item"><a href='../module/aoc_utilities.html'>aoc_utilities</a></li>
             <li class="breadcrumb-item active" aria-current="page">clock</li>
           </ol>
@@ -183,7 +186,7 @@
         <tr>
             <td>
               <span class="anchor" id="variable-begin"></span>
-              integer(kind=int64),
+              integer(kind=ip),
             </td>
               <td>private</td>
             <td>
@@ -200,7 +203,7 @@
         <tr>
             <td>
               <span class="anchor" id="variable-end"></span>
-              integer(kind=int64),
+              integer(kind=ip),
             </td>
               <td>private</td>
             <td>
@@ -217,7 +220,7 @@
         <tr>
             <td>
               <span class="anchor" id="variable-rate"></span>
-              integer(kind=int64),
+              integer(kind=ip),
             </td>
               <td>private</td>
             <td>
@@ -370,7 +373,7 @@
     <h3><span class="anchor" id="src"></span>Source Code</h3>
     <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">type</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">clock</span>
 <span class="w">        </span><span class="k">private</span>
-<span class="k">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">int64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span>
+<span class="k">        </span><span class="kt">integer</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">begin</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span>
 <span class="w">    </span><span class="k">contains</span>
 <span class="k">        procedure</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tic</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">clock_start</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">toc</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">clock_end</span>

@@ -3,7 +3,7 @@ program problem_19b
     !! reformulated to operate on ranges of the x,m,a,s ratings
 
     use aoc_utilities
-    use iso_fortran_env, only: wp => real64, ip => int64
+    use iso_fortran_env
 
     implicit none
 

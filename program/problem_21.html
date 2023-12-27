@@ -44,6 +44,9 @@
                   <a class="nav-link" href="../lists/procedures.html">Procedures</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../lists/types.html">Derived Types</a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +76,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 2.3% of total for programs.">57 statements</a>
+                 title=" 1.7% of total for programs.">57 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -112,13 +115,13 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/problem_21.html#variable-array~6">array</a>
-            <a class="list-group-item" href="../program/problem_21.html#variable-nrows">nrows</a>
-            <a class="list-group-item" href="../program/problem_21.html#variable-ncols">ncols</a>
-            <a class="list-group-item" href="../program/problem_21.html#variable-i~29">i</a>
-            <a class="list-group-item" href="../program/problem_21.html#variable-j~16">j</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-array~7">array</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-nrows~2">nrows</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-ncols~2">ncols</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-i~75">i</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-j~35">j</a>
             <a class="list-group-item" href="../program/problem_21.html#variable-iloc">iloc</a>
-            <a class="list-group-item" href="../program/problem_21.html#variable-icount~2">icount</a>
+            <a class="list-group-item" href="../program/problem_21.html#variable-icount~3">icount</a>
         </div>
       </div>
     </div>
@@ -514,7 +517,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~6"></span>
+              <span class="anchor" id="variable-array~7"></span>
               character(len=1),
             </td>
             <td>
@@ -530,7 +533,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nrows"></span>
+              <span class="anchor" id="variable-nrows~2"></span>
               integer
             </td>
             <td>
@@ -546,7 +549,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncols"></span>
+              <span class="anchor" id="variable-ncols~2"></span>
               integer
             </td>
             <td>
@@ -562,7 +565,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~29"></span>
+              <span class="anchor" id="variable-i~75"></span>
               integer
             </td>
             <td>
@@ -578,7 +581,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~16"></span>
+              <span class="anchor" id="variable-j~35"></span>
               integer
             </td>
             <td>
@@ -610,7 +613,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-icount~2"></span>
+              <span class="anchor" id="variable-icount~3"></span>
               integer,
             </td>
             <td>
@@ -686,7 +689,7 @@ implementation in a submodule of an interface in a parent module.
     <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">problem_21</span>
 
 <span class="w">    </span><span class="k">use </span><span class="n">aoc_utilities</span>
-<span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">real64</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">int64</span>
+<span class="w">    </span><span class="k">use </span><span class="n">iso_fortran_env</span>
 
 <span class="w">    </span><span class="k">implicit none</span>
 

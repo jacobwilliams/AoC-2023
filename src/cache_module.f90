@@ -8,7 +8,7 @@
 
     module aoc_cache_module
 
-    use iso_fortran_env, only: ip => int64, wp => real64
+    use aoc_utilities, only: ip, wp
 
     implicit none
 
@@ -16,10 +16,10 @@
 
     type :: fx
         !! an [x,f(x)] cached pair.
-        !! x is a vector and f is a scalar value.
+        !! x is a vector and f is a vector.
         private
         integer(ip),dimension(:),allocatable :: x    !! vector of input values
-        integer(ip) :: f    !! scalar output function
+        integer(ip),dimension(:),allocatable :: f    !! output functions
     end type fx
 
     type,public :: function_cache
@@ -80,7 +80,7 @@
     class(function_cache),intent(inout)      :: me
     integer(ip),dimension(:),intent(in)      :: x      !! independant variable vector
     integer(ip),intent(out)                  :: i      !! index in the hash table
-    integer(ip),intent(out)                  :: f      !! `f(x)` from the cache (if it was found)
+    integer(ip),dimension(:),allocatable,intent(out) :: f      !! `f(x)` from the cache (if it was found)
     logical,intent(out)                      :: found  !! if `x` was found in the cache
 
     integer :: j !! counter
@@ -121,7 +121,7 @@
     class(function_cache),intent(inout) :: me
     integer(ip),intent(in)              :: i    !! index in the hash table
     integer(ip),dimension(:),intent(in) :: x    !! independant variable vector
-    integer(ip),intent(in)              :: f    !! function
+    integer(ip),dimension(:),intent(in) :: f    !! function
 
     integer(ip),parameter :: null = huge(1) !! an unusual value to initialize arrays
 

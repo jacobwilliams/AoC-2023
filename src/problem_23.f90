@@ -15,7 +15,7 @@ program problem_23
 !   3. compute the edges between each node combination and construct the graph
 !   4. DFS all paths to find the longest.
 
-use iso_fortran_env, only: ip => int64 ! use long ints
+use iso_fortran_env
 use aoc_utilities
 
 implicit none
