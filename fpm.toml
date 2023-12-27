@@ -6,10 +6,10 @@ description = "Advent of Code 2023 with Fortran"
 homepage = "https://github.com/jacobwilliams/AoC-2023"
 keywords = ["AOC"]
 
-# [dependencies]
+[dependencies]
 # argv-fortran = { git="https://github.com/jacobwilliams/argv-fortran.git" }
 # json-fortran = { git="https://github.com/jacobwilliams/json-fortran.git", tag = "8.3.0" }
-# daglib = { git="https://github.com/jacobwilliams/daglib" }
+daglib = { git="https://github.com/jacobwilliams/daglib" }
 # pikaia = { git="https://github.com/jacobwilliams/pikaia.git", tag = "2.0.0" }
 
 [build]
