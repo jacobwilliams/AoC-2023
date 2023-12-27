@@ -77,20 +77,20 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 0.1% of total for procedures.">14 statements</a>
+                 title=" 0.7% of total for procedures.">74 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/problem_12.f90"> Source File</a>
+              <a href="../src/lsqrtest_module.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/problem_12.f90.html'>problem_12.f90</a></li>
-                <li class="breadcrumb-item"><a href='../program/problem_12.html'>problem_12</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/lsqrtest_module.f90.html'>lsqrtest_module.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/lsqrtest_module.html'>lsqrtest_module</a></li>
             <li class="breadcrumb-item active" aria-current="page">test</li>
           </ol>
         </nav>
@@ -142,13 +142,32 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>recursive subroutine test(i, n)  
+    <h2>private  subroutine test(me, m, n, nduplc, npower, damp)  
 </h2>
     
 
-    <p>each ? can be either a . or a #
-check pattern to match the int list</p>
+    <p>This is an example driver routine for running LSQR.
+  It generates a test problem, solves it, and examines the results.
+  Note that subroutine aprod must be declared external
+  if it is used only in the call to LSQR (and acheck).</p>
+<h3>History</h3>
+<ul>
+<li>1982---1991:  Various versions implemented.</li>
+<li>04 Sep 1991:  "wantse" added to argument list of LSQR,
+    making standard errors optional.</li>
+<li>10 Feb 1992:  Revised for use with lsqrchk fortran.</li>
+<li>31 Mar 2005: changed atol = eps*<em>0.666667 to eps</em>0.99
+    to increase accuracy of the solution.  LSQR appears to be
+    successful on all 18 test problems except 5 and 6
+    (which are over-determined and too ill-conditioned to
+    permit any correct digits).
+    The output from an Intel Xeon system with g77 is in LSQR.LIS.
+    The two "appears to have failed" messages are no cause for alarm.
+  Michael Saunders, Dept of Operations Research, Stanford University.</li>
+</ul>
 
+    <h3>Type Bound</h3>
+    <p><a href='../type/test_solver.html'>test_solver</a></p>
 
     <h3>Arguments</h3>
         <table class="table table-striped varlist">
@@ -163,30 +182,90 @@ check pattern to match the int list</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~60"></span>
-              integer,
+              <span class="anchor" id="variable-me~41"></span>
+              class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
-<td>intent(in)</td>
+<td>intent(inout)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>i</strong></td>
+            <td><strong>me</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~46"></span>
-              integer,
+              <span class="anchor" id="variable-m~27"></span>
+              integer
             </td>
-<td>intent(in)</td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~41"></span>
+              integer
+            </td>
+<td></td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
             <td><strong>n</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nduplc"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nduplc</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npower"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>npower</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-damp~6"></span>
+              real(kind=wp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>damp</strong></td>
             <td>
                 
             </td>
@@ -206,41 +285,297 @@ check pattern to match the int list</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~test~~CallsGraph Pages: 1 -->
-<svg id="proctestCallsGraph" width="264pt" height="50pt"
- viewBox="0.00 0.00 264.00 50.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~test~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 46)">
+<svg id="proctestCallsGraph" width="641pt" height="243pt"
+ viewBox="0.00 0.00 641.00 242.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~test~~CallsGraph" class="graph" transform="scale(1.31 1.31) rotate(0) translate(4 315.17)">
 <title>proc~~test~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-46 260,-46 260,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-315.17 838,-315.17 838,4 -4,4"/>
 <!-- proc~test -->
 <g id="proc~~test~~CallsGraph_node1" class="node">
 <title>proc~test</title>
-<polygon fill="none" stroke="black" points="103,-24 0,-24 0,0 103,0 103,-24"/>
-<text text-anchor="middle" x="51.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_12::test</text>
+<polygon fill="none" stroke="black" points="191,-152 0,-152 0,-128 191,-128 191,-152"/>
+<text text-anchor="middle" x="95.5" y="-137.6" font-family="Helvetica,sans-Serif" font-size="10.50">lsqrtest_module::test_solver%test</text>
 </g>
-<!-- proc~test&#45;&gt;proc~test -->
-<g id="proc~~test~~CallsGraph_edge2" class="edge">
-<title>proc~test&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M27.36,-24.01C18.93,-32.97 26.98,-42 51.5,-42 66.44,-42 75.27,-38.65 77.98,-34"/>
-<polygon fill="#000000" stroke="#000000" points="81.33,-32.95 75.64,-24.01 74.51,-34.55 81.33,-32.95"/>
-</g>
-<!-- proc~match -->
+<!-- 4 -->
 <g id="proc~~test~~CallsGraph_node2" class="node">
-<title>proc~match</title>
-<g id="a_proc~~test~~CallsGraph_node2"><a xlink:href=".././proc/match.html" xlink:title="problem_12::match">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="256,-24 139,-24 139,0 256,0 256,-24"/>
-<text text-anchor="middle" x="197.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::match</text>
+<title>4</title>
+<polygon fill="#777777" stroke="#777777" points="349,-274 295,-274 295,-250 349,-250 349,-274"/>
+<text text-anchor="middle" x="322" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">4</text>
+</g>
+<!-- proc~test&#45;&gt;4 -->
+<g id="proc~~test~~CallsGraph_edge1" class="edge">
+<title>proc~test&#45;&gt;4</title>
+<path fill="none" stroke="#000000" d="M108.23,-152.06C129.71,-173.43 177.73,-217.85 227,-241 245.09,-249.5 266.78,-254.64 284.77,-257.71"/>
+<polygon fill="#000000" stroke="#000000" points="284.45,-261.2 294.87,-259.28 285.53,-254.28 284.45,-261.2"/>
+</g>
+<!-- proc~acheck -->
+<g id="proc~~test~~CallsGraph_node3" class="node">
+<title>proc~acheck</title>
+<g id="a_proc~~test~~CallsGraph_node3"><a xlink:href=".././proc/acheck.html" xlink:title="lsqr_module::lsqr_solver%acheck">
+<polygon fill="#d9534f" stroke="#d9534f" points="417,-152 227,-152 227,-128 417,-128 417,-152"/>
+<text text-anchor="middle" x="322" y="-137.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver%acheck</text>
 </a>
 </g>
 </g>
-<!-- proc~test&#45;&gt;proc~match -->
-<g id="proc~~test~~CallsGraph_edge1" class="edge">
-<title>proc~test&#45;&gt;proc~match</title>
-<path fill="none" stroke="#000000" d="M103.27,-12C111.53,-12 120.21,-12 128.8,-12"/>
-<polygon fill="#000000" stroke="#000000" points="128.82,-15.5 138.82,-12 128.82,-8.5 128.82,-15.5"/>
+<!-- proc~test&#45;&gt;proc~acheck -->
+<g id="proc~~test~~CallsGraph_edge2" class="edge">
+<title>proc~test&#45;&gt;proc~acheck</title>
+<path fill="none" stroke="#000000" d="M191.06,-140C199.58,-140 208.25,-140 216.85,-140"/>
+<polygon fill="#000000" stroke="#000000" points="216.91,-143.5 226.91,-140 216.91,-136.5 216.91,-143.5"/>
+</g>
+<!-- proc~dcopy -->
+<g id="proc~~test~~CallsGraph_node4" class="node">
+<title>proc~dcopy</title>
+<g id="a_proc~~test~~CallsGraph_node4"><a xlink:href=".././proc/dcopy.html" xlink:title="lsqpblas_module::dcopy">
+<polygon fill="#d9534f" stroke="#d9534f" points="628.5,-192 486.5,-192 486.5,-168 628.5,-168 628.5,-192"/>
+<text text-anchor="middle" x="557.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dcopy</text>
+</a>
+</g>
+</g>
+<!-- proc~test&#45;&gt;proc~dcopy -->
+<g id="proc~~test~~CallsGraph_edge3" class="edge">
+<title>proc~test&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M163.05,-152.05C183.5,-155.39 206.13,-158.72 227,-161 311.79,-170.24 409.39,-175.16 476.22,-177.66"/>
+<polygon fill="#000000" stroke="#000000" points="476.14,-181.16 486.27,-178.02 476.4,-174.16 476.14,-181.16"/>
+</g>
+<!-- proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_node5" class="node">
+<title>proc~dnrm2</title>
+<g id="a_proc~~test~~CallsGraph_node5"><a xlink:href=".././proc/dnrm2.html" xlink:title="lsqpblas_module::dnrm2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="630,-66 485,-66 485,-42 630,-42 630,-66"/>
+<text text-anchor="middle" x="557.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dnrm2</text>
+</a>
+</g>
+</g>
+<!-- proc~test&#45;&gt;proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_edge4" class="edge">
+<title>proc~test&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M106.39,-127.81C126.28,-104.38 173.79,-53.75 227,-35 306.64,-6.94 332.75,-29.29 417,-35 435.71,-36.27 455.73,-38.48 474.6,-40.96"/>
+<polygon fill="#000000" stroke="#000000" points="474.27,-44.45 484.65,-42.32 475.21,-37.51 474.27,-44.45"/>
+</g>
+<!-- proc~lsqr -->
+<g id="proc~~test~~CallsGraph_node6" class="node">
+<title>proc~lsqr</title>
+<g id="a_proc~~test~~CallsGraph_node6"><a xlink:href=".././proc/lsqr.html" xlink:title="lsqr_module::lsqr_solver%LSQR">
+<polygon fill="#d9534f" stroke="#d9534f" points="412.5,-68 231.5,-68 231.5,-44 412.5,-44 412.5,-68"/>
+<text text-anchor="middle" x="322" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver%LSQR</text>
+</a>
+</g>
+</g>
+<!-- proc~test&#45;&gt;proc~lsqr -->
+<g id="proc~~test~~CallsGraph_edge5" class="edge">
+<title>proc~test&#45;&gt;proc~lsqr</title>
+<path fill="none" stroke="#000000" d="M117.56,-127.96C142.83,-113.95 186.84,-90.97 227,-77 233.73,-74.66 240.83,-72.51 247.98,-70.57"/>
+<polygon fill="#000000" stroke="#000000" points="248.94,-73.93 257.74,-68.03 247.18,-67.16 248.94,-73.93"/>
+</g>
+<!-- proc~lstp -->
+<g id="proc~~test~~CallsGraph_node7" class="node">
+<title>proc~lstp</title>
+<g id="a_proc~~test~~CallsGraph_node7"><a xlink:href=".././proc/lstp.html" xlink:title="lsqrtest_module::test_solver%lstp">
+<polygon fill="#d9534f" stroke="#d9534f" points="417,-232 227,-232 227,-208 417,-208 417,-232"/>
+<text text-anchor="middle" x="322" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqrtest_module::test_solver%lstp</text>
+</a>
+</g>
+</g>
+<!-- proc~test&#45;&gt;proc~lstp -->
+<g id="proc~~test~~CallsGraph_edge6" class="edge">
+<title>proc~test&#45;&gt;proc~lstp</title>
+<path fill="none" stroke="#000000" d="M123.12,-152.14C149.24,-163.79 190.36,-181.41 227,-194 238.51,-197.96 250.97,-201.74 262.93,-205.14"/>
+<polygon fill="#000000" stroke="#000000" points="262.26,-208.58 272.83,-207.89 264.14,-201.84 262.26,-208.58"/>
+</g>
+<!-- proc~xcheck -->
+<g id="proc~~test~~CallsGraph_node8" class="node">
+<title>proc~xcheck</title>
+<g id="a_proc~~test~~CallsGraph_node8"><a xlink:href=".././proc/xcheck.html" xlink:title="lsqr_module::lsqr_solver%xcheck">
+<polygon fill="#d9534f" stroke="#d9534f" points="417,-110 227,-110 227,-86 417,-86 417,-110"/>
+<text text-anchor="middle" x="322" y="-95.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::lsqr_solver%xcheck</text>
+</a>
+</g>
+</g>
+<!-- proc~test&#45;&gt;proc~xcheck -->
+<g id="proc~~test~~CallsGraph_edge7" class="edge">
+<title>proc~test&#45;&gt;proc~xcheck</title>
+<path fill="none" stroke="#000000" d="M160.83,-127.96C187.6,-122.96 218.85,-117.11 246.61,-111.92"/>
+<polygon fill="#000000" stroke="#000000" points="247.47,-115.32 256.66,-110.04 246.18,-108.44 247.47,-115.32"/>
+</g>
+<!-- proc~acheck&#45;&gt;proc~dcopy -->
+<g id="proc~~test~~CallsGraph_edge9" class="edge">
+<title>proc~acheck&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M393.06,-152C419.26,-156.49 449.23,-161.62 476.28,-166.26"/>
+<polygon fill="#000000" stroke="#000000" points="476.04,-169.77 486.49,-168.01 477.23,-162.87 476.04,-169.77"/>
+</g>
+<!-- proc~acheck&#45;&gt;proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_edge11" class="edge">
+<title>proc~acheck&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M398.67,-127.87C405.1,-125.44 411.31,-122.51 417,-119 438.51,-105.74 431.36,-88.05 453,-75 459.86,-70.86 467.4,-67.52 475.19,-64.83"/>
+<polygon fill="#000000" stroke="#000000" points="476.26,-68.17 484.77,-61.86 474.18,-61.48 476.26,-68.17"/>
+</g>
+<!-- aprod -->
+<g id="proc~~test~~CallsGraph_node9" class="node">
+<title>aprod</title>
+<polygon fill="#777777" stroke="#777777" points="584.5,-108 530.5,-108 530.5,-84 584.5,-84 584.5,-108"/>
+<text text-anchor="middle" x="557.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">aprod</text>
+</g>
+<!-- proc~acheck&#45;&gt;aprod -->
+<g id="proc~~test~~CallsGraph_edge8" class="edge">
+<title>proc~acheck&#45;&gt;aprod</title>
+<path fill="none" stroke="#000000" d="M386.8,-127.98C429.82,-119.87 485,-109.47 520.55,-102.77"/>
+<polygon fill="#000000" stroke="#000000" points="521.3,-106.19 530.48,-100.9 520,-99.32 521.3,-106.19"/>
+</g>
+<!-- proc~ddot -->
+<g id="proc~~test~~CallsGraph_node12" class="node">
+<title>proc~ddot</title>
+<g id="a_proc~~test~~CallsGraph_node12"><a xlink:href=".././proc/ddot.html" xlink:title="lsqpblas_module::ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="624,-234 491,-234 491,-210 624,-210 624,-234"/>
+<text text-anchor="middle" x="557.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::ddot</text>
+</a>
+</g>
+</g>
+<!-- proc~acheck&#45;&gt;proc~ddot -->
+<g id="proc~~test~~CallsGraph_edge10" class="edge">
+<title>proc~acheck&#45;&gt;proc~ddot</title>
+<path fill="none" stroke="#000000" d="M344.43,-152.01C369.68,-165.69 413.24,-187.85 453,-201 461.91,-203.95 471.4,-206.56 480.88,-208.85"/>
+<polygon fill="#000000" stroke="#000000" points="480.2,-212.28 490.73,-211.11 481.77,-205.46 480.2,-212.28"/>
+</g>
+<!-- proc~dscal -->
+<g id="proc~~test~~CallsGraph_node13" class="node">
+<title>proc~dscal</title>
+<g id="a_proc~~test~~CallsGraph_node13"><a xlink:href=".././proc/dscal.html" xlink:title="lsqpblas_module::dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="626,-150 489,-150 489,-126 626,-126 626,-150"/>
+<text text-anchor="middle" x="557.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqpblas_module::dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~acheck&#45;&gt;proc~dscal -->
+<g id="proc~~test~~CallsGraph_edge12" class="edge">
+<title>proc~acheck&#45;&gt;proc~dscal</title>
+<path fill="none" stroke="#000000" d="M417.3,-139.19C437.67,-139.02 458.99,-138.84 478.65,-138.67"/>
+<polygon fill="#000000" stroke="#000000" points="478.79,-142.17 488.76,-138.58 478.73,-135.17 478.79,-142.17"/>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dcopy -->
+<g id="proc~~test~~CallsGraph_edge15" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M403.02,-68.06C408.01,-70.54 412.74,-73.49 417,-77 447.74,-102.29 422.02,-134.01 453,-159 460.07,-164.71 468.29,-168.99 476.94,-172.19"/>
+<polygon fill="#000000" stroke="#000000" points="475.87,-175.52 486.46,-175.25 478.01,-168.85 475.87,-175.52"/>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_edge16" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M412.61,-55.23C433.07,-55.06 454.72,-54.87 474.83,-54.7"/>
+<polygon fill="#000000" stroke="#000000" points="474.91,-58.2 484.88,-54.61 474.85,-51.2 474.91,-58.2"/>
+</g>
+<!-- proc~lsqr&#45;&gt;aprod -->
+<g id="proc~~test~~CallsGraph_edge13" class="edge">
+<title>proc~lsqr&#45;&gt;aprod</title>
+<path fill="none" stroke="#000000" d="M393.06,-68C435.06,-75.2 486.71,-84.04 520.57,-89.84"/>
+<polygon fill="#000000" stroke="#000000" points="520.02,-93.3 530.47,-91.54 521.2,-86.4 520.02,-93.3"/>
+</g>
+<!-- proc~d2norm -->
+<g id="proc~~test~~CallsGraph_node11" class="node">
+<title>proc~d2norm</title>
+<g id="a_proc~~test~~CallsGraph_node11"><a xlink:href=".././proc/d2norm.html" xlink:title="lsqr_module::d2norm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="621,-24 494,-24 494,0 621,0 621,-24"/>
+<text text-anchor="middle" x="557.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqr_module::d2norm</text>
+</a>
+</g>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~d2norm -->
+<g id="proc~~test~~CallsGraph_edge14" class="edge">
+<title>proc~lsqr&#45;&gt;proc~d2norm</title>
+<path fill="none" stroke="#000000" d="M386.8,-43.98C416.9,-38.31 452.95,-31.51 484.07,-25.65"/>
+<polygon fill="#000000" stroke="#000000" points="484.8,-29.07 493.98,-23.78 483.51,-22.19 484.8,-29.07"/>
+</g>
+<!-- proc~lsqr&#45;&gt;proc~dscal -->
+<g id="proc~~test~~CallsGraph_edge17" class="edge">
+<title>proc~lsqr&#45;&gt;proc~dscal</title>
+<path fill="none" stroke="#000000" d="M397.53,-68.06C404.33,-70.51 410.94,-73.46 417,-77 437.65,-89.07 432.23,-105.13 453,-117 461.01,-121.58 469.87,-125.16 478.93,-127.98"/>
+<polygon fill="#000000" stroke="#000000" points="478.24,-131.42 488.82,-130.73 480.12,-124.68 478.24,-131.42"/>
+</g>
+<!-- proc~lstp&#45;&gt;proc~dcopy -->
+<g id="proc~~test~~CallsGraph_edge19" class="edge">
+<title>proc~lstp&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M393.06,-208C419.26,-203.51 449.23,-198.38 476.28,-193.74"/>
+<polygon fill="#000000" stroke="#000000" points="477.23,-197.13 486.49,-191.99 476.04,-190.23 477.23,-197.13"/>
+</g>
+<!-- proc~lstp&#45;&gt;proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_edge20" class="edge">
+<title>proc~lstp&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M351.36,-207.94C371.94,-197.96 399.18,-182.01 417,-161 443.8,-129.4 420.97,-101.29 453,-75 459.57,-69.61 467.16,-65.48 475.17,-62.33"/>
+<polygon fill="#000000" stroke="#000000" points="476.41,-65.61 484.75,-59.08 474.15,-58.98 476.41,-65.61"/>
+</g>
+<!-- proc~aprod1 -->
+<g id="proc~~test~~CallsGraph_node10" class="node">
+<title>proc~aprod1</title>
+<g id="a_proc~~test~~CallsGraph_node10"><a xlink:href=".././proc/aprod1.html" xlink:title="lsqrtest_module::test_solver%aprod1">
+<polygon fill="#d9534f" stroke="#d9534f" points="662,-276 453,-276 453,-252 662,-252 662,-276"/>
+<text text-anchor="middle" x="557.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqrtest_module::test_solver%aprod1</text>
+</a>
+</g>
+</g>
+<!-- proc~lstp&#45;&gt;proc~aprod1 -->
+<g id="proc~~test~~CallsGraph_edge18" class="edge">
+<title>proc~lstp&#45;&gt;proc~aprod1</title>
+<path fill="none" stroke="#000000" d="M386.8,-232.02C416.53,-237.63 452.08,-244.32 482.93,-250.14"/>
+<polygon fill="#000000" stroke="#000000" points="482.3,-253.58 492.77,-251.99 483.59,-246.7 482.3,-253.58"/>
+</g>
+<!-- proc~lstp&#45;&gt;proc~dscal -->
+<g id="proc~~test~~CallsGraph_edge21" class="edge">
+<title>proc~lstp&#45;&gt;proc~dscal</title>
+<path fill="none" stroke="#000000" d="M344.43,-207.99C369.68,-194.31 413.24,-172.15 453,-159 461.28,-156.26 470.06,-153.81 478.87,-151.64"/>
+<polygon fill="#000000" stroke="#000000" points="479.86,-155.01 488.8,-149.31 478.27,-148.19 479.86,-155.01"/>
+</g>
+<!-- proc~hprod -->
+<g id="proc~~test~~CallsGraph_node14" class="node">
+<title>proc~hprod</title>
+<g id="a_proc~~test~~CallsGraph_node14"><a xlink:href=".././proc/hprod.html" xlink:title="lsqrtest_module::hprod">
+<polygon fill="#d9534f" stroke="#d9534f" points="834,-296 698,-296 698,-272 834,-272 834,-296"/>
+<text text-anchor="middle" x="766" y="-281.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqrtest_module::hprod</text>
+</a>
+</g>
+</g>
+<!-- proc~lstp&#45;&gt;proc~hprod -->
+<g id="proc~~test~~CallsGraph_edge22" class="edge">
+<title>proc~lstp&#45;&gt;proc~hprod</title>
+<path fill="none" stroke="#000000" d="M398.67,-232.13C405.1,-234.56 411.31,-237.49 417,-241 438.51,-254.26 430.17,-274.18 453,-285 535.12,-323.92 643.61,-311.39 708.63,-298.14"/>
+<polygon fill="#000000" stroke="#000000" points="709.63,-301.51 718.69,-296.02 708.18,-294.66 709.63,-301.51"/>
+</g>
+<!-- proc~xcheck&#45;&gt;proc~dcopy -->
+<g id="proc~~test~~CallsGraph_edge24" class="edge">
+<title>proc~xcheck&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M397.53,-110.06C404.33,-112.51 410.94,-115.46 417,-119 437.65,-131.07 432.23,-147.13 453,-159 460.32,-163.18 468.36,-166.54 476.61,-169.24"/>
+<polygon fill="#000000" stroke="#000000" points="475.78,-172.64 486.37,-172.1 477.76,-165.93 475.78,-172.64"/>
+</g>
+<!-- proc~xcheck&#45;&gt;proc~dnrm2 -->
+<g id="proc~~test~~CallsGraph_edge25" class="edge">
+<title>proc~xcheck&#45;&gt;proc~dnrm2</title>
+<path fill="none" stroke="#000000" d="M386.8,-85.98C416.53,-80.37 452.08,-73.68 482.93,-67.86"/>
+<polygon fill="#000000" stroke="#000000" points="483.59,-71.3 492.77,-66.01 482.3,-64.42 483.59,-71.3"/>
+</g>
+<!-- proc~xcheck&#45;&gt;aprod -->
+<g id="proc~~test~~CallsGraph_edge23" class="edge">
+<title>proc~xcheck&#45;&gt;aprod</title>
+<path fill="none" stroke="#000000" d="M417.3,-97.19C453.39,-96.88 492.46,-96.55 519.99,-96.31"/>
+<polygon fill="#000000" stroke="#000000" points="520.34,-99.81 530.31,-96.22 520.28,-92.81 520.34,-99.81"/>
+</g>
+<!-- proc~xcheck&#45;&gt;proc~dscal -->
+<g id="proc~~test~~CallsGraph_edge26" class="edge">
+<title>proc~xcheck&#45;&gt;proc~dscal</title>
+<path fill="none" stroke="#000000" d="M393.06,-110C420.1,-114.63 451.14,-119.95 478.85,-124.7"/>
+<polygon fill="#000000" stroke="#000000" points="478.45,-128.18 488.9,-126.42 479.63,-121.28 478.45,-128.18"/>
+</g>
+<!-- proc~aprod1&#45;&gt;proc~hprod -->
+<g id="proc~~test~~CallsGraph_edge27" class="edge">
+<title>proc~aprod1&#45;&gt;proc~hprod</title>
+<path fill="none" stroke="#000000" d="M662.05,-274.03C670.71,-274.87 679.36,-275.71 687.77,-276.52"/>
+<polygon fill="#000000" stroke="#000000" points="687.6,-280.02 697.89,-277.5 688.27,-273.05 687.6,-280.02"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+</div>                <script>
+                  var panproctestCallsGraph = svgPanZoom('#proctestCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
           <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
@@ -330,52 +665,46 @@ implementation in a submodule of an interface in a parent module.
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~test~~CalledByGraph Pages: 1 -->
-<svg id="proctestCalledByGraph" width="356pt" height="50pt"
- viewBox="0.00 0.00 356.00 50.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~test~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 46)">
+<svg id="proctestCalledByGraph" width="474pt" height="32pt"
+ viewBox="0.00 0.00 474.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~test~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>proc~~test~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-46 352,-46 352,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 470,-28 470,4 -4,4"/>
 <!-- proc~test -->
 <g id="proc~~test~~CalledByGraph_node1" class="node">
 <title>proc~test</title>
-<polygon fill="none" stroke="black" points="348,-24 245,-24 245,0 348,0 348,-24"/>
-<text text-anchor="middle" x="296.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">problem_12::test</text>
+<polygon fill="none" stroke="black" points="466,-24 275,-24 275,0 466,0 466,-24"/>
+<text text-anchor="middle" x="370.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">lsqrtest_module::test_solver%test</text>
 </g>
-<!-- proc~test&#45;&gt;proc~test -->
-<g id="proc~~test~~CalledByGraph_edge2" class="edge">
-<title>proc~test&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M274.01,-24.01C266.16,-32.97 273.66,-42 296.5,-42 310.42,-42 318.64,-38.65 321.16,-34"/>
-<polygon fill="#000000" stroke="#000000" points="324.54,-33.04 318.99,-24.01 317.7,-34.53 324.54,-33.04"/>
-</g>
-<!-- proc~go~6 -->
+<!-- proc~lsqr_test -->
 <g id="proc~~test~~CalledByGraph_node2" class="node">
-<title>proc~go~6</title>
-<g id="a_proc~~test~~CalledByGraph_node2"><a xlink:href=".././proc/go~6.html" xlink:title="problem_12::go">
-<polygon fill="#d9534f" stroke="#d9534f" points="209,-24 112,-24 112,0 209,0 209,-24"/>
-<text text-anchor="middle" x="160.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12::go</text>
+<title>proc~lsqr_test</title>
+<g id="a_proc~~test~~CalledByGraph_node2"><a xlink:href=".././proc/lsqr_test.html" xlink:title="lsqrtest_module::lsqr_test">
+<polygon fill="#d9534f" stroke="#d9534f" points="239,-24 90,-24 90,0 239,0 239,-24"/>
+<text text-anchor="middle" x="164.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lsqrtest_module::lsqr_test</text>
 </a>
 </g>
 </g>
-<!-- proc~go~6&#45;&gt;proc~test -->
+<!-- proc~lsqr_test&#45;&gt;proc~test -->
 <g id="proc~~test~~CalledByGraph_edge1" class="edge">
-<title>proc~go~6&#45;&gt;proc~test</title>
-<path fill="none" stroke="#000000" d="M209.12,-12C217.45,-12 226.21,-12 234.83,-12"/>
-<polygon fill="#000000" stroke="#000000" points="234.86,-15.5 244.86,-12 234.86,-8.5 234.86,-15.5"/>
+<title>proc~lsqr_test&#45;&gt;proc~test</title>
+<path fill="none" stroke="#000000" d="M239.15,-12C247.43,-12 255.99,-12 264.57,-12"/>
+<polygon fill="#000000" stroke="#000000" points="264.65,-15.5 274.65,-12 264.65,-8.5 264.65,-15.5"/>
 </g>
-<!-- program~problem_12 -->
+<!-- program~main~2 -->
 <g id="proc~~test~~CalledByGraph_node3" class="node">
-<title>program~problem_12</title>
-<g id="a_proc~~test~~CalledByGraph_node3"><a xlink:href=".././program/problem_12.html" xlink:title="problem_12">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-24 0,-24 0,0 76,0 76,-24"/>
-<text text-anchor="middle" x="38" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">problem_12</text>
+<title>program~main~2</title>
+<g id="a_proc~~test~~CalledByGraph_node3"><a xlink:href=".././program/main~2.html" xlink:title="main">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
 </a>
 </g>
 </g>
-<!-- program~problem_12&#45;&gt;proc~go~6 -->
-<g id="proc~~test~~CalledByGraph_edge3" class="edge">
-<title>program~problem_12&#45;&gt;proc~go~6</title>
-<path fill="none" stroke="#000000" d="M76.14,-12C84.19,-12 92.89,-12 101.53,-12"/>
-<polygon fill="#000000" stroke="#000000" points="101.6,-15.5 111.6,-12 101.6,-8.5 101.6,-15.5"/>
+<!-- program~main~2&#45;&gt;proc~lsqr_test -->
+<g id="proc~~test~~CalledByGraph_edge2" class="edge">
+<title>program~main~2&#45;&gt;proc~lsqr_test</title>
+<path fill="none" stroke="#000000" d="M54.13,-12C61.75,-12 70.52,-12 79.71,-12"/>
+<polygon fill="#000000" stroke="#000000" points="79.81,-15.5 89.81,-12 79.81,-8.5 79.81,-15.5"/>
 </g>
 </g>
 </svg>
@@ -472,33 +801,160 @@ implementation in a submodule of an interface in a parent module.
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">recursive subroutine </span><span class="n">test</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-<span class="w">    </span><span class="c">!! each ? can be either a . or a #</span>
-<span class="w">    </span><span class="c">!! check pattern to match the int list</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">test</span><span class="w">  </span><span class="p">(</span><span class="w"> </span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nduplc</span><span class="p">,</span><span class="w"> </span><span class="n">npower</span><span class="p">,</span><span class="w"> </span><span class="n">damp</span><span class="w"> </span><span class="p">)</span>
 
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
-<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ix</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">icoeffs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">POINT</span><span class="p">,</span><span class="n">NUMBER</span><span class="p">]</span><span class="w"> </span><span class="c">!! set of coefficients [&#39;.&#39;, &#39;#&#39;]</span>
+<span class="w">    </span><span class="k">class</span><span class="p">(</span><span class="n">test_solver</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nduplc</span><span class="p">,</span><span class="w"> </span><span class="n">npower</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">damp</span>
 
-<span class="w">    </span><span class="c">! what we are not doing here is accounting for permutations</span>
-<span class="w">    </span><span class="c">! that we know do not match, because the begin with a sequence</span>
-<span class="w">    </span><span class="c">! that doesn&#39;t match. those need to be skipped...</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">maxm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">maxn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mxmn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">epsilon</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span><span class="w"> </span><span class="c">!! machine precision</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">34</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;----------------------------------&#39;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="c">! so we have an array of 0s and 1s -&gt; replace the 2s in the ipattern with these</span>
-<span class="w">        </span><span class="c">!     ipattern: 2220111  -&gt; ???.###</span>
-<span class="w">        </span><span class="c">!            a: 011      -&gt; .##</span>
-<span class="w">        </span><span class="c">!       result: 0110111  -&gt; .##.###</span>
-<span class="w">        </span><span class="c">!write(*,&#39;(a,1x,i5,1x, *(I1))&#39;) &#39;test:&#39;, iline, ipattern_tmp</span>
-<span class="w">        </span><span class="n">ipattern_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">unpack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="o">=</span><span class="n">ipattern</span><span class="o">==</span><span class="n">QUESTION</span><span class="p">,</span><span class="w"> </span><span class="n">field</span><span class="o">=</span><span class="n">ipattern</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="n">ipattern_tmp</span><span class="p">,</span><span class="w"> </span><span class="n">ints</span><span class="p">))</span><span class="w"> </span><span class="n">n_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n_valid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="k">        do </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">            </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icoeffs</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-<span class="w">        </span><span class="k">end do</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">istop</span><span class="p">,</span><span class="w"> </span><span class="n">itnlim</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">itn</span><span class="p">,</span><span class="w"> </span><span class="n">maxmn</span><span class="p">,</span><span class="w"> </span><span class="n">minmn</span><span class="p">,</span><span class="w"> </span><span class="n">nprint</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">locd</span><span class="p">,</span><span class="w"> </span><span class="n">lochy</span><span class="p">,</span><span class="w"> </span><span class="n">lochz</span><span class="p">,</span><span class="w"> </span><span class="n">locw</span><span class="p">,</span><span class="w"> </span><span class="n">ltotal</span>
+<span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wantse</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">maxm</span><span class="p">),</span><span class="w">  </span><span class="n">u</span><span class="p">(</span><span class="n">maxm</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">v</span><span class="p">(</span><span class="n">maxn</span><span class="p">),</span><span class="w">  </span><span class="n">w</span><span class="p">(</span><span class="n">mxmn</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">maxn</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">se</span><span class="p">(</span><span class="n">maxn</span><span class="p">),</span><span class="w"> </span><span class="n">xtrue</span><span class="p">(</span><span class="n">maxn</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">mxmn</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">atol</span><span class="p">,</span><span class="w"> </span><span class="n">btol</span><span class="p">,</span><span class="w"> </span><span class="n">conlim</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">anorm</span><span class="p">,</span><span class="w"> </span><span class="n">acond</span><span class="p">,</span><span class="w"> </span><span class="n">rnorm</span><span class="p">,</span><span class="w"> </span><span class="n">arnorm</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">enorm</span><span class="p">,</span><span class="w"> </span><span class="n">etol</span><span class="p">,</span><span class="w"> </span><span class="n">xnorm</span><span class="p">,</span><span class="w"> </span><span class="n">test1</span><span class="p">,</span><span class="w"> </span><span class="n">test2</span><span class="p">,</span><span class="w"> </span><span class="n">test3</span><span class="p">,</span><span class="w"> </span><span class="n">wnorm</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxm</span><span class="w">  </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxn</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c">! m or n too large.</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">8000</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span>
 <span class="k">    end if</span>
-<span class="k">    end subroutine </span><span class="n">test</span>
+
+<span class="w">    </span><span class="c">! Set the desired solution xtrue.</span>
+<span class="w">    </span><span class="c">! For least-squares problems, this is it.</span>
+<span class="w">    </span><span class="c">! For underdetermined systems, lstp may alter it.</span>
+
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">        </span><span class="c">! xtrue(j) = one</span>
+<span class="w">        </span><span class="n">xtrue</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.1_wp</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Generate the specified test problem.</span>
+<span class="w">    </span><span class="c">! The workspace array  rw  is used for the following vectors:</span>
+<span class="w">    </span><span class="c">!    d(minmn), hy(m), hz(n), w(maxmn).</span>
+<span class="w">    </span><span class="c">! The vectors  d, hy, hz  will define the test matrix A.</span>
+<span class="w">    </span><span class="c">! w is needed for workspace in aprod1 and aprod2.</span>
+
+<span class="w">    </span><span class="n">maxmn</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">minmn</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">locd</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="n">lochy</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">locd</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="n">minmn</span>
+<span class="w">    </span><span class="n">lochz</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">lochy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span>
+<span class="w">    </span><span class="n">locw</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">lochz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="n">ltotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">locw</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="n">maxmn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ltotal</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lenrw</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c">! Not enough workspace.</span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">9000</span><span class="p">)</span><span class="w"> </span><span class="n">ltotal</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="k">    call </span><span class="n">me</span><span class="p">%</span><span class="n">lstp</span><span class="w">  </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">maxmn</span><span class="p">,</span><span class="w"> </span><span class="n">minmn</span><span class="p">,</span><span class="w"> </span><span class="n">nduplc</span><span class="p">,</span><span class="w"> </span><span class="n">npower</span><span class="p">,</span><span class="w"> </span><span class="n">damp</span><span class="p">,</span><span class="w"> </span><span class="n">xtrue</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">rw</span><span class="p">(</span><span class="n">locd</span><span class="p">),</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">rw</span><span class="p">(</span><span class="n">lochy</span><span class="p">),</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">rw</span><span class="p">(</span><span class="n">lochz</span><span class="p">),</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">rw</span><span class="p">(</span><span class="n">locw</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">acond</span><span class="p">,</span><span class="w"> </span><span class="n">rnorm</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                         </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nduplc</span><span class="p">,</span><span class="w"> </span><span class="n">npower</span><span class="p">,</span><span class="w"> </span><span class="n">damp</span><span class="p">,</span><span class="w"> </span><span class="n">acond</span><span class="p">,</span><span class="w"> </span><span class="n">rnorm</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                         </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">line</span>
+
+<span class="w">    </span><span class="c">! Check that aprod generates y + Ax and x + A&#39;y consistently.</span>
+<span class="w">    </span><span class="k">call </span><span class="n">me</span><span class="p">%</span><span class="n">acheck</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">inform</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inform</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39; Check eps and power in subroutine acheck&#39;</span>
+<span class="w">        </span><span class="k">stop</span>
+<span class="k">    end if</span>
+
+<span class="w">    </span><span class="c">! Solve the problem defined by aprod, damp and b.</span>
+<span class="w">    </span><span class="c">! Copy the rhs vector b into u  (LSQR will overwrite u)</span>
+<span class="w">    </span><span class="c">! and set the other input parameters for LSQR.</span>
+<span class="w">    </span><span class="c">! We ask for standard errors only if they are well-defined.</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">dcopy</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="c">!---  wantse = m &gt; n  .or.  damp &gt; zero</span>
+<span class="w">    </span><span class="n">wantse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<span class="w">    </span><span class="n">atol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span><span class="o">**</span><span class="mf">0.99_wp</span>
+<span class="w">    </span><span class="n">btol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">atol</span>
+<span class="w">    </span><span class="n">conlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="mf">0.0_wp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">acond</span>
+<span class="w">    </span><span class="n">itnlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">me</span><span class="p">%</span><span class="n">lsqr</span><span class="p">(</span><span class="w">  </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">damp</span><span class="p">,</span><span class="w"> </span><span class="n">wantse</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">atol</span><span class="p">,</span><span class="w"> </span><span class="n">btol</span><span class="p">,</span><span class="w"> </span><span class="n">conlim</span><span class="p">,</span><span class="w"> </span><span class="n">itnlim</span><span class="p">,</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">istop</span><span class="p">,</span><span class="w"> </span><span class="n">itn</span><span class="p">,</span><span class="w"> </span><span class="n">anorm</span><span class="p">,</span><span class="w"> </span><span class="n">acond</span><span class="p">,</span><span class="w"> </span><span class="n">rnorm</span><span class="p">,</span><span class="w"> </span><span class="n">arnorm</span><span class="p">,</span><span class="w"> </span><span class="n">xnorm</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Examine the results.</span>
+
+<span class="w">    </span><span class="c">!-  if (damp == zero) then</span>
+<span class="w">    </span><span class="c">!-     write(nout, 2000)       xnorm, rnorm, arnorm</span>
+<span class="w">    </span><span class="c">!-  else</span>
+<span class="w">    </span><span class="c">!-     write(nout, 2100) damp, xnorm, rnorm, arnorm</span>
+<span class="w">    </span><span class="c">!-  end if</span>
+
+<span class="w">    </span><span class="k">call </span><span class="n">me</span><span class="p">%</span><span class="n">xcheck</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="n">anorm</span><span class="p">,</span><span class="w"> </span><span class="n">damp</span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">inform</span><span class="p">,</span><span class="w"> </span><span class="n">test1</span><span class="p">,</span><span class="w"> </span><span class="n">test2</span><span class="p">,</span><span class="w"> </span><span class="n">test3</span><span class="w"> </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Print the solution and standard error estimates from  LSQR.</span>
+
+<span class="w">    </span><span class="n">nprint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">2500</span><span class="p">)</span><span class="w">    </span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nprint</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantse</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">2600</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nprint</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end if</span>
+
+<span class="w">    </span><span class="c">! Print a clue about whether the solution looks OK.</span>
+
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">        </span><span class="n">w</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">xtrue</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end do</span>
+<span class="k">    </span><span class="n">wnorm</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">xnorm</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">xtrue</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="n">enorm</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">wnorm</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">xnorm</span><span class="p">)</span>
+<span class="w">    </span><span class="n">etol</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">0.001_wp</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">enorm</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">etol</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">)</span><span class="w"> </span><span class="n">enorm</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        write</span><span class="p">(</span><span class="n">me</span><span class="p">%</span><span class="n">nout</span><span class="p">,</span><span class="w"> </span><span class="mi">3100</span><span class="p">)</span><span class="w"> </span><span class="n">enorm</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    return</span>
+
+<span class="k">    </span><span class="mi">1000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="mi">1</span><span class="n">p</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mi">1</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="n">a</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39; Least-Squares Test Problem      P(&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="n">i5</span><span class="p">,</span><span class="w"> </span><span class="n">e12</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; )&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; Condition no. =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e12</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;     Residual function =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e17</span><span class="p">.</span><span class="mi">9</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="mi">1</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="n">a</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">2000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="mi">1</span><span class="n">p</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; We are solving    min norm(Ax - b)    with no damping.&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; Estimates from LSQR:&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(x)         =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = xnorm&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(r)         =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = rnorm&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(A&#39;&#39;r)       =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = arnorm&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">2100</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="mi">1</span><span class="n">p</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; We are solving    min norm(Ax - b)    with damp =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;                           (damp*x)&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; Estimates from LSQR:&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(x)         =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = xnorm&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(rbar)      =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = rnorm&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="o">/</span><span class="w">  </span><span class="s1">&#39;    norm(Abar&#39;&#39;rbar) =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; = arnorm&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">2500</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">//</span><span class="s1">&#39; Solution  x:&#39;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">(</span><span class="n">i6</span><span class="p">,</span><span class="w"> </span><span class="n">g14</span><span class="p">.</span><span class="mi">6</span><span class="p">))</span>
+<span class="w">    </span><span class="mi">2600</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; Standard errors  se:&#39;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="p">(</span><span class="n">i6</span><span class="p">,</span><span class="w"> </span><span class="n">g14</span><span class="p">.</span><span class="mi">6</span><span class="p">))</span>
+<span class="w">    </span><span class="mi">3000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="mi">1</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; LSQR  appears to be successful.&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;     Relative error in  x  =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">3100</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="mi">1</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; LSQR  appears to have failed.  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;     Relative error in  x  =&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">e10</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">8000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; XXX  m or n is too large.&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">9000</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="s1">&#39; XXX  Insufficient workspace.&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;  The length of  rw  should be at least&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i6</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">test</span>
 </pre></div>
 
     </section>

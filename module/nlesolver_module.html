@@ -118,10 +118,10 @@
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/nlesolver_module.html#variable-nlesolver_rk">nlesolver_rk</a>
             <a class="list-group-item" href="../module/nlesolver_module.html#variable-wp~4">wp</a>
-            <a class="list-group-item" href="../module/nlesolver_module.html#variable-zero">zero</a>
-            <a class="list-group-item" href="../module/nlesolver_module.html#variable-one">one</a>
+            <a class="list-group-item" href="../module/nlesolver_module.html#variable-zero~2">zero</a>
+            <a class="list-group-item" href="../module/nlesolver_module.html#variable-one~2">one</a>
             <a class="list-group-item" href="../module/nlesolver_module.html#variable-two">two</a>
-            <a class="list-group-item" href="../module/nlesolver_module.html#variable-eps">eps</a>
+            <a class="list-group-item" href="../module/nlesolver_module.html#variable-eps~3">eps</a>
             <a class="list-group-item" href="../module/nlesolver_module.html#variable-big">big</a>
         </div>
       </div>
@@ -552,7 +552,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-zero"></span>
+              <span class="anchor" id="variable-zero~2"></span>
               real(kind=wp),
             </td>
               <td>private,</td>
@@ -569,7 +569,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-one"></span>
+              <span class="anchor" id="variable-one~2"></span>
               real(kind=wp),
             </td>
               <td>private,</td>
@@ -603,7 +603,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-eps"></span>
+              <span class="anchor" id="variable-eps~3"></span>
               real(kind=wp),
             </td>
               <td>private,</td>
@@ -1097,7 +1097,7 @@ used by all methods.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~6"></span>
+              <span class="anchor" id="variable-x~15"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -1208,7 +1208,7 @@ used by all methods.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~8"></span>
+              <span class="anchor" id="variable-n~24"></span>
               integer,
             </td>
               <td>private</td>
@@ -1225,7 +1225,7 @@ used by all methods.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~6"></span>
+              <span class="anchor" id="variable-m~16"></span>
               integer,
             </td>
               <td>private</td>
@@ -1344,7 +1344,7 @@ used by all methods.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~3"></span>
+              <span class="anchor" id="variable-c~5"></span>
               real(kind=wp),
             </td>
               <td>private</td>
@@ -1600,12 +1600,12 @@ to allow where the value of <code>f</code> increases</p>
 <td>=&gt; </td>
                 <td>null()</td>
             <td>
-<p>line search method (determined by <code>step_mode</code> user input in <a href="../type/nlesolver_type.html#boundprocedure-initialize">initialize</a>)</p>
+<p>line search method (determined by <code>step_mode</code> user input in <a href="../type/nlesolver_type.html#boundprocedure-initialize~2">initialize</a>)</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-sparsity_mode~2"></span>
+              <span class="anchor" id="variable-sparsity_mode"></span>
               integer,
             </td>
               <td>private</td>
@@ -1617,7 +1617,7 @@ to allow where the value of <code>f</code> increases</p>
 <td> =</td>
                 <td>1</td>
             <td>
-<p>sparsity mode:</p><a href="../type/nlesolver_type.html#variable-sparsity_mode~2" class="pull-right"><emph>Read more&hellip;</emph></a>
+<p>sparsity mode:</p><a href="../type/nlesolver_type.html#variable-sparsity_mode" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
         <tr>
@@ -1639,7 +1639,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-irow"></span>
+              <span class="anchor" id="variable-irow~3"></span>
               integer,
             </td>
               <td>private,</td>
@@ -1656,7 +1656,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-icol"></span>
+              <span class="anchor" id="variable-icol~3"></span>
               integer,
             </td>
               <td>private,</td>
@@ -1673,7 +1673,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-atol"></span>
+              <span class="anchor" id="variable-atol~4"></span>
               real(kind=wp),
             </td>
               <td>private</td>
@@ -1690,7 +1690,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-btol"></span>
+              <span class="anchor" id="variable-btol~4"></span>
               real(kind=wp),
             </td>
               <td>private</td>
@@ -1707,7 +1707,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-conlim"></span>
+              <span class="anchor" id="variable-conlim~4"></span>
               real(kind=wp),
             </td>
               <td>private</td>
@@ -1725,7 +1725,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-itnlim"></span>
+              <span class="anchor" id="variable-itnlim~4"></span>
               integer,
             </td>
               <td>private</td>
@@ -1742,7 +1742,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nout"></span>
+              <span class="anchor" id="variable-nout~6"></span>
               integer,
             </td>
               <td>private</td>
@@ -1759,7 +1759,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-damp"></span>
+              <span class="anchor" id="variable-damp~3"></span>
               real(kind=wp),
             </td>
               <td>private</td>
@@ -1836,17 +1836,17 @@ condition number of the matrix <code>Abar</code>.</p>
           <tbody>
               <tr>
                 <td>  procedure, public ::
-  <strong><a href='../type/nlesolver_type.html#boundprocedure-initialize'>initialize</a></strong> => <a href='../proc/initialize_nlesolver_variables.html'>initialize_nlesolver_variables</a></td>
+  <strong><a href='../type/nlesolver_type.html#boundprocedure-initialize~2'>initialize</a></strong> => <a href='../proc/initialize_nlesolver_variables.html'>initialize_nlesolver_variables</a></td>
                 <td></td>
               </tr>
               <tr>
                 <td>  procedure, public ::
-  <strong><a href='../type/nlesolver_type.html#boundprocedure-solve'>solve</a></strong> => <a href='../proc/nlesolver_solver.html'>nlesolver_solver</a></td>
+  <strong><a href='../type/nlesolver_type.html#boundprocedure-solve~2'>solve</a></strong> => <a href='../proc/nlesolver_solver.html'>nlesolver_solver</a></td>
                 <td></td>
               </tr>
               <tr>
                 <td>  procedure, public ::
-  <strong><a href='../type/nlesolver_type.html#boundprocedure-destroy~4'>destroy</a></strong> => <a href='../proc/destroy_nlesolver_variables.html'>destroy_nlesolver_variables</a></td>
+  <strong><a href='../type/nlesolver_type.html#boundprocedure-destroy~5'>destroy</a></strong> => <a href='../proc/destroy_nlesolver_variables.html'>destroy_nlesolver_variables</a></td>
                 <td></td>
               </tr>
               <tr>
@@ -1890,7 +1890,7 @@ condition number of the matrix <code>Abar</code>.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~26"></span>
+              <span class="anchor" id="variable-me~39"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -1935,7 +1935,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~14"></span>
+              <span class="anchor" id="variable-i~22"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -1950,7 +1950,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r~2"></span>
+              <span class="anchor" id="variable-r~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -1990,7 +1990,7 @@ condition number of the matrix <code>Abar</code>.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~25"></span>
+              <span class="anchor" id="variable-me~38"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -2060,7 +2060,7 @@ condition number of the matrix <code>Abar</code>.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~22"></span>
+              <span class="anchor" id="variable-me~35"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -2075,7 +2075,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~9"></span>
+              <span class="anchor" id="variable-n~25"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2090,7 +2090,7 @@ condition number of the matrix <code>Abar</code>.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~7"></span>
+              <span class="anchor" id="variable-m~17"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2425,7 +2425,7 @@ to allow where the value of <code>f</code> increases</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-sparsity_mode~3"></span>
+              <span class="anchor" id="variable-sparsity_mode~2"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2435,12 +2435,12 @@ to allow where the value of <code>f</code> increases</p>
             <td>::</td>
             <td><strong>sparsity_mode</strong></td>
             <td>
-<p>sparsity mode:</p><a href="../proc/initialize_nlesolver_variables.html#variable-sparsity_mode~3" class="pull-right"><emph>Read more&hellip;</emph></a>
+<p>sparsity mode:</p><a href="../proc/initialize_nlesolver_variables.html#variable-sparsity_mode~2" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-irow~2"></span>
+              <span class="anchor" id="variable-irow~4"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2456,7 +2456,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-icol~2"></span>
+              <span class="anchor" id="variable-icol~4"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2472,7 +2472,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-atol~2"></span>
+              <span class="anchor" id="variable-atol~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2487,7 +2487,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-btol~2"></span>
+              <span class="anchor" id="variable-btol~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2502,7 +2502,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-conlim~2"></span>
+              <span class="anchor" id="variable-conlim~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2517,7 +2517,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-damp~2"></span>
+              <span class="anchor" id="variable-damp~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2532,7 +2532,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-itnlim~2"></span>
+              <span class="anchor" id="variable-itnlim~5"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2547,7 +2547,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nout~2"></span>
+              <span class="anchor" id="variable-nout~7"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2602,7 +2602,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~23"></span>
+              <span class="anchor" id="variable-me~36"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -2617,7 +2617,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~49"></span>
+              <span class="anchor" id="variable-x~51"></span>
               real(kind=wp),
             </td>
 <td>intent(inout),</td>
@@ -2657,7 +2657,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~24"></span>
+              <span class="anchor" id="variable-me~37"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(out)</td>
@@ -2697,7 +2697,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~8"></span>
+              <span class="anchor" id="variable-m~18"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2712,7 +2712,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~10"></span>
+              <span class="anchor" id="variable-n~26"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2727,7 +2727,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-a"></span>
+              <span class="anchor" id="variable-a~3"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2742,7 +2742,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b"></span>
+              <span class="anchor" id="variable-b~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in),</td>
@@ -2757,7 +2757,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~7"></span>
+              <span class="anchor" id="variable-x~16"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -2772,7 +2772,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-info~2"></span>
+              <span class="anchor" id="variable-info~3"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -2812,7 +2812,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~106"></span>
+              <span class="anchor" id="variable-me~105"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -2857,7 +2857,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~8"></span>
+              <span class="anchor" id="variable-x~17"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -2872,7 +2872,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~7"></span>
+              <span class="anchor" id="variable-f~10"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -2957,7 +2957,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~107"></span>
+              <span class="anchor" id="variable-me~106"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -3002,7 +3002,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~9"></span>
+              <span class="anchor" id="variable-x~18"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -3017,7 +3017,7 @@ must be specified with <code>icol</code> and be the same length (<code>n_nonzero
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~8"></span>
+              <span class="anchor" id="variable-f~11"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -3105,7 +3105,7 @@ find the minimum value of <code>f(x)</code> between
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~108"></span>
+              <span class="anchor" id="variable-me~107"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -3150,7 +3150,7 @@ find the minimum value of <code>f(x)</code> between
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~10"></span>
+              <span class="anchor" id="variable-x~19"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -3165,7 +3165,7 @@ find the minimum value of <code>f(x)</code> between
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~9"></span>
+              <span class="anchor" id="variable-f~12"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -3251,7 +3251,7 @@ number of points and picks the one with the minimum function value.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~109"></span>
+              <span class="anchor" id="variable-me~108"></span>
               class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -3296,7 +3296,7 @@ number of points and picks the one with the minimum function value.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~11"></span>
+              <span class="anchor" id="variable-x~20"></span>
               real(kind=wp),
             </td>
 <td>intent(out),</td>
@@ -3311,7 +3311,7 @@ number of points and picks the one with the minimum function value.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~10"></span>
+              <span class="anchor" id="variable-f~13"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
