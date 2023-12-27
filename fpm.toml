@@ -11,7 +11,7 @@ keywords = ["AOC"]
 # json-fortran = { git="https://github.com/jacobwilliams/json-fortran.git", tag = "8.3.0" }
 # pikaia = { git="https://github.com/jacobwilliams/pikaia.git", tag = "2.0.0" }
 daglib = { git="https://github.com/jacobwilliams/daglib" }
-nlesolver-fortran = { git="https://github.com/jacobwilliams/nlesolver-fortran.git" }
+nlesolver-fortran = { git="https://github.com/jacobwilliams/nlesolver-fortran.git", tag="bbc9fabd4f9ff189f63d64d8c62419dbe17e36a3" }
 NumDiff = { git="https://github.com/jacobwilliams/NumDiff.git" }
 
 [build]
