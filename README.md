@@ -47,10 +47,10 @@ Problem  | Stars  | Solution | Runtime
 [19](https://adventofcode.com/2023/day/19)| ⭐⭐ | [problem_19.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_19.f90) + [problem_19b.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_19b.f90) | 44 ms + 47 ms
 [20](https://adventofcode.com/2023/day/20)| ☆☆  | [problem_20.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_20.f90) |
 [21](https://adventofcode.com/2023/day/21)| ⭐☆  | [problem_21.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_21.f90) | 1 ms
-[22](https://adventofcode.com/2023/day/22)| ☆☆  | [problem_22.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_22.f90) |
+[22](https://adventofcode.com/2023/day/22)| ⭐⭐  | [problem_22.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_22.f90) | 3588 ms
 [23](https://adventofcode.com/2023/day/23)| ⭐⭐  | [problem_23.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_23.f90) | 3689 ms
 [24](https://adventofcode.com/2023/day/24)| ⭐⭐  | [problem_24.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_24.f90) | 6 ms
-[25](https://adventofcode.com/2023/day/25)| ☆☆  | [problem_25.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_25.f90) |
+[25](https://adventofcode.com/2023/day/25)| ⭐☆  | [problem_25.f90](https://github.com/jacobwilliams/AoC-2023/blob/master/app/problem_25.f90) | 1933 ms
 
 † With OpenMP enabled (i.e, add `--flag "-fopenmp"` to the FPM call).
 

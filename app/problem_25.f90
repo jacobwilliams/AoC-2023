@@ -104,7 +104,7 @@ do i = 1, n_lines
     visited = .false.
     call traverse(i)
     icounts = unique([icounts, count(visited)])
-    write(*,*) i, icounts
+    !write(*,*) i, icounts
 end do
 write(*,*) '25a:', product(icounts)
 
