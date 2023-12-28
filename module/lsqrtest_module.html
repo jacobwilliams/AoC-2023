@@ -150,7 +150,7 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/lsqrtest_module.html#proc-lsqr_test">lsqr_test</a>
-            <a class="list-group-item" href="../module/lsqrtest_module.html#proc-test~2">test</a>
+            <a class="list-group-item" href="../module/lsqrtest_module.html#proc-test">test</a>
             <a class="list-group-item" href="../module/lsqrtest_module.html#proc-aprod_test_solver">aprod_test_solver</a>
             <a class="list-group-item" href="../module/lsqrtest_module.html#proc-aprod1">aprod1</a>
             <a class="list-group-item" href="../module/lsqrtest_module.html#proc-aprod2">aprod2</a>
@@ -200,8 +200,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='../module/lsqr_module.html'>lsqr_module</a></li>
                   <li class="list-inline-item"><a href='../module/lsqpblas_module.html'>lsqpblas_module</a></li>
+                  <li class="list-inline-item"><a href='../module/lsqr_module.html'>lsqr_module</a></li>
                   <li class="list-inline-item"><a href='../module/lsqr_kinds.html'>lsqr_kinds</a></li>
               </ul>
             </li>
@@ -398,18 +398,18 @@ modules which it uses.
 <polygon fill="none" stroke="black" points="97,-24 0,-24 0,0 97,0 97,-24"/>
 <text text-anchor="middle" x="48.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">lsqrtest_module</text>
 </g>
-<!-- program~main~3 -->
+<!-- program~main -->
 <g id="module~~lsqrtest_module~~UsedByGraph_node2" class="node">
-<title>program~main~3</title>
-<g id="a_module~~lsqrtest_module~~UsedByGraph_node2"><a xlink:href=".././program/main~3.html" xlink:title="main">
+<title>program~main</title>
+<g id="a_module~~lsqrtest_module~~UsedByGraph_node2"><a xlink:href=".././program/main.html" xlink:title="main">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="187,-24 133,-24 133,0 187,0 187,-24"/>
 <text text-anchor="middle" x="160" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">main</text>
 </a>
 </g>
 </g>
-<!-- program~main~3&#45;&gt;module~lsqrtest_module -->
+<!-- program~main&#45;&gt;module~lsqrtest_module -->
 <g id="module~~lsqrtest_module~~UsedByGraph_edge1" class="edge">
-<title>program~main~3&#45;&gt;module~lsqrtest_module</title>
+<title>program~main&#45;&gt;module~lsqrtest_module</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.77,-12C125.05,-12 116.28,-12 107.39,-12"/>
 <polygon fill="#000000" stroke="#000000" points="107.36,-8.5 97.36,-12 107.36,-15.5 107.36,-8.5"/>
 </g>
@@ -558,7 +558,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-nout~6"></span>
+              <span class="anchor" id="variable-nout"></span>
               integer,
             </td>
               <td>public</td>
@@ -664,14 +664,14 @@ parameter
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-test~2"></span><h3>private  subroutine <a href='../proc/test~2.html'>test</a>(me, m, n, nduplc, npower, damp)  
+    <div class="card-header codesum"><span class="anchor" id="proc-test"></span><h3>private  subroutine <a href='../proc/test.html'>test</a>(me, m, n, nduplc, npower, damp)  
 </h3></div>
     <div class="card-body">
           
   <p>This is an example driver routine for running LSQR.
   It generates a test problem, solves it, and examines the results.
   Note that subroutine aprod must be declared external
-  if it is used only in the call to LSQR (and acheck).</p><a href="../proc/test~2.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  if it is used only in the call to LSQR (and acheck).</p><a href="../proc/test.html" class="pull-right"><emph>Read more&hellip;</emph></a>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -686,7 +686,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~65"></span>
+              <span class="anchor" id="variable-me~44"></span>
               class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
 <td>intent(inout)</td>
@@ -761,7 +761,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-damp~6"></span>
+              <span class="anchor" id="variable-damp~5"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -805,7 +805,7 @@ in order to make the code readable.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~64"></span>
+              <span class="anchor" id="variable-me~43"></span>
               class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
 <td>intent(inout)</td>
@@ -865,7 +865,7 @@ in order to make the code readable.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~36"></span>
+              <span class="anchor" id="variable-x~25"></span>
               real(kind=wp),
             </td>
 <td>intent(inout),</td>
@@ -880,7 +880,7 @@ in order to make the code readable.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~2"></span>
+              <span class="anchor" id="variable-y"></span>
               real(kind=wp),
             </td>
 <td>intent(inout),</td>
@@ -923,7 +923,7 @@ input vectors with the same name.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~66"></span>
+              <span class="anchor" id="variable-me~45"></span>
               class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
 <td>intent(inout)</td>
@@ -998,7 +998,7 @@ input vectors with the same name.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~51"></span>
+              <span class="anchor" id="variable-x~50"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1013,7 +1013,7 @@ input vectors with the same name.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~8"></span>
+              <span class="anchor" id="variable-y~7"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1116,7 +1116,7 @@ input vectors with the same name.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~67"></span>
+              <span class="anchor" id="variable-me~46"></span>
               class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
 <td>intent(inout)</td>
@@ -1191,7 +1191,7 @@ input vectors with the same name.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~52"></span>
+              <span class="anchor" id="variable-x~51"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1206,7 +1206,7 @@ input vectors with the same name.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~9"></span>
+              <span class="anchor" id="variable-y~8"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1307,7 +1307,7 @@ to get  y = ( I - 2<em>hz</em>hz(transpose) ) * x.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~79"></span>
+              <span class="anchor" id="variable-n~45"></span>
               integer
             </td>
 <td></td>
@@ -1337,7 +1337,7 @@ to get  y = ( I - 2<em>hz</em>hz(transpose) ) * x.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~64"></span>
+              <span class="anchor" id="variable-x~60"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1352,7 +1352,7 @@ to get  y = ( I - 2<em>hz</em>hz(transpose) ) * x.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~12"></span>
+              <span class="anchor" id="variable-y~10"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1399,7 +1399,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~68"></span>
+              <span class="anchor" id="variable-me~47"></span>
               class(<a href='../type/test_solver.html'>test_solver</a>),
             </td>
 <td>intent(inout)</td>
@@ -1504,7 +1504,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-damp~7"></span>
+              <span class="anchor" id="variable-damp~6"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1519,7 +1519,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~53"></span>
+              <span class="anchor" id="variable-x~52"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1534,7 +1534,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~5"></span>
+              <span class="anchor" id="variable-b~4"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1609,7 +1609,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-acond~3"></span>
+              <span class="anchor" id="variable-acond~2"></span>
               real(kind=wp)
             </td>
 <td></td>
@@ -1624,7 +1624,7 @@ diagonal matrix, and HY and HZ are Householder transformations.</p><a href="../p
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rnorm~3"></span>
+              <span class="anchor" id="variable-rnorm~2"></span>
               real(kind=wp)
             </td>
 <td></td>

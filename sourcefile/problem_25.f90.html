@@ -77,7 +77,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 0.7% of total for source files.">93 statements</a>
+                 title=" 0.7% of total for source files.">92 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -362,7 +362,7 @@ can be.
 <a id="ln-104" name="ln-104" href="#ln-104"></a><span class="w">    </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <a id="ln-105" name="ln-105" href="#ln-105"></a><span class="w">    </span><span class="k">call </span><span class="n">traverse</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a id="ln-106" name="ln-106" href="#ln-106"></a><span class="w">    </span><span class="n">icounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">([</span><span class="n">icounts</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="n">visited</span><span class="p">)])</span>
-<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">icounts</span>
+<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="w">    </span><span class="c">!write(*,*) i, icounts</span>
 <a id="ln-108" name="ln-108" href="#ln-108"></a><span class="k">end do</span>
 <a id="ln-109" name="ln-109" href="#ln-109"></a><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;25a:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">product</span><span class="p">(</span><span class="n">icounts</span><span class="p">)</span>
 <a id="ln-110" name="ln-110" href="#ln-110"></a>

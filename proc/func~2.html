@@ -66,7 +66,7 @@
     <div class="container">
   <div class="row">
     <h1>func
-      <small>Subroutine</small>
+      <small>Function</small>
       
     </h1>
       <div class="container p-2 mb-4 bg-light border rounded-3">
@@ -77,20 +77,20 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 0.1% of total for procedures.">9 statements</a>
+                 title=" 0.1% of total for procedures.">6 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/sparse_test.f90"> Source File</a>
+              <a href="../src/test.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/sparse_test.f90.html'>sparse_test.f90</a></li>
-                <li class="breadcrumb-item"><a href='../program/sparse_test.html'>sparse_test</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/test.f90.html'>test.f90</a></li>
+                <li class="breadcrumb-item"><a href='../program/test.html'>test</a></li>
             <li class="breadcrumb-item active" aria-current="page">func</li>
           </ol>
         </nav>
@@ -142,11 +142,11 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> subroutine func(me, x, f)  
+    <h2> function func(x) result(f)  
 </h2>
     
 
-    <p>compute the function</p>
+    <p>Test function to minimize.</p>
 
 
     <h3>Arguments</h3>
@@ -162,52 +162,29 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-me~111"></span>
-              class(<a href='../type/nlesolver_type.html'>nlesolver_type</a>),
+              <span class="anchor" id="variable-x~45"></span>
+              real(kind=wp),
             </td>
-<td>intent(inout)</td>
+<td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>me</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-x~66"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(:)
-            </td>
-            <td>::</td>
             <td><strong>x</strong></td>
             <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f~26"></span>
-              real(kind=wp),
-            </td>
-<td>intent(out),</td>
-              <td></td>            <td>
-              dimension(:)
-            </td>
-            <td>::</td>
-            <td><strong>f</strong></td>
-            <td>
-                
+                <p>indep. variable</p>
             </td>
         </tr>
     </tbody>
   </table>
 
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-f~16"></span>
+          real(kind=wp)
+        </small>
+      </h3>
+      <p>function value <code>f(x)</code></p>
     <br>
 
 
@@ -222,21 +199,16 @@
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">func</span><span class="p">(</span><span class="n">me</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
-<span class="w">        </span><span class="c">!! compute the function</span>
-<span class="w">        </span><span class="k">implicit none</span>
-<span class="k">        class</span><span class="p">(</span><span class="n">nlesolver_type</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">me</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(:),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">function </span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="w">        </span><span class="n">f_evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_evals</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">implicit none</span>
 
-<span class="w">        </span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.1_wp</span>
-<span class="w">        </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2_wp</span>
+<span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w">  </span><span class="c">!! indep. variable</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w">  </span><span class="c">!! function value `f(x)`</span>
 
-<span class="w">        </span><span class="c">! root is 5.477226E-01  -2.000000E-01</span>
+<span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="w">    </span><span class="k">end subroutine </span><span class="n">func</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">func</span>
 </pre></div>
 
     </section>
